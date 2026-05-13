@@ -34,7 +34,7 @@ body{
 
 /* לוגו */
 .logo{
-    width:70px;
+    width:50px;
 
     position:absolute;
 
@@ -63,7 +63,7 @@ body{
 /* כותרת עליונה */
 .subtitle{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin-top:150px;
+    margin-top:120px;
 
     text-align:center;
 
