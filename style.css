@@ -25,6 +25,8 @@ body{
     background:#EEFBFF;
 
     position:relative;
+    display: flex;
+    flex-direction: column;
 
     overflow:hidden;
 }
@@ -106,15 +108,21 @@ body{
     12px 12px 0px #a8b8d8;
 }
 
+.content-wrapper{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    margin-top:10px;
+
+    gap:18px;
+}
+
 .swipe-icon{
     width:40px;
-
-    position:absolute;
-
-    bottom:55px;
-    left:50%;
-
-    transform:translateX(-50%);
 
     opacity:0.8;
     animation:floatUp 1.5s infinite ease-in-out;
@@ -140,12 +148,6 @@ body{
 /* טקסט תחתון */
 .footer-text{
     font-family: 'Courier New', Courier, monospace;
-    position:absolute;
-
-    bottom:20px;
-    right: 15%;
-
-    width:100%;
 
     text-align:center;
     font-weight: bolder;
