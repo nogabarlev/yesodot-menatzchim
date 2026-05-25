@@ -39,7 +39,7 @@ body{
     background:black;
 
     box-shadow:
-    0 0 40px rgba(0,0,0,0.45);
+    0 0 40px rgba(0,0,0,0.4);
 }
 
 /* SCREEN */
@@ -61,7 +61,7 @@ body{
 
 /* HERO */
 
-.categories-hero{
+.hero-section{
 
     position:fixed;
 
@@ -73,7 +73,7 @@ body{
     rgba(0,0,0,0.75)
     ),
 
-    url('media/unitTransitionPic.jpg');
+    url('media/openPagePic.jpg');
 
     background-size:cover;
     background-position:center;
@@ -87,7 +87,7 @@ body{
     z-index:1;
 }
 
-/* OVERLAY */
+/* overlay */
 
 .hero-overlay{
 
@@ -99,11 +99,11 @@ body{
     linear-gradient(
     180deg,
     rgba(17,22,17,0.2),
-    rgba(17,22,17,0.9)
+    rgba(17,22,17,0.88)
     );
 }
 
-/* LOGO */
+/* logo */
 
 .logo{
 
@@ -117,7 +117,7 @@ body{
     z-index:5;
 }
 
-/* TOP ICONS */
+/* icons */
 
 .top-icons{
 
@@ -157,7 +157,7 @@ body{
     align-items:center;
 }
 
-/* SMALL TITLE */
+/* small title */
 
 .small-title{
 
@@ -168,7 +168,7 @@ body{
     margin-bottom:16px;
 }
 
-/* MAIN TITLE */
+/* BIG TITLE */
 
 .main-title{
 
@@ -176,7 +176,7 @@ body{
 
     text-align:center;
 
-    font-size:72px;
+    font-size:74px;
 
     line-height:0.95;
 
@@ -188,7 +188,7 @@ body{
     0 8px 30px rgba(0,0,0,0.45);
 }
 
-/* SCROLL */
+/* scroll indicator */
 
 .scroll-indicator{
 
@@ -242,7 +242,199 @@ body{
     padding-top:100vh;
 }
 
-/* CHAPTERS SECTION */
+/* PROGRESS SECTION */
+
+.progress-section{
+
+    min-height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    padding:24px;
+
+    background:
+    linear-gradient(
+    180deg,
+    rgba(17,22,17,0.15),
+    rgba(17,22,17,0.95)
+    );
+
+    backdrop-filter:blur(8px);
+}
+
+/* CARD */
+
+.progress-card{
+
+    width:100%;
+
+    background:
+    linear-gradient(
+    180deg,
+    rgba(44,55,44,0.95),
+    rgba(24,31,24,0.96)
+    );
+
+    border-radius:36px;
+
+    padding:38px 28px;
+
+    box-shadow:
+    0 20px 50px rgba(0,0,0,0.45);
+
+    border:
+    1px solid rgba(255,255,255,0.05);
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+
+    color:white;
+}
+
+/* hello */
+
+.hello-text{
+
+    color:#d6c19d;
+
+    font-size:18px;
+
+    margin-bottom:14px;
+}
+
+/* title */
+
+.progress-card h2{
+
+    text-align:center;
+
+    font-size:32px;
+
+    line-height:1.2;
+
+    margin-bottom:34px;
+}
+
+/* ring */
+
+.progress-ring{
+
+    width:190px;
+    height:190px;
+
+    border-radius:50%;
+
+    background:
+    conic-gradient(
+    #9BCB5A 0% 60%,
+    #475247 60% 100%
+    );
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    margin-bottom:30px;
+}
+
+/* inner */
+
+.progress-inner{
+
+    width:145px;
+    height:145px;
+
+    border-radius:50%;
+
+    background:#182018;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-size:42px;
+
+    font-weight:700;
+
+    color:white;
+}
+
+/* desc */
+
+.progress-description{
+
+    color:#d9d9d9;
+
+    margin-bottom:28px;
+
+    font-size:18px;
+}
+
+/* button */
+
+button{
+
+    width:100%;
+
+    height:64px;
+
+    border:none;
+
+    border-radius:22px;
+
+    background:#d6c19d;
+
+    color:#182018;
+
+    font-size:20px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:0.2s;
+}
+
+button:active{
+
+    transform:scale(0.97);
+}
+
+
+/* ========================= */
+/* CATEGORIES PAGE */
+/* ========================= */
+
+.categories-hero{
+
+    position:fixed;
+
+    inset:0;
+
+    background:
+    linear-gradient(
+    rgba(0,0,0,0.45),
+    rgba(0,0,0,0.75)
+    ),
+
+    url('media/unitTransitionPic.jpg');
+
+    background-size:cover;
+    background-position:center;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    padding:24px;
+
+    z-index:1;
+}
+
+/* chapters */
 
 .chapters-section{
 
@@ -260,7 +452,7 @@ body{
     backdrop-filter:blur(8px);
 }
 
-/* CARD */
+/* card */
 
 .chapter-card{
 
@@ -291,7 +483,7 @@ body{
     transform:scale(0.98);
 }
 
-/* IMAGE */
+/* image */
 
 .chapter-card img{
 
@@ -304,7 +496,7 @@ body{
     display:block;
 }
 
-/* INFO */
+/* info */
 
 .chapter-info{
 
@@ -313,7 +505,7 @@ body{
     color:white;
 }
 
-/* TITLE */
+/* title */
 
 .chapter-info h3{
 
@@ -326,7 +518,7 @@ body{
     font-weight:600;
 }
 
-/* PROGRESS BAR */
+/* progress */
 
 .progress-bar{
 
@@ -343,7 +535,7 @@ body{
     margin-bottom:14px;
 }
 
-/* PROGRESS FILL */
+/* fill */
 
 .progress-fill{
 
@@ -354,7 +546,7 @@ body{
     border-radius:999px;
 }
 
-/* WIDTHS */
+/* widths */
 
 .fill1{
     width:70%;
@@ -372,7 +564,7 @@ body{
     width:30%;
 }
 
-/* TEXT */
+/* text */
 
 .chapter-info p{
 
