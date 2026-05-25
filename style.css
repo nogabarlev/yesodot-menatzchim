@@ -709,3 +709,67 @@ button:active{
 
     opacity:0.85;
 }
+
+
+/* CARD CLICK */
+
+.clickable-card{
+
+    cursor:pointer;
+}
+
+/* DROPDOWN */
+
+.chapter-dropdown{
+
+    max-height:0;
+
+    overflow:hidden;
+
+    opacity:0;
+
+    transition:
+    max-height 0.4s ease,
+    opacity 0.3s ease;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:12px;
+
+    margin-top:0;
+}
+
+/* OPEN */
+
+.chapter-dropdown.open{
+
+    max-height:200px;
+
+    opacity:1;
+
+    margin-top:20px;
+}
+
+/* ITEM */
+
+.dropdown-item{
+
+    height:58px;
+
+    border-radius:18px;
+
+    background:
+    rgba(255,255,255,0.06);
+
+    display:flex;
+
+    align-items:center;
+
+    padding:0 18px;
+
+    color:white;
+
+    font-size:17px;
+}
