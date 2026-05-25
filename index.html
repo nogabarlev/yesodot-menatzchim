@@ -1,77 +1,112 @@
 <!DOCTYPE html>
+<html lang="he" dir="rtl">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+    content="width=device-width, initial-scale=1.0">
+
     <title>יסודות מנצחים</title>
 
     <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
 
-<div class="phone">
+    <div class="phone">
 
-    <div class="screen scroll-screen">
+        <div class="screen scroll-screen">
 
-        <!-- HERO SECTION -->
-        <section class="hero-section">
+            <!-- HERO -->
+            <section class="hero-section">
 
-            <img src="media/logo.png" class="logo">
+                <!-- overlay -->
+                <div class="hero-overlay"></div>
 
-            <div class="top-icons">
-                <img src="media/icons/settingsIcon.svg">
-                <img src="media/icons/categoriesIcon.svg">
-            </div>
+                <!-- top -->
+                <img src="media/logo.png" class="logo">
 
-            <div class="hero-overlay"></div>
+                <div class="top-icons">
 
-            <div class="hero-content">
+                    <img src="media/icons/settingsIcon.svg">
 
-                <p class="small-title">אפליקציית תל״ב בכף היד</p>
+                    <img src="media/icons/categoriesIcon.svg">
 
-                <h1 class="main-title">יסודות מנצחים</h1>
-
-                <img src="media/openPagePic.jpg" class="hero-image">
-
-                <div class="scroll-indicator">
-                    <p>גללו למטה</p>
-                    <img src="media/icons/swipeUpIcon.svg">
                 </div>
 
-            </div>
+                <!-- content -->
+                <div class="hero-content">
 
-        </section>
+                    <p class="small-title">
+                        אפליקציית תל״ב בכף היד
+                    </p>
 
+                    <h1 class="main-title">
+                        יסודות<br>
+                        מנצחים
+                    </h1>
 
-        <!-- PROGRESS SECTION -->
-        <section class="progress-section">
+                    <div class="scroll-indicator">
 
-            <div class="progress-card">
+                        <p>גללו מטה</p>
 
-                <p class="hello-text">👋 שלום סמל א׳</p>
+                        <img src="media/icons/swipeUpIcon.svg">
 
-                <h2>קצב ההתקדמות שלך בחומר</h2>
-
-                <div class="progress-ring">
-                    <div class="progress-inner">
-                        <span>60%</span>
                     </div>
+
                 </div>
 
-                <p class="progress-description">
-                    כל הכבוד! המשך כך
-                </p>
+            </section>
 
-                <button id="continueBtn">
-                    המשך למידה
-                </button>
+            <!-- CONTENT -->
+            <div class="scroll-content">
+
+                <section class="progress-section">
+
+                    <div class="progress-card">
+
+                        <p class="hello-text">
+                            👋 שלום סמל א׳
+                        </p>
+
+                        <h2>
+                            קצב ההתקדמות שלך בחומר
+                        </h2>
+
+                        <!-- progress -->
+                        <div class="progress-ring">
+
+                            <div class="progress-inner">
+
+                                <span>60%</span>
+
+                            </div>
+
+                        </div>
+
+                        <p class="progress-description">
+                            כל הכבוד! המשך כך
+                        </p>
+
+                        <button id="continueBtn">
+                            המשך למידה
+                        </button>
+
+                    </div>
+
+                </section>
 
             </div>
 
-        </section>
+        </div>
 
     </div>
 
-</div>
-
-<script src="code.js"></script>
+    <script src="code.js"></script>
 
 </body>
+
 </html>
