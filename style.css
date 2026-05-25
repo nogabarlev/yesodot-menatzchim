@@ -1,287 +1,351 @@
-body{
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap');
+
+*{
     margin:0;
-    background:#d9d9d9;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    height:100vh;
-
-    font-family:Arial, sans-serif;
+    padding:0;
+    box-sizing:border-box;
 }
 
-/* מסגרת האייפון */
+body{
+    font-family:'Rubik', sans-serif;
+    background:#111611;
+    overflow:hidden;
+}
+
+/* מסגרת */
 .phone{
     width:100vw;
     height:100vh;
 }
 
-/* המסך */
+/* מסך */
 .screen{
     width:100%;
     height:100%;
-
-    background:#EEFBFF;
-
-    position:relative;
-    display: flex;
-    flex-direction: column;
-
-    overflow:hidden;
 }
 
+/* גלילה */
+.scroll-screen{
+    overflow-y:auto;
+    scroll-snap-type:y mandatory;
+    scroll-behavior:smooth;
+}
+
+.scroll-screen section{
+    min-height:100vh;
+    scroll-snap-align:start;
+}
+
+/* HERO */
+
+.hero-section{
+    position:relative;
+
+    background:
+    linear-gradient(
+    rgba(0,0,0,0.45),
+    rgba(0,0,0,0.75)
+    ),
+
+    url('media/openPagePic.jpg');
+
+    background-size:cover;
+    background-position:center;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    padding:24px;
+}
+
+.hero-overlay{
+    position:absolute;
+    inset:0;
+
+    background:
+    linear-gradient(
+    180deg,
+    rgba(17,22,17,0.2),
+    rgba(17,22,17,0.9)
+    );
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+
+    width:100%;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
 
 /* לוגו */
+
 .logo{
-    width:50px;
+    width:55px;
 
     position:absolute;
 
-    top:22px;
+    top:24px;
     left:20px;
+
+    z-index:10;
 }
 
 /* אייקונים */
+
 .top-icons{
     position:absolute;
 
     top:28px;
-    right:22px;
+    right:20px;
 
     display:flex;
-
     gap:14px;
+
+    z-index:10;
 }
 
 .top-icons img{
     width:22px;
 
-    opacity:0.75;
-}
-
-/* כותרת עליונה */
-.subtitle{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin-top:100px;
-
-    text-align:center;
-
-    color:#6ba6b5;
-
-    font-size:28px;
-
-    font-weight:bold;
-
-    text-shadow:2px 2px 4px rgba(0,0,0,0.15);
-}
-
-/* כותרת אדומה */
-.title{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    text-align:center;
-
-    color:#ef3d2f;
-
-    font-size:42px;
-
-    margin-top:-20px;
-
-    text-shadow:2px 2px 6px rgba(0,0,0,0.18);
-}
-
-/* תמונה */
-.main-image{
-    width:300px;
-    height:450px;
-
-    object-fit:cover;
-
-    display:block;
-
-    margin:auto;
-    margin-top: 0;
-
-    border:7px solid #9db8df;
-
-    box-shadow:
-    12px 12px 0px #a8b8d8;
-}
-
-.content-wrapper{
-
-    display:flex;
-
-    flex-direction:column;
-
-    align-items:center;
-
-
-}
-
-.swipe-icon{
-    width:40px;
     opacity:0.8;
-    animation:floatUp 1.5s infinite ease-in-out;
-    cursor: pointer;
-    margin-left:30px;
-}
 
-@keyframes floatUp {
-
-    0%{
-        transform:translateX(-50%) translateY(0);
-    }
-
-    50%{
-        transform:translateX(-50%) translateY(-10px);
-    }
-
-    100%{
-        transform:translateX(-50%) translateY(0);
-    }
-
-}
-
-/* טקסט תחתון */
-.footer-text{
-    font-family: 'Courier New', Courier, monospace;
-
-    text-align:center;
-    font-weight: bolder;
-
-    font-size:14px;
-
-    color:#222;
-}
-
-/* אנימציית מעבר מסך */
-.slide-up{
-    animation:slideUpScreen 0.8s forwards ease-in-out;
-}
-
-@keyframes slideUpScreen{
-
-    0%{
-        transform:translateY(0);
-        opacity:1;
-    }
-
-    100%{
-        transform:translateY(-100%);
-        opacity:0.9;
-    }
-
-}
-
-
-/* עמוד הקטגוריות */
-
-.categories-subtitle{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-
-    margin-top:80px;
-
-    text-align:center;
-
-    color:#6ba6b5;
-
-    font-size:28px;
-
-    font-weight:bold;
-
-    text-shadow:2px 2px 4px rgba(0,0,0,0.15);
-}
-
-/* כותרת הסבר */
-.page-description{
-    text-align:center;
-
-    color:#777;
-
-    font-size:14px;
-
-    margin-top:-10px;
-    margin-bottom:25px;
-}
-
-/* container של כל הכרטיסים */
-.categories-container{
-
-    width:90%;
-
-    margin:auto;
-
-    display:grid;
-
-    grid-template-columns:1fr 1fr;
-
-    gap:20px;
-}
-
-/* כרטיס */
-.category-card{
-
-    background:white;
-
-    border-radius:22px;
-
-    overflow:hidden;
-
-    box-shadow:
-    0 8px 20px rgba(0,0,0,0.08);
-
-    transition:0.25s;
-
-    cursor:pointer;
-}
-
-/* hover */
-.category-card:hover{
-
-    transform:translateY(-5px);
-
-    box-shadow:
-    0 12px 25px rgba(0,0,0,0.12);
-}
-
-/* לחיצה */
-.category-card:active{
-
-    transform:scale(0.97);
-}
-
-/* תמונה */
-.category-card img{
-
-    width:100%;
-    height:120px;
-
-    object-fit:cover;
-
-    display:block;
+    filter:invert(1);
 }
 
 /* טקסט */
-.category-card p{
+
+.small-title{
+    color:#d4c3a2;
+
+    font-size:18px;
+
+    margin-bottom:12px;
+}
+
+.main-title{
+    color:white;
+
+    font-size:52px;
 
     text-align:center;
 
-    padding:12px;
+    font-weight:700;
 
-    margin:0;
+    margin-bottom:36px;
 
-    font-size:14px;
-
-    font-weight:bold;
-
-    color:#333;
+    text-shadow:0 5px 20px rgba(0,0,0,0.4);
 }
 
-.center-card{
-    grid-column:1 / 3;
+/* תמונה */
 
-    width:48%;
+.hero-image{
+    width:85%;
+    max-width:330px;
 
-    justify-self:center;
+    height:430px;
+
+    object-fit:cover;
+
+    border-radius:32px;
+
+    border:3px solid rgba(255,255,255,0.12);
+
+    box-shadow:
+    0 20px 45px rgba(0,0,0,0.45);
+}
+
+/* גלילה */
+
+.scroll-indicator{
+    margin-top:30px;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+
+    color:white;
+
+    opacity:0.85;
+
+    animation:float 2s infinite ease-in-out;
+}
+
+.scroll-indicator img{
+    width:34px;
+
+    margin-top:10px;
+
+    filter:invert(1);
+}
+
+@keyframes float{
+
+    0%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-10px);
+    }
+
+    100%{
+        transform:translateY(0);
+    }
+}
+
+/* SECTION 2 */
+
+.progress-section{
+    background:
+    linear-gradient(
+    180deg,
+    #111611,
+    #1d261d
+    );
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    padding:24px;
+}
+
+/* כרטיס */
+
+.progress-card{
+    width:100%;
+
+    background:
+    linear-gradient(
+    180deg,
+    #2d392d,
+    #1d261d
+    );
+
+    border-radius:36px;
+
+    padding:36px 28px;
+
+    box-shadow:
+    0 20px 50px rgba(0,0,0,0.4);
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+
+    color:white;
+}
+
+/* שלום */
+
+.hello-text{
+    color:#d4c3a2;
+
+    margin-bottom:12px;
+
+    font-size:18px;
+}
+
+/* כותרת */
+
+.progress-card h2{
+    text-align:center;
+
+    font-size:30px;
+
+    margin-bottom:36px;
+}
+
+/* עיגול התקדמות */
+
+.progress-ring{
+    width:190px;
+    height:190px;
+
+    border-radius:50%;
+
+    background:
+    conic-gradient(
+    #9BCB5A 0% 60%,
+    #475247 60% 100%
+    );
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    margin-bottom:28px;
+}
+
+.progress-inner{
+    width:145px;
+    height:145px;
+
+    background:#1b241b;
+
+    border-radius:50%;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    color:white;
+
+    font-size:42px;
+    font-weight:700;
+}
+
+/* טקסט */
+
+.progress-description{
+    color:#d9d9d9;
+
+    margin-bottom:30px;
+
+    font-size:18px;
+}
+
+/* כפתור */
+
+button{
+    width:100%;
+
+    height:62px;
+
+    border:none;
+
+    border-radius:20px;
+
+    background:#d4c3a2;
+
+    color:#1b241b;
+
+    font-size:20px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:0.2s;
+}
+
+button:active{
+    transform:scale(0.97);
+}
+
+/* FOOTER */
+
+.footer-text{
+    color:white;
+
+    text-align:center;
+
+    margin-top:20px;
+
+    opacity:0.7;
 }
