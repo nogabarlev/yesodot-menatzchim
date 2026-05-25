@@ -1,9 +1,4 @@
 <!DOCTYPE html>
-<html lang="he">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>יסודות מנצחים</title>
 
     <link rel="stylesheet" href="style.css">
@@ -11,44 +6,72 @@
 
 <body>
 
-    <div class="phone">
+<div class="phone">
 
-        <div class="screen">
-    
-            <!-- לוגו -->
+    <div class="screen scroll-screen">
+
+        <!-- HERO SECTION -->
+        <section class="hero-section">
+
             <img src="media/logo.png" class="logo">
-    
-            <!-- אייקונים -->
+
             <div class="top-icons">
                 <img src="media/icons/settingsIcon.svg">
                 <img src="media/icons/categoriesIcon.svg">
             </div>
-    
-            <!-- כותרות -->
-            <h2 class="subtitle">אפליקציית תל"ב בכף היד</h2>
-    
-            <h1 class="title">"יסודות מנצחים"</h1>
-    
-            <!-- תוכן -->
-            <div class="content-wrapper">
-    
-                <img src="media/openPagePic.jpg" class="main-image">
-    
-                <img src="media/icons/swipeUpIcon.svg"
-                class="swipe-icon"
-                id="swipeBtn">
-    
-                <p class="footer-text">
-                    פותח ע"י רב"ט נוגה בר-לב
-                </p>
-    
+
+            <div class="hero-overlay"></div>
+
+            <div class="hero-content">
+
+                <p class="small-title">אפליקציית תל״ב בכף היד</p>
+
+                <h1 class="main-title">יסודות מנצחים</h1>
+
+                <img src="media/openPagePic.jpg" class="hero-image">
+
+                <div class="scroll-indicator">
+                    <p>גללו למטה</p>
+                    <img src="media/icons/swipeUpIcon.svg">
+                </div>
+
             </div>
-    
-        </div>
-    
+
+        </section>
+
+
+        <!-- PROGRESS SECTION -->
+        <section class="progress-section">
+
+            <div class="progress-card">
+
+                <p class="hello-text">👋 שלום סמל א׳</p>
+
+                <h2>קצב ההתקדמות שלך בחומר</h2>
+
+                <div class="progress-ring">
+                    <div class="progress-inner">
+                        <span>60%</span>
+                    </div>
+                </div>
+
+                <p class="progress-description">
+                    כל הכבוד! המשך כך
+                </p>
+
+                <button id="continueBtn">
+                    המשך למידה
+                </button>
+
+            </div>
+
+        </section>
+
     </div>
 
-    <script src="code.js"></script>
+</div>
+
+<script src="code.js"></script>
 
 </body>
 </html>
