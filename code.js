@@ -1,29 +1,10 @@
-let swipeBtn;
-let screen;
+const continueBtn = document.getElementById("continueBtn");
 
+if(continueBtn){
 
-const load = () => {
+    continueBtn.addEventListener("click", () => {
 
-    swipeBtn = document.getElementById("swipeBtn");
-
-    screen = document.querySelector(".phone");
-
-    swipeBtn.addEventListener("click", () => {
-
-        screen.classList.add("slide-up");
-
-        setTimeout(() => {
-
-            window.location.href = "categoriesPage.html";
-
-        }, 800);
+        window.location.href = "categoriesPage.html";
 
     });
-
-}
-
-window.onload = load;
-
-const changeScreen= () =>{
-    
 }
