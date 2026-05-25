@@ -18,12 +18,18 @@ const toggleDropdown = () => {
 }
 
 /* OPEN VIDEO */
-
 const openVideo = (event) => {
 
     event.stopPropagation();
 
-    window.open(
-        "https://youtu.be/ucrmCmw2Yic?si=qlr0Obcr8xVTvsdc"
-        );
+    document.getElementById("videoPopup")
+    .classList.add("show");
+}
+
+/* CLOSE VIDEO */
+
+const closeVideo = () => {
+
+    document.getElementById("videoPopup")
+    .classList.remove("show");
 }
