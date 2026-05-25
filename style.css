@@ -7,39 +7,65 @@
 }
 
 body{
+
     font-family:'Rubik', sans-serif;
-    background:#111611;
+
+    background:#101510;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    min-height:100vh;
+
     overflow:hidden;
+
+    direction:rtl;
 }
 
-/* מסגרת */
+/* PHONE */
+
 .phone{
-    width:100vw;
+
+    width:100%;
+    max-width:430px;
+
     height:100vh;
+
+    overflow:hidden;
+
+    position:relative;
+
+    background:black;
+
+    box-shadow:
+    0 0 40px rgba(0,0,0,0.4);
 }
 
-/* מסך */
+/* SCREEN */
+
 .screen{
+
     width:100%;
     height:100%;
 }
 
-/* גלילה */
-.scroll-screen{
-    overflow-y:auto;
-    scroll-snap-type:y mandatory;
-    scroll-behavior:smooth;
-}
+/* SCROLL */
 
-.scroll-screen section{
-    min-height:100vh;
-    scroll-snap-align:start;
+.scroll-screen{
+
+    overflow-y:auto;
+
+    scroll-behavior:smooth;
 }
 
 /* HERO */
 
 .hero-section{
-    position:relative;
+
+    position:fixed;
+
+    inset:0;
 
     background:
     linear-gradient(
@@ -57,22 +83,71 @@ body{
     align-items:center;
 
     padding:24px;
+
+    z-index:1;
 }
 
+/* overlay */
+
 .hero-overlay{
+
     position:absolute;
+
     inset:0;
 
     background:
     linear-gradient(
     180deg,
     rgba(17,22,17,0.2),
-    rgba(17,22,17,0.9)
+    rgba(17,22,17,0.88)
     );
 }
 
+/* logo */
+
+.logo{
+
+    width:55px;
+
+    position:absolute;
+
+    top:24px;
+    left:20px;
+
+    z-index:5;
+}
+
+/* icons */
+
+.top-icons{
+
+    position:absolute;
+
+    top:28px;
+    right:20px;
+
+    display:flex;
+
+    gap:14px;
+
+    z-index:5;
+}
+
+.top-icons img{
+
+    width:22px;
+
+    filter:invert(1);
+
+    opacity:0.85;
+}
+
+/* HERO CONTENT */
+
 .hero-content{
+
     position:relative;
+
     z-index:2;
 
     width:100%;
@@ -82,87 +157,44 @@ body{
     align-items:center;
 }
 
-/* לוגו */
-
-.logo{
-    width:55px;
-
-    position:absolute;
-
-    top:24px;
-    left:20px;
-
-    z-index:10;
-}
-
-/* אייקונים */
-
-.top-icons{
-    position:absolute;
-
-    top:28px;
-    right:20px;
-
-    display:flex;
-    gap:14px;
-
-    z-index:10;
-}
-
-.top-icons img{
-    width:22px;
-
-    opacity:0.8;
-
-    filter:invert(1);
-}
-
-/* טקסט */
+/* small title */
 
 .small-title{
-    color:#d4c3a2;
+
+    color:#d6c19d;
 
     font-size:18px;
 
-    margin-bottom:12px;
+    margin-bottom:16px;
 }
 
-.main-title{
-    color:white;
+/* BIG TITLE */
 
-    font-size:52px;
+.main-title{
+
+    color:white;
 
     text-align:center;
 
+    font-size:74px;
+
+    line-height:0.95;
+
     font-weight:700;
 
-    margin-bottom:36px;
+    letter-spacing:-3px;
 
-    text-shadow:0 5px 20px rgba(0,0,0,0.4);
+    text-shadow:
+    0 8px 30px rgba(0,0,0,0.45);
 }
 
-/* תמונה */
-
-.hero-image{
-    width:85%;
-    max-width:330px;
-
-    height:430px;
-
-    object-fit:cover;
-
-    border-radius:32px;
-
-    border:3px solid rgba(255,255,255,0.12);
-
-    box-shadow:
-    0 20px 45px rgba(0,0,0,0.45);
-}
-
-/* גלילה */
+/* scroll indicator */
 
 .scroll-indicator{
-    margin-top:30px;
+
+    position:absolute;
+
+    bottom:-240px;
 
     display:flex;
     flex-direction:column;
@@ -176,6 +208,7 @@ body{
 }
 
 .scroll-indicator img{
+
     width:34px;
 
     margin-top:10px;
@@ -198,41 +231,61 @@ body{
     }
 }
 
-/* SECTION 2 */
+/* CONTENT */
+
+.scroll-content{
+
+    position:relative;
+
+    z-index:2;
+
+    padding-top:100vh;
+}
+
+/* PROGRESS SECTION */
 
 .progress-section{
-    background:
-    linear-gradient(
-    180deg,
-    #111611,
-    #1d261d
-    );
+
+    min-height:100vh;
 
     display:flex;
     justify-content:center;
     align-items:center;
 
     padding:24px;
+
+    background:
+    linear-gradient(
+    180deg,
+    rgba(17,22,17,0.15),
+    rgba(17,22,17,0.95)
+    );
+
+    backdrop-filter:blur(8px);
 }
 
-/* כרטיס */
+/* CARD */
 
 .progress-card{
+
     width:100%;
 
     background:
     linear-gradient(
     180deg,
-    #2d392d,
-    #1d261d
+    rgba(44,55,44,0.95),
+    rgba(24,31,24,0.96)
     );
 
     border-radius:36px;
 
-    padding:36px 28px;
+    padding:38px 28px;
 
     box-shadow:
-    0 20px 50px rgba(0,0,0,0.4);
+    0 20px 50px rgba(0,0,0,0.45);
+
+    border:
+    1px solid rgba(255,255,255,0.05);
 
     display:flex;
     flex-direction:column;
@@ -241,29 +294,34 @@ body{
     color:white;
 }
 
-/* שלום */
+/* hello */
 
 .hello-text{
-    color:#d4c3a2;
 
-    margin-bottom:12px;
+    color:#d6c19d;
 
     font-size:18px;
+
+    margin-bottom:14px;
 }
 
-/* כותרת */
+/* title */
 
 .progress-card h2{
+
     text-align:center;
 
-    font-size:30px;
+    font-size:32px;
 
-    margin-bottom:36px;
+    line-height:1.2;
+
+    margin-bottom:34px;
 }
 
-/* עיגול התקדמות */
+/* ring */
 
 .progress-ring{
+
     width:190px;
     height:190px;
 
@@ -279,51 +337,57 @@ body{
     justify-content:center;
     align-items:center;
 
-    margin-bottom:28px;
+    margin-bottom:30px;
 }
 
+/* inner */
+
 .progress-inner{
+
     width:145px;
     height:145px;
 
-    background:#1b241b;
-
     border-radius:50%;
+
+    background:#182018;
 
     display:flex;
     justify-content:center;
     align-items:center;
 
-    color:white;
-
     font-size:42px;
+
     font-weight:700;
+
+    color:white;
 }
 
-/* טקסט */
+/* desc */
 
 .progress-description{
+
     color:#d9d9d9;
 
-    margin-bottom:30px;
+    margin-bottom:28px;
 
     font-size:18px;
 }
 
-/* כפתור */
+/* button */
 
 button{
+
     width:100%;
 
-    height:62px;
+    height:64px;
 
     border:none;
 
-    border-radius:20px;
+    border-radius:22px;
 
-    background:#d4c3a2;
+    background:#d6c19d;
 
-    color:#1b241b;
+    color:#182018;
 
     font-size:20px;
 
@@ -335,17 +399,7 @@ button{
 }
 
 button:active{
+
     transform:scale(0.97);
 }
 
-/* FOOTER */
-
-.footer-text{
-    color:white;
-
-    text-align:center;
-
-    margin-top:20px;
-
-    opacity:0.7;
-}
