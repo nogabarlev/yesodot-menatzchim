@@ -23,6 +23,7 @@ const openVideo = (event) => {
 
     event.stopPropagation();
 
-    window.location.href =
-    "media/videos/strugglingCamperVideo.mp4";
+    window.open(
+        "https://youtu.be/ucrmCmw2Yic?si=qlr0Obcr8xVTvsdc"
+        );
 }
