@@ -496,6 +496,10 @@ button:active{
 
     z-index:2;
 
+    padding-top:68vh;
+}
+.categories-hero + .scroll-content{
+
     padding-top:58vh;
 }
 
