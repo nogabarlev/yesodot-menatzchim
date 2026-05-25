@@ -10,7 +10,7 @@ body{
 
     font-family:'Rubik', sans-serif;
 
-    background:#d8d1c2;
+    background:#101510;
 
     display:flex;
     justify-content:center;
@@ -36,10 +36,10 @@ body{
 
     position:relative;
 
-    background:#efe9dd;
+    background:black;
 
     box-shadow:
-    0 0 40px rgba(0,0,0,0.25);
+    0 0 40px rgba(0,0,0,0.4);
 }
 
 /* SCREEN */
@@ -59,9 +59,7 @@ body{
     scroll-behavior:smooth;
 }
 
-/* ========================= */
-/* OPEN PAGE */
-/* ========================= */
+/* HERO */
 
 .hero-section{
 
@@ -89,44 +87,7 @@ body{
     z-index:1;
 }
 
-/* ========================= */
-/* CATEGORIES HERO */
-/* ========================= */
-
-.categories-hero{
-
-    position:fixed;
-
-    inset:0;
-
-    background:
-    linear-gradient(
-    rgba(242,236,221,0.84),
-    rgba(232,223,205,0.94)
-    ),
-
-    url('media/unitTransitionPic.jpg');
-
-    background-size:cover;
-
-    background-position:center;
-
-    background-blend-mode:lighten;
-
-    display:flex;
-
-    justify-content:flex-start;
-
-    align-items:center;
-
-    flex-direction:column;
-
-    padding-top:120px;
-
-    z-index:1;
-}
-
-/* OVERLAY */
+/* overlay */
 
 .hero-overlay{
 
@@ -137,12 +98,12 @@ body{
     background:
     linear-gradient(
     180deg,
-    rgba(255,255,255,0.15),
-    rgba(239,233,221,0.72)
+    rgba(17,22,17,0.2),
+    rgba(17,22,17,0.88)
     );
 }
 
-/* LOGO */
+/* logo */
 
 .logo{
 
@@ -156,7 +117,7 @@ body{
     z-index:5;
 }
 
-/* ICONS */
+/* icons */
 
 .top-icons{
 
@@ -176,7 +137,9 @@ body{
 
     width:22px;
 
-    opacity:0.7;
+    filter:invert(1);
+
+    opacity:0.85;
 }
 
 /* HERO CONTENT */
@@ -194,7 +157,7 @@ body{
     align-items:center;
 }
 
-/* SMALL TITLE */
+/* small title */
 
 .small-title{
 
@@ -205,7 +168,7 @@ body{
     margin-bottom:16px;
 }
 
-/* MAIN TITLE */
+/* BIG TITLE */
 
 .main-title{
 
@@ -225,13 +188,13 @@ body{
     0 8px 30px rgba(0,0,0,0.45);
 }
 
-/* SCROLL INDICATOR */
+/* scroll indicator */
 
 .scroll-indicator{
 
     position:absolute;
 
-    bottom:-220px;
+    bottom:-240px;
 
     display:flex;
     flex-direction:column;
@@ -276,12 +239,10 @@ body{
 
     z-index:2;
 
-    padding-top:68vh;
+    padding-top:100vh;
 }
 
-/* ========================= */
-/* OPEN PAGE PROGRESS */
-/* ========================= */
+/* PROGRESS SECTION */
 
 .progress-section{
 
@@ -333,7 +294,7 @@ body{
     color:white;
 }
 
-/* HELLO */
+/* hello */
 
 .hello-text{
 
@@ -344,7 +305,7 @@ body{
     margin-bottom:14px;
 }
 
-/* TITLE */
+/* title */
 
 .progress-card h2{
 
@@ -357,7 +318,7 @@ body{
     margin-bottom:34px;
 }
 
-/* RING */
+/* ring */
 
 .progress-ring{
 
@@ -379,7 +340,7 @@ body{
     margin-bottom:30px;
 }
 
-/* INNER */
+/* inner */
 
 .progress-inner{
 
@@ -401,7 +362,7 @@ body{
     color:white;
 }
 
-/* DESCRIPTION */
+/* desc */
 
 .progress-description{
 
@@ -412,7 +373,7 @@ body{
     font-size:18px;
 }
 
-/* BUTTON */
+/* button */
 
 button{
 
@@ -442,28 +403,24 @@ button:active{
     transform:scale(0.97);
 }
 
+
 /* ========================= */
-/* CHAPTERS PAGE */
+/* CATEGORIES PAGE */
 /* ========================= */
-
-.chapters-section{
-
-    min-height:100vh;
-
-    padding:10px 22px 120px;
-}
 
 /* TITLE */
 
 .choose-title{
 
-    color:#353935;
+    color:#2f332f;
 
     text-align:center;
 
     font-size:34px;
 
     margin-bottom:24px;
+
+    font-weight:600;
 }
 
 /* CARD */
@@ -523,6 +480,8 @@ button:active{
     font-size:22px;
 
     margin-bottom:18px;
+
+    background:#2e372c;
 }
 
 /* TEXT */
@@ -551,15 +510,17 @@ button:active{
 
 .chapter-content img{
 
-    width:118px;
-    height:118px;
+    width:120px;
+    height:120px;
 
     object-fit:cover;
 
     border-radius:22px;
+
+    border:2px solid rgba(255,255,255,0.08);
 }
 
-/* BAR */
+/* PROGRESS */
 
 .progress-bar{
 
@@ -586,13 +547,11 @@ button:active{
     linear-gradient(
     90deg,
     #9BCB5A,
-    #c8d88c
+    #c7d88f
     );
 
     border-radius:999px;
 }
-
-/* WIDTHS */
 
 .fill1{
     width:100%;
@@ -615,7 +574,7 @@ button:active{
 
 .locked{
 
-    opacity:0.83;
+    opacity:0.88;
 }
 
 /* LOCK ROW */
@@ -631,6 +590,8 @@ button:active{
     color:#d7d7d7;
 
     margin-top:10px;
+
+    font-size:15px;
 }
 
 /* LOCK */
