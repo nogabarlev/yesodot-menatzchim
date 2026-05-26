@@ -962,3 +962,31 @@ button:active{
 
     cursor:pointer;
 }
+
+/* FOOTER CREDIT */
+
+.footer-credit{
+
+    position:fixed;
+
+    bottom:14px;
+
+    width:100%;
+
+    text-align:center;
+
+    font-size:13px;
+
+    color:rgba(255,255,255,0.72);
+
+    z-index:999;
+
+    letter-spacing:0.5px;
+
+    pointer-events:none;
+}
+
+.categories-page .footer-credit{
+
+    color:rgba(47,51,47,0.72);
+}
