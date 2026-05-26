@@ -166,3 +166,11 @@ if(helloText){
         `👋 שלום ${savedUser.rank} ${savedUser.fullName}`;
     }
 }
+
+/* GO TO REGISTER */
+
+const goToRegister = () => {
+
+    window.location.href =
+    "registerPage.html";
+}
