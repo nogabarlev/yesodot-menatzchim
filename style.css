@@ -990,3 +990,27 @@ button:active{
 
     color:rgba(47,51,47,0.72);
 }
+
+/* REGISTER LINK */
+
+.register-link{
+
+    margin-top:22px;
+
+    text-align:center;
+
+    color:#d7d7d7;
+
+    font-size:15px;
+}
+
+.register-link span{
+
+    color:#d6c19d;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    margin-right:6px;
+}
