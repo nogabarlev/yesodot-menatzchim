@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+
+<html lang="he" dir="rtl">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>הרשמה</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="phone">
+
+<div class="screen auth-screen">
+
+    <div class="auth-card">
+
+        <h1>
+            הרשמת איש סגל
+        </h1>
+
+        <input
+        type="text"
+        id="fullName"
+        placeholder="שם מלא">
+
+        <input
+        type="password"
+        id="personalNumber"
+        placeholder="מספר אישי">
+
+        <input
+        type="password"
+        id="verifyNumber"
+        placeholder="אימות מספר אישי">
+
+        <select id="rank">
+
+            <option disabled selected>
+                בחר דרגה
+            </option>
+
+            <option>רס"ל</option>
+            <option>רס"ר</option>
+            <option>רס"מ</option>
+            <option>רס"ב</option>
+            <option>רנ"מ</option>
+            <option>רנ"ג</option>
+            <option>סג"מ</option>
+            <option>סגן</option>
+            <option>סרן</option>
+            <option>רס"ן</option>
+            <option>סא"ל</option>
+            <option>אל"מ</option>
+
+        </select>
+
+        <button onclick="registerUser()">
+
+            הרשמה
+
+        </button>
+
+    </div>
+
+</div>
+
+</div>
+
+<script src="code.js"></script>
+
+</body>
+
+</html>
