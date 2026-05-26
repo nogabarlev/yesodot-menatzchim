@@ -97,7 +97,7 @@ const registerUser = () => {
     alert("ההרשמה בוצעה בהצלחה");
 
     window.location.href =
-    "loginPage.html";
+    "index.html";
 }
 
 /* ========================= */
