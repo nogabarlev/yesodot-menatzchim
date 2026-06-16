@@ -327,11 +327,7 @@ body{
 
     border-radius:50%;
 
-    background:
-    conic-gradient(
-    #9BCB5A 0% 60%,
-    #475247 60% 100%
-    );
+    background:#475247;
 
     display:flex;
     justify-content:center;
@@ -565,6 +561,14 @@ button:active{
 }
 
 /* NUMBER */
+#chapter1Fill,
+#chapter2Fill,
+#chapter3Fill,
+#chapter4Fill,
+#chapter5Fill{
+
+    width:0%;
+}
 
 .chapter-number{
 
