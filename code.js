@@ -1,3 +1,12 @@
+import { db } from "./firebase.js";
+
+import {
+
+    doc,
+    setDoc
+
+} from "https://www.gstatic.com/firebasejs/12.5.0/firebase-firestore.js";
+
 /* ========================= */
 /* CONTINUE BUTTON */
 /* ========================= */
@@ -82,7 +91,7 @@ const closeVideo = () => {
 /* REGISTER */
 /* ========================= */
 
-const registerUser = () => {
+const registerUser = async () => {
 
     const fullName =
     document.getElementById("fullName").value;
@@ -152,15 +161,34 @@ const registerUser = () => {
         }
     };
 
-    localStorage.setItem(
-        "user",
-        JSON.stringify(user)
+localStorage.setItem(
+    "user",
+    JSON.stringify(user)
+);
+
+try{
+
+    await setDoc(
+
+        doc(db,"users",personalNumber),
+
+        user
+
     );
 
-    alert("ההרשמה בוצעה בהצלחה");
+}catch(error){
 
-    window.location.href =
-    "loginPage.html";
+    console.log(error);
+
+    alert("אירעה שגיאה בשמירת המשתמש");
+
+    return;
+}
+
+alert("ההרשמה בוצעה בהצלחה");
+
+window.location.href =
+"loginPage.html";
 }
 
 /* ========================= */
@@ -652,3 +680,10 @@ window.toggleMain = function(element){
 refreshProgressUI();
 refreshChaptersUI();
 loadChapterProgress();
+
+window.registerUser = registerUser;
+window.loginUser = loginUser;
+window.openVideo = openVideo;
+window.closeVideo = closeVideo;
+window.toggleMain = toggleMain;
+window.goToRegister = goToRegister;
