@@ -20,19 +20,19 @@ async function loadUsers(){
         const user =
         document.data();
 
-        usersContainer.innerHTML += `
+usersContainer.innerHTML += `
+<div class="user-card">
 
-        <div class="admin-user-card">
+<h3>${user.fullName}</h3>
 
-            <h2>${user.rank} ${user.fullName}</h2>
+<p>דרגה: ${user.rank}</p>
 
-            <p><b>מספר אישי:</b> ${user.personalNumber}</p>
+<p>מספר אישי: ${user.personalNumber}</p>
 
-            <p><b>התקדמות:</b> ${user.totalProgress}%</p>
+<p>התקדמות: ${user.totalProgress}%</p>
 
-        </div>
-
-        `;
+</div>
+`;
     });
 
 }
