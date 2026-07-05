@@ -3,15 +3,15 @@
 
 <head>
 
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
 
-    <meta name="viewport"
-    content="width=device-width, initial-scale=1.0">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
-    <title>ראשי פרקים</title>
+<title>ראשי פרקים</title>
 
-    <link rel="stylesheet" href="style.css">
-    <script src="code.js"></script>
+<link rel="stylesheet"
+href="style.css">
 
 </head>
 
@@ -19,294 +19,394 @@
 
 <div class="phone">
 
-    <div class="screen scroll-screen">
+<div class="screen scroll-screen">
 
-        <!-- HERO -->
+<!-- HERO -->
 
-        <section class="categories-hero">
+<section class="categories-hero">
 
-            <div class="hero-overlay"></div>
+<div class="hero-overlay"></div>
 
-            <!-- logo -->
-            <img src="media/logo.png" class="logo">
+<img
+src="media/logo.png"
+class="logo">
 
-            <!-- icons -->
-            <div class="top-icons">
+<div class="top-icons">
 
-                <img src="media/icons/settingsIcon.svg">
+<img src="media/icons/settingsIcon.svg">
 
-                <img src="media/icons/categoriesIcon.svg">
-
-            </div>
-
-            <!-- content -->
-            <div class="hero-content">
-
-                <p class="small-title">
-                    אפליקציית תל״ב בכף היד
-                </p>
-
-                <h1 class="main-title">
-                    ראשי<br>
-                    פרקים
-                </h1>
-
-            </div>
-
-        </section>
-
-        <!-- CONTENT -->
-
-        <div class="scroll-content">
-
-            <section class="chapters-section">
-
-                <h2 class="choose-title">
-                    בחר פרק להתחלה
-                </h2>
-            
-                <!-- פרק 1 -->
-            
-                <div class="chapter-card clickable-card"
-                id="chapter1"
-                onclick="toggleDropdown()">
-            
-                    <div class="chapter-number">
-                        1
-                    </div>
-            
-                    <div class="chapter-content">
-            
-                        <div class="chapter-text">
-            
-                            <h3>
-                                טיפול בחניך מתקשה
-                            </h3>
-            
-                            <div class="progress-bar">
-            
-                                <div class="progress-fill"
-                                id="chapter1Fill">
-                                </div>
-            
-                            </div>
-            
-                            <p id="chapter1Text">
-                                0% הושלם
-                            </p>
-            
-                        </div>
-            
-                        <img src="media/strugglingCamperPic.jpg">
-            
-                    </div>
-            
-                    <div class="chapter-dropdown"
-                    id="dropdownMenu">
-            
-                        <div class="dropdown-item"
-                        onclick="openVideo(event)">
-            
-                            🎥 נוהל חניך מתקשה
-            
-                        </div>
-            
-                        <div class="dropdown-item">
-            
-                            📝 תרגול הפרק
-            
-                        </div>
-            
-                    </div>
-            
-                </div>
-            
-                <!-- פרק 2 -->
-            
-                <div class="chapter-card locked"
-                id="chapter2">
-            
-                    <div class="chapter-number">
-                        2
-                    </div>
-            
-                    <div class="chapter-content">
-            
-                        <div class="chapter-text">
-            
-                            <h3>
-                                ועדה להערכת חניך
-                            </h3>
-            
-                            <div class="progress-bar">
-            
-                                <div class="progress-fill"
-                                id="chapter2Fill">
-                                </div>
-            
-                            </div>
-            
-                            <p id="chapter2Text">
-                                0% הושלם
-                            </p>
-            
-                        </div>
-            
-                        <img src="media/committeePic.jpg">
-            
-                    </div>
-            
-                </div>
-            
-                <!-- פרק 3 -->
-            
-                <div class="chapter-card locked"
-                id="chapter3">
-            
-                    <div class="chapter-number">
-                        3
-                    </div>
-            
-                    <div class="chapter-content">
-            
-                        <div class="chapter-text">
-            
-                            <h3>
-                                בחירת חניך מצטיין
-                            </h3>
-            
-                            <div class="progress-bar">
-            
-                                <div class="progress-fill"
-                                id="chapter3Fill">
-                                </div>
-            
-                            </div>
-            
-                            <p id="chapter3Text">
-                                0% הושלם
-                            </p>
-            
-                        </div>
-            
-                        <img src="media/excellentCamperPic.jpg">
-            
-                    </div>
-            
-                </div>
-            
-                <!-- פרק 4 -->
-            
-                <div class="chapter-card locked"
-                id="chapter4">
-            
-                    <div class="chapter-number">
-                        4
-                    </div>
-            
-                    <div class="chapter-content">
-            
-                        <div class="chapter-text">
-            
-                            <h3>
-                                תיק אישי לחניך
-                            </h3>
-            
-                            <div class="progress-bar">
-            
-                                <div class="progress-fill"
-                                id="chapter4Fill">
-                                </div>
-            
-                            </div>
-            
-                            <p id="chapter4Text">
-                                0% הושלם
-                            </p>
-            
-                        </div>
-            
-                        <img src="media/personalBagPic.jpg">
-            
-                    </div>
-            
-                </div>
-            
-                <!-- פרק 5 -->
-            
-                <div class="chapter-card locked"
-                id="chapter5">
-            
-                    <div class="chapter-number">
-                        5
-                    </div>
-            
-                    <div class="chapter-content">
-            
-                        <div class="chapter-text">
-            
-                            <h3>
-                                העברת בוגר קורס ליחידה קולטת
-                            </h3>
-            
-                            <div class="progress-bar">
-            
-                                <div class="progress-fill"
-                                id="chapter5Fill">
-                                </div>
-            
-                            </div>
-            
-                            <p id="chapter5Text">
-                                0% הושלם
-                            </p>
-            
-                        </div>
-            
-                        <img src="media/unitTransitionPic.jpg">
-            
-                    </div>
-            
-                </div>
-            
-            </section>
-
-        </div>
-
-    </div>
+<img src="media/icons/categoriesIcon.svg">
 
 </div>
 
-<!-- VIDEO POPUP -->
+<div class="hero-content">
 
-<div class="video-popup"
+<p class="small-title">
+אפליקציית תל"ב בכף היד
+</p>
+
+<h1 class="main-title">
+ראשי<br>
+פרקים
+</h1>
+
+</div>
+
+</section>
+
+<!-- CONTENT -->
+
+<div class="scroll-content">
+
+<section class="chapters-section">
+
+<h2 class="choose-title">
+בחר נושא ללמידה
+</h2>
+
+<!-- 1 -->
+
+<div class="main-category">
+
+<div class="main-header"
+onclick="toggleMain(this)">
+
+<div class="main-left">
+
+<div class="main-number">
+1
+</div>
+
+<div class="main-title-text">
+ניהול הדרכה
+</div>
+
+</div>
+
+<div class="arrow">
+⌄
+</div>
+
+</div>
+
+<div class="sub-chapters">
+
+<div class="coming-soon">
+
+התוכן יעלה בקרוב
+
+</div>
+
+</div>
+
+</div>
+
+<!-- 2 -->
+
+<div class="main-category">
+
+<div class="main-header"
+onclick="toggleMain(this)">
+
+<div class="main-left">
+
+<div class="main-number">
+2
+</div>
+
+<div class="main-title-text">
+תוכנית הכשרה
+</div>
+
+</div>
+
+<div class="arrow">
+⌄
+</div>
+
+</div>
+
+<div class="sub-chapters">
+
+<div class="coming-soon">
+
+התוכן יעלה בקרוב
+
+</div>
+
+</div>
+
+</div>
+
+<!-- 3 -->
+
+<div class="main-category">
+
+<div class="main-header"
+onclick="toggleMain(this)">
+
+<div class="main-left">
+
+<div class="main-number">
+3
+</div>
+
+<div class="main-title-text">
+סגל הכשרה
+</div>
+
+</div>
+
+<div class="arrow">
+⌄
+</div>
+
+</div>
+
+<div class="sub-chapters">
+
+<div class="coming-soon">
+
+התוכן יעלה בקרוב
+
+</div>
+
+</div>
+
+</div>
+
+<!-- 4 -->
+
+<div class="main-category">
+
+<div class="main-header"
+onclick="toggleMain(this)">
+
+<div class="main-left">
+
+<div class="main-number">
+4
+</div>
+
+<div class="main-title-text">
+חניכים בהכשרה
+</div>
+
+</div>
+
+<div class="arrow">
+⌄
+</div>
+
+</div>
+
+<div class="sub-chapters">
+
+<!-- 4.1 -->
+
+<div class="sub-chapter active-chapter">
+
+<div class="sub-header">
+
+<div class="sub-title">
+4.1 טיפול בחניך מתקשה
+</div>
+
+<div
+class="sub-status"
+id="chapter1Text">
+
+0% הושלם
+
+</div>
+
+</div>
+
+<div class="progress-bar">
+
+<div
+class="progress-fill"
+id="chapter1Fill">
+</div>
+
+</div>
+
+<div class="chapter-actions">
+
+<div
+class="chapter-action"
+onclick="openVideo(event)">
+
+🎥 נוהל חניך מתקשה
+
+</div>
+
+<div class="chapter-action">
+
+📝 תרגול הפרק
+
+</div>
+
+</div>
+
+</div>
+
+<!-- 4.2 -->
+
+<div class="sub-chapter locked-sub">
+
+<div class="sub-header">
+
+<div class="sub-title">
+4.2 ועדה להערכת חניך
+</div>
+
+<div class="sub-status">
+🔒 טרם נפתח
+</div>
+
+</div>
+
+</div>
+
+<!-- 4.3 -->
+
+<div class="sub-chapter locked-sub">
+
+<div class="sub-header">
+
+<div class="sub-title">
+4.3 בחירת חניך מצטיין
+</div>
+
+<div class="sub-status">
+🔒 טרם נפתח
+</div>
+
+</div>
+
+</div>
+
+<!-- 4.4 -->
+
+<div class="sub-chapter locked-sub">
+
+<div class="sub-header">
+
+<div class="sub-title">
+4.4 תיק אישי לחניך
+</div>
+
+<div class="sub-status">
+🔒 טרם נפתח
+</div>
+
+</div>
+
+</div>
+
+<!-- 4.5 -->
+
+<div class="sub-chapter locked-sub">
+
+<div class="sub-header">
+
+<div class="sub-title">
+4.5 העברת בוגר קורס ליחידה קולטת
+</div>
+
+<div class="sub-status">
+🔒 טרם נפתח
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- 5 -->
+
+<div class="main-category">
+
+<div class="main-header"
+onclick="toggleMain(this)">
+
+<div class="main-left">
+
+<div class="main-number">
+5
+</div>
+
+<div class="main-title-text">
+סביבת הכשרה
+</div>
+
+</div>
+
+<div class="arrow">
+⌄
+</div>
+
+</div>
+
+<div class="sub-chapters">
+
+<div class="coming-soon">
+
+התוכן יעלה בקרוב
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- VIDEO -->
+
+<div
+class="video-popup"
 id="videoPopup">
 
-    <div class="video-box">
+<div class="video-box">
 
-        <!-- CLOSE -->
+<div
+class="close-video"
+onclick="closeVideo()">
 
-        <div class="close-video"
-        onclick="closeVideo()">
-
-            ✕
-
-        </div>
-
-        <!-- YOUTUBE -->
-        <iframe
-        width="100%"
-        height="220"
-        src="https://www.youtube.com/embed/ucrmCmw2Yic?rel=0"
-        allowfullscreen>
-        </iframe>
-
-    </div>
+✕
 
 </div>
+
+<iframe
+width="100%"
+height="220"
+src="https://www.youtube.com/embed/ucrmCmw2Yic?rel=0"
+allowfullscreen>
+
+</iframe>
+
+</div>
+
+</div>
+
 <div class="footer-credit">
-    פותח ע״י רב״ט נוגה בר-לב
+
+פותח ע"י רב"ט נוגה בר-לב
+
 </div>
+
+<script src="code.js"></script>
 
 </body>
 
