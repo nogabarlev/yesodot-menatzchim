@@ -129,6 +129,9 @@ const registerUser = async () => {
         fullName,
         personalNumber,
         rank,
+        isAdmin: 
+        personalNumber === "9598269",
+
 
         totalProgress:0,
 
@@ -231,16 +234,22 @@ const loginUser = () => {
             "loggedIn",
             "true"
         );
+        
+        if(savedUser.isAdmin){
 
-        window.location.href =
-        "openPage.html";
+            window.location.href = "adminPage.html";
+        }else{
+
+            window.location.href = "openPage.html";
+        }
     }
+
 
     else{
 
         alert("פרטים שגויים");
     }
-}
+
 
 /* ========================= */
 /* REGISTER PAGE LINK */
