@@ -160,7 +160,7 @@ const registerUser = () => {
     alert("ההרשמה בוצעה בהצלחה");
 
     window.location.href =
-    "index.html";
+    "loginPage.html";
 }
 
 /* ========================= */
@@ -545,6 +545,47 @@ const refreshChaptersUI = () => {
             `chapter${i}Text`
         );
 
+        const card =
+        document.getElementById(
+            `chapter${i}`
+        );
+
+        let unlocked = false;
+
+        if(i === 1){
+
+            unlocked = true;
+        }
+
+        else{
+
+            const previousProgress =
+            getChapterProgress(
+                user.chapters[
+                    `chapter${i-1}`
+                ]
+            );
+
+            unlocked =
+            previousProgress === 100;
+        }
+
+        if(card){
+
+            if(unlocked){
+
+                card.classList.remove(
+                    "locked"
+                );
+
+            }else{
+
+                card.classList.add(
+                    "locked"
+                );
+            }
+        }
+
         if(fill){
 
             fill.style.width =
@@ -553,8 +594,16 @@ const refreshChaptersUI = () => {
 
         if(text){
 
-            text.innerHTML =
-            `${progress}% הושלם`;
+            if(unlocked){
+
+                text.innerHTML =
+                `${progress}% הושלם`;
+
+            }else{
+
+                text.innerHTML =
+                "🔒 טרם נפתח";
+            }
         }
     }
 }
@@ -592,6 +641,13 @@ const loadChapterProgress = () => {
     }
 }
 
+window.toggleMain = function(element){
+
+    const category =
+    element.closest(".main-category");
+
+    category.classList.toggle("open");
+}
 
 refreshProgressUI();
 refreshChaptersUI();
