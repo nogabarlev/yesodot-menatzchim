@@ -801,960 +801,369 @@ button:active{
 }
 
 
-/* ========================= */
-/* CATEGORIES PAGE */
-/* ========================= */
+/* =========================================
+   CATEGORIES PAGE
+========================================= */
+
+.categories-page{
+    background:#101510;
+}
+
+/* מסך הקטגוריות */
+
+.categories-page .screen{
+    width:100%;
+    height:100%;
+    overflow:hidden;
+}
+
+/* רקע */
 
 .categories-hero{
+    position:relative;
+    width:100%;
+    height:100vh;
+    min-height:100vh;
 
-    position:fixed;
-    inset:0;
-
-    background:
-    linear-gradient(
-    rgba(245,242,238,0.88),
-    rgba(236,231,224,0.95)
-    ),
-    url('media/unitTransitionPic.jpg');
-
+    background-image:url("media/categoriesPagePic.jpg");
     background-size:cover;
     background-position:center;
 
     display:flex;
-    flex-direction:column;
     justify-content:center;
     align-items:center;
+
+    padding:24px;
+
+    overflow:hidden;
+}
+
+/* שכבת הריכוך */
+
+.categories-hero .hero-overlay{
+    position:absolute;
+    inset:0;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(248,244,235,0.55) 0%,
+            rgba(238,235,225,0.38) 40%,
+            rgba(40,50,40,0.32) 100%
+        );
 
     z-index:1;
 }
 
-.categories-hero .main-title{
+/* לוגו */
 
-    color:#2c2c2c;
+.categories-page .logo{
+    position:absolute;
 
-    font-size:64px;
+    top:24px;
+    left:22px;
 
-    text-align:center;
+    width:65px;
+    height:auto;
 
-    line-height:1;
+    z-index:5;
 
-    font-weight:700;
+    opacity:0.75;
+
+    filter:
+        drop-shadow(0 5px 12px rgba(0,0,0,0.18));
 }
 
-.categories-hero .small-title{
+/* קווים דקורטיביים */
 
-    color:#7d6a68;
+.categories-page .hero-curve{
+    position:absolute;
 
-    margin-bottom:12px;
-
-    font-size:18px;
-}
-
-.categories-hero + .scroll-content{
-
-    padding-top:55vh;
-}
-
-.chapters-section{
-
-    padding:24px;
-    padding-bottom:120px;
-}
-
-.choose-title{
-
-    text-align:center;
-
-    color:#2f2f2f;
-
-    margin-bottom:28px;
-
-    font-size:34px;
-}
-
-/* ========================= */
-/* MAIN CATEGORY */
-/* ========================= */
-
-.main-category{
-
-    background:white;
-
-    border-radius:28px;
-
-    margin-bottom:18px;
-
-    overflow:hidden;
-
-    box-shadow:
-    0 12px 30px rgba(0,0,0,0.08);
-
-    transition:0.3s;
-}
-
-.main-category:active{
-
-    transform:scale(.98);
-}
-
-.main-header{
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    padding:22px;
-    
-    cursor:pointer;
-}
-
-.main-left{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:16px;
-}
-
-.main-number{
-
-    width:48px;
-    height:48px;
+    border:2px solid rgba(198,170,114,0.48);
 
     border-radius:50%;
 
-    background:#7d3b3b;
+    pointer-events:none;
 
-    color:white;
+    z-index:2;
+}
+
+.categories-page .hero-curve-top{
+    width:230px;
+    height:230px;
+
+    top:-150px;
+    left:-120px;
+}
+
+.categories-page .hero-curve-bottom{
+    width:260px;
+    height:260px;
+
+    bottom:-170px;
+    right:-150px;
+}
+
+/* תוכן */
+
+.categories-page .hero-content{
+    position:relative;
+
+    z-index:3;
+
+    width:100%;
 
     display:flex;
-
     justify-content:center;
     align-items:center;
-
-    font-weight:700;
-
-    font-size:20px;
 }
 
-.main-title-text{
+/* הכרטיס הגדול */
 
-    font-size:22px;
+.categories-card{
+    position:relative;
 
-    color:#2f2f2f;
+    width:100%;
+    max-width:370px;
 
-    font-weight:600;
-}
+    padding:30px 23px 24px;
 
-.arrow{
+    background:rgba(248,244,235,0.68);
 
-    font-size:22px;
+    border:1px solid rgba(255,255,255,0.65);
 
-    transition:.3s;
-}
-
-.main-category.open .arrow{
-
-    transform:rotate(180deg);
-}
-
-/* ========================= */
-/* SUB CHAPTERS */
-/* ========================= */
-
-.sub-chapters{
-
-    max-height:0;
-
-    overflow:hidden;
-
-    transition:
-    max-height .5s ease,
-    padding .3s ease;
-
-    background:#faf8f6;
-}
-
-.main-category.open .sub-chapters{
-
-    max-height:900px;
-
-    padding:18px;
-}
-
-.sub-chapter{
-
-    background:white;
-
-    border-radius:18px;
-
-    padding:16px;
-
-    margin-bottom:12px;
-
-    border:
-    1px solid rgba(125,59,59,.12);
-
-    transition:.25s;
-}
-
-.sub-chapter:hover{
-
-    transform:translateY(-2px);
+    border-radius:34px;
 
     box-shadow:
-    0 8px 20px rgba(0,0,0,.08);
+        0 22px 55px rgba(35,45,35,0.22);
+
+    backdrop-filter:blur(7px);
+    -webkit-backdrop-filter:blur(7px);
+
+    text-align:center;
+
+    overflow:hidden;
 }
 
-.sub-header{
+/* קווים בתוך הכרטיס */
 
-    display:flex;
+.categories-card .card-curve{
+    position:absolute;
 
-    justify-content:space-between;
+    border:2px solid rgba(198,170,114,0.60);
 
-    align-items:center;
+    border-radius:50%;
+
+    pointer-events:none;
 }
 
-.sub-title{
+.categories-card .card-curve-top{
+    width:170px;
+    height:170px;
 
-    font-size:18px;
+    top:-105px;
+    left:-95px;
+}
 
+.categories-card .card-curve-bottom{
+    width:170px;
+    height:170px;
+
+    bottom:-120px;
+    right:-105px;
+}
+
+/* כותרת קטנה */
+
+.categories-page .small-title{
+    position:relative;
+    z-index:2;
+
+    color:#9b8151;
+
+    font-size:16px;
     font-weight:500;
 
-    color:#2f2f2f;
+    margin-bottom:10px;
 }
 
-.sub-status{
+/* ראשי פרקים */
 
-    color:#8a8a8a;
+.categories-title{
+    position:relative;
+    z-index:2;
 
-    font-size:14px;
+    color:#1d291f;
+
+    font-size:52px;
+    line-height:0.94;
+
+    font-weight:700;
+
+    letter-spacing:-2px;
+
+    margin:0;
 }
 
-/* ========================= */
-/* ACTIVE CHAPTER */
-/* ========================= */
+/* קו */
 
-.active-chapter{
+.categories-page .title-divider{
+    position:relative;
+    z-index:2;
 
-    border:
-    2px solid #7d3b3b;
+    width:48px;
+    height:2px;
+
+    background:#b99a5e;
+
+    margin:18px auto 0;
+
+    border-radius:10px;
 }
 
-.progress-bar{
+/* בחרו נושא */
 
-    width:100%;
+.choose-title{
+    position:relative;
+    z-index:2;
 
-    height:10px;
+    color:#344036;
 
-    background:#e7e2de;
+    font-size:16px;
+    font-weight:400;
 
-    border-radius:999px;
-
-    overflow:hidden;
-
-    margin-top:12px;
+    margin:17px 0 14px;
 }
 
-.progress-fill{
+/* רשימת הפרקים */
 
-    width:0%;
-
-    height:100%;
-
-    background:
-    linear-gradient(
-    90deg,
-    #7d3b3b,
-    #b56b6b
-    );
-
-    transition:.5s;
-}
-
-.chapter-actions{
-
-    margin-top:16px;
+.chapters-list{
+    position:relative;
+    z-index:3;
 
     display:flex;
-
     flex-direction:column;
 
-    gap:10px;
+    gap:9px;
+
+    width:100%;
 }
 
-.chapter-action{
+/* כרטיס פרק */
 
-    height:54px;
-
-    border-radius:16px;
-
-    background:#7d3b3b;
-
-    color:white;
+.chapter-card{
+    width:100%;
+    min-height:58px;
 
     display:flex;
-
     align-items:center;
 
-    padding-right:18px;
+    gap:12px;
+
+    padding:8px 10px 8px 13px;
+
+    background:rgba(255,255,255,0.48);
+
+    border:1px solid rgba(255,255,255,0.58);
+
+    border-radius:18px;
+
+    box-shadow:
+        0 5px 15px rgba(40,50,40,0.08);
 
     cursor:pointer;
 
-    transition:.25s;
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
 }
 
-.chapter-action:hover{
+/* מספר */
 
-    background:#904848;
-}
+.chapter-number{
+    width:39px;
+    height:39px;
 
-/* ========================= */
-/* LOCKED */
-/* ========================= */
+    flex-shrink:0;
 
-.locked-sub{
+    display:flex;
+    align-items:center;
+    justify-content:center;
 
-    opacity:.55;
-}
+    border-radius:13px;
 
-.locked-sub .sub-status{
-
-    color:#b40000;
-}
-
-/* ========================= */
-/* COMING SOON */
-/* ========================= */
-
-.coming-soon{
-
-    background:
-    linear-gradient(
-    135deg,
-    #3b3b3b,
-    #232323
-    );
+    background:#27352a;
 
     color:white;
 
-    border-radius:18px;
-
-    padding:18px;
-
-    text-align:center;
-
-    font-size:15px;
+    font-size:17px;
+    font-weight:500;
 }
 
-/* ========================= */
-/* VIDEO POPUP */
-/* ========================= */
+/* טקסט */
 
-.video-popup{
-
-    position:fixed;
-
-    inset:0;
-
-    background:
-    rgba(0,0,0,0.82);
+.chapter-text{
+    flex:1;
 
     display:flex;
+    flex-direction:column;
 
-    justify-content:center;
+    align-items:flex-start;
 
+    text-align:right;
+}
+
+.chapter-text span{
+    color:#9b8151;
+
+    font-size:11px;
+    font-weight:500;
+
+    margin-bottom:1px;
+}
+
+.chapter-text strong{
+    color:#273328;
+
+    font-size:16px;
+    font-weight:500;
+}
+
+/* חץ */
+
+.chapter-arrow{
+    width:29px;
+    height:29px;
+
+    display:flex;
     align-items:center;
-
-    z-index:999;
-
-    opacity:0;
-
-    pointer-events:none;
-
-    transition:0.3s;
-}
-
-/* SHOW */
-
-.video-popup.show{
-
-    opacity:1;
-
-    pointer-events:auto;
-}
-
-/* BOX */
-
-.video-box{
-
-    width:92%;
-
-    background:#1d241d;
-
-    border-radius:28px;
-
-    padding:18px;
-
-    position:relative;
-
-    box-shadow:
-    0 20px 50px rgba(0,0,0,0.45);
-}
-
-/* VIDEO */
-
-.video-box iframe{
-
-    width:100%;
-
-    height:220px;
-
-    border:none;
-
-    border-radius:18px;
-}
-
-/* CLOSE */
-
-.close-video{
-
-    position:absolute;
-
-    top:-14px;
-    left:-14px;
-
-    width:40px;
-    height:40px;
+    justify-content:center;
 
     border-radius:50%;
 
-    background:#d6c19d;
+    background:rgba(198,170,114,0.22);
 
-    color:#182018;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    font-size:22px;
-
-    cursor:pointer;
-
-    font-weight:bold;
-}
-
-/* ========================= */
-/* AUTH */
-/* ========================= */
-
-.auth-screen{
-
-    background:
-    linear-gradient(
-    rgba(17,22,17,0.82),
-    rgba(17,22,17,0.92)
-    ),
-
-    url('media/openPagePic.jpg');
-
-    background-size:cover;
-
-    background-position:center;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    padding:24px;
-}
-
-.auth-card{
-
-    width:100%;
-
-    background:
-    linear-gradient(
-    135deg,
-    #3b4736,
-    #232c23
-    );
-
-    border-radius:34px;
-
-    padding:34px 24px;
-
-    display:flex;
-
-    flex-direction:column;
-
-    gap:18px;
-
-    box-shadow:
-    0 20px 50px rgba(0,0,0,0.35);
-}
-
-.auth-card h1{
-
-    color:white;
-
-    text-align:center;
-
-    margin-bottom:10px;
-
-    font-size:34px;
-}
-
-.auth-card input,
-.auth-card select{
-
-    width:100%;
-
-    height:58px;
-
-    border:none;
-
-    border-radius:18px;
-
-    padding:0 18px;
-
-    font-size:17px;
-
-    font-family:'Rubik', sans-serif;
-
-    background:#f3eee4;
-
-    color:#2f332f;
-}
-
-.auth-card select{
-
-    cursor:pointer;
-}
-
-/* FOOTER CREDIT */
-
-.footer-credit{
-
-    position:fixed;
-
-    bottom:14px;
-
-    left:50%;
-
-    transform:translateX(-50%);
-
-    padding:8px 18px;
-
-    border-radius:999px;
-
-    background:
-    rgba(255,255,255,0.08);
-
-    backdrop-filter:blur(10px);
-
-    -webkit-backdrop-filter:blur(10px);
-
-    border:
-    1px solid rgba(255,255,255,0.12);
-
-    text-align:center;
-
-    font-size:13px;
-
-    color:rgba(255,255,255,0.82);
-
-    z-index:999;
-
-    letter-spacing:0.4px;
-
-    pointer-events:none;
-
-    box-shadow:
-    0 4px 14px rgba(0,0,0,0.12);
-}
-
-.categories-page .footer-credit{
-
-    background:
-    rgba(255,255,255,0.28);
-
-    color:#3b403b;
-
-    border:
-    1px solid rgba(255,255,255,0.35);
-}
-/* REGISTER LINK */
-
-.register-link{
-
-    margin-top:22px;
-
-    text-align:center;
-
-    color:#d7d7d7;
-
-    font-size:15px;
-}
-
-.register-link span{
-
-    color:#d6c19d;
-
-    font-weight:600;
-
-    cursor:pointer;
-
-    margin-right:6px;
-}
-
-.sub-chapters{
-    max-height:500px !important;
-    padding:18px !important;
-}
-
-/* ========================= */
-/* ADMIN PAGE */
-/* ========================= */
-
-.admin-page{
-
-    background:#f5f3ef;
-
-    min-height:100vh;
-
-    overflow-y:auto;
-}
-
-.admin-container{
-
-    width:100%;
-
-    max-width:430px;
-
-    margin:auto;
-
-    padding:24px;
-}
-
-/* HEADER */
-
-.admin-header{
-
-    background:
-    linear-gradient(
-    135deg,
-    #7d3b3b,
-    #4b1d1d
-    );
-
-    border-radius:34px;
-
-    padding:34px 26px;
-
-    color:white;
-
-    text-align:center;
-
-    margin-bottom:28px;
-
-    box-shadow:
-    0 20px 40px rgba(0,0,0,.22);
-}
-
-.admin-header h1{
-
-    font-size:38px;
-
-    font-weight:700;
-
-    margin-bottom:12px;
-
-    letter-spacing:-1px;
-}
-
-.admin-header p{
-
-    font-size:17px;
-
-    opacity:.92;
-}
-
-/* STATS */
-
-.stats-grid{
-
-    display:grid;
-
-    grid-template-columns:1fr 1fr;
-
-    gap:16px;
-
-    margin-bottom:34px;
-}
-
-.stat-card{
-
-    background:white;
-
-    border-radius:26px;
-
-    padding:24px;
-
-    text-align:center;
-
-    box-shadow:
-    0 12px 30px rgba(0,0,0,.08);
-
-    border-top:6px solid #7d3b3b;
-
-    transition:.3s;
-}
-
-.stat-card:hover{
-
-    transform:translateY(-5px);
-}
-
-.stat-number{
-
-    font-size:40px;
-
-    font-weight:700;
-
-    color:#7d3b3b;
-}
-
-.stat-title{
-
-    margin-top:10px;
-
-    color:#666;
-
-    font-size:15px;
-}
-
-/* TITLE */
-
-.users-title{
-
-    font-size:30px;
-
-    color:#2f2f2f;
-
-    font-weight:700;
-
-    margin-bottom:20px;
-}
-
-/* USER CARD */
-
-.user-card{
-
-    background:white;
-
-    border-radius:26px;
-
-    padding:22px;
-
-    margin-bottom:22px;
-
-    position:relative;
-
-    overflow:hidden;
-
-    box-shadow:
-    0 14px 34px rgba(0,0,0,.08);
-
-    transition:.3s;
-}
-
-.user-card:hover{
-
-    transform:translateY(-6px);
-
-    box-shadow:
-    0 22px 40px rgba(0,0,0,.15);
-}
-
-/* פס אדום בצד */
-
-.user-card::before{
-
-    content:"";
-
-    position:absolute;
-
-    top:0;
-    right:0;
-
-    width:8px;
-
-    height:100%;
-
-    background:#7d3b3b;
-}
-
-.user-name{
+    color:#7d683f;
 
     font-size:24px;
 
-    font-weight:700;
+    line-height:1;
 
-    color:#2f2f2f;
-
-    margin-bottom:16px;
+    flex-shrink:0;
 }
 
-.user-info{
+/* אפקט מעבר */
 
-    display:flex;
+.chapter-card:hover{
+    transform:translateY(-2px);
 
-    justify-content:space-between;
-
-    padding:12px 0;
-
-    border-bottom:1px solid #ececec;
-
-    color:#555;
-
-    font-size:15px;
-}
-
-.user-info:last-child{
-
-    border:none;
-}
-
-/* PROGRESS */
-
-.progress-wrapper{
-
-    margin-top:18px;
-}
-
-.progress-bar{
-
-    width:100%;
-
-    height:12px;
-
-    background:#ececec;
-
-    border-radius:999px;
-
-    overflow:hidden;
-}
-
-.progress-fill{
-
-    height:100%;
-
-    border-radius:999px;
-
-    background:
-    linear-gradient(
-    90deg,
-    #7d3b3b,
-    #c96f6f
-    );
-}
-
-.progress-text{
-
-    text-align:left;
-
-    margin-top:10px;
-
-    color:#7d3b3b;
-
-    font-weight:700;
-
-    font-size:15px;
-}
-
-/* ADMIN BADGE */
-
-.admin-badge{
-
-    position:absolute;
-
-    top:18px;
-
-    left:18px;
-
-    background:#111;
-
-    color:white;
-
-    padding:6px 14px;
-
-    border-radius:999px;
-
-    font-size:12px;
-
-    font-weight:700;
-
-    letter-spacing:.5px;
-}
-
-/* SEARCH */
-
-.search-box{
-
-    width:100%;
-
-    height:58px;
-
-    border:none;
-
-    border-radius:18px;
-
-    background:white;
-
-    padding:0 18px;
-
-    margin-bottom:22px;
-
-    font-size:17px;
+    background:rgba(255,255,255,0.65);
 
     box-shadow:
-    0 8px 22px rgba(0,0,0,.08);
+        0 8px 20px rgba(40,50,40,0.12);
 }
 
-.user-card{
-
-    background:white;
-
-    border-radius:22px;
-
-    padding:20px;
-
-    margin-bottom:18px;
-
-    box-shadow:
-    0 10px 25px rgba(0,0,0,.12);
-
-    border-right:6px solid #7d3b3b;
-}
-
-.user-card h3{
-
-    margin-bottom:12px;
-
-    color:#2f2f2f;
-}
-
-.user-card p{
-
-    margin:8px 0;
-
-    color:#ffffff;
+.chapter-card:active{
+    transform:scale(0.98);
 }
