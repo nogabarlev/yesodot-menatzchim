@@ -1,10 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap');
 
+
+/* ========================= */
+/* RESET */
+/* ========================= */
+
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
 }
+
 
 body{
 
@@ -13,7 +19,9 @@ body{
     background:#101510;
 
     display:flex;
+
     justify-content:center;
+
     align-items:center;
 
     min-height:100vh;
@@ -23,11 +31,15 @@ body{
     direction:rtl;
 }
 
+
+/* ========================= */
 /* PHONE */
+/* ========================= */
 
 .phone{
 
     width:100%;
+
     max-width:430px;
 
     height:100vh;
@@ -36,58 +48,70 @@ body{
 
     position:relative;
 
-    background:black;
+    background:#101510;
 
     box-shadow:
-    0 0 40px rgba(0,0,0,0.4);
+        0 0 40px rgba(0,0,0,0.35);
 }
 
+
+/* ========================= */
 /* SCREEN */
+/* ========================= */
 
 .screen{
 
     width:100%;
+
     height:100%;
+
+    overflow:hidden;
 }
 
-/* SCROLL */
 
-.scroll-screen{
-
-    overflow-y:auto;
-
-    scroll-behavior:smooth;
-}
-
+/* ========================= */
 /* HERO */
+/* ========================= */
 
 .hero-section{
 
-    position:fixed;
+    position:relative;
 
-    inset:0;
+    width:100%;
 
-    background:
-    linear-gradient(
-    rgba(0,0,0,0.45),
-    rgba(0,0,0,0.75)
-    ),
+    height:100vh;
 
-    url('media/openPagePic.jpg');
+    min-height:100vh;
+
+
+    background-image:
+        url("media/openPagePic.jpg");
+
 
     background-size:cover;
+
     background-position:center;
 
+
     display:flex;
+
     justify-content:center;
+
     align-items:center;
 
+
     padding:24px;
+
+
+    overflow:hidden;
 
     z-index:1;
 }
 
-/* overlay */
+
+/* ========================= */
+/* LIGHT OVERLAY */
+/* ========================= */
 
 .hero-overlay{
 
@@ -95,150 +119,517 @@ body{
 
     inset:0;
 
+
     background:
-    linear-gradient(
-    180deg,
-    rgba(17,22,17,0.2),
-    rgba(17,22,17,0.88)
-    );
+
+        linear-gradient(
+            180deg,
+
+            rgba(248,244,235,0.55) 0%,
+
+            rgba(238,235,225,0.38) 40%,
+
+            rgba(40,50,40,0.32) 100%
+        );
+
+
+    z-index:1;
 }
 
-/* logo */
+
+/* ========================= */
+/* TEAM PLA LOGO */
+/* ========================= */
 
 .logo{
 
-    width:55px;
-
     position:absolute;
+
 
     top:24px;
-    left:20px;
+
+    left:22px;
+
+
+    width:105px;
+
+    height:auto;
+
 
     z-index:5;
+
+
+    filter:
+
+        drop-shadow(
+            0 5px 12px
+            rgba(0,0,0,0.18)
+        );
 }
 
-/* icons */
 
-#gappaLogo{
+/* ========================= */
+/* HERO CURVES */
+/* ========================= */
+
+.hero-curve{
 
     position:absolute;
 
-    width: 10vw;
+    border:2px solid rgba(198,170,114,0.48);
 
-    top:28px;
-    right:20px;
+    border-radius:50%;
 
+    pointer-events:none;
 
-    z-index:5;
+    z-index:2;
 }
 
-.top-icons img{
 
-    width:22px;
+/* TOP CURVE */
 
-    filter:invert(1);
+.hero-curve-top{
 
-    opacity:0.85;
+    width:230px;
+
+    height:230px;
+
+    top:-150px;
+
+    left:-120px;
 }
 
+
+/* BOTTOM CURVE */
+
+.hero-curve-bottom{
+
+    width:260px;
+
+    height:260px;
+
+    bottom:-170px;
+
+    right:-150px;
+}
+
+
+/* ========================= */
 /* HERO CONTENT */
+/* ========================= */
 
 .hero-content{
 
     position:relative;
 
-    z-index:2;
+    z-index:3;
+
 
     width:100%;
 
+
     display:flex;
+
     flex-direction:column;
+
+
     align-items:center;
+
+    justify-content:center;
 }
 
-/* small title */
 
-.small-title{
+/* ========================= */
+/* WELCOME CARD */
+/* ========================= */
 
-    color:#d6c19d;
+.welcome-card{
 
-    font-size:18px;
+    position:relative;
 
-    margin-bottom:16px;
-}
 
-/* BIG TITLE */
+    width:100%;
 
-.main-title{
+    max-width:370px;
 
-    color:white;
+
+    padding:
+
+        34px
+        26px
+        25px;
+
+
+    background:
+
+        rgba(
+            248,
+            244,
+            235,
+            0.68
+        );
+
+
+    border:
+
+        1px solid
+        rgba(255,255,255,0.65);
+
+
+    border-radius:34px;
+
+
+    box-shadow:
+
+        0 22px 55px
+        rgba(35,45,35,0.22);
+
+
+    backdrop-filter:
+
+        blur(7px);
+
+
+    -webkit-backdrop-filter:
+
+        blur(7px);
+
 
     text-align:center;
 
-    font-size:74px;
 
-    line-height:0.95;
-
-    font-weight:700;
-
-    letter-spacing:-3px;
-
-    text-shadow:
-    0 8px 30px rgba(0,0,0,0.45);
+    overflow:hidden;
 }
 
-/* BRIGADE */
 
-.brigade-title{
-    color:#d6c19d;
-    font-size:30px;
-    font-weight:500;
-    margin:0;
-    text-align:center;
-    margin-top: 28px;
-}
+/* ========================= */
+/* CARD CURVES */
+/* ========================= */
 
-/* scroll indicator */
-
-.scroll-indicator{
+.card-curve{
 
     position:absolute;
 
-    bottom:-180px;
+    border:
+
+        2px solid
+        rgba(198,170,114,0.60);
+
+    border-radius:50%;
+
+    pointer-events:none;
+}
+
+
+/* TOP LEFT */
+
+.card-curve-top{
+
+    width:170px;
+
+    height:170px;
+
+    top:-105px;
+
+    left:-95px;
+}
+
+
+/* BOTTOM RIGHT */
+
+.card-curve-bottom{
+
+    width:170px;
+
+    height:170px;
+
+    bottom:-120px;
+
+    right:-105px;
+}
+
+
+/* ========================= */
+/* SMALL TITLE */
+/* ========================= */
+
+.small-title{
+
+    position:relative;
+
+    z-index:2;
+
+
+    color:#9b8151;
+
+
+    font-size:17px;
+
+    font-weight:500;
+
+
+    margin-bottom:13px;
+
+
+    letter-spacing:0.1px;
+}
+
+
+/* ========================= */
+/* MAIN TITLE */
+/* ========================= */
+
+.main-title{
+
+    position:relative;
+
+    z-index:2;
+
+
+    color:#1d291f;
+
+
+    text-align:center;
+
+
+    font-size:62px;
+
+
+    line-height:0.92;
+
+
+    font-weight:700;
+
+
+    letter-spacing:-2.5px;
+
+
+    margin:0;
+
+
+    text-shadow:none;
+}
+
+
+/* ========================= */
+/* DIVIDER */
+/* ========================= */
+
+.title-divider{
+
+    position:relative;
+
+    z-index:2;
+
+
+    width:48px;
+
+    height:2px;
+
+
+    background:#b99a5e;
+
+
+    margin:
+
+        23px
+        auto
+        0;
+
+
+    border-radius:10px;
+}
+
+
+/* ========================= */
+/* COMMAND TITLE */
+/* ========================= */
+
+.command-title{
+
+    position:relative;
+
+    z-index:2;
+
+
+    color:#344036;
+
+
+    font-size:17px;
+
+    font-weight:400;
+
+
+    margin-top:19px;
+
+    margin-bottom:5px;
+}
+
+
+/* ========================= */
+/* BRIGADE TITLE */
+/* ========================= */
+
+.brigade-title{
+
+    position:relative;
+
+    z-index:2;
+
+
+    color:#273328;
+
+
+    font-size:25px;
+
+    font-weight:600;
+
+
+    margin:0;
+
+
+    text-align:center;
+}
+
+
+/* ========================= */
+/* START LEARNING BUTTON */
+/* ========================= */
+
+.start-learning{
+
+    position:relative;
+
+    z-index:3;
+
+
+    margin-top:29px;
+
+
+    width:100%;
+
+
+    min-height:55px;
+
 
     display:flex;
-    flex-direction:column;
+
+
     align-items:center;
+
+
+    justify-content:center;
+
+
+    gap:12px;
+
+
+    background:#27352a;
+
 
     color:white;
 
-    opacity:0.85;
 
-    animation:float 2s infinite ease-in-out;
+    border-radius:18px;
+
+
+    font-size:17px;
+
+    font-weight:500;
+
+
+    cursor:pointer;
+
+
+    transition:
+
+        transform 0.2s ease,
+
+        box-shadow 0.2s ease;
+
+
+    box-shadow:
+
+        0 9px 22px
+        rgba(25,35,27,0.22);
 }
 
-.scroll-indicator img{
 
-    width:34px;
+/* ========================= */
+/* BUTTON ICON */
+/* ========================= */
 
-    margin-top:10px;
+.start-icon{
 
-    filter:invert(1);
+    width:33px;
+
+    height:33px;
+
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+
+    border-radius:50%;
+
+
+    background:
+
+        rgba(
+            214,
+            193,
+            157,
+            0.34
+        );
 }
 
-@keyframes float{
 
-    0%{
-        transform:translateY(0);
-    }
+/* ICON */
 
-    50%{
-        transform:translateY(-10px);
-    }
+.start-icon img{
 
-    100%{
-        transform:translateY(0);
-    }
+    width:17px;
+
+    height:17px;
+
+
+    filter:
+
+        brightness(0)
+        invert(1);
+}
+
+
+/* ========================= */
+/* BUTTON HOVER */
+/* ========================= */
+
+.start-learning:hover{
+
+    transform:
+
+        translateY(-2px);
+
+
+    box-shadow:
+
+        0 13px 28px
+        rgba(25,35,27,0.28);
+}
+
+
+/* ========================= */
+/* BUTTON CLICK */
+/* ========================= */
+
+.start-learning:active{
+
+    transform:
+
+        scale(0.98);
 }
 
 /* CONTENT */
