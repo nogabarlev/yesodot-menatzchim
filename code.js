@@ -1,12 +1,3 @@
-import { db } from "./firebase.js";
-
-import {
-
-    doc,
-    setDoc
-
-} from "https://www.gstatic.com/firebasejs/12.5.0/firebase-firestore.js";
-
 /* ========================= */
 /* CONTINUE BUTTON */
 /* ========================= */
