@@ -1,19 +1,58 @@
 /* ========================= */
-/* CONTINUE BUTTON */
+/* SCROLL TO CATEGORIES */
 /* ========================= */
 
-const continueBtn =
-document.getElementById("continueBtn");
+/* ========================= */
+/* SCROLL TO CATEGORIES */
+/* ========================= */
 
-if(continueBtn){
+const screen = document.querySelector(".scroll-screen");
 
-    continueBtn.addEventListener("click", () => {
+let hasScrolled = false;
+
+if (screen) {
+
+    screen.addEventListener("wheel", (event) => {
+
+        if (hasScrolled) return;
+
+        if (event.deltaY > 0) {
+
+            hasScrolled = true;
+
+            window.location.href =
+                "categoriesPage.html";
+        }
+
+    });
+
+}
+
+let touchStartY = 0;
+
+window.addEventListener("touchstart", (event) => {
+
+    touchStartY = event.touches[0].clientY;
+
+});
+
+window.addEventListener("touchend", (event) => {
+
+    if (hasScrolled) return;
+
+    const touchEndY =
+        event.changedTouches[0].clientY;
+
+    if (touchStartY - touchEndY > 30) {
+
+        hasScrolled = true;
 
         window.location.href =
         "categoriesPage.html";
 
-    });
-}
+    }
+
+});
 
 /* ========================= */
 /* DROPDOWN */
