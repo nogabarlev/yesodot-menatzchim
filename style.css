@@ -1199,3 +1199,42 @@ button:active{
     height:100vh;
     min-height:100vh;
 }
+
+/* ===== עמוד פתיחה - מסך מלא ===== */
+
+body:not(.categories-page){
+    display:block;
+    width:100%;
+    min-width:100%;
+    height:100vh;
+    min-height:100vh;
+    margin:0;
+    padding:0;
+    overflow:hidden;
+    background:#101510;
+}
+
+body:not(.categories-page) .phone{
+    width:100%;
+    max-width:none;
+    height:100vh;
+    min-height:100vh;
+    margin:0;
+    padding:0;
+    box-shadow:none;
+}
+
+body:not(.categories-page) .screen{
+    width:100%;
+    height:100vh;
+    min-height:100vh;
+    margin:0;
+    padding:0;
+}
+
+body:not(.categories-page) .hero-section{
+    width:100%;
+    height:100vh;
+    min-height:100vh;
+    margin:0;
+}
