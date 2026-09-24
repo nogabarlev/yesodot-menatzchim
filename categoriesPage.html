@@ -253,11 +253,11 @@
         </div>
 
         <div class="subchapters-list">
-
-            <div class="subchapter-card">
-                <span>4.1</span>
-                <strong>טיפול בחניך מתקשה</strong>
-            </div>
+        
+<div class="subchapter-card" onclick="openVideo(event)">
+    <span>4.1</span>
+    <strong>טיפול בחניך מתקשה</strong>
+</div>
 
             <div class="subchapter-card">
                 <span>4.2</span>
@@ -336,6 +336,21 @@
     </div>
 
     <script src="code.js"></script>
+
+    <div id="videoModal" class="video-modal">
+    <div class="video-container">
+        <button class="close-video" onclick="closeVideo()">×</button>
+
+        <iframe
+            id="youtubeVideo"
+            src=""
+            title="טיפול בחניך מתקשה"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen>
+        </iframe>
+    </div>
+</div>
 
 </body>
 
