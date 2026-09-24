@@ -1357,3 +1357,87 @@ body:not(.categories-page) .hero-section{
     content:none !important;
     display:none !important;
 }
+
+/* =========================================
+   חלון סרטון YouTube
+========================================= */
+
+.video-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.75);
+    z-index: 9999;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.video-modal.show {
+    display: flex;
+}
+
+.video-container {
+    position: relative;
+
+    width: 80%;
+    max-width: 900px;
+
+    aspect-ratio: 16 / 9;
+
+    background: #000;
+    border-radius: 18px;
+
+    overflow: visible;
+}
+
+.video-container iframe {
+    width: 100%;
+    height: 100%;
+
+    border: none;
+    border-radius: 18px;
+}
+
+.close-video {
+    position: absolute;
+
+    top: -45px;
+    right: 0;
+
+    width: 38px;
+    height: 38px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: white;
+    color: #333;
+
+    font-size: 28px;
+    line-height: 38px;
+
+    cursor: pointer;
+
+    z-index: 10000;
+}
+
+.close-video {
+    position: absolute;
+    top: -45px;
+    right: 0;
+
+    width: 38px;
+    height: 38px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: white;
+    color: #333;
+
+    font-size: 28px;
+    cursor: pointer;
+
+    z-index: 10000;
+}
