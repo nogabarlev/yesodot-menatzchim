@@ -1260,3 +1260,100 @@ body:not(.categories-page) .hero-section{
     pointer-events:none;
     box-shadow: 0 4px 14px rgba(0,0,0,0.12);
 }
+
+
+/* =========================================
+   תתי פרקים
+========================================= */
+
+.chapter-group{
+    width:100%;
+}
+
+.subchapters-list{
+    display:none;
+    flex-direction:column;
+    gap:6px;
+    padding:7px 5px 4px;
+}
+
+.chapter-group.open .subchapters-list{
+    display:flex;
+}
+
+
+/* כרטיס תת פרק */
+
+.subchapter-card{
+    width:100%;
+    display:flex;
+    align-items:flex-start;
+    gap:10px;
+
+    padding:10px 12px;
+
+    background:rgba(255,255,255,0.38);
+
+    border:1px solid rgba(255,255,255,0.45);
+
+    border-radius:14px;
+
+    box-shadow:
+        0 3px 10px rgba(40,50,40,0.06);
+
+    text-align:right;
+
+    cursor:pointer;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+.subchapter-card span{
+    flex-shrink:0;
+
+    min-width:38px;
+
+    color:#9b8151;
+
+    font-size:12px;
+
+    font-weight:600;
+
+    padding-top:2px;
+}
+
+.subchapter-card strong{
+    color:#344036;
+
+    font-size:13px;
+
+    line-height:1.35;
+
+    font-weight:400;
+}
+
+
+/* אפקט לחיצה */
+
+.subchapter-card:active{
+    transform:scale(0.98);
+}
+
+
+/* חץ מסתובב כאשר הפרק פתוח */
+
+.chapter-arrow{
+    transition:transform 0.25s ease;
+}
+
+.chapter-group.open .chapter-arrow{
+    transform:rotate(-90deg);
+}
+
+.chapter-card::before,
+.chapter-card::after{
+    content:none !important;
+    display:none !important;
+}
