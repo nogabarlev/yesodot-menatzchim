@@ -51,7 +51,7 @@ const openVideo = (event) => {
     }
 
     youtubeVideo.src =
-        "https://youtu.be/ucrmCmw2Yic?si=yItgWkJQj2TSSm8V";
+        "https://www.youtube.com/embed/ucrmCmw2Yic?autoplay=1";
 
     videoModal.classList.add("show");
 
