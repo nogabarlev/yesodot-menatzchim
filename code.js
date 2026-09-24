@@ -39,45 +39,57 @@ const openVideo = (event) => {
 
     event.stopPropagation();
 
-    document
-    .getElementById("videoPopup")
-    .classList.add("show");
+    const videoModal =
+        document.getElementById("videoModal");
+
+    const youtubeVideo =
+        document.getElementById("youtubeVideo");
+
+    if (!videoModal || !youtubeVideo) {
+        console.log("חלון הסרטון לא נמצא ב-HTML");
+        return;
+    }
+
+    youtubeVideo.src =
+        "https://youtu.be/ucrmCmw2Yic?si=yItgWkJQj2TSSm8V";
+
+    videoModal.classList.add("show");
 
     const user =
-    JSON.parse(localStorage.getItem("user"));
+        JSON.parse(localStorage.getItem("user"));
 
-    if(user){
+    if (user && user.chapters && user.chapters.chapter4) {
 
-        user.chapters.chapter1.video = true;
-                                                                                                                                                                                                                                                                                                                                                                                                           
+        user.chapters.chapter4.video = true;
+
+        updateUserProgress(user);
+
         localStorage.setItem(
             "user",
             JSON.stringify(user)
         );
-
-        refreshProgressUI();
     }
+};
 
-    const chapter1Fill =
-    document.getElementById("chapter1Fill");
-
-    const chapter1Text =
-    document.getElementById("chapter1Text");
-    if(chapter1Fill){
-        chapter1Fill.style.width = "50%";
-    }
-    if(chapter1Text){
-        chapter1Text.innerHTML =
-        "50% הושלם";
-    }
-}
 
 const closeVideo = () => {
 
-    document
-    .getElementById("videoPopup")
-    .classList.remove("show");
-}
+    const videoModal =
+        document.getElementById("videoModal");
+
+    const youtubeVideo =
+        document.getElementById("youtubeVideo");
+
+    if (videoModal) {
+
+        videoModal.classList.remove("show");
+    }
+
+    if (youtubeVideo) {
+
+        youtubeVideo.src = "";
+    }
+};
 
 /* ========================= */
 /* REGISTER */
@@ -679,6 +691,11 @@ window.toggleMain = function(element){
     category.classList.toggle("open");
 }
 
+
+/* =========================================
+   פתיחת וסגירת תתי פרקים
+========================================= */
+
 refreshProgressUI();
 refreshChaptersUI();
 loadChapterProgress();
@@ -687,5 +704,4 @@ window.registerUser = registerUser;
 window.loginUser = loginUser;
 window.openVideo = openVideo;
 window.closeVideo = closeVideo;
-window.toggleMain = toggleMain;
 window.goToRegister = goToRegister;
