@@ -1447,3 +1447,89 @@ body:not(.categories-page) .hero-section{
 
     z-index: 10000;
 }
+
+
+/* =============================== */
+/* תתי פרקים נעולים */
+/* =============================== */
+
+.subchapter-card.locked {
+    opacity: 0.45;
+    filter: grayscale(20%);
+    cursor: not-allowed;
+}
+
+/* הטקסט של פריט נעול */
+.subchapter-card.locked strong,
+.subchapter-card.locked .subchapter-number {
+    opacity: 0.75;
+}
+
+/* אזור "טרם נפתח" */
+.locked-status {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-right: 15px;
+    font-size: 13px;
+    color: #777;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+/* האייקון שלך */
+.lock-symbol {
+    width: 18px;
+    height: 18px;
+    object-fit: contain;
+}
+
+/* =============================== */
+/* פרקים נעולים */
+/* =============================== */
+
+.chapter-group.locked-chapter {
+    opacity: 0.45;
+    filter: grayscale(20%);
+}
+
+.chapter-group.locked-chapter .chapter-card {
+    cursor: not-allowed;
+}
+
+.subchapter-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    direction: rtl;
+}
+
+.subchapter-content {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    direction: rtl;
+    flex: 1;
+}
+
+.subchapter-number {
+    flex-shrink: 0;
+}
+
+.locked-status {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-right: 15px;
+    margin-left: 0;
+    font-size: 13px;
+    color: #777;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.lock-symbol {
+    width: 18px;
+    height: 18px;
+    object-fit: contain;
+}
