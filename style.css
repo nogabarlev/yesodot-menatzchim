@@ -835,7 +835,7 @@ button:active{
 
     padding:24px;
 
-    overflow:hidden;
+    overflow:visible;
 }
 
 /* שכבת הריכוך */
@@ -1175,14 +1175,15 @@ button:active{
     min-height:100vh;
     margin:0;
     padding:0;
-    overflow:hidden;
+    overflow-x:hidden;
+    overflow-y:auto;
 }
 
 .categories-page .phone{
     width:100%;
     max-width:none;
-    height:100vh;
     min-height:100vh;
+    height:auto;
     margin:0;
     padding:0;
     box-shadow:none;
@@ -1190,14 +1191,19 @@ button:active{
 
 .categories-page .screen{
     width:100%;
-    height:100vh;
     min-height:100vh;
+    height:auto;
+    overflow:visible;
 }
 
 .categories-page .categories-hero{
     width:100%;
-    height:100vh;
     min-height:100vh;
+    height:auto;
+    overflow:visible;
+    align-items:flex-start;
+    padding-top:24px;
+    padding-bottom:80px;
 }
 
 /* ===== עמוד פתיחה - מסך מלא ===== */
