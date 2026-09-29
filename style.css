@@ -1861,6 +1861,11 @@ body:not(.categories-page) .hero-section{
     height: 4vh;
 }
 
+#settings {
+    width: 2vw;
+    height: 4vh;
+}
+
 
 
 /* =========================
