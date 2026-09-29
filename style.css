@@ -1743,10 +1743,16 @@ body:not(.categories-page) .hero-section{
     font-weight: 500;
 }
 
+.learning-intro > div:last-child {
+    flex: 1;
+    text-align: right;
+}
+
 .learning-intro h2 {
     color: #273328;
     font-size: 24px;
     margin: 4px 0 7px;
+    text-align: right;
 }
 
 .learning-intro p {
