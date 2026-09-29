@@ -2548,3 +2548,41 @@ body:not(.categories-page) .hero-section{
     line-height: 1.25;
 }
 
+/* =========================
+   ICONS – TARGET & SETTINGS
+========================= */
+
+.info-card-icon,
+.principle-icon {
+    width: 62px;
+    height: 62px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 20px;
+
+    background: linear-gradient(
+        135deg,
+        rgba(212, 186, 129, 0.9),
+        rgba(255, 238, 190, 0.9),
+        rgba(255, 214, 175, 0.9)
+    );
+
+    border: 1px solid rgba(235, 170, 130, 0.45);
+
+    box-shadow:
+        0 8px 20px rgba(190, 130, 100, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+
+#target,
+#settings {
+    filter:
+        sepia(60%)
+        saturate(170%)
+        hue-rotate(320deg)
+        brightness(0.82)
+        contrast(1.12);
+}
