@@ -1516,6 +1516,7 @@ body:not(.categories-page) .hero-section{
     flex-shrink: 0;
 }
 
+
 .locked-status {
     display: flex;
     align-items: center;
@@ -1602,6 +1603,12 @@ body:not(.categories-page) .hero-section{
         0 18px 45px rgba(35,45,35,.20);
 
     overflow: hidden;
+}
+
+.subchapter-page .subchapter-header h1 {
+    font-size: 35px;
+    text-align: center;
+    line-height: 1.3;
 }
 
 .subchapter-header::after {
@@ -2533,5 +2540,11 @@ body:not(.categories-page) .hero-section{
     .takeaway-card {
         padding: 22px;
     }
+}
+
+/* כותרות H2 בתוך תת־הפרק 1.1 */
+.subchapter-page h2 {
+    font-size: 22px !important;
+    line-height: 1.25;
 }
 
