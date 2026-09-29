@@ -1533,3 +1533,1000 @@ body:not(.categories-page) .hero-section{
     height: 18px;
     object-fit: contain;
 }
+
+
+/* =========================================================
+   1.1 LEARNING PAGE
+   תוספת בלבד — לא משנה את openPage / categoriesPage
+========================================================= */
+
+.subchapter-page {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 5000;
+    overflow-y: auto;
+    background: #f3efe6;
+    direction: rtl;
+}
+
+.subchapter-page.show {
+    display: block;
+}
+
+.subchapter-background {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background:
+        radial-gradient(
+            circle at top right,
+            rgba(198,170,114,.17),
+            transparent 32%
+        ),
+        radial-gradient(
+            circle at bottom left,
+            rgba(39,53,42,.12),
+            transparent 35%
+        );
+}
+
+.subchapter-container {
+    position: relative;
+    width: 100%;
+    max-width: 1050px;
+    margin: 0 auto;
+    padding: 28px 24px 70px;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.subchapter-header {
+    position: relative;
+    padding: 30px;
+    margin-bottom: 22px;
+
+    background: linear-gradient(
+        135deg,
+        #27352a,
+        #344437
+    );
+
+    color: white;
+    border-radius: 30px;
+
+    box-shadow:
+        0 18px 45px rgba(35,45,35,.20);
+
+    overflow: hidden;
+}
+
+.subchapter-header::after {
+    content: "";
+    position: absolute;
+
+    width: 250px;
+    height: 250px;
+
+    left: -100px;
+    top: -160px;
+
+    border: 2px solid rgba(214,193,157,.35);
+    border-radius: 50%;
+}
+
+.back-button {
+    width: auto;
+    height: auto;
+
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 9px 14px;
+    margin-bottom: 28px;
+
+    border: 1px solid rgba(255,255,255,.20);
+    border-radius: 999px;
+
+    background: rgba(255,255,255,.09);
+    color: white;
+
+    font-family: 'Rubik', sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+
+    cursor: pointer;
+
+    transition: background .2s ease;
+}
+
+.back-button:hover {
+    background: rgba(255,255,255,.16);
+}
+
+.back-button span {
+    font-size: 18px;
+}
+
+.subchapter-label {
+    position: relative;
+    z-index: 2;
+
+    color: #d6c19d;
+    font-size: 13px;
+    font-weight: 500;
+
+    margin-bottom: 10px;
+}
+
+.subchapter-header h1 {
+    position: relative;
+    z-index: 2;
+
+    max-width: 800px;
+
+    font-size: clamp(30px, 5vw, 48px);
+    line-height: 1.05;
+    font-weight: 700;
+
+    margin-bottom: 9px;
+}
+
+.subchapter-header p {
+    position: relative;
+    z-index: 2;
+
+    color: rgba(255,255,255,.75);
+    font-size: 18px;
+}
+
+
+/* =========================
+   INTRO
+========================= */
+
+.learning-intro {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    padding: 25px;
+    margin-bottom: 24px;
+
+    background: rgba(255,255,255,.74);
+
+    border: 1px solid rgba(198,170,114,.30);
+    border-radius: 25px;
+
+    box-shadow:
+        0 10px 30px rgba(40,50,40,.07);
+}
+
+.intro-icon {
+    width: 72px;
+    height: 72px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 21px;
+
+    background: #27352a;
+    color: #d6c19d;
+
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.learning-intro span {
+    color: #9b8151;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.learning-intro h2 {
+    color: #273328;
+    font-size: 24px;
+    margin: 4px 0 7px;
+}
+
+.learning-intro p {
+    color: #5b635b;
+    font-size: 15px;
+    line-height: 1.65;
+}
+
+
+/* =========================
+   GENERAL SECTIONS
+========================= */
+
+.learning-section {
+    margin-bottom: 28px;
+    padding: 27px;
+
+    background: rgba(255,255,255,.62);
+
+    border: 1px solid rgba(255,255,255,.78);
+    border-radius: 27px;
+
+    box-shadow:
+        0 9px 25px rgba(40,50,40,.06);
+}
+
+.section-heading {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    margin-bottom: 22px;
+}
+
+.section-number {
+    width: 43px;
+    height: 43px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 14px;
+
+    background: rgba(198,170,114,.22);
+
+    color: #8d7445;
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.section-heading > div {
+    display: flex;
+    flex-direction: column;
+}
+
+.section-heading span:not(.section-number) {
+    color: #9b8151;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.section-heading h2 {
+    color: #273328;
+    font-size: 25px;
+    font-weight: 600;
+    margin-top: 3px;
+}
+
+
+/* =========================
+   GOAL CARD
+========================= */
+
+.info-card {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+
+    padding: 22px;
+    border-radius: 20px;
+}
+
+.highlight-card {
+    background:
+        linear-gradient(
+            135deg,
+            rgba(214,193,157,.30),
+            rgba(255,255,255,.55)
+        );
+
+    border: 1px solid rgba(198,170,114,.28);
+}
+
+.info-card-icon {
+    width: 52px;
+    height: 52px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 16px;
+
+    background: #27352a;
+
+    font-size: 22px;
+    flex-shrink: 0;
+}
+
+.info-card p {
+    color: #344036;
+
+    font-size: 17px;
+    line-height: 1.7;
+    font-weight: 500;
+}
+
+#target {
+    width: 1.8vw;
+    height: 4vh;
+}
+
+
+
+/* =========================
+   RULE CARDS
+========================= */
+
+.interactive-cards {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.rule-card {
+    position: relative;
+
+    padding: 20px;
+
+    background: rgba(248,244,235,.75);
+
+    border: 1px solid rgba(198,170,114,.22);
+    border-radius: 21px;
+
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease;
+}
+
+.rule-card:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 12px 25px rgba(40,50,40,.10);
+}
+
+.rule-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 19px;
+}
+
+.rule-number {
+    width: 34px;
+    height: 34px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 11px;
+
+    background: #27352a;
+    color: white;
+
+    font-size: 13px;
+}
+
+.rule-icon {
+    color: #b99a5e;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.rule-card h3 {
+    color: #273328;
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+.rule-card p {
+    color: #5e665f;
+    font-size: 14px;
+    line-height: 1.65;
+}
+
+.note-card {
+    margin-top: 16px;
+
+    padding: 17px 19px;
+
+    border-right: 4px solid #b99a5e;
+
+    background: rgba(214,193,157,.18);
+
+    border-radius: 14px;
+}
+
+.note-card span {
+    color: #8d7445;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.note-card p {
+    color: #4f584f;
+    font-size: 14px;
+    line-height: 1.6;
+    margin-top: 4px;
+}
+
+
+/* =========================
+   DEFINITION
+========================= */
+
+.definition-card {
+    padding: 23px;
+
+    background: #27352a;
+    color: white;
+
+    border-radius: 22px;
+
+    box-shadow:
+        0 13px 30px rgba(39,53,42,.16);
+}
+
+.definition-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    margin-bottom: 13px;
+}
+
+.definition-title span {
+    width: 34px;
+    height: 34px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+
+    background: rgba(214,193,157,.22);
+    color: #d6c19d;
+}
+
+.definition-title h3 {
+    font-size: 19px;
+}
+
+.definition-card p {
+    color: rgba(255,255,255,.82);
+
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+
+/* =========================
+   PRINCIPLES
+========================= */
+
+.principle-main-card {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+
+    padding: 21px;
+    margin-bottom: 25px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(214,193,157,.28),
+            rgba(255,255,255,.50)
+        );
+
+    border-radius: 20px;
+}
+
+.principle-icon {
+    width: 55px;
+    height: 55px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    background: #27352a;
+
+    border-radius: 17px;
+
+    font-size: 24px;
+}
+
+.principle-main-card p {
+    color: #344036;
+
+    font-size: 16px;
+    line-height: 1.65;
+    font-weight: 500;
+}
+
+.subsection-title {
+    color: #273328;
+    font-size: 18px;
+    margin-bottom: 14px;
+}
+
+
+/* =========================
+   ROLES
+========================= */
+
+.roles-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.role-card {
+    display: flex;
+    gap: 15px;
+
+    padding: 18px;
+
+    background: rgba(248,244,235,.75);
+
+    border: 1px solid rgba(198,170,114,.20);
+
+    border-radius: 19px;
+
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease;
+}
+
+.role-card:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 9px 22px rgba(40,50,40,.08);
+}
+
+.role-number {
+    width: 39px;
+    height: 39px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 12px;
+
+    background: #27352a;
+
+    color: #d6c19d;
+
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.role-content h3 {
+    color: #273328;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.role-content p {
+    color: #626961;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+
+/* =========================
+   TABLE
+========================= */
+
+.table-intro {
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+.table-intro > span {
+    color: #9b8151;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.table-intro h3 {
+    color: #273328;
+    font-size: 21px;
+    margin: 4px 0 6px;
+}
+
+.table-intro p {
+    color: #626961;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 9px 22px rgba(40,50,40,.08);
+
+    -webkit-overflow-scrolling: touch;
+}
+
+.learning-table {
+    width: 100%;
+    min-width: 780px;
+
+    border-collapse: separate;
+    border-spacing: 0;
+
+    background: rgba(248,244,235,.86);
+
+    border: 1px solid rgba(198,170,114,.25);
+
+    direction: rtl;
+}
+
+.learning-table th {
+    padding: 15px 12px;
+
+    background: #27352a;
+    color: #f8f4eb;
+
+    font-size: 14px;
+    font-weight: 500;
+
+    border-left: 1px solid rgba(255,255,255,.10);
+}
+
+.learning-table td {
+    padding: 14px 12px;
+
+    color: #4e574f;
+
+    font-size: 13px;
+    line-height: 1.5;
+
+    text-align: right;
+
+    border-top: 1px solid rgba(39,53,42,.09);
+    border-left: 1px solid rgba(39,53,42,.07);
+}
+
+.learning-table tr:nth-child(even) td {
+    background: rgba(214,193,157,.09);
+}
+
+.learning-table tr:hover td {
+    background: rgba(214,193,157,.18);
+}
+
+
+/* =========================
+   KNOWLEDGE
+========================= */
+
+.knowledge-section {
+    background:
+        linear-gradient(
+            180deg,
+            rgba(255,255,255,.70),
+            rgba(248,244,235,.78)
+        );
+}
+
+.knowledge-intro {
+    padding: 17px 19px;
+    margin-bottom: 15px;
+
+    background: rgba(214,193,157,.15);
+
+    border-radius: 15px;
+
+    color: #4d574e;
+
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.knowledge-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+}
+
+.knowledge-card {
+    display: flex;
+    gap: 15px;
+
+    padding: 19px;
+
+    background: rgba(255,255,255,.55);
+
+    border: 1px solid rgba(198,170,114,.18);
+
+    border-radius: 19px;
+}
+
+.knowledge-number {
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 12px;
+
+    background: #27352a;
+
+    color: #d6c19d;
+
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.knowledge-card h3 {
+    color: #273328;
+    font-size: 16px;
+    margin-bottom: 6px;
+}
+
+.knowledge-card p {
+    color: #606861;
+    font-size: 13.5px;
+    line-height: 1.65;
+}
+
+.knowledge-list {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    margin-top: 12px;
+}
+
+.knowledge-list div {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+
+    padding: 8px 10px;
+
+    background: rgba(214,193,157,.12);
+
+    border-radius: 10px;
+
+    color: #4d574e;
+
+    font-size: 13px;
+}
+
+.knowledge-list span {
+    color: #9b8151;
+    font-weight: 600;
+}
+
+
+/* =========================
+   SUMMARY
+========================= */
+
+.takeaway-section {
+    margin-bottom: 25px;
+}
+
+.takeaway-card {
+    padding: 28px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #27352a,
+            #354638
+        );
+
+    border-radius: 28px;
+
+    color: white;
+
+    box-shadow:
+        0 17px 35px rgba(39,53,42,.20);
+}
+
+.takeaway-label {
+    color: #d6c19d;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.takeaway-card h2 {
+    font-size: 28px;
+    margin: 6px 0 20px;
+}
+
+.takeaway-items {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.takeaway-items div {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+
+    padding: 13px;
+
+    background: rgba(255,255,255,.08);
+
+    border: 1px solid rgba(255,255,255,.09);
+
+    border-radius: 13px;
+
+    color: rgba(255,255,255,.82);
+
+    font-size: 13px;
+    line-height: 1.55;
+}
+
+.takeaway-items span {
+    color: #d6c19d;
+    font-size: 11px;
+    font-weight: 600;
+    flex-shrink: 0;
+}
+
+
+/* =========================
+   FINISH
+========================= */
+
+.finish-learning {
+    width: 100%;
+    height: 62px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    margin-bottom: 20px;
+
+    border: none;
+    border-radius: 20px;
+
+    background: #d6c19d;
+
+    color: #273328;
+
+    font-family: 'Rubik', sans-serif;
+
+    font-size: 17px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 10px 24px rgba(39,53,42,.14);
+
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease;
+}
+
+.finish-learning:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 14px 28px rgba(39,53,42,.18);
+}
+
+.finish-learning:active {
+    transform: scale(.98);
+}
+
+.finish-learning span {
+    width: 27px;
+    height: 27px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: rgba(39,53,42,.12);
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 700px) {
+
+    .subchapter-container {
+        padding: 18px 13px 65px;
+    }
+
+    .subchapter-header {
+        padding: 23px;
+        border-radius: 25px;
+    }
+
+    .interactive-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .roles-list {
+        grid-template-columns: 1fr;
+    }
+
+    .takeaway-items {
+        grid-template-columns: 1fr;
+    }
+
+    .learning-section {
+        padding: 20px;
+    }
+
+    .learning-intro {
+        align-items: flex-start;
+    }
+
+    .intro-icon {
+        width: 58px;
+        height: 58px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .subchapter-header h1 {
+        font-size: 29px;
+    }
+
+    .learning-intro h2 {
+        font-size: 20px;
+    }
+
+    .learning-intro p {
+        font-size: 14px;
+    }
+
+    .learning-section {
+        border-radius: 22px;
+    }
+
+    .info-card {
+        align-items: flex-start;
+    }
+
+    .takeaway-card {
+        padding: 22px;
+    }
+}
+
