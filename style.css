@@ -1921,25 +1921,29 @@ body:not(.categories-page) .hero-section{
 .rule-top {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-
-    margin-bottom: 19px;
+    justify-content: flex-start;
+    gap: 10px;
+    margin-bottom: 14px;
 }
 
 .rule-number {
     width: 34px;
     height: 34px;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
+    flex-shrink: 0;
     border-radius: 11px;
-
     background: #27352a;
     color: white;
-
     font-size: 13px;
+}
+
+.rule-top h3 {
+    color: #273328;
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0;
 }
 
 .rule-icon {
@@ -2597,3 +2601,5 @@ body:not(.categories-page) .hero-section{
         brightness(0.82)
         contrast(1.12);
 }
+
+
