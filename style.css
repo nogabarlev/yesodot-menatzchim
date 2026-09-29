@@ -1613,7 +1613,7 @@ body:not(.categories-page) .hero-section{
 
 .subchapter-page .subchapter-header h2 {
     position: relative;
-    right: 5vw;
+    right: 3vw;
 }
 
 .subchapter-header::after {
