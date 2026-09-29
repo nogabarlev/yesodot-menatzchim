@@ -1605,7 +1605,7 @@ body:not(.categories-page) .hero-section{
     overflow: hidden;
 }
 
-.subchapter-page .subchapter-header h1 {
+.subchapter-page .subchapter-header h1, h2{
     font-size: 35px;
     text-align: center;
     line-height: 1.3;
