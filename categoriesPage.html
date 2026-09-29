@@ -2,44 +2,31 @@
 <html lang="he" dir="rtl">
 
 <head>
-
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <title>יסודות מנצחים | ראשי פרקים</title>
 
-    <title>ראשי פרקים</title>
-
-    <link rel="stylesheet"
-          href="style.css">
-
+    <link rel="stylesheet" href="style.css">
 </head>
-
 
 <body class="categories-page">
 
-
     <div class="phone">
-
         <div class="screen">
+
+            <!-- =========================
+                 CATEGORIES PAGE
+            ========================== -->
 
             <section class="categories-hero">
 
                 <div class="hero-overlay"></div>
 
+                <img src="media/logo.png" class="logo" alt="לוגו">
 
-                <!-- לוגו -->
-                <img
-                    src="media/logo.png"
-                    class="logo"
-                    alt="צוות פל״א"
-                >
-
-
-                <!-- קווים דקורטיביים -->
                 <div class="hero-curve hero-curve-top"></div>
                 <div class="hero-curve hero-curve-bottom"></div>
-
 
                 <div class="hero-content">
 
@@ -48,54 +35,45 @@
                         <div class="card-curve card-curve-top"></div>
                         <div class="card-curve card-curve-bottom"></div>
 
-
-                        <p class="small-title">
-                            אפליקציית תל״ב בכף היד
-                        </p>
-
+                        <div class="small-title">
+                            יסודות מנצחים
+                        </div>
 
                         <h1 class="categories-title">
-                            ראשי<br>
-                            פרקים
+                            ראשי פרקים
                         </h1>
 
-
                         <div class="title-divider"></div>
-
 
                         <p class="choose-title">
                             בחרו נושא ללמידה
                         </p>
 
 
+                        <!-- =========================
+                             CHAPTERS
+                        ========================== -->
+
                         <div class="chapters-list">
 
 
-                            <!-- ================================= -->
-                            <!-- פרק 1 -->
-                            <!-- ================================= -->
+                            <!-- =========================
+                                 CHAPTER 1
+                            ========================== -->
 
                             <div class="chapter-group">
 
-                                <div
-                                    class="chapter-card"
-                                    onclick="this.parentElement.classList.toggle('open')"
-                                >
+                                <div class="chapter-card"
+                                     onclick="this.parentElement.classList.toggle('open')">
 
                                     <div class="chapter-number">
                                         1
                                     </div>
 
                                     <div class="chapter-text">
-
-                                        <span>
-                                            פרק 1
-                                        </span>
-
                                         <strong>
                                             ניהול הדרכה
                                         </strong>
-
                                     </div>
 
                                     <div class="chapter-arrow">
@@ -108,12 +86,14 @@
                                 <div class="subchapters-list">
 
 
-                                    <!-- 1.1 -->
-                                    <div
-                                        class="subchapter-card"
-                                        data-chapter="1"
-                                        data-subchapter="1"
-                                    >
+                                    <!-- =========================
+                                         1.1
+                                    ========================== -->
+
+                                    <div class="subchapter-card active-subchapter"
+                                         data-chapter="1"
+                                         data-subchapter="1"
+                                         onclick="openSubchapter('1.1')">
 
                                         <div class="subchapter-content">
 
@@ -127,15 +107,29 @@
 
                                         </div>
 
+                                        <div class="subchapter-action">
+
+                                            <span class="subchapter-progress">
+                                                טרם הושלם
+                                            </span>
+
+                                            <span class="subchapter-arrow">
+                                                ‹
+                                            </span>
+
+                                        </div>
+
                                     </div>
 
 
-                                    <!-- 1.2 -->
-                                    <div
-                                        class="subchapter-card locked"
-                                        data-chapter="1"
-                                        data-subchapter="2"
-                                    >
+                                    <!-- =========================
+                                         1.2
+                                    ========================== -->
+
+                                    <div class="subchapter-card locked"
+                                         data-chapter="1"
+                                         data-subchapter="2"
+                                         onclick="openSubchapter('1.2')">
 
                                         <div class="subchapter-content">
 
@@ -151,14 +145,12 @@
 
                                         <div class="locked-status">
 
-                                            <img
-                                                src="media/icons/lockIcon.svg"
-                                                class="lock-symbol"
-                                                alt=""
-                                            >
+                                            <img src="media/icons/lockIcon.svg"
+                                                 class="lock-symbol"
+                                                 alt="נעול">
 
                                             <span>
-                                                טרם נפתח
+                                                נעול
                                             </span>
 
                                         </div>
@@ -166,12 +158,13 @@
                                     </div>
 
 
-                                    <!-- 1.3 -->
-                                    <div
-                                        class="subchapter-card locked"
-                                        data-chapter="1"
-                                        data-subchapter="3"
-                                    >
+                                    <!-- =========================
+                                         1.3
+                                    ========================== -->
+
+                                    <div class="subchapter-card locked"
+                                         data-chapter="1"
+                                         data-subchapter="3">
 
                                         <div class="subchapter-content">
 
@@ -187,14 +180,12 @@
 
                                         <div class="locked-status">
 
-                                            <img
-                                                src="media/icons/lockIcon.svg"
-                                                class="lock-symbol"
-                                                alt=""
-                                            >
+                                            <img src="media/icons/lockIcon.svg"
+                                                 class="lock-symbol"
+                                                 alt="נעול">
 
                                             <span>
-                                                טרם נפתח
+                                                נעול
                                             </span>
 
                                         </div>
@@ -202,12 +193,13 @@
                                     </div>
 
 
-                                    <!-- 1.4 -->
-                                    <div
-                                        class="subchapter-card locked"
-                                        data-chapter="1"
-                                        data-subchapter="4"
-                                    >
+                                    <!-- =========================
+                                         1.4
+                                    ========================== -->
+
+                                    <div class="subchapter-card locked"
+                                         data-chapter="1"
+                                         data-subchapter="4">
 
                                         <div class="subchapter-content">
 
@@ -223,14 +215,12 @@
 
                                         <div class="locked-status">
 
-                                            <img
-                                                src="media/icons/lockIcon.svg"
-                                                class="lock-symbol"
-                                                alt=""
-                                            >
+                                            <img src="media/icons/lockIcon.svg"
+                                                 class="lock-symbol"
+                                                 alt="נעול">
 
                                             <span>
-                                                טרם נפתח
+                                                נעול
                                             </span>
 
                                         </div>
@@ -238,12 +228,13 @@
                                     </div>
 
 
-                                    <!-- 1.5 -->
-                                    <div
-                                        class="subchapter-card locked"
-                                        data-chapter="1"
-                                        data-subchapter="5"
-                                    >
+                                    <!-- =========================
+                                         1.5
+                                    ========================== -->
+
+                                    <div class="subchapter-card locked"
+                                         data-chapter="1"
+                                         data-subchapter="5">
 
                                         <div class="subchapter-content">
 
@@ -259,14 +250,12 @@
 
                                         <div class="locked-status">
 
-                                            <img
-                                                src="media/icons/lockIcon.svg"
-                                                class="lock-symbol"
-                                                alt=""
-                                            >
+                                            <img src="media/icons/lockIcon.svg"
+                                                 class="lock-symbol"
+                                                 alt="נעול">
 
                                             <span>
-                                                טרם נפתח
+                                                נעול
                                             </span>
 
                                         </div>
@@ -274,12 +263,13 @@
                                     </div>
 
 
-                                    <!-- 1.6 -->
-                                    <div
-                                        class="subchapter-card locked"
-                                        data-chapter="1"
-                                        data-subchapter="6"
-                                    >
+                                    <!-- =========================
+                                         1.6
+                                    ========================== -->
+
+                                    <div class="subchapter-card locked"
+                                         data-chapter="1"
+                                         data-subchapter="6">
 
                                         <div class="subchapter-content">
 
@@ -295,14 +285,12 @@
 
                                         <div class="locked-status">
 
-                                            <img
-                                                src="media/icons/lockIcon.svg"
-                                                class="lock-symbol"
-                                                alt=""
-                                            >
+                                            <img src="media/icons/lockIcon.svg"
+                                                 class="lock-symbol"
+                                                 alt="נעול">
 
                                             <span>
-                                                טרם נפתח
+                                                נעול
                                             </span>
 
                                         </div>
@@ -310,12 +298,13 @@
                                     </div>
 
 
-                                    <!-- 1.7 -->
-                                    <div
-                                        class="subchapter-card locked"
-                                        data-chapter="1"
-                                        data-subchapter="7"
-                                    >
+                                    <!-- =========================
+                                         1.7
+                                    ========================== -->
+
+                                    <div class="subchapter-card locked"
+                                         data-chapter="1"
+                                         data-subchapter="7">
 
                                         <div class="subchapter-content">
 
@@ -331,14 +320,12 @@
 
                                         <div class="locked-status">
 
-                                            <img
-                                                src="media/icons/lockIcon.svg"
-                                                class="lock-symbol"
-                                                alt=""
-                                            >
+                                            <img src="media/icons/lockIcon.svg"
+                                                 class="lock-symbol"
+                                                 alt="נעול">
 
                                             <span>
-                                                טרם נפתח
+                                                נעול
                                             </span>
 
                                         </div>
@@ -346,12 +333,13 @@
                                     </div>
 
 
-                                    <!-- 1.8 -->
-                                    <div
-                                        class="subchapter-card locked"
-                                        data-chapter="1"
-                                        data-subchapter="8"
-                                    >
+                                    <!-- =========================
+                                         1.8
+                                    ========================== -->
+
+                                    <div class="subchapter-card locked"
+                                         data-chapter="1"
+                                         data-subchapter="8">
 
                                         <div class="subchapter-content">
 
@@ -367,14 +355,12 @@
 
                                         <div class="locked-status">
 
-                                            <img
-                                                src="media/icons/lockIcon.svg"
-                                                class="lock-symbol"
-                                                alt=""
-                                            >
+                                            <img src="media/icons/lockIcon.svg"
+                                                 class="lock-symbol"
+                                                 alt="נעול">
 
                                             <span>
-                                                טרם נפתח
+                                                נעול
                                             </span>
 
                                         </div>
@@ -382,12 +368,13 @@
                                     </div>
 
 
-                                    <!-- 1.9 -->
-                                    <div
-                                        class="subchapter-card locked"
-                                        data-chapter="1"
-                                        data-subchapter="9"
-                                    >
+                                    <!-- =========================
+                                         1.9
+                                    ========================== -->
+
+                                    <div class="subchapter-card locked"
+                                         data-chapter="1"
+                                         data-subchapter="9">
 
                                         <div class="subchapter-content">
 
@@ -403,14 +390,12 @@
 
                                         <div class="locked-status">
 
-                                            <img
-                                                src="media/icons/lockIcon.svg"
-                                                class="lock-symbol"
-                                                alt=""
-                                            >
+                                            <img src="media/icons/lockIcon.svg"
+                                                 class="lock-symbol"
+                                                 alt="נעול">
 
                                             <span>
-                                                טרם נפתח
+                                                נעול
                                             </span>
 
                                         </div>
@@ -418,12 +403,13 @@
                                     </div>
 
 
-                                    <!-- 1.10 -->
-                                    <div
-                                        class="subchapter-card locked"
-                                        data-chapter="1"
-                                        data-subchapter="10"
-                                    >
+                                    <!-- =========================
+                                         1.10
+                                    ========================== -->
+
+                                    <div class="subchapter-card locked"
+                                         data-chapter="1"
+                                         data-subchapter="10">
 
                                         <div class="subchapter-content">
 
@@ -439,14 +425,12 @@
 
                                         <div class="locked-status">
 
-                                            <img
-                                                src="media/icons/lockIcon.svg"
-                                                class="lock-symbol"
-                                                alt=""
-                                            >
+                                            <img src="media/icons/lockIcon.svg"
+                                                 class="lock-symbol"
+                                                 alt="נעול">
 
                                             <span>
-                                                טרם נפתח
+                                                נעול
                                             </span>
 
                                         </div>
@@ -454,12 +438,13 @@
                                     </div>
 
 
-                                    <!-- 1.11 -->
-                                    <div
-                                        class="subchapter-card locked"
-                                        data-chapter="1"
-                                        data-subchapter="11"
-                                    >
+                                    <!-- =========================
+                                         1.11
+                                    ========================== -->
+
+                                    <div class="subchapter-card locked"
+                                         data-chapter="1"
+                                         data-subchapter="11">
 
                                         <div class="subchapter-content">
 
@@ -475,932 +460,129 @@
 
                                         <div class="locked-status">
 
-                                            <img
-                                                src="media/icons/lockIcon.svg"
-                                                class="lock-symbol"
-                                                alt=""
-                                            >
+                                            <img src="media/icons/lockIcon.svg"
+                                                 class="lock-symbol"
+                                                 alt="נעול">
 
                                             <span>
-                                                טרם נפתח
+                                                נעול
                                             </span>
 
                                         </div>
 
                                     </div>
 
-
                                 </div>
 
                             </div>
 
 
-
-                            <!-- ================================= -->
-                            <!-- פרק 2 -->
-                            <!-- ================================= -->
+                            <!-- =========================
+                                 CHAPTER 2
+                            ========================== -->
 
                             <div class="chapter-group locked-chapter">
 
-                                <div class="chapter-card locked">
+                                <div class="chapter-card">
 
                                     <div class="chapter-number">
                                         2
                                     </div>
 
                                     <div class="chapter-text">
-
-                                        <span>
-                                            פרק 2
-                                        </span>
-
                                         <strong>
                                             תוכנית הכשרה
                                         </strong>
-
                                     </div>
 
                                     <div class="chapter-arrow">
                                         ‹
                                     </div>
 
-                                    <div class="locked-status">
-
-                                        <img
-                                            src="media/icons/lockIcon.svg"
-                                            class="lock-symbol"
-                                            alt=""
-                                        >
-
-                                        <span>
-                                            טרם נפתח
-                                        </span>
-
-                                    </div>
-
-                                </div>
-
-
-                                <div class="subchapters-list">
-
-
-                                    <!-- 2.1 -->
-                                    <div
-                                        class="subchapter-card locked"
-                                        data-chapter="2"
-                                        data-subchapter="1"
-                                    >
-
-                                        <div class="subchapter-content">
-
-                                            <span class="subchapter-number">
-                                                2.1
-                                            </span>
-
-                                            <strong>
-                                                פיתוח הכשרה חדשה
-                                            </strong>
-
-                                        </div>
-
-                                        <div class="locked-status">
-
-                                            <img
-                                                src="media/icons/lockIcon.svg"
-                                                class="lock-symbol"
-                                                alt=""
-                                            >
-
-                                            <span>
-                                                טרם נפתח
-                                            </span>
-
-                                        </div>
-
-                                    </div>
-
-
-                                    <!-- 2.2 -->
-                                    <div
-                                        class="subchapter-card locked"
-                                        data-chapter="2"
-                                        data-subchapter="2"
-                                    >
-
-                                        <div class="subchapter-content">
-
-                                            <span class="subchapter-number">
-                                                2.2
-                                            </span>
-
-                                            <strong>
-                                                כתיבה, עדכון ואישור תיקי יסוד
-                                            </strong>
-
-                                        </div>
-
-                                        <div class="locked-status">
-
-                                            <img
-                                                src="media/icons/lockIcon.svg"
-                                                class="lock-symbol"
-                                                alt=""
-                                            >
-
-                                            <span>
-                                                טרם נפתח
-                                            </span>
-
-                                        </div>
-
-                                    </div>
-
-
-                                    <!-- 2.3 -->
-                                    <div
-                                        class="subchapter-card locked"
-                                        data-chapter="2"
-                                        data-subchapter="3"
-                                    >
-
-                                        <div class="subchapter-content">
-
-                                            <span class="subchapter-number">
-                                                2.3
-                                            </span>
-
-                                            <strong>
-                                                הערכת חניכים (מבחנים בהכשרות)
-                                            </strong>
-
-                                        </div>
-
-                                        <div class="locked-status">
-
-                                            <img
-                                                src="media/icons/lockIcon.svg"
-                                                class="lock-symbol"
-                                                alt=""
-                                            >
-
-                                            <span>
-                                                טרם נפתח
-                                            </span>
-
-                                        </div>
-
-                                    </div>
-
-
-                                    <!-- 2.4 -->
-                                    <div
-                                        class="subchapter-card locked"
-                                        data-chapter="2"
-                                        data-subchapter="4"
-                                    >
-
-                                        <div class="subchapter-content">
-
-                                            <span class="subchapter-number">
-                                                2.4
-                                            </span>
-
-                                            <strong>
-                                                תיק מדריך
-                                            </strong>
-
-                                        </div>
-
-                                        <div class="locked-status">
-
-                                            <img
-                                                src="media/icons/lockIcon.svg"
-                                                class="lock-symbol"
-                                                alt=""
-                                            >
-
-                                            <span>
-                                                טרם נפתח
-                                            </span>
-
-                                        </div>
-
-                                    </div>
-
-
                                 </div>
 
                             </div>
 
 
-
-                            <!-- ================================= -->
-                            <!-- פרק 3 -->
-                            <!-- ================================= -->
+                            <!-- =========================
+                                 CHAPTER 3
+                            ========================== -->
 
                             <div class="chapter-group locked-chapter">
 
-                                <div class="chapter-card locked">
+                                <div class="chapter-card">
 
                                     <div class="chapter-number">
                                         3
                                     </div>
 
                                     <div class="chapter-text">
-
-                                        <span>
-                                            פרק 3
-                                        </span>
-
                                         <strong>
                                             סגל הכשרה
                                         </strong>
-
                                     </div>
 
                                     <div class="chapter-arrow">
                                         ‹
                                     </div>
 
-                                    <div class="locked-status">
-
-                                        <img
-                                            src="media/icons/lockIcon.svg"
-                                            class="lock-symbol"
-                                            alt=""
-                                        >
-
-                                        <span>
-                                            טרם נפתח
-                                        </span>
-
-                                    </div>
-
-                                </div>
-
-
-                                <div class="subchapters-list">
-
-
-                                    <!-- 3.1 -->
-                                    <div
-                                        class="subchapter-card locked"
-                                        data-chapter="3"
-                                        data-subchapter="1"
-                                    >
-
-                                        <div class="subchapter-content">
-
-                                            <span class="subchapter-number">
-                                                3.1
-                                            </span>
-
-                                            <strong>
-                                                הגדרות תפקידם לסגלי הדרכה
-                                            </strong>
-
-                                        </div>
-
-                                        <div class="locked-status">
-
-                                            <img src="media/icons/lockIcon.svg"
-                                                 class="lock-symbol"
-                                                 alt="">
-
-                                            <span>
-                                                טרם נפתח
-                                            </span>
-
-                                        </div>
-
-                                    </div>
-
-
-                                    <!-- 3.2 -->
-                                    <div
-                                        class="subchapter-card locked"
-                                        data-chapter="3"
-                                        data-subchapter="2"
-                                    >
-
-                                        <div class="subchapter-content">
-
-                                            <span class="subchapter-number">
-                                                3.2
-                                            </span>
-
-                                            <strong>
-                                                איתור ומיון מפקדים להכשרות
-                                            </strong>
-
-                                        </div>
-
-                                        <div class="locked-status">
-
-                                            <img src="media/icons/lockIcon.svg"
-                                                 class="lock-symbol"
-                                                 alt="">
-
-                                            <span>
-                                                טרם נפתח
-                                            </span>
-
-                                        </div>
-
-                                    </div>
-
-
-                                    <!-- 3.3 -->
-                                    <div
-                                        class="subchapter-card locked"
-                                        data-chapter="3"
-                                        data-subchapter="3"
-                                    >
-
-                                        <div class="subchapter-content">
-
-                                            <span class="subchapter-number">
-                                                3.3
-                                            </span>
-
-                                            <strong>
-                                                הכנות מפקדים
-                                            </strong>
-
-                                        </div>
-
-                                        <div class="locked-status">
-
-                                            <img src="media/icons/lockIcon.svg"
-                                                 class="lock-symbol"
-                                                 alt="">
-
-                                            <span>
-                                                טרם נפתח
-                                            </span>
-
-                                        </div>
-
-                                    </div>
-
-
-                                    <!-- 3.4 -->
-                                    <div
-                                        class="subchapter-card locked"
-                                        data-chapter="3"
-                                        data-subchapter="4"
-                                    >
-
-                                        <div class="subchapter-content">
-
-                                            <span class="subchapter-number">
-                                                3.4
-                                            </span>
-
-                                            <strong>
-                                                פיתוח והערכת מפקדים
-                                            </strong>
-
-                                        </div>
-
-                                        <div class="locked-status">
-
-                                            <img src="media/icons/lockIcon.svg"
-                                                 class="lock-symbol"
-                                                 alt="">
-
-                                            <span>
-                                                טרם נפתח
-                                            </span>
-
-                                        </div>
-
-                                    </div>
-
-
-                                    <!-- 3.5 -->
-                                    <div
-                                        class="subchapter-card locked"
-                                        data-chapter="3"
-                                        data-subchapter="5"
-                                    >
-
-                                        <div class="subchapter-content">
-
-                                            <span class="subchapter-number">
-                                                3.5
-                                            </span>
-
-                                            <strong>
-                                                הכשרות הדרכה למפקדים ובעלי תפקידים
-                                            </strong>
-
-                                        </div>
-
-                                        <div class="locked-status">
-
-                                            <img src="media/icons/lockIcon.svg"
-                                                 class="lock-symbol"
-                                                 alt="">
-
-                                            <span>
-                                                טרם נפתח
-                                            </span>
-
-                                        </div>
-
-                                    </div>
-
-
-                                    <!-- 3.6 -->
-                                    <div
-                                        class="subchapter-card locked"
-                                        data-chapter="3"
-                                        data-subchapter="6"
-                                    >
-
-                                        <div class="subchapter-content">
-
-                                            <span class="subchapter-number">
-                                                3.6
-                                            </span>
-
-                                            <strong>
-                                                תחלופת מפקדים בהכשרות
-                                            </strong>
-
-                                        </div>
-
-                                        <div class="locked-status">
-
-                                            <img src="media/icons/lockIcon.svg"
-                                                 class="lock-symbol"
-                                                 alt="">
-
-                                            <span>
-                                                טרם נפתח
-                                            </span>
-
-                                        </div>
-
-                                    </div>
-
-
-                                    <!-- 3.7 -->
-                                    <div
-                                        class="subchapter-card locked"
-                                        data-chapter="3"
-                                        data-subchapter="7"
-                                    >
-
-                                        <div class="subchapter-content">
-
-                                            <span class="subchapter-number">
-                                                3.7
-                                            </span>
-
-                                            <strong>
-                                                הרחקת איש סגל
-                                            </strong>
-
-                                        </div>
-
-                                        <div class="locked-status">
-
-                                            <img src="media/icons/lockIcon.svg"
-                                                 class="lock-symbol"
-                                                 alt="">
-
-                                            <span>
-                                                טרם נפתח
-                                            </span>
-
-                                        </div>
-
-                                    </div>
-
-
-                                    <!-- 3.8 -->
-                                    <div
-                                        class="subchapter-card locked"
-                                        data-chapter="3"
-                                        data-subchapter="8"
-                                    >
-
-                                        <div class="subchapter-content">
-
-                                            <span class="subchapter-number">
-                                                3.8
-                                            </span>
-
-                                            <strong>
-                                                פורום הדרכה בה"די
-                                            </strong>
-
-                                        </div>
-
-                                        <div class="locked-status">
-
-                                            <img src="media/icons/lockIcon.svg"
-                                                 class="lock-symbol"
-                                                 alt="">
-
-                                            <span>
-                                                טרם נפתח
-                                            </span>
-
-                                        </div>
-
-                                    </div>
-
-
                                 </div>
 
                             </div>
 
 
-
-                            <!-- ================================= -->
-                            <!-- פרק 4 -->
-                            <!-- ================================= -->
+                            <!-- =========================
+                                 CHAPTER 4
+                            ========================== -->
 
                             <div class="chapter-group locked-chapter">
 
-                                <div class="chapter-card locked">
+                                <div class="chapter-card">
 
                                     <div class="chapter-number">
                                         4
                                     </div>
 
                                     <div class="chapter-text">
-
-                                        <span>
-                                            פרק 4
-                                        </span>
-
                                         <strong>
                                             חניכים בהכשרה
                                         </strong>
-
                                     </div>
 
                                     <div class="chapter-arrow">
                                         ‹
                                     </div>
 
-                                    <div class="locked-status">
-
-                                        <img
-                                            src="media/icons/lockIcon.svg"
-                                            class="lock-symbol"
-                                            alt=""
-                                        >
-
-                                        <span>
-                                            טרם נפתח
-                                        </span>
-
-                                    </div>
-
-                                </div>
-
-
-                                <div class="subchapters-list">
-
-
-                                    <!-- 4.1 -->
-                                    <div
-                                        class="subchapter-card locked"
-                                        data-chapter="4"
-                                        data-subchapter="1"
-                                        onclick="openVideo(event)"
-                                    >
-
-                                        <div class="subchapter-content">
-
-                                            <span class="subchapter-number">
-                                                4.1
-                                            </span>
-
-                                            <strong>
-                                                טיפול בחניך מתקשה
-                                            </strong>
-
-                                        </div>
-
-                                        <div class="locked-status">
-
-                                            <img
-                                                src="media/icons/lockIcon.svg"
-                                                class="lock-symbol"
-                                                alt=""
-                                            >
-
-                                            <span>
-                                                טרם נפתח
-                                            </span>
-
-                                        </div>
-
-                                    </div>
-
-
-                                    <!-- 4.2 -->
-                                    <div
-                                        class="subchapter-card locked"
-                                        data-chapter="4"
-                                        data-subchapter="2"
-                                    >
-
-                                        <div class="subchapter-content">
-
-                                            <span class="subchapter-number">
-                                                4.2
-                                            </span>
-
-                                            <strong>
-                                                ועדה להערכת חניך
-                                            </strong>
-
-                                        </div>
-
-                                        <div class="locked-status">
-
-                                            <img src="media/icons/lockIcon.svg"
-                                                 class="lock-symbol"
-                                                 alt="">
-
-                                            <span>
-                                                טרם נפתח
-                                            </span>
-
-                                        </div>
-
-                                    </div>
-
-
-                                    <!-- 4.3 -->
-                                    <div
-                                        class="subchapter-card locked"
-                                        data-chapter="4"
-                                        data-subchapter="3"
-                                    >
-
-                                        <div class="subchapter-content">
-
-                                            <span class="subchapter-number">
-                                                4.3
-                                            </span>
-
-                                            <strong>
-                                                בחירת חניך מצטיין וחניך למופת
-                                            </strong>
-
-                                        </div>
-
-                                        <div class="locked-status">
-
-                                            <img src="media/icons/lockIcon.svg"
-                                                 class="lock-symbol"
-                                                 alt="">
-
-                                            <span>
-                                                טרם נפתח
-                                            </span>
-
-                                        </div>
-
-                                    </div>
-
-
-                                    <!-- 4.4 -->
-                                    <div
-                                        class="subchapter-card locked"
-                                        data-chapter="4"
-                                        data-subchapter="4"
-                                    >
-
-                                        <div class="subchapter-content">
-
-                                            <span class="subchapter-number">
-                                                4.4
-                                            </span>
-
-                                            <strong>
-                                                תיק אישי לחניך
-                                            </strong>
-
-                                        </div>
-
-                                        <div class="locked-status">
-
-                                            <img src="media/icons/lockIcon.svg"
-                                                 class="lock-symbol"
-                                                 alt="">
-
-                                            <span>
-                                                טרם נפתח
-                                            </span>
-
-                                        </div>
-
-                                    </div>
-
-
-                                    <!-- 4.5 -->
-                                    <div
-                                        class="subchapter-card locked"
-                                        data-chapter="4"
-                                        data-subchapter="5"
-                                    >
-
-                                        <div class="subchapter-content">
-
-                                            <span class="subchapter-number">
-                                                4.5
-                                            </span>
-
-                                            <strong>
-                                                העברת בוגר קורס ליחידה קולטת "העברת מקל"
-                                            </strong>
-
-                                        </div>
-
-                                        <div class="locked-status">
-
-                                            <img src="media/icons/lockIcon.svg"
-                                                 class="lock-symbol"
-                                                 alt="">
-
-                                            <span>
-                                                טרם נפתח
-                                            </span>
-
-                                        </div>
-
-                                    </div>
-
-
                                 </div>
 
                             </div>
 
 
-
-                            <!-- ================================= -->
-                            <!-- פרק 5 -->
-                            <!-- ================================= -->
+                            <!-- =========================
+                                 CHAPTER 5
+                            ========================== -->
 
                             <div class="chapter-group locked-chapter">
 
-                                <div class="chapter-card locked">
+                                <div class="chapter-card">
 
                                     <div class="chapter-number">
                                         5
                                     </div>
 
                                     <div class="chapter-text">
-
-                                        <span>
-                                            פרק 5
-                                        </span>
-
                                         <strong>
                                             סביבת הכשרה
                                         </strong>
-
                                     </div>
 
                                     <div class="chapter-arrow">
                                         ‹
                                     </div>
 
-                                    <div class="locked-status">
-
-                                        <img
-                                            src="media/icons/lockIcon.svg"
-                                            class="lock-symbol"
-                                            alt=""
-                                        >
-
-                                        <span>
-                                            טרם נפתח
-                                        </span>
-
-                                    </div>
-
-                                </div>
-
-
-                                <div class="subchapters-list">
-
-
-                                    <!-- 5.1 -->
-                                    <div
-                                        class="subchapter-card locked"
-                                        data-chapter="5"
-                                        data-subchapter="1"
-                                    >
-
-                                        <div class="subchapter-content">
-
-                                            <span class="subchapter-number">
-                                                5.1
-                                            </span>
-
-                                            <strong>
-                                                קליטה והטמעת מאמן בהכשרות
-                                            </strong>
-
-                                        </div>
-
-                                        <div class="locked-status">
-
-                                            <img src="media/icons/lockIcon.svg"
-                                                 class="lock-symbol"
-                                                 alt="">
-
-                                            <span>
-                                                טרם נפתח
-                                            </span>
-
-                                        </div>
-
-                                    </div>
-
-
-                                    <!-- 5.2 -->
-                                    <div
-                                        class="subchapter-card locked"
-                                        data-chapter="5"
-                                        data-subchapter="2"
-                                    >
-
-                                        <div class="subchapter-content">
-
-                                            <span class="subchapter-number">
-                                                5.2
-                                            </span>
-
-                                            <strong>
-                                                קליטת אמל"ח ביחידת הדרכה
-                                            </strong>
-
-                                        </div>
-
-                                        <div class="locked-status">
-
-                                            <img src="media/icons/lockIcon.svg"
-                                                 class="lock-symbol"
-                                                 alt="">
-
-                                            <span>
-                                                טרם נפתח
-                                            </span>
-
-                                        </div>
-
-                                    </div>
-
-
-                                    <!-- 5.3 -->
-                                    <div
-                                        class="subchapter-card locked"
-                                        data-chapter="5"
-                                        data-subchapter="3"
-                                    >
-
-                                        <div class="subchapter-content">
-
-                                            <span class="subchapter-number">
-                                                5.3
-                                            </span>
-
-                                            <strong>
-                                                שגרת אחזקת תשתיות הדרכה
-                                            </strong>
-
-                                        </div>
-
-                                        <div class="locked-status">
-
-                                            <img src="media/icons/lockIcon.svg"
-                                                 class="lock-symbol"
-                                                 alt="">
-
-                                            <span>
-                                                טרם נפתח
-                                            </span>
-
-                                        </div>
-
-                                    </div>
-
-
                                 </div>
 
                             </div>
-
 
                         </div>
 
@@ -1411,47 +593,814 @@
             </section>
 
         </div>
-
     </div>
 
 
-    <!-- קרדיט -->
+    <!-- =====================================================
+         1.1 LEARNING PAGE
+    ====================================================== -->
+
+    <section id="subchapterPage" class="subchapter-page">
+
+        <div class="subchapter-background"></div>
+
+        <div class="subchapter-container">
+
+
+            <!-- HEADER -->
+
+            <header class="subchapter-header">
+
+                <button class="back-button"
+                        onclick="closeSubchapter()">
+
+                    <span>→</span>
+
+                    חזרה לפרקים
+
+                </button>
+
+                <h1>
+                    יחסי גומלין בתחום ההדרכה והלמידה עם מפקדות החיילות הראשיות
+                </h1>
+
+            </header>
+
+
+            <!-- INTRO -->
+
+            <section class="learning-intro">
+
+                <div class="intro-icon">
+                    1.1
+                </div>
+
+                <div>
+
+                    <span>
+                        מה נלמד?
+                    </span>
+
+                    <h2>
+                        יחסי הגומלין בין החיל לבה"ד
+                    </h2>
+
+                    <p>
+                        נבין כיצד מתקיימת הכפיפות המקצועית,
+                        מי הם בעלי התפקידים המעורבים ומהם
+                        עקרונות העבודה בתחום המקצועי־תורתי.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <!-- 1. מטרת הנוהל -->
+
+            <section class="learning-section">
+
+                <div class="section-heading">
+
+                    <span class="section-number">
+                        01
+                    </span>
+
+                    <div>
+
+                        <span>
+                            מטרת הנוהל
+                        </span>
+
+                        <h2>
+                            למה הנוהל קיים?
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div class="info-card highlight-card">
+
+                    <div class="info-card-icon">
+
+                        <img id="target"
+                             src="media/icons/target.png"
+                             alt="Target Icon">
+
+                    </div>
+
+                    <p>
+                        הגדרת יחסי הגומלין בתחום ההדרכה והלמידה
+                        בין המפקדה הממונה החיילית לבה"ד.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <!-- 2. כללי -->
+
+            <section class="learning-section">
+
+                <div class="section-heading">
+
+                    <span class="section-number">
+                        02
+                    </span>
+
+                    <div>
+
+                        <span>
+                            כללי
+                        </span>
+
+                        <h2>
+                            איך מתקיימים יחסי הגומלין?
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div class="interactive-cards">
+
+
+                    <article class="rule-card">
+
+                        <div class="rule-top">
+
+                            <span class="rule-number">
+                                א
+                            </span>
+
+                        </div>
+
+                        <h3>
+                            כפיפות מקצועית
+                        </h3>
+
+                        <p>
+                            בה"די זרוע יבשה כפופים מקצועית
+                            לחייליות המקצועיים.
+                        </p>
+
+                    </article>
+
+
+                    <article class="rule-card">
+
+                        <div class="rule-top">
+
+                            <span class="rule-number">
+                                ב
+                            </span>
+
+                        </div>
+
+                        <h3>
+                            דירקטיבות מקצועיות
+                        </h3>
+
+                        <p>
+                            בין החיילות ובין הבה"ד שמעליו
+                            מתקיימים יחסי גומלין, שבהם הבה"ד
+                            מקבל דירקטיבות מקצועיות.
+                        </p>
+
+                    </article>
+
+
+                    <article class="rule-card">
+
+                        <div class="rule-top">
+
+                            <span class="rule-number">
+                                ג
+                            </span>
+
+                        </div>
+
+                        <h3>
+                            תחומי ממשק נוספים
+                        </h3>
+
+                        <p>
+                            מתקיימים יחסי גומלין גם בתחומים כגון
+                            פיתוח כ"א, ניהול גרף ההכשרות,
+                            ניהול משאבים, הדרכה, ארגון ותקינה,
+                            תחום הנפגעים ועוד.
+                        </p>
+
+                    </article>
+
+                </div>
+
+
+                <div class="note-card">
+
+                    <span>
+                        שימו לב
+                    </span>
+
+                    <p>
+                        נוהל זה מפרט רק את הנושאים בהם מתקיים
+                        יחסי גומלין בין הבה"ד לחיל בתחום
+                        ההנחיה המקצועית־תורתית.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <!-- 3. הגדרות -->
+
+            <section class="learning-section">
+
+                <div class="section-heading">
+
+                    <span class="section-number">
+                        03
+                    </span>
+
+                    <div>
+
+                        <span>
+                            הגדרות
+                        </span>
+
+                        <h2>
+                            מושג מפתח
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div class="definition-card">
+
+                    <div class="definition-title">
+
+                        <span>
+                            א
+                        </span>
+
+                        <h3>
+                            כפיפות מקצועית
+                        </h3>
+
+                    </div>
+
+                    <p>
+                        הקבלת הנחיות, הוראות ודרקטיביות הקשורים
+                        לסוגיות תורתיות, וכן סוגיות בעלות משמעות
+                        לפיתוח מקצועי ארוך טווח.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <!-- 4. עקרונות עבודה -->
+
+            <section class="learning-section">
+
+                <div class="section-heading">
+
+                    <span class="section-number">
+                        04
+                    </span>
+
+                    <div>
+
+                        <span>
+                            עקרונות עבודה
+                        </span>
+
+                        <h2>
+                            מי עושה מה?
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div class="principle-main-card">
+
+                    <div class="principle-icon">
+                        ⚙
+                    </div>
+
+                    <p>
+                        תפקידו של החיל הינו להנחות, לחנוך
+                        ולבקר את פעילות הבה"ד בתחום
+                        המקצועי־תורתי.
+                    </p>
+
+                </div>
+
+
+                <h3 class="subsection-title">
+                    בעלי התפקידים והקשר שלהם לבה"ד
+                </h3>
+
+
+                <div class="roles-list">
+
+
+                    <article class="role-card">
+
+                        <div class="role-number">
+                            1
+                        </div>
+
+                        <div class="role-content">
+
+                            <h3>
+                                מפקד הבה"ד
+                            </h3>
+
+                            <p>
+                                הנחיות שוטפות בתחום המקצועי־תורתי
+                                בהכשרות.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="role-card">
+
+                        <div class="role-number">
+                            2
+                        </div>
+
+                        <div class="role-content">
+
+                            <h3>
+                                מפקדת הגפ"ה
+                            </h3>
+
+                            <p>
+                                בנושאי אישור תיקי יסוד, אישור כשירויות,
+                                הטמעת מאמנים, ביקורות חייליות.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="role-card">
+
+                        <div class="role-number">
+                            3
+                        </div>
+
+                        <div class="role-content">
+
+                            <h3>
+                                רמ"ד מקצועות ומובילי תחום
+                            </h3>
+
+                            <p>
+                                אישור תכולות הדרכה, הטמעת אמל"ח,
+                                חניכה שוטפת ובקרות.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="role-card">
+
+                        <div class="role-number">
+                            4
+                        </div>
+
+                        <div class="role-content">
+
+                            <h3>
+                                מפקדי ההכשרות
+                            </h3>
+
+                            <p>
+                                הנחיה, עדכון וחניכה בתחום
+                                המקצועי־תורתי.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+
+                <!-- TABLE INTRO -->
+
+                <div class="table-intro">
+
+                    <span>
+                        ממשקי עבודה
+                    </span>
+
+                    <h3>
+                        תחומי האחריות של מפקדת החיל
+                    </h3>
+
+                    <p>
+                        מפקדת החיל נושאת באחריות בתחום ההדרכה
+                        במספר נושאים מוגדרים:
+                    </p>
+
+                </div>
+
+
+                <!-- TABLE -->
+
+                <div class="table-wrapper">
+
+                    <table class="learning-table">
+
+                        <thead>
+
+                            <tr>
+                                <th>מס"ד</th>
+                                <th>נושא</th>
+                                <th>פירוט התכולה</th>
+                                <th>עיתוי עדכון ותיקוף</th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+                                <td>1</td>
+                                <td>כתיבת תפיסת הדרכה חיילית</td>
+                                <td>
+                                    כתיבת תפיסה המתארת את רצף פיתוח ושימור כשרות הלוחם והמפקד מההכשרה בבה"ד דרך שירותו הסדיר בענף ועד לשירותו במילואים. תפיסת ההדרכה תשמש את כלל המפקדים בחיל.
+                                </td>
+                                <td>אחד לשנתיים</td>
+                            </tr>
+
+                            <tr>
+                                <td>2</td>
+                                <td>
+                                    כתיבת תו"ל לרבות ניתוחי תפקיד וכשירויות (*בהתאם לנוהל פיתוח הכשרה חדשה 2.1)
+                                </td>
+                                <td>
+                                    כתיבה של הגדרת יעוד תפקיד ומרכיבי תפקיד לכל אחד מבעלי התפקידים כחלק מספרות התו"ל, כתיבת כשירויות לכל בעל תפקיד ומסגרת עד רמת הענף. כתיבת התור והכשירויות ישמשו את הבה"ד להמשך פיתוח ועדכון ההכשרות.
+                                </td>
+                                <td>אחת לשלוש שנים</td>
+                            </tr>
+
+                            <tr>
+                                <td>3</td>
+                                <td>
+                                    אישור תיקי יסוד (*בהתאם לנוהל תיקי יסוד (2.2))
+                                </td>
+                                <td>
+                                    אישור תוכניות הכשרה במסגרת תיק יסוד
+                                </td>
+                                <td>
+                                    לכל הכשרה חדשה או בעת שינוי ברצף או משך ההכשרה במידה ולא חל שינוי משמעותי יאושר התיק אחת לשלוש שנים
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>4</td>
+                                <td>
+                                    הובלת הלמידה המבצעית
+                                </td>
+                                <td>
+                                    ביצוע מופעים לשיתוף בלקחים מבצעיים כתוצאה מפעילות מבצעים, אימונים ולקחים מקצועיים שעולים בהכשרות.
+                                </td>
+                                <td>אחת לשנה לכל היותר</td>
+                            </tr>
+
+                            <tr>
+                                <td>5</td>
+                                <td>
+                                    ייזום והקמת מאמנים (*בהתאם לנוהל קליטה והטמעת מאמנים 5.1)
+                                </td>
+                                <td>
+                                    ביצוע תהליך לייזום ופיתוח מאמנים עבור ההכשרות והאימונים בשיתוף בעלי תפקידים רלוונטיים מבה"ד. כתיבת עקרונות חייליים להטמעת מאמן לרבות הכשירויות שעליהם המאמן נותן מענה והאופן בו נדרש לשלבו בהכשרות - משפר כשירויות/מקנה כשירות.
+                                </td>
+                                <td>שוטף</td>
+                            </tr>
+
+                            <tr>
+                                <td>6</td>
+                                <td>
+                                    הטמעת אמל"ח חדש בהכשרות (*בהתאם לנוהל קליטת אמל"ח ביחידות 5.2)
+                                </td>
+                                <td>
+                                    ביצוע תהליך הטמעה של אמל"ח כדש לרבות כתיבת כשירויות לאמל"ח החדש, הגדרת אופן השגת הכשירות לאמל"ח, שיתוף הבה"ד בתהליך הפיתוח ובגרעין ההטמעה מול התעשייה. הנחיית גאנט להטמעת האמל"ח.
+                                </td>
+                                <td></td>
+                            </tr>
+
+                            <tr>
+                                <td>7</td>
+                                <td>
+                                    הנחיות מקצועיות שוטפות
+                                </td>
+                                <td>
+                                    כתיבה והפצת הוראות מקצועיות שוטפות משלימות לספרות התו"ל שתכליתה חידוד או עדכון בתהליך המבצעי. וכן קליטה של אמל"ח חדש.
+                                </td>
+                                <td>שוטף על-פי צורך</td>
+                            </tr>
+
+                            <tr>
+                                <td>8</td>
+                                <td>
+                                    אישור תכולות הדרכה (*בהתאם לנוהל תיק מדריך 2.4)
+                                </td>
+                                <td>
+                                    אישור תכולות ההדרכה: מארזי הדרכה, מבחנים, תיקי תרגיל
+                                </td>
+                                <td>אחת לשנתיים</td>
+                            </tr>
+
+                            <tr>
+                                <td>9</td>
+                                <td>
+                                    בקרת איכות ההכשרות בבה"ד
+                                </td>
+                                <td>
+                                    ביצוע בקרות לבדיקת הטמעת התו"ל, ההוראות המקצועיות, האמל"ח והמאמנים בהכשרות. בקרה על הרמה המקצועית של המפקדים. בקרה על איכות העברת התכנים המקצועית ונושאים נוספים להחלטת מפקד החיל.
+                                </td>
+                                <td>אחת לשנתיים</td>
+                            </tr>
+
+                            <tr>
+                                <td>10</td>
+                                <td>
+                                    קבלת החלטות שוטפת עבור ההכשרות
+                                </td>
+                                <td>
+                                    ביצוע דיונים שוטפים להצגת לקחי הכשרות לצורך קבלת החלטות מקצועיות עבור ההכשרה.
+                                </td>
+                                <td>
+                                    אחת למחזור/אחת לתקופה שתקבע ע"י מפקד החיל
+                                </td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+
+            <!-- 5. תיעוד וניהול ידע -->
+
+            <section class="learning-section knowledge-section">
+
+                <div class="section-heading">
+
+                    <span class="section-number">
+                        05
+                    </span>
+
+                    <div>
+
+                        <span>
+                            תיעוד וניהול ידע
+                        </span>
+
+                        <h2>
+                            הידע נשאר במערכת
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div class="knowledge-intro">
+
+                    כלל המופעים הפורמאליים המתבצעים
+                    ברשות החיל יתועדו באחריות מוביל
+                    המופע שיקבע בחיל.
+
+                </div>
+
+
+                <div class="knowledge-cards">
+
+
+                    <article class="knowledge-card">
+
+                        <div class="knowledge-number">
+                            א
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                תיעוד המופעים
+                            </h3>
+
+                            <p>
+                                כלל המופעים הפורמאליים המתבצעים
+                                ברשות החיל יתועדו באחריות מוביל
+                                המופע שיקבע בחיל.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="knowledge-card">
+
+                        <div class="knowledge-number">
+                            ב
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                סטאטוס אישורים
+                            </h3>
+
+                            <p>
+                                כלל הידע על סטאטוס אישור תיקי יסוד
+                                ותכולות הדרכה ינוהל על ידי ענף
+                                כשירויות בחיילות.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="knowledge-card">
+
+                        <div class="knowledge-number">
+                            ג
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                הנגשת ספרות מקצועית
+                            </h3>
+
+                            <p>
+                                ספרות מקצועית, לרבות כשירויות
+                                והוראות מקצועיות יונגשו לכלל
+                                המפקדים מדרג מ"פ ומעלה בבה"ד
+                                באחריות אג"ם הבה"ד או פונקציה
+                                אחרת שתוגדר על־ידי מפקד הבה"ד.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="knowledge-card">
+
+                        <div class="knowledge-number">
+                            ד
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                שמירת סיכומי המופעים
+                            </h3>
+
+                            <p>
+                                על בעלי התפקידים בבה"ד אשר היו
+                                שותפים למופעים החייליים, להחזיק
+                                בסיכומם.
+                            </p>
+
+                            <div class="knowledge-list">
+
+                                <div>
+                                    <span>1</span>
+                                    סיכומי הכשרות
+                                </div>
+
+                                <div>
+                                    <span>2</span>
+                                    מופעי למידה
+                                </div>
+
+                                <div>
+                                    <span>3</span>
+                                    אישור תיקי יסוד, לרבות דיונים
+                                    בנושא פיתוח ועדכון תוכניות הכשרה
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+
+            <!-- SUMMARY -->
+
+            <section class="takeaway-section">
+
+                <div class="takeaway-card">
+
+                    <span class="takeaway-label">
+                        לסיכום
+                    </span>
+
+                    <h2>
+                        מה חשוב לזכור?
+                    </h2>
+
+                    <div class="takeaway-items">
+
+                        <div>
+                            <span>1</span>
+                            החיל מנחה, חונך ומבקר את פעילות הבה"ד.
+                        </div>
+
+                        <div>
+                            <span>2</span>
+                            הבה"ד מקבל דירקטיבות מקצועיות מהחיל.
+                        </div>
+
+                        <div>
+                            <span>3</span>
+                            בעלי התפקידים מקיימים קשרי גומלין שוטפים.
+                        </div>
+
+                        <div>
+                            <span>4</span>
+                            תיעוד וניהול ידע מאפשרים לשמר את הידע המקצועי.
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- FINISH -->
+
+            <button class="finish-learning"
+                    onclick="finishSubchapter()">
+
+                <span>✓</span>
+
+                סיימתי ללמוד את תת־הפרק
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
     <div class="footer-credit">
         פותח ע״י סמל נוגה בר-לב
     </div>
 
 
-    <!-- JavaScript -->
-    <script src="code.js"></script>
+    <!-- VIDEO MODAL -->
 
-
-    <!-- ================================= -->
-    <!-- חלון סרטון YouTube -->
-    <!-- ================================= -->
-
-    <div
-        id="videoModal"
-        class="video-modal"
-    >
+    <div id="videoModal" class="video-modal">
 
         <div class="video-container">
 
-            <button
-                class="close-video"
-                onclick="closeVideo()"
-            >
+            <button class="close-video"
+                    onclick="closeVideo()">
                 ×
             </button>
 
-
-            <iframe
-                id="youtubeVideo"
-                src=""
-                title="טיפול בחניך מתקשה"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen
-            >
+            <iframe id="youtubeVideo"
+                    src=""
+                    allow="autoplay; encrypted-media"
+                    allowfullscreen>
             </iframe>
 
         </div>
@@ -1459,6 +1408,7 @@
     </div>
 
 
-</body>
+    <script src="code.js"></script>
 
+</body>
 </html>
