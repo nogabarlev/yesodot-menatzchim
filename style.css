@@ -3028,6 +3028,7 @@ body:not(.categories-page) .hero-section{
     background: #fafbf8;
     text-align: right;
     font-family: inherit;
+    font-size: 14px;
     color: #4e564d;
     cursor: pointer;
     transition: 0.2s;
