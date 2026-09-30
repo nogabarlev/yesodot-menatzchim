@@ -2391,6 +2391,7 @@ body:not(.categories-page) .hero-section{
 .takeaway-card h2 {
     font-size: 28px;
     margin: 6px 0 20px;
+    text-align: right;
 }
 
 .takeaway-items {
