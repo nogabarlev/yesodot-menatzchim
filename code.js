@@ -43,26 +43,78 @@ const toggleDropdown = () => {
 };
 
 
-/* =========================
-   1.1 SUBCHAPTER
-========================= */
-
 const openSubchapter = (chapter) => {
 
-    if (chapter !== "1.1") return;
+    /* =========================
+       1.1
+    ========================= */
 
-    const page = document.getElementById("subchapterPage");
+    if (chapter === "1.1") {
 
-    if (!page) return;
+        const page =
+            document.getElementById("subchapterPage");
 
-    page.classList.add("show");
+        if (!page) return;
 
-    document.body.style.overflow = "hidden";
+        page.classList.add("show");
 
-    window.scrollTo({
-        top: 0,
-        behavior: "instant"
-    });
+        document.body.style.overflow = "hidden";
+
+        window.scrollTo({
+            top: 0,
+            behavior: "auto"
+        });
+
+        return;
+    }
+
+
+    /* =========================
+       1.2
+    ========================= */
+
+    if (chapter === "1.2") {
+
+        const page =
+            document.getElementById("subchapter12Page");
+
+        if (!page) return;
+
+        page.classList.add("show");
+
+        document.body.style.overflow = "hidden";
+
+        window.scrollTo({
+            top: 0,
+            behavior: "auto"
+        });
+
+        return;
+    }
+
+
+    /* =========================
+       1.3
+    ========================= */
+
+    if (chapter === "1.3") {
+
+        const page =
+            document.getElementById("subchapter13Page");
+
+        if (!page) return;
+
+        page.classList.add("show");
+
+        document.body.style.overflow = "hidden";
+
+        window.scrollTo({
+            top: 0,
+            behavior: "auto"
+        });
+
+        return;
+    }
 };
 
 
@@ -650,7 +702,9 @@ const refreshChaptersUI = () => {
 ========================= */
 
 const refreshSubchaptersUI = () => {
+
     const user = JSON.parse(localStorage.getItem("user"));
+
     if (!user) return;
 
     if (!user.subchapters) {
@@ -661,106 +715,153 @@ const refreshSubchaptersUI = () => {
         user.subchapters.chapter1 = {};
     }
 
+    const chapter1 = user.subchapters.chapter1;
+
+
     /* =========================
-       1.1
+       SUBCHAPTERS 1.1 - 1.11
     ========================= */
 
-    const subchapter11 = document.querySelector(
-        '[data-chapter="1"][data-subchapter="1"]'
-    );
+    for (let i = 1; i <= 11; i++) {
 
-    const progress11 =
-        user.subchapters.chapter1["1.1"] || 0;
+        const currentNumber = `1.${i}`;
 
-    if (subchapter11) {
+        const nextNumber = `1.${i + 1}`;
+
+        const currentCard =
+            document.querySelector(
+                `[data-chapter="1"][data-subchapter="${i}"]`
+            );
+
+        const nextCard =
+            document.querySelector(
+                `[data-chapter="1"][data-subchapter="${i + 1}"]`
+            );
+
+        if (!currentCard) continue;
+
+
+        /* ההתקדמות של תת הפרק הנוכחי */
+
+        const currentProgress =
+            chapter1[currentNumber] || 0;
+
+
         const progressElement =
-            subchapter11.querySelector(".subchapter-progress");
+            currentCard.querySelector(
+                ".subchapter-progress"
+            );
 
-        if (progress11 === 100) {
-            subchapter11.classList.remove("locked");
+
+        const lockedStatus =
+            currentCard.querySelector(
+                ".locked-status"
+            );
+
+
+        /* =========================
+           תת פרק שהושלם
+        ========================= */
+
+        if (currentProgress === 100) {
+
+            currentCard.classList.remove("locked");
+            currentCard.classList.add("available");
 
             if (progressElement) {
-                progressElement.innerHTML = "100% הושלם";
+                progressElement.innerHTML =
+                    "100% הושלם";
             }
-        } else {
-            if (progressElement) {
-                progressElement.innerHTML = "טרם הושלם";
-            }
-        }
-    }
-
-    /* =========================
-       1.2
-    ========================= */
-
-    const subchapter12 = document.querySelector(
-        '[data-chapter="1"][data-subchapter="2"]'
-    );
-
-    if (subchapter12) {
-
-        if (progress11 === 100) {
-
-            // פתיחת 1.2
-            subchapter12.classList.remove("locked");
-            subchapter12.classList.add("available");
-
-            // הסרת מנעול
-            const lockedStatus =
-                subchapter12.querySelector(".locked-status");
 
             if (lockedStatus) {
                 lockedStatus.remove();
             }
-
-        } else {
-
-            // השארת 1.2 נעול
-            subchapter12.classList.add("locked");
-            subchapter12.classList.remove("available");
         }
-    }
-};
 
 
-/* =========================
-   LOAD CHAPTER PROGRESS
-========================= */
+        /* =========================
+           תת פרק שעדיין לא הושלם
+        ========================= */
 
-const loadChapterProgress = () => {
+        else {
 
-    const user =
-        JSON.parse(localStorage.getItem("user"));
+            if (i === 1) {
 
-    if (!user || !user.chapters) {
-        return;
-    }
+                // 1.1 זמין מההתחלה
+                currentCard.classList.remove("locked");
 
-    const progress =
-        getChapterProgress(
-            user.chapters.chapter1
-        );
+            } else {
 
-    const fill =
-        document.getElementById(
-            "chapter1Fill"
-        );
+                // כל השאר נעולים עד שהקודם הושלם
+                const previousNumber =
+                    `1.${i - 1}`;
 
-    const text =
-        document.getElementById(
-            "chapter1Text"
-        );
+                const previousProgress =
+                    chapter1[previousNumber] || 0;
 
-    if (fill) {
+                if (previousProgress === 100) {
 
-        fill.style.width =
-            `${progress}%`;
-    }
+                    currentCard.classList.remove("locked");
+                    currentCard.classList.add("available");
 
-    if (text) {
+                    if (lockedStatus) {
+                        lockedStatus.remove();
+                    }
 
-        text.innerHTML =
-            `${progress}% הושלם`;
+                } else {
+
+                    currentCard.classList.add("locked");
+                    currentCard.classList.remove("available");
+                }
+            }
+
+            if (progressElement) {
+                progressElement.innerHTML =
+                    "טרם הושלם";
+            }
+        }
+
+
+        /* =========================
+           פתיחת תת הפרק הבא
+        ========================= */
+
+        if (
+            nextCard &&
+            currentProgress === 100
+        ) {
+
+            nextCard.classList.remove("locked");
+            nextCard.classList.add("available");
+
+            const nextLockedStatus =
+                nextCard.querySelector(
+                    ".locked-status"
+                );
+
+            if (nextLockedStatus) {
+                nextLockedStatus.remove();
+            }
+
+            const nextProgressElement =
+                nextCard.querySelector(
+                    ".subchapter-progress"
+                );
+
+            if (nextProgressElement) {
+
+                const nextProgress =
+                    chapter1[nextNumber] || 0;
+
+                if (nextProgress === 100) {
+                    nextProgressElement.innerHTML =
+                        "100% הושלם";
+                } else {
+                    nextProgressElement.innerHTML =
+                        "טרם הושלם";
+                }
+            }
+        }
     }
 };
 
@@ -802,6 +903,177 @@ document.addEventListener("keydown", (event) => {
         }
     }
 });
+
+
+
+/* =========================
+   SUBCHAPTER 1.2
+========================= */
+
+/* OPEN 1.2 */
+
+const openSubchapter12 = () => {
+    const page = document.getElementById("subchapter12Page");
+
+    if (!page) return;
+
+    page.classList.add("show");
+
+    document.body.style.overflow = "hidden";
+
+    window.scrollTo({
+        top: 0,
+        behavior: "instant"
+    });
+};
+
+
+/* CLOSE 1.2 */
+
+const closeSubchapter12 = () => {
+    const page = document.getElementById("subchapter12Page");
+
+    if (!page) return;
+
+    page.classList.remove("show");
+
+    document.body.style.overflow = "";
+};
+
+
+/* OPEN / CLOSE INTERACTIVE CARDS */
+
+const toggleLearningCard = (card) => {
+    card.classList.toggle("open");
+};
+
+
+/* QUIZ */
+
+const checkAnswer12 = (button, isCorrect) => {
+
+    const answers =
+        document.querySelectorAll(
+            "#subchapter12Page .quiz-answer"
+        );
+
+    const feedback =
+        document.getElementById("quizFeedback12");
+
+    answers.forEach((answer) => {
+        answer.disabled = true;
+    });
+
+    if (isCorrect) {
+
+        button.classList.add("correct");
+
+        feedback.innerHTML =
+            "✓ נכון! שעון הפעילות מגדיר את העיתוי של מופעי ניהול ההדרכה המרכזיים בהכשרה.";
+
+        feedback.style.color = "#687b5b";
+
+    } else {
+
+        button.classList.add("wrong");
+
+        feedback.innerHTML =
+            "לא בדיוק. חפשי את ההגדרה שמתייחסת לעיתוי של מופעי ניהול ההדרכה.";
+
+        feedback.style.color = "#a06c62";
+    }
+};
+
+
+/* FINISH 1.2 */
+
+const finishSubchapter12 = () => {
+
+    const user = JSON.parse(localStorage.getItem("user"));
+
+    if (!user) {
+        closeSubchapter12();
+        return;
+    }
+
+    if (!user.subchapters) {
+        user.subchapters = {};
+    }
+
+    if (!user.subchapters.chapter1) {
+        user.subchapters.chapter1 = {};
+    }
+
+    // סימון תת פרק 1.2 כהושלם
+    user.subchapters.chapter1["1.2"] = 100;
+
+    localStorage.setItem(
+        "user",
+        JSON.stringify(user)
+    );
+
+    closeSubchapter12();
+
+    window.location.href = "categoriesPage.html";
+};
+
+const finishSubchapter13 = () => {
+
+    const user = JSON.parse(localStorage.getItem("user"));
+
+    if (!user) {
+        closeSubchapter13();
+        return;
+    }
+
+    if (!user.subchapters) {
+        user.subchapters = {};
+    }
+
+    if (!user.subchapters.chapter1) {
+        user.subchapters.chapter1 = {};
+    }
+
+    user.subchapters.chapter1["1.3"] = 100;
+
+    localStorage.setItem(
+        "user",
+        JSON.stringify(user)
+    );
+
+    closeSubchapter13();
+
+    window.location.href = "categoriesPage.html";
+};
+
+
+/* ESC */
+
+document.addEventListener("keydown", (event) => {
+
+    if (event.key !== "Escape") return;
+
+    const page =
+        document.getElementById("subchapter12Page");
+
+    if (
+        page &&
+        page.classList.contains("show")
+    ) {
+        closeSubchapter12();
+    }
+});
+
+
+/* GLOBAL */
+
+window.openSubchapter12 = openSubchapter12;
+window.closeSubchapter12 = closeSubchapter12;
+window.toggleLearningCard = toggleLearningCard;
+window.checkAnswer12 = checkAnswer12;
+window.finishSubchapter12 = finishSubchapter12;
+
+
 
 
 /* =========================
