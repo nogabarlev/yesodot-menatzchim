@@ -2641,4 +2641,502 @@ body:not(.categories-page) .hero-section{
     height: 40px;
 }
 
+/* =========================
+   SUBCHAPTER 1.2
+========================= */
+
+#subchapter12Page {
+    direction: rtl;
+    background: #f8f7f3;
+    overflow-y: auto;
+    padding-bottom: 50px;
+}
+
+
+/* HEADER */
+
+#subchapter12Page .subchapter-header {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 24px 35px;
+    background: rgba(255, 255, 255, 0.92);
+    border-bottom: 1px solid rgba(120, 130, 110, 0.15);
+}
+
+#subchapter12Page .back-button {
+    width: 42px;
+    height: 42px;
+    border: none;
+    border-radius: 14px;
+    background: #eef0e9;
+    color: #394438;
+    font-size: 23px;
+    cursor: pointer;
+}
+
+.subchapter-number {
+    display: block;
+    color: #8b9a79;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 3px;
+}
+
+#subchapter12Page .subchapter-header h2 {
+    margin: 0;
+    color: #30382f;
+    font-size: 24px;
+}
+
+
+/* INTRO */
+
+#subchapter12Page .learning-intro {
+    margin: 28px auto;
+    width: min(90%, 900px);
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    padding: 28px;
+    border-radius: 25px;
+    background: linear-gradient(
+        135deg,
+        #ffffff,
+        #f1f3ec
+    );
+    box-shadow: 0 10px 30px rgba(70, 80, 60, 0.08);
+}
+
+#subchapter12Page .intro-icon {
+    width: 70px;
+    height: 70px;
+    flex-shrink: 0;
+    border-radius: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #e7eadf;
+    font-size: 34px;
+}
+
+#subchapter12Page .section-label,
+#subchapter12Page .small-label {
+    font-size: 12px;
+    color: #8b9a79;
+    font-weight: 600;
+}
+
+#subchapter12Page .learning-intro h1 {
+    margin: 4px 0 8px;
+    font-size: 28px;
+    color: #30382f;
+}
+
+#subchapter12Page .learning-intro p {
+    margin: 0;
+    color: #697066;
+    line-height: 1.6;
+}
+
+
+/* SECTIONS */
+
+#subchapter12Page .learning-section {
+    width: min(90%, 900px);
+    margin: 45px auto;
+}
+
+#subchapter12Page .section-title {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 22px;
+}
+
+#subchapter12Page .section-number {
+    width: 42px;
+    height: 42px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 14px;
+    background: #e5eadc;
+    color: #647256;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+#subchapter12Page .section-title > div > span {
+    color: #8b9a79;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+#subchapter12Page .section-title h3 {
+    margin: 3px 0 0;
+    color: #30382f;
+    font-size: 22px;
+}
+
+
+/* PURPOSE */
+
+#subchapter12Page .purpose-card {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 24px;
+    border-radius: 22px;
+    background: #ffffff;
+    border: 1px solid rgba(120, 130, 110, 0.12);
+    box-shadow: 0 8px 25px rgba(60, 70, 50, 0.06);
+}
+
+#subchapter12Page .purpose-icon {
+    width: 58px;
+    height: 58px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 18px;
+    background: #eee9d9;
+    font-size: 28px;
+}
+
+#subchapter12Page .purpose-card p {
+    margin: 6px 0 0;
+    color: #4d554c;
+    line-height: 1.7;
+}
+
+
+/* INTERACTIVE CARDS */
+
+#subchapter12Page .interactive-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 17px;
+}
+
+#subchapter12Page .interactive-card {
+    border: none;
+    text-align: right;
+    padding: 22px;
+    min-height: 190px;
+    border-radius: 22px;
+    background: #ffffff;
+    box-shadow: 0 8px 25px rgba(60, 70, 50, 0.06);
+    cursor: pointer;
+    transition: 0.25s ease;
+    font-family: inherit;
+}
+
+#subchapter12Page .interactive-card:hover {
+    transform: translateY(-3px);
+}
+
+#subchapter12Page .card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#subchapter12Page .card-icon {
+    font-size: 27px;
+}
+
+#subchapter12Page .card-number {
+    color: #b1b9aa;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+#subchapter12Page .interactive-card h4 {
+    margin: 18px 0 8px;
+    font-size: 18px;
+    color: #30382f;
+}
+
+#subchapter12Page .card-hidden-content {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: 0.3s ease;
+}
+
+#subchapter12Page .card-hidden-content p {
+    color: #687067;
+    font-size: 14px;
+    line-height: 1.7;
+    margin: 0;
+}
+
+#subchapter12Page .interactive-card.open
+.card-hidden-content {
+    max-height: 180px;
+    opacity: 1;
+}
+
+#subchapter12Page .open-card {
+    display: block;
+    margin-top: 14px;
+    color: #8b9a79;
+    font-size: 12px;
+}
+
+
+/* DEFINITIONS */
+
+#subchapter12Page .definition-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+#subchapter12Page .definition-card {
+    padding: 25px;
+    border-radius: 23px;
+    background: #ffffff;
+    box-shadow: 0 8px 25px rgba(60, 70, 50, 0.06);
+}
+
+#subchapter12Page .definition-icon {
+    width: 54px;
+    height: 54px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 17px;
+    background: #e9ede3;
+    font-size: 26px;
+    margin-bottom: 18px;
+}
+
+#subchapter12Page .definition-label {
+    color: #9aa58e;
+    font-size: 11px;
+}
+
+#subchapter12Page .definition-card h3 {
+    margin: 5px 0 10px;
+    font-size: 20px;
+    color: #30382f;
+}
+
+#subchapter12Page .definition-card p {
+    color: #626a61;
+    line-height: 1.75;
+    margin: 0;
+}
+
+#subchapter12Page .definition-note {
+    margin-top: 15px;
+    padding: 9px 12px;
+    border-radius: 10px;
+    background: #f0f2eb;
+    color: #65715d;
+    font-size: 12px;
+}
+
+
+/* PRINCIPLES */
+
+#subchapter12Page .principles-list {
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+}
+
+#subchapter12Page .principle-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+    padding: 20px;
+    border-radius: 20px;
+    background: #ffffff;
+    box-shadow: 0 7px 22px rgba(60, 70, 50, 0.05);
+}
+
+#subchapter12Page .principle-number {
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 13px;
+    background: #e7eadf;
+    color: #68755f;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+#subchapter12Page .principle-card h3 {
+    margin: 2px 0 5px;
+    font-size: 17px;
+    color: #30382f;
+}
+
+#subchapter12Page .principle-card p {
+    margin: 0;
+    color: #697068;
+    line-height: 1.7;
+}
+
+#subchapter12Page .important-principle {
+    background: linear-gradient(
+        135deg,
+        #f1f0e5,
+        #ffffff
+    );
+    border: 1px solid rgba(170, 155, 110, 0.2);
+}
+
+#subchapter12Page .important-label {
+    color: #a18d58;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+
+/* QUIZ */
+
+#subchapter12Page .quiz-card {
+    padding: 28px;
+    border-radius: 25px;
+    background: #ffffff;
+    box-shadow: 0 10px 30px rgba(60, 70, 50, 0.07);
+}
+
+#subchapter12Page .quiz-question {
+    margin: 0 0 18px;
+    font-size: 17px;
+    font-weight: 600;
+    color: #30382f;
+}
+
+#subchapter12Page .quiz-answer {
+    width: 100%;
+    display: block;
+    margin-bottom: 10px;
+    padding: 15px 17px;
+    border: 1px solid #e0e4da;
+    border-radius: 14px;
+    background: #fafbf8;
+    text-align: right;
+    font-family: inherit;
+    color: #4e564d;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+#subchapter12Page .quiz-answer:hover {
+    background: #f0f2eb;
+}
+
+#subchapter12Page .quiz-answer.correct {
+    background: #e5efdf;
+    border-color: #a8bd9a;
+}
+
+#subchapter12Page .quiz-answer.wrong {
+    background: #f5e7e3;
+    border-color: #d8aaa0;
+}
+
+#subchapter12Page .quiz-feedback {
+    margin-top: 15px;
+    min-height: 20px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+
+/* TAKEAWAY */
+
+#subchapter12Page .takeaway-card {
+    width: min(90%, 900px);
+    margin: 45px auto 25px;
+    display: flex;
+    gap: 20px;
+    padding: 25px;
+    border-radius: 24px;
+    background: #e9ede3;
+}
+
+#subchapter12Page .takeaway-icon {
+    font-size: 30px;
+}
+
+#subchapter12Page .takeaway-card span {
+    color: #7d8a71;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+#subchapter12Page .takeaway-card h3 {
+    margin: 5px 0 8px;
+    color: #30382f;
+}
+
+#subchapter12Page .takeaway-card p {
+    margin: 0;
+    color: #5f685d;
+    line-height: 1.6;
+}
+
+
+/* FINISH */
+
+#subchapter12Page .finish-subchapter-button {
+    display: block;
+    width: min(90%, 400px);
+    margin: 30px auto;
+    padding: 17px;
+    border: none;
+    border-radius: 17px;
+    background: #748363;
+    color: white;
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(70, 80, 60, 0.18);
+}
+
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+    #subchapter12Page .learning-intro {
+        align-items: flex-start;
+        padding: 22px;
+    }
+
+    #subchapter12Page .learning-intro h1 {
+        font-size: 23px;
+    }
+
+    #subchapter12Page .interactive-cards {
+        grid-template-columns: 1fr;
+    }
+
+    #subchapter12Page .definition-grid {
+        grid-template-columns: 1fr;
+    }
+
+    #subchapter12Page .learning-section {
+        margin: 35px auto;
+    }
+
+    #subchapter12Page .section-title h3 {
+        font-size: 19px;
+    }
+}
+
+
 
