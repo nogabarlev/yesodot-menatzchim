@@ -3140,3 +3140,30 @@ body:not(.categories-page) .hero-section{
 
 
 
+#subchapter12Page .interactive-card .card-top {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+#subchapter12Page .interactive-card .card-top .card-icon {
+    flex-shrink: 0;
+    font-size: 27px;
+}
+
+#subchapter12Page .interactive-card h4 {
+    margin: 0;
+    flex: 1;
+    font-size: 18px;
+    line-height: 1.35;
+    color: #30382f;
+}
+
+#subchapter12Page .interactive-card .card-number {
+    flex-shrink: 0;
+}
+
+
+
