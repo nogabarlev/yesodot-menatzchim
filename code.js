@@ -645,11 +645,12 @@ const refreshChaptersUI = () => {
     }
 };
 
+/* =========================
+   SUBCHAPTER PROGRESS
+========================= */
+
 const refreshSubchaptersUI = () => {
-
-    const user =
-        JSON.parse(localStorage.getItem("user"));
-
+    const user = JSON.parse(localStorage.getItem("user"));
     if (!user) return;
 
     if (!user.subchapters) {
@@ -660,69 +661,53 @@ const refreshSubchaptersUI = () => {
         user.subchapters.chapter1 = {};
     }
 
-    /*
-     * =========================
-     * 1.1
-     * =========================
-     */
+    /* =========================
+       1.1
+    ========================= */
 
-    const subchapter11 =
-        document.querySelector(
-            '[data-chapter="1"][data-subchapter="1"]'
-        );
+    const subchapter11 = document.querySelector(
+        '[data-chapter="1"][data-subchapter="1"]'
+    );
 
     const progress11 =
         user.subchapters.chapter1["1.1"] || 0;
 
     if (subchapter11) {
-
         const progressElement =
-            subchapter11.querySelector(
-                ".subchapter-progress"
-            );
+            subchapter11.querySelector(".subchapter-progress");
 
         if (progress11 === 100) {
-
             subchapter11.classList.remove("locked");
 
             if (progressElement) {
-                progressElement.innerHTML =
-                    "100% הושלם";
+                progressElement.innerHTML = "100% הושלם";
             }
-
         } else {
-
             if (progressElement) {
-                progressElement.innerHTML =
-                    "טרם הושלם";
+                progressElement.innerHTML = "טרם הושלם";
             }
         }
     }
 
+    /* =========================
+       1.2
+    ========================= */
 
-    /*
-     * =========================
-     * 1.2
-     * =========================
-     */
-
-    const subchapter12 =
-        document.querySelector(
-            '[data-chapter="1"][data-subchapter="2"]'
-        );
+    const subchapter12 = document.querySelector(
+        '[data-chapter="1"][data-subchapter="2"]'
+    );
 
     if (subchapter12) {
 
         if (progress11 === 100) {
 
+            // פתיחת 1.2
             subchapter12.classList.remove("locked");
-
             subchapter12.classList.add("available");
 
+            // הסרת מנעול
             const lockedStatus =
-                subchapter12.querySelector(
-                    ".locked-status"
-                );
+                subchapter12.querySelector(".locked-status");
 
             if (lockedStatus) {
                 lockedStatus.remove();
@@ -730,6 +715,7 @@ const refreshSubchaptersUI = () => {
 
         } else {
 
+            // השארת 1.2 נעול
             subchapter12.classList.add("locked");
             subchapter12.classList.remove("available");
         }
