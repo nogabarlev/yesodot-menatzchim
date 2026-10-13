@@ -2699,15 +2699,23 @@ body:not(.categories-page) .hero-section{
 }
 
 #subchapter12Page .intro-icon {
-    width: 70px;
-    height: 70px;
-    flex-shrink: 0;
-    border-radius: 22px;
+    width: 72px;
+    height: 72px;
+
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #e7eadf;
-    font-size: 34px;
+
+    flex-shrink: 0;
+
+    border-radius: 21px;
+
+    background: #27352a;
+    color: #d6c19d;
+
+    font-size: 18px;
+    font-weight: 600;
+
 }
 
 #subchapter12Page .section-label,
@@ -3217,3 +3225,1135 @@ body:not(.categories-page) .hero-section{
 
 
 
+/* =========================================
+   SUBCHAPTER 1.2 — MATCH SUBCHAPTER 1.1
+========================================= */
+
+#subchapter12Page {
+    direction: rtl;
+    text-align: right;
+}
+
+#subchapter12Page .subchapter-container {
+    position: relative;
+    z-index: 1;
+}
+
+#subchapter12Page .subchapter-header h1 {
+    margin-bottom: 8px;
+}
+
+#subchapter12Page .subchapter-header h2 {
+    margin-top: 0;
+}
+
+#subchapter12Page .learning-section {
+    margin-bottom: 30px;
+}
+
+#subchapter12Page .info-card,
+#subchapter12Page .definition-card,
+#subchapter12Page .rule-card,
+#subchapter12Page .role-card,
+#subchapter12Page .principle-main-card,
+#subchapter12Page .note-card {
+    box-sizing: border-box;
+}
+
+#subchapter12Page .definition-card + .definition-card {
+    margin-top: 16px;
+}
+
+#subchapter12Page .role-card {
+    margin-bottom: 14px;
+}
+
+#subchapter12Page .quiz-card-12 {
+    display: block;
+}
+
+#subchapter12Page .quiz-card-12 h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+#subchapter12Page .quiz-options-12 {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-top: 18px;
+}
+
+#subchapter12Page .quiz-answer {
+    width: 100%;
+    padding: 16px 18px;
+    border: 1px solid rgba(47, 82, 58, 0.2);
+    border-radius: 14px;
+    background: #fffdf8;
+    color: #25372b;
+    font: inherit;
+    text-align: right;
+    line-height: 1.7;
+    cursor: pointer;
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+#subchapter12Page .quiz-answer:hover {
+    border-color: #71866a;
+    background: #f3f5ed;
+}
+
+#subchapter12Page .quiz-answer:focus-visible {
+    outline: 3px solid #b9a16a;
+    outline-offset: 3px;
+}
+
+#subchapter12Page .quiz-feedback {
+    margin-top: 14px;
+    font-weight: 700;
+    line-height: 1.7;
+}
+
+#subchapter12Page .takeaway-section {
+    margin-top: 30px;
+}
+
+#subchapter12Page .finish-learning {
+    margin-top: 24px;
+}
+
+@media (max-width: 600px) {
+    #subchapter12Page .subchapter-header h1 {
+        font-size: clamp(1.35rem, 5vw, 1.8rem);
+        line-height: 1.4;
+    }
+
+    #subchapter12Page .quiz-answer {
+        padding: 14px;
+    }
+}
+
+
+
+/* =========================================
+   SUBCHAPTER 1.2 — התאמה לעיצוב של 1.1
+========================================= */
+
+#subchapter12Page {
+    direction: rtl;
+    text-align: right;
+}
+
+/* כפתור סיום — אותו עיצוב כמו ב־1.1 */
+#subchapter12Page .finish-learning {
+    width: 100%;
+    min-height: 62px;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    margin: 24px 0 20px;
+    padding: 16px 20px;
+
+    border: none;
+    border-radius: 20px;
+
+    background: #d6c19d;
+    color: #273328;
+
+    font-family: 'Rubik', sans-serif;
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 1.5;
+
+    cursor: pointer;
+
+    box-shadow: 0 10px 24px rgba(39, 53, 42, 0.14);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+#subchapter12Page .finish-learning:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 28px rgba(39, 53, 42, 0.18);
+}
+
+#subchapter12Page .finish-learning:active {
+    transform: scale(0.98);
+}
+
+#subchapter12Page .finish-learning span {
+    width: 27px;
+    height: 27px;
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+    background: rgba(39, 53, 42, 0.12);
+}
+
+/* התאמה למסכים קטנים */
+@media (max-width: 600px) {
+    #subchapter12Page .finish-learning {
+        font-size: 16px;
+        padding: 14px 16px;
+    }
+}
+
+
+
+/* =====================================================
+   SUBCHAPTER 1.2 — עיצוב מלא בהתאמה לתת־פרק 1.1
+   יש להדביק בסוף style.css
+===================================================== */
+
+#subchapter12Page {
+    direction: rtl;
+    text-align: right;
+    color: #273328;
+}
+
+#subchapter12Page,
+#subchapter12Page * {
+    box-sizing: border-box;
+}
+
+#subchapter12Page .subchapter-container {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+}
+
+/* =========================
+   כותרת עליונה
+========================= */
+
+#subchapter12Page .subchapter-header {
+    margin-bottom: 28px;
+}
+
+#subchapter12Page .subchapter-header h1 {
+    margin-bottom: 8px;
+    line-height: 1.35;
+}
+
+#subchapter12Page .subchapter-header h2 {
+    margin-top: 0;
+    line-height: 1.5;
+}
+
+/* =========================
+   כרטיס פתיחה — מה נלמד?
+========================= */
+
+#subchapter12Page .learning-intro {
+    margin-bottom: 34px;
+    border-radius: 24px;
+    overflow: hidden;
+}
+
+#subchapter12Page .intro-icon {
+    flex-shrink: 0;
+}
+
+/* =========================
+   כותרות סעיפים
+========================= */
+
+#subchapter12Page .learning-section {
+    margin-bottom: 34px;
+    min-width: 0;
+}
+
+#subchapter12Page .section-heading {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+#subchapter12Page .section-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    border-radius: 15px;
+    background: #273328;
+    color: #d6c19d;
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: .5px;
+    box-shadow: 0 5px 12px rgba(39, 51, 40, .12);
+}
+
+#subchapter12Page .section-heading > div > span {
+    display: block;
+    margin-bottom: 4px;
+    color: #9b8151;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+#subchapter12Page .section-heading h2 {
+    margin: 0;
+    color: #273328;
+    font-size: 22px;
+    line-height: 1.4;
+}
+
+/* =========================
+   כרטיסים כלליים
+========================= */
+
+#subchapter12Page .info-card,
+#subchapter12Page .definition-card,
+#subchapter12Page .rule-card,
+#subchapter12Page .role-card,
+#subchapter12Page .principle-main-card,
+#subchapter12Page .note-card,
+#subchapter12Page .takeaway-card {
+    min-width: 0;
+    border-radius: 20px;
+}
+
+#subchapter12Page .info-card {
+    padding: 22px;
+    background: #fffdf8;
+    border: 1px solid rgba(198, 170, 114, .28);
+    box-shadow: 0 7px 22px rgba(39, 51, 40, .055);
+}
+
+#subchapter12Page .highlight-card {
+    display: flex;
+    align-items: center;
+    gap: 17px;
+    background: linear-gradient(
+        135deg,
+        #f5efdf,
+        #fffdf8
+    );
+    border-right: 5px solid #b9a16a;
+}
+
+#subchapter12Page .highlight-card p {
+    margin: 0;
+    color: #344036;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+#subchapter12Page .info-card-icon,
+#subchapter12Page .principle-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 52px;
+    height: 52px;
+    border-radius: 16px;
+    background: #e9e0cc;
+    color: #273328;
+}
+
+#subchapter12Page .emoji-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+}
+
+#subchapter12Page .emoji-icon svg {
+    width: 27px;
+    height: 27px;
+    max-width: 100%;
+}
+
+/* =========================
+   כרטיסי הכללים — סעיף 02
+========================= */
+
+#subchapter12Page .interactive-cards {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+    align-items: stretch;
+}
+
+#subchapter12Page .rule-card {
+    padding: 20px;
+    background: #fffdf8;
+    border: 1px solid rgba(198, 170, 114, .28);
+    box-shadow: 0 6px 18px rgba(39, 51, 40, .05);
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease,
+        border-color .2s ease;
+}
+
+#subchapter12Page .rule-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(155, 129, 81, .55);
+    box-shadow: 0 10px 24px rgba(39, 51, 40, .09);
+}
+
+#subchapter12Page .rule-top {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    margin-bottom: 13px;
+}
+
+#subchapter12Page .rule-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 35px;
+    height: 35px;
+    border-radius: 11px;
+    background: #273328;
+    color: #d6c19d;
+    font-weight: 700;
+}
+
+#subchapter12Page .rule-card h3 {
+    margin: 0;
+    color: #273328;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+#subchapter12Page .rule-card p {
+    margin: 0;
+    color: #596158;
+    font-size: 14px;
+    line-height: 1.85;
+}
+
+/* =========================
+   הערות ודגשים
+========================= */
+
+#subchapter12Page .note-card {
+    margin-top: 18px;
+    padding: 18px 20px;
+    background: #f3eddf;
+    border: 1px solid rgba(198, 170, 114, .3);
+    border-right: 4px solid #b9a16a;
+}
+
+#subchapter12Page .note-card > span {
+    display: block;
+    margin-bottom: 7px;
+    color: #816b40;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+#subchapter12Page .note-card p {
+    margin: 0;
+    color: #4d574e;
+    font-size: 14px;
+    line-height: 1.85;
+}
+
+/* =========================
+   הגדרות — סעיף 03
+========================= */
+
+#subchapter12Page .definition-card {
+    margin-bottom: 15px;
+    padding: 21px 23px;
+    background: #fffdf8;
+    border: 1px solid rgba(198, 170, 114, .28);
+    box-shadow: 0 6px 18px rgba(39, 51, 40, .045);
+}
+
+#subchapter12Page .definition-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 11px;
+}
+
+#subchapter12Page .definition-title > span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    border-radius: 11px;
+    background: #273328;
+    color: #d6c19d;
+    font-weight: 700;
+}
+
+#subchapter12Page .definition-title h3 {
+    margin: 0;
+    color: #273328;
+    font-size: 17px;
+    line-height: 1.5;
+}
+
+#subchapter12Page .definition-card > p {
+    margin: 0;
+    color: #596158;
+    font-size: 15px;
+    line-height: 1.9;
+}
+
+#subchapter12Page .definition-note {
+    margin-top: 13px;
+    padding: 12px 14px;
+    border-radius: 12px;
+    background: #f3eddf;
+    color: #6d5b39;
+    font-size: 13px;
+    line-height: 1.75;
+}
+
+/* =========================
+   עקרונות עבודה — סעיף 04
+========================= */
+
+#subchapter12Page .principle-main-card {
+    display: flex;
+    align-items: center;
+    gap: 17px;
+    margin-bottom: 19px;
+    padding: 22px;
+    background: linear-gradient(
+        135deg,
+        #f0e7d4,
+        #fffdf8
+    );
+    border: 1px solid rgba(198, 170, 114, .35);
+    border-right: 5px solid #b9a16a;
+}
+
+#subchapter12Page .principle-main-card p {
+    margin: 0;
+    color: #344036;
+    font-size: 15px;
+    line-height: 1.9;
+}
+
+#subchapter12Page .role-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 13px;
+    padding: 19px 21px;
+    background: #fffdf8;
+    border: 1px solid rgba(198, 170, 114, .27);
+    box-shadow: 0 5px 16px rgba(39, 51, 40, .045);
+}
+
+#subchapter12Page .role-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 42px;
+    height: 42px;
+    border-radius: 13px;
+    background: #273328;
+    color: #d6c19d;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+#subchapter12Page .role-content {
+    min-width: 0;
+    flex: 1;
+}
+
+#subchapter12Page .role-content h3 {
+    margin: 0 0 6px;
+    color: #273328;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+#subchapter12Page .role-content p {
+    margin: 0;
+    color: #596158;
+    font-size: 14px;
+    line-height: 1.85;
+}
+
+/* =========================
+   סעיף 05 — ציר הזמן
+========================= */
+
+#subchapter12Page .schedule-intro {
+    margin: 0 0 20px;
+    color: #596158;
+    font-size: 15px;
+    line-height: 1.9;
+}
+
+#subchapter12Page .schedule-timeline {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    margin: 20px 0 25px;
+    padding: 18px;
+    border-radius: 20px;
+    background: #273328;
+    box-shadow: 0 8px 22px rgba(39, 51, 40, .12);
+}
+
+#subchapter12Page .schedule-timeline span {
+    display: flex;
+    align-items: center;
+    min-height: 42px;
+    padding: 10px 13px;
+    border: 1px solid rgba(214, 193, 157, .28);
+    border-radius: 12px;
+    background: rgba(255, 253, 248, .07);
+    color: #f7f1e5;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+#subchapter12Page .schedule-timeline span::before {
+    content: "";
+    flex-shrink: 0;
+    width: 7px;
+    height: 7px;
+    margin-left: 9px;
+    border-radius: 50%;
+    background: #d6c19d;
+}
+
+/* =========================
+   שלבי שעון הפעילות
+========================= */
+
+#subchapter12Page .schedule-phase {
+    margin-top: 20px;
+    padding: 22px;
+    border: 1px solid rgba(198, 170, 114, .3);
+    border-radius: 22px;
+    background: #fffdf8;
+    box-shadow: 0 7px 22px rgba(39, 51, 40, .055);
+    overflow: hidden;
+}
+
+#subchapter12Page .schedule-phase-heading {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 12px;
+    padding-bottom: 17px;
+    border-bottom: 1px solid rgba(198, 170, 114, .35);
+}
+
+#subchapter12Page .schedule-phase-heading > span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 43px;
+    height: 43px;
+    border-radius: 13px;
+    background: #273328;
+    color: #d6c19d;
+    font-size: 17px;
+    font-weight: 700;
+}
+
+#subchapter12Page .schedule-phase-heading h3 {
+    margin: 0 0 5px;
+    color: #273328;
+    font-size: 18px;
+    line-height: 1.55;
+}
+
+#subchapter12Page .schedule-phase-heading p {
+    margin: 0;
+    color: #9b8151;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+/* =========================
+   שורות מופעים — עיצוב דמוי טבלה
+========================= */
+
+#subchapter12Page .schedule-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr);
+    align-items: start;
+    gap: 16px;
+    padding: 14px 12px;
+    border-bottom: 1px solid rgba(198, 170, 114, .22);
+    border-radius: 0;
+    color: #4d574e;
+    font-size: 14px;
+    line-height: 1.8;
+    transition: background-color .2s ease;
+}
+
+#subchapter12Page .schedule-row:nth-of-type(even) {
+    background: rgba(214, 193, 157, .09);
+}
+
+#subchapter12Page .schedule-row:hover {
+    background: rgba(214, 193, 157, .2);
+}
+
+#subchapter12Page .schedule-row strong {
+    display: block;
+    min-width: 0;
+    color: #273328;
+    font-weight: 700;
+    overflow-wrap: anywhere;
+}
+
+#subchapter12Page .schedule-row span {
+    display: block;
+    min-width: 0;
+    color: #646b63;
+    font-size: 13px;
+    overflow-wrap: anywhere;
+}
+
+#subchapter12Page .schedule-note {
+    margin-top: 16px;
+    padding: 17px 19px;
+    border: 1px solid rgba(198, 170, 114, .25);
+    border-right: 4px solid #b9a16a;
+    border-radius: 15px;
+    background: #f3eddf;
+    color: #4d574e;
+    font-size: 13px;
+    line-height: 1.85;
+}
+
+#subchapter12Page .schedule-note > strong {
+    display: block;
+    margin-bottom: 8px;
+    color: #6d5b39;
+}
+
+#subchapter12Page .schedule-note ul {
+    margin: 8px 0 0;
+    padding-right: 21px;
+}
+
+#subchapter12Page .schedule-note li {
+    margin: 5px 0;
+    padding-right: 2px;
+}
+
+/* =========================
+   בדיקת ידע — סעיף 06
+========================= */
+
+#subchapter12Page .quiz-card-12 {
+    display: block;
+    padding: 24px;
+    background: #fffdf8;
+    border: 1px solid rgba(198, 170, 114, .3);
+    border-radius: 21px;
+    box-shadow: 0 7px 22px rgba(39, 51, 40, .055);
+}
+
+#subchapter12Page .quiz-card-12 h3 {
+    margin: 0 0 9px;
+    color: #273328;
+    font-size: 19px;
+    line-height: 1.5;
+}
+
+#subchapter12Page .quiz-card-12 > p {
+    margin: 0;
+    color: #626961;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+#subchapter12Page .quiz-options-12 {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 11px;
+    margin-top: 18px;
+}
+
+#subchapter12Page .quiz-answer {
+    display: block;
+    width: 100%;
+    min-height: 55px;
+    padding: 15px 17px;
+    border: 1px solid rgba(198, 170, 114, .35);
+    border-radius: 14px;
+    background: #f8f4eb;
+    color: #344036;
+    font: inherit;
+    font-size: 14px;
+    text-align: right;
+    line-height: 1.8;
+    cursor: pointer;
+    transition:
+        background-color .2s ease,
+        border-color .2s ease,
+        transform .2s ease;
+}
+
+#subchapter12Page .quiz-answer:hover {
+    border-color: #9b8151;
+    background: #eee5d2;
+    transform: translateY(-1px);
+}
+
+#subchapter12Page .quiz-answer:focus-visible {
+    outline: 3px solid #b9a16a;
+    outline-offset: 3px;
+}
+
+#subchapter12Page .quiz-answer.correct {
+    border-color: #8ca77c;
+    background: #e5efdf;
+    color: #29452c;
+}
+
+#subchapter12Page .quiz-answer.wrong {
+    border-color: #d5a49b;
+    background: #f5e7e3;
+    color: #743e36;
+}
+
+#subchapter12Page .quiz-feedback {
+    min-height: 20px;
+    margin-top: 14px;
+    font-weight: 700;
+    line-height: 1.8;
+}
+
+/* =========================
+   כרטיס סיכום
+========================= */
+
+#subchapter12Page .takeaway-section {
+    margin-top: 32px;
+    margin-bottom: 24px;
+}
+
+#subchapter12Page .takeaway-card {
+    padding: 25px;
+    background: #273328;
+    border: 1px solid rgba(214, 193, 157, .4);
+    border-radius: 23px;
+    color: #fffdf8;
+    box-shadow: 0 10px 28px rgba(39, 51, 40, .13);
+}
+
+#subchapter12Page .takeaway-label {
+    display: inline-block;
+    margin-bottom: 9px;
+    color: #d6c19d;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+#subchapter12Page .takeaway-card h2 {
+    margin: 0 0 19px;
+    color: #fffdf8;
+    font-size: 23px;
+    line-height: 1.5;
+}
+
+#subchapter12Page .takeaway-items {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 11px;
+}
+
+#subchapter12Page .takeaway-items > div {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px 13px;
+    border: 1px solid rgba(214, 193, 157, .2);
+    border-radius: 13px;
+    background: rgba(255, 253, 248, .06);
+    color: #f5f0e6;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+#subchapter12Page .takeaway-items > div > span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 27px;
+    height: 27px;
+    border-radius: 9px;
+    background: #d6c19d;
+    color: #273328;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+/* =========================
+   כפתור סיום — התאמה ל־1.1
+========================= */
+
+#subchapter12Page .finish-learning {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 11px;
+    width: 100%;
+    min-height: 62px;
+    height: auto;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    padding: 15px 20px;
+    border: 1px solid rgba(39, 51, 40, .08);
+    border-radius: 20px;
+    background: #d6c19d;
+    color: #273328;
+    box-shadow: 0 7px 18px rgba(39, 51, 40, .13);
+    font-family: 'Rubik', sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 1.5;
+    cursor: pointer;
+    transition:
+        transform .2s ease,
+        background-color .2s ease,
+        box-shadow .2s ease;
+}
+
+#subchapter12Page .finish-learning:hover {
+    transform: translateY(-2px);
+    background: #e1d0b0;
+    box-shadow: 0 10px 23px rgba(39, 51, 40, .17);
+}
+
+#subchapter12Page .finish-learning:active {
+    transform: scale(.98);
+}
+
+#subchapter12Page .finish-learning span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 29px;
+    height: 29px;
+    border-radius: 50%;
+    background: #273328;
+    color: #d6c19d;
+    font-size: 17px;
+}
+
+/* =========================
+   התאמה למסכים קטנים
+========================= */
+
+@media (max-width: 700px) {
+    #subchapter12Page .interactive-cards {
+        grid-template-columns: 1fr;
+    }
+
+    #subchapter12Page .schedule-timeline {
+        grid-template-columns: 1fr 1fr;
+        padding: 13px;
+        gap: 8px;
+    }
+
+    #subchapter12Page .schedule-timeline span {
+        padding: 9px;
+        font-size: 11px;
+    }
+
+    #subchapter12Page .schedule-phase {
+        padding: 16px;
+        border-radius: 18px;
+    }
+
+    #subchapter12Page .schedule-phase-heading h3 {
+        font-size: 16px;
+    }
+
+    #subchapter12Page .schedule-row {
+        grid-template-columns: 1fr;
+        gap: 4px;
+        padding: 13px 10px;
+    }
+
+    #subchapter12Page .schedule-row span {
+        color: #8b7957;
+        font-size: 12px;
+    }
+
+    #subchapter12Page .section-heading h2 {
+        font-size: 19px;
+    }
+
+    #subchapter12Page .section-number {
+        width: 42px;
+        height: 42px;
+        border-radius: 13px;
+    }
+
+    #subchapter12Page .takeaway-card {
+        padding: 19px;
+    }
+
+    #subchapter12Page .finish-learning {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 380px) {
+    #subchapter12Page .schedule-timeline {
+        grid-template-columns: 1fr;
+    }
+
+    #subchapter12Page .section-heading {
+        gap: 10px;
+    }
+
+    #subchapter12Page .section-heading h2 {
+        font-size: 17px;
+    }
+
+    #subchapter12Page .highlight-card,
+    #subchapter12Page .principle-main-card {
+        align-items: flex-start;
+        gap: 12px;
+        padding: 17px;
+    }
+}
+
+/* =========================================
+   התאמת כותרת וכפתור חזרה של תת-פרק 1.2
+   לעיצוב של תת-פרק 1.1
+========================================= */
+
+/* כותרת עליונה */
+#subchapter12Page .subchapter-header {
+    background: linear-gradient(135deg, #27352a, #344437);
+    color: #ffffff;
+    border-radius: 30px;
+    padding: 30px;
+    margin-bottom: 30px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    box-shadow: 0 12px 30px rgba(25, 38, 27, 0.14);
+    border: 1px solid rgba(214, 193, 157, 0.35);
+}
+
+/* הכותרת הראשית */
+#subchapter12Page .subchapter-header h1 {
+    color: #ffffff;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.4;
+    margin: 12px 0 0;
+    align-items: center;
+    text-align: center;
+}
+
+/* כותרת המשנה */
+#subchapter12Page .subchapter-header h2 {
+    color: #d6c19d;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.6;
+    margin: 0;
+    align-items: center;
+    text-align: center;
+}
+
+/* כפתור חזרה לפרקים */
+#subchapter12Page .back-button {
+    display: inline-flex;
+    align-self: flex-start;
+    justify-content: center;
+    gap: 10px;
+
+    width: auto;
+    height: auto;
+    min-height: 42px;
+    padding: 10px 18px;
+
+    background: rgba(255, 255, 255, 0.10);
+    color: #ffffff;
+
+    border: 1px solid rgba(214, 193, 157, 0.55);
+    border-radius: 30px;
+
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 500;
+
+    cursor: pointer;
+    box-shadow: none;
+    transition: background 0.25s ease, transform 0.25s ease;
+}
+
+/* החץ בכפתור */
+#subchapter12Page .back-button span {
+    display: inline-block;
+    color: #d6c19d;
+    font-size: 20px;
+    line-height: 1;
+}
+
+/* אפקט מעבר */
+#subchapter12Page .back-button:hover {
+    background: rgba(255, 255, 255, 0.18);
+    transform: translateY(-1px);
+}
+
+/* התאמה למסכים קטנים */
+@media (max-width: 600px) {
+    #subchapter12Page .subchapter-header {
+        padding: 24px 20px;
+        border-radius: 25px;
+    }
+
+    #subchapter12Page .subchapter-header h1 {
+        font-size: 26px;
+    }
+
+    #subchapter12Page .subchapter-header h2 {
+        font-size: 17px;
+    }
+}
+
+
+/* התאמת כרטיס 1.2 לעיצוב של 1.1 */
+.subchapter-card.locked {
+    font-family: inherit;
+    border-radius: inherit;
+}
+
+.subchapter-card.locked .subchapter-content {
+    font-family: inherit;
+}
