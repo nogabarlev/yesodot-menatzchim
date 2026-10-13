@@ -4083,37 +4083,40 @@ body:not(.categories-page) .hero-section{
 }
 
 #subchapter12Page .takeaway-label {
-    display: inline-block;
-    margin-bottom: 9px;
     color: #d6c19d;
     font-size: 13px;
-    font-weight: 700;
+    font-weight: 500;
 }
 
 #subchapter12Page .takeaway-card h2 {
-    margin: 0 0 19px;
-    color: #fffdf8;
-    font-size: 23px;
-    line-height: 1.5;
+    font-size: 28px;
+    margin: 6px 0 20px;
+    text-align: right;
 }
 
 #subchapter12Page .takeaway-items {
     display: grid;
-    grid-template-columns: 1fr;
-    gap: 11px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
 }
 
 #subchapter12Page .takeaway-items > div {
     display: flex;
     align-items: flex-start;
-    gap: 12px;
-    padding: 12px 13px;
-    border: 1px solid rgba(214, 193, 157, .2);
+    gap: 10px;
+
+    padding: 13px;
+
+    background: rgba(255,255,255,.08);
+
+    border: 1px solid rgba(255,255,255,.09);
+
     border-radius: 13px;
-    background: rgba(255, 253, 248, .06);
-    color: #f5f0e6;
-    font-size: 14px;
-    line-height: 1.8;
+
+    color: rgba(255,255,255,.82);
+
+    font-size: 13px;
+    line-height: 1.55;
 }
 
 #subchapter12Page .takeaway-items > div > span {
