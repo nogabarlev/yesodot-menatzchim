@@ -4461,3 +4461,31 @@ body:not(.categories-page) .hero-section{
     flex-shrink: 0;
     white-space: nowrap;
 }
+
+
+/* ===== סיכום 1.2 — תיקון ===== */
+#subchapter12Page .takeaway-card {
+    display: block;
+    width: 100%;
+    margin: 0;
+}
+
+#subchapter12Page .takeaway-card .takeaway-label {
+    color: #d6c19d;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+@media (max-width: 700px) {
+    #subchapter12Page .takeaway-items {
+        grid-template-columns: 1fr;
+    }
+
+    #subchapter12Page .takeaway-card h2 {
+        font-size: 22px;
+    }
+
+    #subchapter12Page .takeaway-items > div {
+        font-size: 14px;
+    }
+}
