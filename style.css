@@ -4803,505 +4803,613 @@ body:not(.categories-page) .hero-section{
 
 
 
-/* =========================
-   SUBCHAPTER 1.3 — RESPONSIVE
-   ========================= */
+/* =====================================================
+   SUBCHAPTER 1.3 — התאמה מלאה לעיצוב של 1.1 ו-1.2
+===================================================== */
+
+#subchapter13Page {
+    direction: rtl;
+    text-align: right;
+    color: #273328;
+}
 
 #subchapter13Page,
 #subchapter13Page * {
     box-sizing: border-box;
 }
 
-#subchapter13Page {
-    width: 100%;
-    max-width: 100%;
-}
-
 #subchapter13Page .subchapter-container {
+    position: relative;
+    z-index: 1;
     width: 100%;
-    max-width: 1000px;
+    max-width: 1050px;
     margin: 0 auto;
-    padding: 28px 24px 48px;
-    min-width: 0;
+    padding: 28px 24px 70px;
 }
 
-#subchapter13Page .learning-section,
-#subchapter13Page .learning-intro,
-#subchapter13Page .info-card,
-#subchapter13Page .rule-card,
-#subchapter13Page .takeaway-card {
-    min-width: 0;
-    max-width: 100%;
+/* כותרת עליונה */
+#subchapter13Page .subchapter-header {
+    position: relative;
+    padding: 30px;
+    margin-bottom: 28px;
+    background: linear-gradient(135deg, #27352a, #344437);
+    color: white;
+    border-radius: 30px;
+    box-shadow: 0 18px 45px rgba(35, 45, 45, .20);
+    overflow: hidden;
 }
 
-#subchapter13Page p,
-#subchapter13Page li,
-#subchapter13Page h1,
-#subchapter13Page h2,
-#subchapter13Page h3 {
-    overflow-wrap: anywhere;
-    word-break: normal;
+#subchapter13Page .subchapter-header h1 {
+    font-size: clamp(30px, 5vw, 48px);
+    line-height: 1.05;
+    font-weight: 700;
+    margin: 12px 0 9px;
+    text-align: right;
 }
 
-#subchapter13Page .learning-list {
-    padding-right: 22px;
-    padding-left: 0;
-    line-height: 1.8;
+#subchapter13Page .subchapter-header h2 {
+    color: #d6c19d;
+    font-size: 20px;
+    font-weight: 400;
+    margin: 0;
+    text-align: right;
 }
 
-#subchapter13Page .definition-note {
-    margin-top: 12px;
-    font-size: 13px;
-    line-height: 1.7;
-    opacity: 0.8;
+/* סעיפים וכותרות */
+#subchapter13Page .learning-section {
+    margin-bottom: 28px;
+    padding: 27px;
+    background: rgba(255, 255, 255, .62);
+    border: 1px solid rgba(255, 255, 255, .78);
+    border-radius: 27px;
+    box-shadow: 0 9px 25px rgba(40, 50, 40, .06);
 }
 
-@media (max-width: 700px) {
-    #subchapter13Page .subchapter-container {
-        padding: 18px 14px 34px;
-    }
-
-    #subchapter13Page .subchapter-header {
-        padding-top: 12px;
-    }
-
-    #subchapter13Page .subchapter-header h1 {
-        font-size: 25px;
-        line-height: 1.35;
-        overflow-wrap: anywhere;
-    }
-
-    #subchapter13Page .subchapter-header h2 {
-        font-size: 16px;
-        line-height: 1.5;
-        right: 0;
-    }
-
-    #subchapter13Page .learning-intro {
-        align-items: flex-start;
-        gap: 14px;
-        padding: 18px;
-    }
-
-    #subchapter13Page .intro-icon {
-        flex-shrink: 0;
-    }
-
-    #subchapter13Page .interactive-cards {
-        grid-template-columns: minmax(0, 1fr);
-    }
-
-    #subchapter13Page .section-heading h2,
-    #subchapter13Page .takeaway-card h2 {
-        font-size: 20px;
-        line-height: 1.4;
-    }
-
-    #subchapter13Page .info-card,
-    #subchapter13Page .rule-card,
-    #subchapter13Page .takeaway-card {
-        padding: 18px;
-    }
-
-    #subchapter13Page .finish-learning {
-        width: 100%;
-        max-width: 100%;
-        min-height: 54px;
-        margin: 22px 0 8px;
-        white-space: normal;
-    }
-}
-
-@media (max-width: 380px) {
-    #subchapter13Page .subchapter-container {
-        padding-right: 10px;
-        padding-left: 10px;
-    }
-
-    #subchapter13Page .learning-intro {
-        padding: 14px;
-    }
-
-    #subchapter13Page .info-card,
-    #subchapter13Page .rule-card,
-    #subchapter13Page .takeaway-card {
-        padding: 14px;
-    }
-}
-
-
-
-/* תיקון ניגודיות — שיטות לאיסוף נתונים */
-#subchapter13Page .learning-section .takeaway-items > div {
-    color: #263b2d !important;
-    background: #edf3e9 !important;
-    border: 1px solid #cbdcc5 !important;
-}
-
-#subchapter13Page .learning-section .takeaway-items > div > span {
-    color: #263b2d !important;
-    background: #d4e4ce !important;
-    font-weight: 800;
-}
-
-/* טקסט בתוך הכרטיסים */
-#subchapter13Page .learning-section .info-card p,
-#subchapter13Page .learning-section .rule-card p,
-#subchapter13Page .learning-section .learning-list li {
-    color: #303a32 !important;
-}
-
-/* כותרות */
-#subchapter13Page .learning-section .info-card h3,
-#subchapter13Page .learning-section .rule-top h3 {
-    color: #294b38 !important;
-}
-
-/* הערות והפניות למקורות */
-#subchapter13Page .learning-section .definition-note {
-    color: #4b554c !important;
-}
-
-
-/* ========================================
-   מקורות המידע — משבצות מעוצבות
-======================================== */
-
-#subchapter13Page .sources-card {
-    padding: 24px !important;
-    background: rgba(255, 255, 255, 0.96) !important;
-    border: 1px solid #dce6d8 !important;
-    border-radius: 22px !important;
-    box-shadow: 0 8px 24px rgba(40, 65, 45, 0.07) !important;
-}
-
-/* כותרת אזור מקורות המידע */
-#subchapter13Page .sources-heading {
+#subchapter13Page .section-heading {
     display: flex;
     align-items: center;
     gap: 14px;
     margin-bottom: 22px;
 }
 
-#subchapter13Page .sources-heading-icon {
+#subchapter13Page .section-number {
+    width: 43px;
+    height: 43px;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    width: 48px;
-    height: 48px;
-    border-radius: 15px;
-    background: #e5efe1;
-    color: #315c40;
-    font-size: 29px;
-    font-weight: 700;
-}
-
-#subchapter13Page .sources-heading h3 {
-    margin: 0 0 4px !important;
-    color: #294b38 !important;
-    font-size: 1.15rem;
-    font-weight: 800;
-}
-
-#subchapter13Page .sources-heading p {
-    margin: 0 !important;
-    color: #657267 !important;
-    font-size: 0.9rem !important;
-    line-height: 1.6 !important;
-}
-
-/* רשת המשבצות */
-#subchapter13Page .sources-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 12px;
-}
-
-/* כל משבצת */
-#subchapter13Page .source-item {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    min-width: 0;
-    min-height: 76px;
-    padding: 14px;
-    background: #f2f6ef;
-    border: 1px solid #dce7d7;
-    border-radius: 15px;
-    box-sizing: border-box;
-    transition: background 0.2s ease, border-color 0.2s ease;
-}
-
-#subchapter13Page .source-item:hover {
-    background: #e8f0e3;
-    border-color: #b9cfb2;
-}
-
-/* המספר */
-#subchapter13Page .source-number {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    width: 36px;
-    height: 36px;
-    border-radius: 11px;
-    background: #dce9d6;
-    color: #315c40 !important;
-    font-size: 0.85rem;
-    font-weight: 800;
-}
-
-/* הטקסט */
-#subchapter13Page .source-text {
-    color: #303d32 !important;
-    font-size: 0.95rem;
+    border-radius: 14px;
+    background: rgba(198, 170, 114, .22);
+    color: #8d7445;
+    font-size: 13px;
     font-weight: 600;
-    line-height: 1.65;
-    overflow-wrap: anywhere;
 }
 
-/* התאמה לטלפון */
-@media (max-width: 600px) {
-    #subchapter13Page .sources-card {
-        padding: 17px !important;
-        border-radius: 18px !important;
-    }
-
-    #subchapter13Page .sources-grid {
-        grid-template-columns: 1fr;
-        gap: 9px;
-    }
-
-    #subchapter13Page .source-item {
-        min-height: 66px;
-        padding: 12px;
-        gap: 11px;
-    }
-
-    #subchapter13Page .source-text {
-        font-size: 0.93rem;
-    }
-
-    #subchapter13Page .sources-heading-icon {
-        width: 43px;
-        height: 43px;
-        font-size: 25px;
-    }
+#subchapter13Page .section-heading h2 {
+    color: #273328;
+    font-size: 25px;
+    font-weight: 600;
+    margin-top: 3px;
 }
 
-
-
-/* ========================================
-   דו"ח סיכום האבחון — עיצוב ייעודי
-======================================== */
-
+/* כרטיסי תוכן וכללים */
+#subchapter13Page .info-card,
+#subchapter13Page .rule-card,
+#subchapter13Page .sources-card,
 #subchapter13Page .report-card {
-    position: relative;
-    padding: 25px !important;
-    margin: 22px 0 !important;
-    overflow: hidden;
-    background: linear-gradient(145deg, #ffffff 0%, #f4f8f1 100%) !important;
-    border: 1px solid #d5e3d0 !important;
-    border-radius: 22px !important;
-    box-shadow: 0 10px 28px rgba(43, 72, 48, 0.09) !important;
+    padding: 22px;
+    background: #fffdf8;
+    border: 1px solid rgba(198, 170, 114, .28);
+    border-radius: 20px;
+    box-shadow: 0 7px 22px rgba(39, 51, 40, .055);
 }
 
-/* פס עליון */
-#subchapter13Page .report-card::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    left: 0;
-    height: 5px;
-    background: linear-gradient(90deg, #c8dabe, #527c5b, #c8dabe);
+#subchapter13Page .interactive-cards {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
 }
 
-/* אזור הכותרת */
-#subchapter13Page .report-header {
-    display: flex;
-    align-items: center;
-    gap: 15px;
+#subchapter13Page .rule-card {
+    padding: 20px;
+    background: #fffdf8;
+    border: 1px solid rgba(198, 170, 114, .28);
+    border-radius: 21px;
 }
 
-/* אייקון מסמך */
-#subchapter13Page .report-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    width: 58px;
-    height: 58px;
-    background: #e4eee0;
-    border: 1px solid #d2e1cc;
-    border-radius: 17px;
-    color: #315c40;
-}
-
-#subchapter13Page .report-icon svg {
-    width: 30px;
-    height: 30px;
-}
-
-/* כותרות */
-#subchapter13Page .report-title {
-    flex: 1;
-    min-width: 0;
-}
-
-#subchapter13Page .report-kicker {
-    display: block;
-    margin-bottom: 4px;
-    color: #6b866b;
-    font-size: 0.78rem;
-    font-weight: 800;
-    letter-spacing: 0.04em;
-}
-
-#subchapter13Page .report-title h3 {
-    margin: 0 0 5px !important;
-    color: #294b38 !important;
-    font-size: 1.25rem;
-    font-weight: 800;
-    line-height: 1.4;
-}
-
-#subchapter13Page .report-title p {
-    margin: 0 !important;
-    color: #69756a !important;
-    font-size: 0.9rem !important;
-    line-height: 1.6 !important;
-}
-
-/* אות הסעיף */
-#subchapter13Page .report-letter {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    width: 36px;
-    height: 36px;
-    border-radius: 12px;
-    background: #315c40;
-    color: #ffffff !important;
-    font-size: 1rem;
-    font-weight: 800;
-}
-
-/* מפריד */
-#subchapter13Page .report-divider {
-    height: 1px;
-    margin: 22px 0;
-    background: #dce6d8;
-}
-
-/* ארבע המשבצות */
+/* משבצות מקורות מידע ודוחות */
+#subchapter13Page .sources-grid,
 #subchapter13Page .report-items {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 13px;
+    margin-top: 15px;
 }
 
+#subchapter13Page .source-item,
 #subchapter13Page .report-item {
     display: flex;
     align-items: flex-start;
     gap: 12px;
-    min-width: 0;
-    min-height: 112px;
-    padding: 17px 15px;
-    background: #ffffff;
-    border: 1px solid #e0e9dc;
+    padding: 16px;
+    background: rgba(248, 244, 235, .75);
+    border: 1px solid rgba(198, 170, 114, .2);
     border-radius: 16px;
-    box-shadow: 0 3px 10px rgba(43, 72, 48, 0.035);
-    box-sizing: border-box;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-#subchapter13Page .report-item:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 7px 16px rgba(43, 72, 48, 0.08);
+
+/* סיכום כרטיס */
+#subchapter13Page .takeaway-card {
+    padding: 28px;
+    background: linear-gradient(135deg, #27352a, #354638);
+    border-radius: 28px;
+    color: white;
+    box-shadow: 0 17px 35px rgba(39, 53, 42, .20);
 }
 
-/* מספר הפריט */
-#subchapter13Page .report-item-number {
+/* המלבנים הירוקים השקופים בתוך הסיכום */
+#subchapter13Page .takeaway-items {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    margin-top: 15px;
+}
+
+#subchapter13Page .takeaway-items > div {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 14px;
+    background: rgba(139, 170, 132, 0.22) !important;
+    border: 1px solid rgba(190, 215, 181, 0.32) !important;
+    border-radius: 13px;
+    color: #f2f6ef !important;
+    font-size: 13px;
+    line-height: 1.55;
+    transition: background 0.2s ease;
+}
+
+/* המספרים בתוך המלבנים */
+#subchapter13Page .takeaway-items > div > span {
+    color: #d6c19d !important;
+    font-size: 11px;
+    font-weight: 700;
     flex-shrink: 0;
-    width: 37px;
-    height: 37px;
-    background: #e7f0e2;
-    border-radius: 12px;
-    color: #315c40 !important;
-    font-size: 0.82rem;
-    font-weight: 800;
-}
-
-/* תוכן המשבצת */
-#subchapter13Page .report-item-content {
-    min-width: 0;
-}
-
-#subchapter13Page .report-item-content h4 {
-    margin: 2px 0 7px;
-    color: #294b38 !important;
-    font-size: 0.98rem;
-    font-weight: 800;
-    line-height: 1.5;
-}
-
-#subchapter13Page .report-item-content p {
-    margin: 0 !important;
-    color: #515d53 !important;
-    font-size: 0.88rem !important;
-    line-height: 1.7 !important;
 }
 
 /* התאמה לטלפון */
 @media (max-width: 600px) {
-    #subchapter13Page .report-card {
-        padding: 18px !important;
-        border-radius: 18px !important;
-    }
-
-    #subchapter13Page .report-header {
-        gap: 10px;
-    }
-
-    #subchapter13Page .report-icon {
-        width: 46px;
-        height: 46px;
-        border-radius: 13px;
-    }
-
-    #subchapter13Page .report-icon svg {
-        width: 25px;
-        height: 25px;
-    }
-
-    #subchapter13Page .report-title h3 {
-        font-size: 1.08rem;
-    }
-
-    #subchapter13Page .report-title p {
-        font-size: 0.82rem !important;
-    }
-
-    #subchapter13Page .report-letter {
-        width: 30px;
-        height: 30px;
-        border-radius: 10px;
-    }
-
-    #subchapter13Page .report-items {
+    #subchapter13Page .takeaway-items {
         grid-template-columns: 1fr;
-        gap: 10px;
     }
 
-    #subchapter13Page .report-item {
-        min-height: 0;
-        padding: 14px;
+    #subchapter13Page .takeaway-card {
+        padding: 20px;
     }
 }
+
+/* כפתור סיום */
+#subchapter13Page .finish-learning {
+    width: 100%;
+    min-height: 62px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 24px;
+    padding: 16px 20px;
+    border: none;
+    border-radius: 20px;
+    background: #d6c19d;
+    color: #273328;
+    font-family: 'Rubik', sans-serif;
+    font-size: 17px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 10px 24px rgba(39, 53, 42, 0.14);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#subchapter13Page .finish-learning span {
+    width: 27px;
+    height: 27px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(39, 53, 42, 0.12);
+}
+
+/* =========================
+   התאמה למסכי מובייל (טלפון)
+========================= */
+@media (max-width: 700px) {
+    #subchapter13Page .subchapter-container {
+        padding: 18px 13px 65px;
+    }
+
+    #subchapter13Page .subchapter-header {
+        padding: 23px;
+        border-radius: 25px;
+    }
+
+    #subchapter13Page .subchapter-header h1 {
+        font-size: 26px;
+    }
+
+    #subchapter13Page .interactive-cards,
+    #subchapter13Page .sources-grid,
+    #subchapter13Page .report-items,
+    #subchapter13Page .takeaway-items {
+        grid-template-columns: 1fr;
+    }
+
+    #subchapter13Page .learning-section {
+        padding: 20px;
+    }
+}
+
+/* =====================================================
+   SUBCHAPTER 1.3 — התאמת אייקונים וריבועים צבעוניים כמו 1.1 ו-1.2
+===================================================== */
+
+/* מידות ועיצוב הריבוע הצבעוני לאייקונים (כמו ב-1.1 / 1.2) */
+#subchapter13Page .info-card-icon,
+#subchapter13Page .principle-icon,
+#subchapter13Page .report-icon,
+#subchapter13Page .sources-heading-icon {
+    width: 62px;
+    height: 62px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+
+    border-radius: 20px;
+
+    background: linear-gradient(
+        135deg,
+        rgba(212, 186, 129, 0.9),
+        rgba(255, 238, 190, 0.9),
+        rgba(255, 214, 175, 0.9)
+    );
+
+    border: 1px solid rgba(235, 170, 130, 0.45);
+
+    box-shadow:
+        0 8px 20px rgba(190, 130, 100, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+/* הקטנה וסידור של האייקונים/SVG בתוך הריבועים */
+#subchapter13Page .info-card-icon svg,
+#subchapter13Page .principle-icon svg,
+#subchapter13Page .report-icon svg,
+#subchapter13Page .sources-heading-icon svg {
+    width: 32px;
+    height: 32px;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+#subchapter13Page .emoji-icon,
+#subchapter13Page .sources-heading-icon {
+    font-size: 24px;
+    color: #222;
+}
+
+/* התאמה למסכי טלפון */
+@media (max-width: 700px) {
+    #subchapter13Page .info-card-icon,
+    #subchapter13Page .principle-icon,
+    #subchapter13Page .report-icon,
+    #subchapter13Page .sources-heading-icon {
+        width: 56px;
+        height: 56px;
+        border-radius: 17px;
+    }
+
+    #subchapter13Page .info-card-icon svg,
+    #subchapter13Page .principle-icon svg,
+    #subchapter13Page .report-icon svg,
+    #subchapter13Page .sources-heading-icon svg {
+        width: 27px;
+        height: 27px;
+    }
+}
+
+
+/* =====================================================
+   SUBCHAPTER 1.3 — צבעים חומים-זהובים לשיטות איסוף נתונים
+===================================================== */
+
+/* כרטיס הסיכום — ירוק כמו בתתי-הפרקים הקודמים */
+#subchapter13Page .learning-section .takeaway-items > div {
+    background: rgba(139, 170, 132, 0.22) !important;
+    border: 1px solid rgba(190, 215, 181, 0.32) !important;
+    box-shadow: none !important;
+    color: #f2f6ef !important;
+}
+
+#subchapter13Page .learning-section .takeaway-items > div > span {
+    background: transparent !important;
+    color: #d6c19d !important;
+    font-weight: 700 !important;
+}
+
+/* שיטות איסוף נתונים — החזרת הרקע הבז' */
+#subchapter13Page .report-item,
+#subchapter13Page .source-item {
+    background: #f4efe4 !important;
+    border: 1px solid rgba(198, 170, 114, 0.38) !important;
+    box-shadow: 0 4px 12px rgba(40, 35, 25, 0.06) !important;
+}
+
+/* מספרים בשיטות איסוף הנתונים */
+#subchapter13Page .report-item-number,
+#subchapter13Page .source-number {
+    background: #e6dbcc !important;
+    color: #4a3c28 !important;
+    font-weight: 800 !important;
+}
+
+/* כותרות וטקסט בשיטות איסוף הנתונים */
+#subchapter13Page .report-item-content h4 {
+    color: #382d1e !important;
+}
+
+#subchapter13Page .report-item-content p,
+#subchapter13Page .source-text {
+    color: #4d402e !important;
+    font-weight: 500;
+}
+
+/* התאמה למסכי מובייל */
+@media (max-width: 700px) {
+    #subchapter13Page .takeaway-card {
+        padding: 22px;
+        border-radius: 22px;
+    }
+
+    #subchapter13Page .takeaway-card h2 {
+        font-size: 22px;
+    }
+
+    #subchapter13Page .takeaway-items {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+
+/* עיצוב סעיפי ממדי ההדרכה כמלבנים */
+#subchapter13Page .learning-list {
+    list-style: none;
+    padding: 0;
+    margin: 18px 0 0;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+}
+
+#subchapter13Page .learning-list li {
+    list-style: none;
+    background: #f4efe4;
+    border: 1px solid rgba(198, 170, 114, 0.38);
+    border-radius: 14px;
+    padding: 14px 16px;
+    color: #4d402e;
+    font-size: 14px;
+    line-height: 1.6;
+    box-shadow: 0 4px 12px rgba(40, 35, 25, 0.06);
+}
+
+/* התאמה לטלפון */
+@media (max-width: 700px) {
+    #subchapter13Page .learning-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* שיטות לאיסוף נתונים — עיצוב אחיד לממדי ההדרכה */
+#subchapter13Page .rule-card .takeaway-items {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    margin-top: 18px;
+}
+
+#subchapter13Page .rule-card .takeaway-items > div {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 14px 16px;
+    background: #f4efe4 !important;
+    border: 1px solid rgba(198, 170, 114, 0.38) !important;
+    border-radius: 14px;
+    color: #4d402e !important;
+    font-size: 14px;
+    line-height: 1.6;
+    box-shadow: 0 4px 12px rgba(40, 35, 25, 0.06) !important;
+}
+
+/* המספרים בתוך המלבנים */
+#subchapter13Page .rule-card .takeaway-items > div > span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    border-radius: 7px;
+    background: #e6dbcc !important;
+    color: #4a3c28 !important;
+    font-size: 12px;
+    font-weight: 800;
+}
+
+/* התאמה לטלפון */
+@media (max-width: 700px) {
+    #subchapter13Page .rule-card .takeaway-items {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* =========================================
+   SUMMARY 1.3 — זהה לעיצוב של 1.1
+========================================= */
+
+#subchapter13Page .takeaway-section {
+    margin-bottom: 25px;
+}
+
+#subchapter13Page .takeaway-card {
+    padding: 28px !important;
+    background: linear-gradient(135deg, #27352a, #354638) !important;
+    border-radius: 28px !important;
+    color: white !important;
+    box-shadow: 0 17px 35px rgba(39, 53, 42, .20) !important;
+}
+
+#subchapter13Page .takeaway-label {
+    color: #d6c19d !important;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+#subchapter13Page .takeaway-card h2 {
+    font-size: 28px;
+    margin: 6px 0 20px;
+    text-align: right;
+}
+
+#subchapter13Page .takeaway-card .takeaway-items {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px !important;
+}
+
+#subchapter13Page .takeaway-card .takeaway-items > div {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 13px !important;
+    background: rgba(255,255,255,.08) !important;
+    border: 1px solid rgba(255,255,255,.09) !important;
+    border-radius: 13px !important;
+    color: rgba(255,255,255,.82) !important;
+    font-size: 13px;
+    line-height: 1.55;
+    box-shadow: none !important;
+}
+
+#subchapter13Page .takeaway-card .takeaway-items > div > span {
+    display: inline !important;
+    width: auto !important;
+    height: auto !important;
+    padding: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+    color: #d6c19d !important;
+    font-size: 11px;
+    font-weight: 600 !important;
+    flex-shrink: 0;
+}
+
+@media (max-width: 700px) {
+    #subchapter13Page .takeaway-card {
+        padding: 22px !important;
+        border-radius: 22px !important;
+    }
+
+    #subchapter13Page .takeaway-card h2 {
+        font-size: 22px;
+    }
+
+    #subchapter13Page .takeaway-card .takeaway-items {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+/* =========================================
+   SUMMARY 1.3 — זהה לעיצוב של 1.1
+========================================= */
+
+#subchapter13Page .takeaway-section {
+    margin-bottom: 25px;
+}
+
+#subchapter13Page .takeaway-card {
+    padding: 28px !important;
+    background: linear-gradient(135deg, #27352a, #354638) !important;
+    border-radius: 28px !important;
+    color: white !important;
+    box-shadow: 0 17px 35px rgba(39, 53, 42, .20) !important;
+}
+
+#subchapter13Page .takeaway-label {
+    color: #d6c19d !important;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+#subchapter13Page .takeaway-card h2 {
+    font-size: 28px;
+    margin: 6px 0 20px;
+    text-align: right;
+}
+
+#subchapter13Page .takeaway-card .takeaway-items {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px !important;
+}
+
+#subchapter13Page .takeaway-card .takeaway-items > div {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 13px !important;
+    background: rgba(255,255,255,.08) !important;
+    border: 1px solid rgba(255,255,255,.09) !important;
+    border-radius: 13px !important;
+    color: rgba(255,255,255,.82) !important;
+    font-size: 13px;
+    line-height: 1.55;
+    box-shadow: none !important;
+}
+
+#subchapter13Page .takeaway-card .takeaway-items > div > span {
+    display: inline !important;
+    width: auto !important;
+    height: auto !important;
+    padding: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+    color: #d6c19d !important;
+    font-size: 11px;
+    font-weight: 600 !important;
+    flex-shrink: 0;
+}
+
+@media (max-width: 700px) {
+    #subchapter13Page .takeaway-card {
+        padding: 22px !important;
+        border-radius: 22px !important;
+    }
+
+    #subchapter13Page .takeaway-card h2 {
+        font-size: 22px;
+    }
+
+    #subchapter13Page .takeaway-card .takeaway-items {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+
