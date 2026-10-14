@@ -4800,3 +4800,131 @@ body:not(.categories-page) .hero-section{
     width: 40%;
     color: #646b63;
 }
+
+
+
+/* =========================
+   SUBCHAPTER 1.3 — RESPONSIVE
+   ========================= */
+
+#subchapter13Page,
+#subchapter13Page * {
+    box-sizing: border-box;
+}
+
+#subchapter13Page {
+    width: 100%;
+    max-width: 100%;
+}
+
+#subchapter13Page .subchapter-container {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 28px 24px 48px;
+    min-width: 0;
+}
+
+#subchapter13Page .learning-section,
+#subchapter13Page .learning-intro,
+#subchapter13Page .info-card,
+#subchapter13Page .rule-card,
+#subchapter13Page .takeaway-card {
+    min-width: 0;
+    max-width: 100%;
+}
+
+#subchapter13Page p,
+#subchapter13Page li,
+#subchapter13Page h1,
+#subchapter13Page h2,
+#subchapter13Page h3 {
+    overflow-wrap: anywhere;
+    word-break: normal;
+}
+
+#subchapter13Page .learning-list {
+    padding-right: 22px;
+    padding-left: 0;
+    line-height: 1.8;
+}
+
+#subchapter13Page .definition-note {
+    margin-top: 12px;
+    font-size: 13px;
+    line-height: 1.7;
+    opacity: 0.8;
+}
+
+@media (max-width: 700px) {
+    #subchapter13Page .subchapter-container {
+        padding: 18px 14px 34px;
+    }
+
+    #subchapter13Page .subchapter-header {
+        padding-top: 12px;
+    }
+
+    #subchapter13Page .subchapter-header h1 {
+        font-size: 25px;
+        line-height: 1.35;
+        overflow-wrap: anywhere;
+    }
+
+    #subchapter13Page .subchapter-header h2 {
+        font-size: 16px;
+        line-height: 1.5;
+        right: 0;
+    }
+
+    #subchapter13Page .learning-intro {
+        align-items: flex-start;
+        gap: 14px;
+        padding: 18px;
+    }
+
+    #subchapter13Page .intro-icon {
+        flex-shrink: 0;
+    }
+
+    #subchapter13Page .interactive-cards {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    #subchapter13Page .section-heading h2,
+    #subchapter13Page .takeaway-card h2 {
+        font-size: 20px;
+        line-height: 1.4;
+    }
+
+    #subchapter13Page .info-card,
+    #subchapter13Page .rule-card,
+    #subchapter13Page .takeaway-card {
+        padding: 18px;
+    }
+
+    #subchapter13Page .finish-learning {
+        width: 100%;
+        max-width: 100%;
+        min-height: 54px;
+        margin: 22px 0 8px;
+        white-space: normal;
+    }
+}
+
+@media (max-width: 380px) {
+    #subchapter13Page .subchapter-container {
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+
+    #subchapter13Page .learning-intro {
+        padding: 14px;
+    }
+
+    #subchapter13Page .info-card,
+    #subchapter13Page .rule-card,
+    #subchapter13Page .takeaway-card {
+        padding: 14px;
+    }
+}
