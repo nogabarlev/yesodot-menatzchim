@@ -1029,16 +1029,19 @@ const refreshSubchaptersUI = () => {
                 ".subchapter-progress"
             );
 
-            if (nextProgressElement) {
+if (nextProgressElement) {
 
-                const nextProgress =
-                    chapter1[`1.${i + 1}`] || 0;
+    const nextProgress =
+        chapter1[`1.${i + 1}`] || 0;
 
-                nextProgressElement.textContent =
-                    nextProgress === 100
-                        ? "100% הושלם"
-                        : "טרם הושלם";
-            }
+    nextProgressElement.textContent =
+        nextProgress === 100
+            ? "100% הושלם"
+            : "טרם הושלם";
+
+    nextProgressElement.style.display = "";
+    nextProgressElement.style.visibility = "visible";
+}
 
             // אנימציה לתת-הפרק שנפתח עכשיו
             const newlyUnlocked = sessionStorage.getItem(
