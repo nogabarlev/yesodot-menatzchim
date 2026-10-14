@@ -4489,3 +4489,285 @@ body:not(.categories-page) .hero-section{
         font-size: 14px;
     }
 }
+
+
+
+
+/* =========================================
+   תיקוני מובייל — תת־פרק 1.2 בלבד
+   לא משנה את העיצוב של תת־פרק 1.1
+========================================= */
+
+#subchapter12Page,
+#subchapter12Page * {
+    box-sizing: border-box;
+}
+
+#subchapter12Page {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    overflow-x: clip;
+    text-align: right;
+}
+
+#subchapter12Page .subchapter-container,
+#subchapter12Page .learning-section,
+#subchapter12Page .takeaway-section {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+}
+
+/* כותרות: יישור לימין, למעט הכותרת הראשית */
+#subchapter12Page .section-heading,
+#subchapter12Page .section-heading > div,
+#subchapter12Page .section-title,
+#subchapter12Page .section-title > div {
+    text-align: right;
+}
+
+#subchapter12Page .subchapter-header h1 {
+    text-align: center;
+}
+
+#subchapter12Page .subchapter-header h2 {
+    text-align: right;
+}
+
+/* גלילה אופקית לטבלאות — בלי להרחיב את כל העמוד */
+#subchapter12Page .table-wrapper,
+#subchapter12Page .schedule-table-wrapper,
+#subchapter12Page .learning-table-wrapper {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    direction: rtl;
+}
+
+#subchapter12Page .schedule-table,
+#subchapter12Page .learning-table {
+    width: 100%;
+    min-width: 620px;
+    border-collapse: collapse;
+}
+
+#subchapter12Page .schedule-table th,
+#subchapter12Page .schedule-table td,
+#subchapter12Page .learning-table th,
+#subchapter12Page .learning-table td {
+    text-align: right;
+    vertical-align: top;
+}
+
+/* לא מאפשרים לכרטיסים ולסעיפים להרחיב את המסך */
+#subchapter12Page .schedule-phase,
+#subchapter12Page .schedule-row,
+#subchapter12Page .info-card,
+#subchapter12Page .definition-card,
+#subchapter12Page .role-card,
+#subchapter12Page .principle-main-card,
+#subchapter12Page .note-card,
+#subchapter12Page .quiz-card-12,
+#subchapter12Page .takeaway-card {
+    min-width: 0;
+    max-width: 100%;
+}
+
+/* ציר הזמן נשאר בשורה וניתן לגלול אותו לצדדים */
+#subchapter12Page .schedule-timeline-wrapper {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    direction: rtl;
+}
+
+#subchapter12Page .schedule-timeline {
+    display: flex;
+    width: max-content;
+    min-width: 100%;
+    gap: 10px;
+}
+
+#subchapter12Page .schedule-timeline span {
+    flex: 0 0 auto;
+    white-space: nowrap;
+}
+
+/* כרטיס הסיכום */
+#subchapter12Page .takeaway-card {
+    display: block;
+    width: 100%;
+    margin: 0;
+    text-align: right;
+}
+
+#subchapter12Page .takeaway-card h2 {
+    text-align: right;
+}
+
+#subchapter12Page .takeaway-items {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+/* התאמות לטלפון */
+@media (max-width: 700px) {
+    #subchapter12Page .subchapter-header {
+        padding: 22px 18px;
+        border-radius: 24px;
+    }
+
+    #subchapter12Page .subchapter-header h1 {
+        font-size: 25px;
+        line-height: 1.4;
+    }
+
+    #subchapter12Page .subchapter-header h2 {
+        font-size: 16px;
+        line-height: 1.6;
+    }
+
+    #subchapter12Page .learning-intro {
+        width: calc(100% - 28px);
+        gap: 13px;
+        padding: 18px;
+    }
+
+    #subchapter12Page .learning-intro h1 {
+        font-size: 21px;
+        line-height: 1.4;
+    }
+
+    #subchapter12Page .learning-intro p {
+        font-size: 14px;
+        line-height: 1.7;
+    }
+
+    #subchapter12Page .learning-section {
+        width: calc(100% - 28px);
+        margin: 28px auto;
+    }
+
+    #subchapter12Page .section-heading {
+        gap: 10px;
+    }
+
+    #subchapter12Page .section-heading h2 {
+        font-size: 18px;
+        line-height: 1.5;
+        text-align: right;
+    }
+
+    #subchapter12Page .section-heading > div > span {
+        font-size: 12px;
+    }
+
+    #subchapter12Page .highlight-card,
+    #subchapter12Page .principle-main-card {
+        align-items: flex-start;
+        gap: 12px;
+        padding: 17px;
+    }
+
+    #subchapter12Page .highlight-card p,
+    #subchapter12Page .principle-main-card p {
+        font-size: 14px;
+        line-height: 1.8;
+    }
+
+    #subchapter12Page .rule-card,
+    #subchapter12Page .definition-card,
+    #subchapter12Page .role-card {
+        padding: 17px;
+    }
+
+    #subchapter12Page .rule-card h3,
+    #subchapter12Page .definition-title h3,
+    #subchapter12Page .role-content h3 {
+        font-size: 15px;
+        line-height: 1.6;
+    }
+
+    #subchapter12Page .rule-card p,
+    #subchapter12Page .definition-card > p,
+    #subchapter12Page .role-content p,
+    #subchapter12Page .note-card p {
+        font-size: 14px;
+        line-height: 1.8;
+    }
+
+    #subchapter12Page .schedule-phase {
+        padding: 15px;
+    }
+
+    #subchapter12Page .schedule-phase-heading h3 {
+        font-size: 16px;
+    }
+
+    #subchapter12Page .schedule-row {
+        grid-template-columns: minmax(0, 1fr);
+        overflow-wrap: anywhere;
+    }
+
+    #subchapter12Page .takeaway-card {
+        padding: 20px;
+        border-radius: 23px;
+    }
+
+    #subchapter12Page .takeaway-card h2 {
+        font-size: 22px;
+        line-height: 1.45;
+    }
+
+    #subchapter12Page .takeaway-items {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    #subchapter12Page .takeaway-items > div {
+        font-size: 14px;
+        line-height: 1.7;
+    }
+
+    #subchapter12Page .quiz-card-12 {
+        padding: 18px;
+    }
+
+    #subchapter12Page .quiz-card-12 h3 {
+        font-size: 17px;
+    }
+
+    #subchapter12Page .finish-learning {
+        font-size: 15px;
+        padding: 14px;
+    }
+}
+
+@media (max-width: 380px) {
+    #subchapter12Page .learning-intro {
+        align-items: flex-start;
+        padding: 15px;
+    }
+
+    #subchapter12Page .intro-icon {
+        width: 48px;
+        height: 48px;
+    }
+
+    #subchapter12Page .subchapter-header h1 {
+        font-size: 22px;
+    }
+
+    #subchapter12Page .section-heading h2 {
+        font-size: 16px;
+    }
+}
+
