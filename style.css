@@ -4069,17 +4069,25 @@ body:not(.categories-page) .hero-section{
 ========================= */
 
 #subchapter12Page .takeaway-section {
-    margin-top: 32px;
-    margin-bottom: 24px;
+    margin-bottom: 25px;
 }
 
 #subchapter12Page .takeaway-card {
-    padding: 25px;
-    background: #273328;
-    border: 1px solid rgba(214, 193, 157, .4);
-    border-radius: 23px;
-    color: #fffdf8;
-    box-shadow: 0 10px 28px rgba(39, 51, 40, .13);
+    padding: 28px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #27352a,
+            #354638
+        );
+
+    border-radius: 28px;
+
+    color: white;
+
+    box-shadow:
+        0 17px 35px rgba(39,53,42,.20);
 }
 
 #subchapter12Page .takeaway-label {
@@ -4120,17 +4128,10 @@ body:not(.categories-page) .hero-section{
 }
 
 #subchapter12Page .takeaway-items > div > span {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    color: #d6c19d;
+    font-size: 11px;
+    font-weight: 600;
     flex-shrink: 0;
-    width: 27px;
-    height: 27px;
-    border-radius: 9px;
-    background: #d6c19d;
-    color: #273328;
-    font-size: 12px;
-    font-weight: 700;
 }
 
 /* =========================
@@ -4378,4 +4379,82 @@ body:not(.categories-page) .hero-section{
 
 .subchapter-card.locked .subchapter-content {
     font-family: inherit;
+}
+
+
+/* תתי-פרקים זמינים */
+.subchapter-card.available {
+    opacity: 1;
+}
+
+/* תתי-פרקים נעולים */
+.subchapter-card.locked {
+    opacity: 0.5;
+}
+
+
+/* =========================================
+   SUBCHAPTER 1.2 — MOBILE HORIZONTAL SCROLL
+   ========================================= */
+
+/* מונעים מרוחב התוכן להרחיב את כל העמוד */
+#subchapter12Page,
+#subchapter12Page .subchapter-container,
+#subchapter12Page .learning-section,
+#subchapter12Page .schedule-section {
+    min-width: 0;
+    max-width: 100%;
+}
+
+/* גלילה אופקית לציר הזמן */
+#subchapter12Page .schedule-timeline-wrapper {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    direction: rtl;
+}
+
+#subchapter12Page .schedule-timeline {
+    width: max-content;
+    min-width: 780px;
+}
+
+/* גלילה אופקית לשורות בכל שלב */
+#subchapter12Page .schedule-rows-wrapper {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    direction: rtl;
+}
+
+/* שומרים על רוחב השורות כדי למנוע חיתוך */
+#subchapter12Page .schedule-row {
+    min-width: 700px;
+    width: 700px;
+    max-width: none;
+}
+
+/* התאמה למסכים קטנים */
+@media (max-width: 700px) {
+    #subchapter12Page .schedule-timeline-wrapper,
+    #subchapter12Page .schedule-rows-wrapper {
+        max-width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    #subchapter12Page .schedule-timeline {
+        min-width: 780px;
+    }
+
+    #subchapter12Page .schedule-row {
+        min-width: 700px;
+        width: 700px;
+    }
 }
