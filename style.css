@@ -4392,6 +4392,21 @@ body:not(.categories-page) .hero-section{
     opacity: 0.5;
 }
 
+/* "נעול" ב-1.2 / 1.3 באותו כתב כמו שאר תתי-הפרקים הנעולים (.locked-status) */
+.subchapter-card.locked .subchapter-action {
+    margin-right: 15px;
+}
+
+.subchapter-card.locked .subchapter-progress {
+    color: #777;
+    font-size: 13px;
+    font-weight: 400;
+}
+
+.subchapter-card.locked .subchapter-arrow {
+    display: none;
+}
+
 
 /* =========================================
    SUBCHAPTER 1.2 — MOBILE HORIZONTAL SCROLL

@@ -200,14 +200,10 @@ const closeSubchapter = () => {
 
 const finishSubchapter = () => {
 
+    // אין יותר הרשמה, לכן אם אין עדיין אובייקט משתמש - יוצרים אחד חדש
     const user = JSON.parse(
         localStorage.getItem("user")
-    );
-
-    if (!user) {
-        closeSubchapter();
-        return;
-    }
+    ) || {};
 
     if (!user.chapters) {
         user.chapters = {};
@@ -935,11 +931,10 @@ const refreshChaptersUI = () => {
 
 const refreshSubchaptersUI = () => {
 
+    // גם למשתמש חדש (בלי נתונים שמורים) מציגים נכון את הנעילה
     const user = JSON.parse(
         localStorage.getItem("user")
-    );
-
-    if (!user) return;
+    ) || {};
 
     if (!user.subchapters) {
         user.subchapters = {};
@@ -1226,15 +1221,7 @@ const finishSubchapter12 = () => {
     const user =
         JSON.parse(
             localStorage.getItem("user")
-        );
-
-
-    if (!user) {
-
-        closeSubchapter12();
-
-        return;
-    }
+        ) || {};
 
 
     if (!user.subchapters) {
@@ -1318,15 +1305,7 @@ const finishSubchapter13 = () => {
     const user =
         JSON.parse(
             localStorage.getItem("user")
-        );
-
-
-    if (!user) {
-
-        closeSubchapter13();
-
-        return;
-    }
+        ) || {};
 
 
     if (!user.subchapters) {
@@ -1442,6 +1421,31 @@ document.addEventListener(
 
 
 /* =========================
+   KEEP CHAPTER OPEN AFTER FINISH
+========================= */
+
+// אחרי "סיימתי" הדף נטען מחדש - פותחים שוב את הנושא
+// של תת-הפרק שנפתח עכשיו, כדי שהרשימה לא תיסגר
+const keepChapterOpenAfterFinish = () => {
+
+    const newlyUnlocked = sessionStorage.getItem(
+        "newlyUnlockedSubchapter"
+    );
+
+    if (!newlyUnlocked) return;
+
+    const [chapter, subchapter] =
+        newlyUnlocked.split(".");
+
+    const card = document.querySelector(
+        `[data-chapter="${chapter}"][data-subchapter="${subchapter}"]`
+    );
+
+    card?.closest(".chapter-group")?.classList.add("open");
+};
+
+
+/* =========================
    INIT
 ========================= */
 
@@ -1449,9 +1453,9 @@ refreshProgressUI();
 
 refreshChaptersUI();
 
-refreshSubchaptersUI();
+keepChapterOpenAfterFinish();
 
-loadChapterProgress();
+refreshSubchaptersUI();
 
 updateChapters();
 
