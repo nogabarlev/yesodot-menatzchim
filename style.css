@@ -4928,3 +4928,380 @@ body:not(.categories-page) .hero-section{
         padding: 14px;
     }
 }
+
+
+
+/* תיקון ניגודיות — שיטות לאיסוף נתונים */
+#subchapter13Page .learning-section .takeaway-items > div {
+    color: #263b2d !important;
+    background: #edf3e9 !important;
+    border: 1px solid #cbdcc5 !important;
+}
+
+#subchapter13Page .learning-section .takeaway-items > div > span {
+    color: #263b2d !important;
+    background: #d4e4ce !important;
+    font-weight: 800;
+}
+
+/* טקסט בתוך הכרטיסים */
+#subchapter13Page .learning-section .info-card p,
+#subchapter13Page .learning-section .rule-card p,
+#subchapter13Page .learning-section .learning-list li {
+    color: #303a32 !important;
+}
+
+/* כותרות */
+#subchapter13Page .learning-section .info-card h3,
+#subchapter13Page .learning-section .rule-top h3 {
+    color: #294b38 !important;
+}
+
+/* הערות והפניות למקורות */
+#subchapter13Page .learning-section .definition-note {
+    color: #4b554c !important;
+}
+
+
+/* ========================================
+   מקורות המידע — משבצות מעוצבות
+======================================== */
+
+#subchapter13Page .sources-card {
+    padding: 24px !important;
+    background: rgba(255, 255, 255, 0.96) !important;
+    border: 1px solid #dce6d8 !important;
+    border-radius: 22px !important;
+    box-shadow: 0 8px 24px rgba(40, 65, 45, 0.07) !important;
+}
+
+/* כותרת אזור מקורות המידע */
+#subchapter13Page .sources-heading {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 22px;
+}
+
+#subchapter13Page .sources-heading-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    border-radius: 15px;
+    background: #e5efe1;
+    color: #315c40;
+    font-size: 29px;
+    font-weight: 700;
+}
+
+#subchapter13Page .sources-heading h3 {
+    margin: 0 0 4px !important;
+    color: #294b38 !important;
+    font-size: 1.15rem;
+    font-weight: 800;
+}
+
+#subchapter13Page .sources-heading p {
+    margin: 0 !important;
+    color: #657267 !important;
+    font-size: 0.9rem !important;
+    line-height: 1.6 !important;
+}
+
+/* רשת המשבצות */
+#subchapter13Page .sources-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+}
+
+/* כל משבצת */
+#subchapter13Page .source-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 0;
+    min-height: 76px;
+    padding: 14px;
+    background: #f2f6ef;
+    border: 1px solid #dce7d7;
+    border-radius: 15px;
+    box-sizing: border-box;
+    transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+#subchapter13Page .source-item:hover {
+    background: #e8f0e3;
+    border-color: #b9cfb2;
+}
+
+/* המספר */
+#subchapter13Page .source-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    border-radius: 11px;
+    background: #dce9d6;
+    color: #315c40 !important;
+    font-size: 0.85rem;
+    font-weight: 800;
+}
+
+/* הטקסט */
+#subchapter13Page .source-text {
+    color: #303d32 !important;
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 1.65;
+    overflow-wrap: anywhere;
+}
+
+/* התאמה לטלפון */
+@media (max-width: 600px) {
+    #subchapter13Page .sources-card {
+        padding: 17px !important;
+        border-radius: 18px !important;
+    }
+
+    #subchapter13Page .sources-grid {
+        grid-template-columns: 1fr;
+        gap: 9px;
+    }
+
+    #subchapter13Page .source-item {
+        min-height: 66px;
+        padding: 12px;
+        gap: 11px;
+    }
+
+    #subchapter13Page .source-text {
+        font-size: 0.93rem;
+    }
+
+    #subchapter13Page .sources-heading-icon {
+        width: 43px;
+        height: 43px;
+        font-size: 25px;
+    }
+}
+
+
+
+/* ========================================
+   דו"ח סיכום האבחון — עיצוב ייעודי
+======================================== */
+
+#subchapter13Page .report-card {
+    position: relative;
+    padding: 25px !important;
+    margin: 22px 0 !important;
+    overflow: hidden;
+    background: linear-gradient(145deg, #ffffff 0%, #f4f8f1 100%) !important;
+    border: 1px solid #d5e3d0 !important;
+    border-radius: 22px !important;
+    box-shadow: 0 10px 28px rgba(43, 72, 48, 0.09) !important;
+}
+
+/* פס עליון */
+#subchapter13Page .report-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 5px;
+    background: linear-gradient(90deg, #c8dabe, #527c5b, #c8dabe);
+}
+
+/* אזור הכותרת */
+#subchapter13Page .report-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* אייקון מסמך */
+#subchapter13Page .report-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 58px;
+    height: 58px;
+    background: #e4eee0;
+    border: 1px solid #d2e1cc;
+    border-radius: 17px;
+    color: #315c40;
+}
+
+#subchapter13Page .report-icon svg {
+    width: 30px;
+    height: 30px;
+}
+
+/* כותרות */
+#subchapter13Page .report-title {
+    flex: 1;
+    min-width: 0;
+}
+
+#subchapter13Page .report-kicker {
+    display: block;
+    margin-bottom: 4px;
+    color: #6b866b;
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+}
+
+#subchapter13Page .report-title h3 {
+    margin: 0 0 5px !important;
+    color: #294b38 !important;
+    font-size: 1.25rem;
+    font-weight: 800;
+    line-height: 1.4;
+}
+
+#subchapter13Page .report-title p {
+    margin: 0 !important;
+    color: #69756a !important;
+    font-size: 0.9rem !important;
+    line-height: 1.6 !important;
+}
+
+/* אות הסעיף */
+#subchapter13Page .report-letter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    border-radius: 12px;
+    background: #315c40;
+    color: #ffffff !important;
+    font-size: 1rem;
+    font-weight: 800;
+}
+
+/* מפריד */
+#subchapter13Page .report-divider {
+    height: 1px;
+    margin: 22px 0;
+    background: #dce6d8;
+}
+
+/* ארבע המשבצות */
+#subchapter13Page .report-items {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 13px;
+}
+
+#subchapter13Page .report-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    min-width: 0;
+    min-height: 112px;
+    padding: 17px 15px;
+    background: #ffffff;
+    border: 1px solid #e0e9dc;
+    border-radius: 16px;
+    box-shadow: 0 3px 10px rgba(43, 72, 48, 0.035);
+    box-sizing: border-box;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#subchapter13Page .report-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 7px 16px rgba(43, 72, 48, 0.08);
+}
+
+/* מספר הפריט */
+#subchapter13Page .report-item-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 37px;
+    height: 37px;
+    background: #e7f0e2;
+    border-radius: 12px;
+    color: #315c40 !important;
+    font-size: 0.82rem;
+    font-weight: 800;
+}
+
+/* תוכן המשבצת */
+#subchapter13Page .report-item-content {
+    min-width: 0;
+}
+
+#subchapter13Page .report-item-content h4 {
+    margin: 2px 0 7px;
+    color: #294b38 !important;
+    font-size: 0.98rem;
+    font-weight: 800;
+    line-height: 1.5;
+}
+
+#subchapter13Page .report-item-content p {
+    margin: 0 !important;
+    color: #515d53 !important;
+    font-size: 0.88rem !important;
+    line-height: 1.7 !important;
+}
+
+/* התאמה לטלפון */
+@media (max-width: 600px) {
+    #subchapter13Page .report-card {
+        padding: 18px !important;
+        border-radius: 18px !important;
+    }
+
+    #subchapter13Page .report-header {
+        gap: 10px;
+    }
+
+    #subchapter13Page .report-icon {
+        width: 46px;
+        height: 46px;
+        border-radius: 13px;
+    }
+
+    #subchapter13Page .report-icon svg {
+        width: 25px;
+        height: 25px;
+    }
+
+    #subchapter13Page .report-title h3 {
+        font-size: 1.08rem;
+    }
+
+    #subchapter13Page .report-title p {
+        font-size: 0.82rem !important;
+    }
+
+    #subchapter13Page .report-letter {
+        width: 30px;
+        height: 30px;
+        border-radius: 10px;
+    }
+
+    #subchapter13Page .report-items {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    #subchapter13Page .report-item {
+        min-height: 0;
+        padding: 14px;
+    }
+}
