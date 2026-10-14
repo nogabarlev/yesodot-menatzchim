@@ -5413,3 +5413,58 @@ body:not(.categories-page) .hero-section{
 }
 
 
+/* =========================================
+   SUBCHAPTER 1.3 — תיקון רספונסיביות לטלפון
+========================================= */
+
+#subchapter13Page,
+#subchapter13Page * {
+    box-sizing: border-box;
+}
+
+#subchapter13Page {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    overflow-x: clip;
+}
+
+#subchapter13Page .takeaway-section,
+#subchapter13Page .takeaway-card,
+#subchapter13Page .learning-section,
+#subchapter13Page .rule-card,
+#subchapter13Page .takeaway-items {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+}
+
+#subchapter13Page img,
+#subchapter13Page video,
+#subchapter13Page iframe {
+    max-width: 100%;
+}
+
+#subchapter13Page p,
+#subchapter13Page h2,
+#subchapter13Page h3,
+#subchapter13Page h4,
+#subchapter13Page li {
+    overflow-wrap: anywhere;
+}
+
+@media (max-width: 700px) {
+    #subchapter13Page .takeaway-card {
+        padding: 22px !important;
+    }
+
+    #subchapter13Page .takeaway-items {
+        grid-template-columns: minmax(0, 1fr) !important;
+    }
+
+    #subchapter13Page .rule-card {
+        padding: 18px;
+    }
+}
+
+
