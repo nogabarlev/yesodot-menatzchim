@@ -4409,19 +4409,37 @@ body:not(.categories-page) .hero-section{
 
 
 /* =========================================
-   SUBCHAPTER 1.2 — MOBILE HORIZONTAL SCROLL
+   SUBCHAPTER 1.2 — HORIZONTAL SCROLL (כמו 1.1)
+   להחליף את כל הבלוק הישן
+   "SUBCHAPTER 1.2 — MOBILE HORIZONTAL SCROLL" בסוף style.css
    ========================================= */
 
 /* מונעים מרוחב התוכן להרחיב את כל העמוד */
 #subchapter12Page,
 #subchapter12Page .subchapter-container,
 #subchapter12Page .learning-section,
-#subchapter12Page .schedule-section {
+#subchapter12Page .schedule-section,
+#subchapter12Page .schedule-phase {
     min-width: 0;
     max-width: 100%;
 }
 
-/* גלילה אופקית לציר הזמן */
+/* טבלאות השלבים — משתמשות ב-.table-wrapper ו-.learning-table הקיימים מ-1.1 */
+#subchapter12Page .schedule-table {
+    min-width: 620px;
+}
+
+#subchapter12Page .schedule-table th {
+    text-align: right;
+}
+
+#subchapter12Page .schedule-table td:first-child {
+    width: 58%;
+    color: #273328;
+    font-weight: 600;
+}
+
+/* ציר הזמן — שורה אחת שנגללת הצידה */
 #subchapter12Page .schedule-timeline-wrapper {
     width: 100%;
     max-width: 100%;
@@ -4433,43 +4451,13 @@ body:not(.categories-page) .hero-section{
 }
 
 #subchapter12Page .schedule-timeline {
+    display: flex;
+    gap: 10px;
     width: max-content;
-    min-width: 780px;
+    min-width: 100%;
 }
 
-/* גלילה אופקית לשורות בכל שלב */
-#subchapter12Page .schedule-rows-wrapper {
-    width: 100%;
-    max-width: 100%;
-    overflow-x: auto;
-    overflow-y: hidden;
-    -webkit-overflow-scrolling: touch;
-    overscroll-behavior-x: contain;
-    direction: rtl;
-}
-
-/* שומרים על רוחב השורות כדי למנוע חיתוך */
-#subchapter12Page .schedule-row {
-    min-width: 700px;
-    width: 700px;
-    max-width: none;
-}
-
-/* התאמה למסכים קטנים */
-@media (max-width: 700px) {
-    #subchapter12Page .schedule-timeline-wrapper,
-    #subchapter12Page .schedule-rows-wrapper {
-        max-width: 100%;
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-    }
-
-    #subchapter12Page .schedule-timeline {
-        min-width: 780px;
-    }
-
-    #subchapter12Page .schedule-row {
-        min-width: 700px;
-        width: 700px;
-    }
+#subchapter12Page .schedule-timeline span {
+    flex-shrink: 0;
+    white-space: nowrap;
 }
