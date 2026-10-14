@@ -4771,3 +4771,32 @@ body:not(.categories-page) .hero-section{
     }
 }
 
+
+/* =========================================
+   תיקון טבלאות שעון פעילות (1.2) למובייל
+========================================= */
+
+#subchapter12Page .schedule-table {
+    width: 100%;
+    min-width: 550px; /* מבטיח רוחב קריא שמאפשר גלילה נכונה בלי לשבור מילים */
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+#subchapter12Page .schedule-table th,
+#subchapter12Page .schedule-table td {
+    text-align: right;
+    padding: 12px 14px;
+    white-space: normal; /* מונע שבירת אותיות מוזרה */
+}
+
+#subchapter12Page .schedule-table td:first-child {
+    width: 60%;
+    font-weight: 600;
+    color: #273328;
+}
+
+#subchapter12Page .schedule-table td:last-child {
+    width: 40%;
+    color: #646b63;
+}
