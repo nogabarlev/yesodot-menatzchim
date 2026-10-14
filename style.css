@@ -5458,4 +5458,42 @@ body:not(.categories-page) .hero-section{
 }
 
 
+/* =========================================
+   SUBCHAPTER 1.3 — גלילה אופקית בכרטיסים
+========================================= */
+
+@media (max-width: 700px) {
+
+    /* הכרטיסים הראשיים */
+    #subchapter13Page .interactive-cards,
+    #subchapter13Page .sources-grid,
+    #subchapter13Page .report-items {
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        overflow-x: auto !important;
+        overflow-y: hidden;
+        gap: 14px;
+        width: 100%;
+        padding-bottom: 12px;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    /* כל כרטיס שומר על רוחב משלו */
+    #subchapter13Page .interactive-cards > *,
+    #subchapter13Page .sources-grid > *,
+    #subchapter13Page .report-items > * {
+        flex: 0 0 280px !important;
+        width: 280px !important;
+        max-width: 280px !important;
+        min-width: 280px !important;
+    }
+
+    /* כרטיס הסיכום נשאר ברוחב המסך */
+    #subchapter13Page .takeaway-section,
+    #subchapter13Page .takeaway-card {
+        min-width: 0;
+        max-width: 100%;
+    }
+}
+
 
