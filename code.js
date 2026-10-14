@@ -200,95 +200,59 @@ const closeSubchapter = () => {
 
 const finishSubchapter = () => {
 
-    const user =
-        JSON.parse(
-            localStorage.getItem("user")
-        );
+    const user = JSON.parse(
+        localStorage.getItem("user")
+    );
 
     if (!user) {
-
         closeSubchapter();
-
         return;
     }
 
-
-    /* יצירת מבנה chapters */
-
     if (!user.chapters) {
-
         user.chapters = {};
     }
 
-
     if (!user.chapters.chapter1) {
-
         user.chapters.chapter1 = {
             video: false,
             practice: false
         };
     }
 
-
-    /* יצירת מבנה subchapters */
-
     if (!user.subchapters) {
-
         user.subchapters = {};
     }
 
-
     if (!user.subchapters.chapter1) {
-
         user.subchapters.chapter1 = {};
     }
 
+    // סימון תת-פרק 1.1 כהושלם
+    user.subchapters.chapter1["1.1"] = 100;
 
-    /* =========================
-       1.1 הושלם
-    ========================= */
+    // שמירה על מנגנון ההתקדמות הקיים
+    user.chapters.chapter1.practice = true;
 
-    user.subchapters.chapter1["1.1"] =
-        100;
-
-
-    /*
-     * שמירה על מנגנון
-     * ההתקדמות הישן
-     */
-
-    user.chapters.chapter1.practice =
-        true;
-
-
-    /* עדכון התקדמות */
-
+    // עדכון ההתקדמות הכללית
     updateUserProgress(user);
 
-
-    /* =========================
-       1.2 נפתח עכשיו
-    ========================= */
-
+    // סימון תת-פרק 1.2 כתת-הפרק הבא שנפתח
     sessionStorage.setItem(
         "newlyUnlockedSubchapter",
         "1.2"
     );
 
-
-    /* שמירה */
-
+    // שמירת כל הנתונים לפני המעבר
     localStorage.setItem(
         "user",
         JSON.stringify(user)
     );
 
-
     closeSubchapter();
 
-
-    window.location.href =
-        "categoriesPage.html";
+    // חזרה לרשימת תתי-הפרקים
+    window.location.href = "categoriesPage.html";
 };
 
 
@@ -971,268 +935,131 @@ const refreshChaptersUI = () => {
 
 const refreshSubchaptersUI = () => {
 
-    const user =
-        JSON.parse(
-            localStorage.getItem("user")
-        );
-
+    const user = JSON.parse(
+        localStorage.getItem("user")
+    );
 
     if (!user) return;
 
-
     if (!user.subchapters) {
-
         user.subchapters = {};
     }
 
-
     if (!user.subchapters.chapter1) {
-
         user.subchapters.chapter1 = {};
     }
 
-
-    const chapter1 =
-        user.subchapters.chapter1;
-
+    const chapter1 = user.subchapters.chapter1;
 
     for (let i = 1; i <= 11; i++) {
 
-        const currentNumber =
-            `1.${i}`;
+        const currentNumber = `1.${i}`;
 
+        const previousNumber = `1.${i - 1}`;
 
-        const nextNumber =
-            `1.${i + 1}`;
-
-
-        const currentCard =
-            document.querySelector(
-                `[data-chapter="1"][data-subchapter="${i}"]`
-            );
-
-
-        const nextCard =
-            document.querySelector(
-                `[data-chapter="1"][data-subchapter="${i + 1}"]`
-            );
-
+        const currentCard = document.querySelector(
+            `[data-chapter="1"][data-subchapter="${i}"]`
+        );
 
         if (!currentCard) continue;
 
+        const progressElement = currentCard.querySelector(
+            ".subchapter-progress"
+        );
 
-        /* =========================
-           התקדמות נוכחית
-        ========================= */
+        const lockedStatus = currentCard.querySelector(
+            ".locked-status"
+        );
 
-        const currentProgress =
-            chapter1[currentNumber] || 0;
+        const currentProgress = chapter1[currentNumber] || 0;
 
+        // 1.1 פתוח מההתחלה.
+        // כל תת-פרק אחר נפתח רק לאחר השלמת הקודם.
+        const isUnlocked =
+            i === 1 ||
+            chapter1[previousNumber] === 100;
 
-        const progressElement =
-            currentCard.querySelector(
-                ".subchapter-progress"
-            );
+        const isCompleted = currentProgress === 100;
 
+        if (isUnlocked) {
 
-        const lockedStatus =
-            currentCard.querySelector(
-                ".locked-status"
-            );
-
-
-        /* =========================
-           תת פרק שהושלם
-        ========================= */
-
-        if (currentProgress === 100) {
-
-            currentCard.classList.remove(
-                "locked"
-            );
-
-
-            currentCard.classList.add(
-                "available"
-            );
-
+            currentCard.classList.remove("locked");
+            currentCard.classList.add("available");
 
             if (lockedStatus) {
-
                 lockedStatus.remove();
             }
 
+            if (progressElement) {
+                progressElement.textContent = isCompleted
+                    ? "100% הושלם"
+                    : "טרם הושלם";
+            }
+
+        } else {
+
+            currentCard.classList.add("locked");
+            currentCard.classList.remove("available");
 
             if (progressElement) {
+                progressElement.textContent = "🔒 נעול";
+            }
 
-                progressElement.innerHTML =
-                    "100% הושלם";
+            // אם יש בכרטיס רכיב נפרד של סטטוס נעילה,
+            // נעדכן גם אותו.
+            if (lockedStatus) {
+                lockedStatus.textContent = "🔒 נעול";
             }
         }
 
+        // פתיחת תת-הפרק הבא לאחר השלמת הנוכחי
+        const nextCard = document.querySelector(
+            `[data-chapter="1"][data-subchapter="${i + 1}"]`
+        );
 
-        /* =========================
-           תת פרק שעדיין לא הושלם
-        ========================= */
+        if (nextCard && isCompleted) {
 
-        else {
+            nextCard.classList.remove("locked");
+            nextCard.classList.add("available");
 
-            if (i === 1) {
-
-                /*
-                 * 1.1 פתוח מההתחלה
-                 */
-
-                currentCard.classList.remove(
-                    "locked"
-                );
-
-                currentCard.classList.add(
-                    "available"
-                );
-
-            } else {
-
-                const previousNumber =
-                    `1.${i - 1}`;
-
-
-                const previousProgress =
-                    chapter1[
-                        previousNumber
-                    ] || 0;
-
-
-                if (
-                    previousProgress === 100
-                ) {
-
-                    currentCard.classList.remove(
-                        "locked"
-                    );
-
-                    currentCard.classList.add(
-                        "available"
-                    );
-
-
-                    if (lockedStatus) {
-
-                        lockedStatus.remove();
-                    }
-
-                } else {
-
-                    currentCard.classList.add(
-                        "locked"
-                    );
-
-                    currentCard.classList.remove(
-                        "available"
-                    );
-                }
-            }
-
-
-            if (progressElement) {
-
-                progressElement.innerHTML =
-                    "טרם הושלם";
-            }
-        }
-
-
-        /* =========================
-           פתיחת תת הפרק הבא
-        ========================= */
-
-        if (
-            nextCard &&
-            currentProgress === 100
-        ) {
-
-            nextCard.classList.remove(
-                "locked"
+            const nextLockedStatus = nextCard.querySelector(
+                ".locked-status"
             );
-
-
-            nextCard.classList.add(
-                "available"
-            );
-
-
-            const nextLockedStatus =
-                nextCard.querySelector(
-                    ".locked-status"
-                );
-
 
             if (nextLockedStatus) {
-
                 nextLockedStatus.remove();
             }
 
-
-            const nextProgressElement =
-                nextCard.querySelector(
-                    ".subchapter-progress"
-                );
-
+            const nextProgressElement = nextCard.querySelector(
+                ".subchapter-progress"
+            );
 
             if (nextProgressElement) {
 
                 const nextProgress =
-                    chapter1[
-                        nextNumber
-                    ] || 0;
+                    chapter1[`1.${i + 1}`] || 0;
 
-
-                if (
+                nextProgressElement.textContent =
                     nextProgress === 100
-                ) {
-
-                    nextProgressElement.innerHTML =
-                        "100% הושלם";
-
-                } else {
-
-                    nextProgressElement.innerHTML =
-                        "טרם הושלם";
-                }
+                        ? "100% הושלם"
+                        : "טרם הושלם";
             }
 
+            // אנימציה לתת-הפרק שנפתח עכשיו
+            const newlyUnlocked = sessionStorage.getItem(
+                "newlyUnlockedSubchapter"
+            );
 
-            /* =========================
-               אנימציית פתיחה
-            ========================= */
+            if (newlyUnlocked === `1.${i + 1}`) {
 
-            const newlyUnlocked =
-                sessionStorage.getItem(
-                    "newlyUnlockedSubchapter"
-                );
-
-
-            if (
-                newlyUnlocked ===
-                nextNumber
-            ) {
-
-                nextCard.classList.add(
-                    "just-unlocked"
-                );
-
+                nextCard.classList.add("just-unlocked");
 
                 sessionStorage.removeItem(
                     "newlyUnlockedSubchapter"
                 );
 
-
                 setTimeout(() => {
-
-                    nextCard.classList.remove(
-                        "just-unlocked"
-                    );
-
+                    nextCard.classList.remove("just-unlocked");
                 }, 1300);
             }
         }
