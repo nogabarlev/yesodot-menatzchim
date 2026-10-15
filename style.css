@@ -6243,3 +6243,85 @@ body:not(.categories-page) .hero-section{
         font-size: 16px;
     }
 }
+
+
+
+/* ==========================================
+   SUBCHAPTER 1.5 – עיצוב כרטיסיות הרשימות
+========================================== */
+
+#subchapter15Page .chip-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+    margin-top: 20px;
+}
+
+#subchapter15Page .chip-grid > div {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+
+    padding: 16px 18px;
+
+    background: #ffffff;
+    border: 1px solid #e5e7e2;
+    border-radius: 14px;
+
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.045);
+
+    color: #30352f;
+    font-size: 15px;
+    line-height: 1.7;
+
+    min-width: 0;
+    box-sizing: border-box;
+    overflow-wrap: anywhere;
+
+    transition: transform 0.2s ease,
+                box-shadow 0.2s ease;
+}
+
+/* המספר בתוך כל כרטיסייה */
+#subchapter15Page .chip-grid > div > span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+    width: 30px;
+    height: 30px;
+
+    background: #e8eee5;
+    color: #40563d;
+
+    border-radius: 9px;
+
+    font-size: 14px;
+    font-weight: 700;
+}
+
+/* התאמה לטלפון */
+@media (max-width: 700px) {
+    #subchapter15Page .chip-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 10px;
+    }
+
+    #subchapter15Page .chip-grid > div {
+        padding: 14px;
+        font-size: 14px;
+        border-radius: 12px;
+    }
+}
+
+
+#subchapter15Page .interactive-cards {
+    align-items: start;
+}
+
+#subchapter15Page .rule-card {
+    height: auto;
+    min-height: 0;
+    align-self: start;
+}
