@@ -6017,3 +6017,229 @@ body:not(.categories-page) .hero-section{
         font-size: 17px;
     }
 }
+
+
+/* ==========================================
+   SUBCHAPTER 1.5 – היערכות לפתיחת מחזור
+========================================== */
+
+/* מעטפת העמוד */
+#subchapter15Page {
+    direction: rtl;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+#subchapter15Page .subchapter-container {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding-bottom: 40px;
+    box-sizing: border-box;
+}
+
+/* כותרת */
+#subchapter15Page .subchapter-header h1 {
+    line-height: 1.4;
+}
+
+#subchapter15Page .subchapter-header h2 {
+    line-height: 1.7;
+}
+
+/* כרטיסיות תוכן */
+#subchapter15Page .interactive-cards {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+#subchapter15Page .rule-card {
+    min-width: 0;
+    box-sizing: border-box;
+    overflow-wrap: anywhere;
+}
+
+#subchapter15Page .rule-top {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+#subchapter15Page .rule-top h3 {
+    margin-top: 0;
+    line-height: 1.6;
+}
+
+#subchapter15Page .rule-card p {
+    line-height: 1.9;
+}
+
+/* כרטיסי מטרת הנוהל */
+#subchapter15Page .info-card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+#subchapter15Page .info-card p {
+    margin: 0;
+    line-height: 1.9;
+}
+
+/* רשימת נושאים ופעולות */
+#subchapter15Page .chip-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    margin-top: 18px;
+}
+
+#subchapter15Page .chip-grid > div {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    min-width: 0;
+    padding: 13px;
+    box-sizing: border-box;
+    line-height: 1.7;
+    overflow-wrap: anywhere;
+}
+
+#subchapter15Page .chip-grid > div > span {
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+}
+
+/* הערות ומקורות */
+#subchapter15Page .definition-note {
+    margin-top: 14px;
+    line-height: 1.8;
+    overflow-wrap: anywhere;
+}
+
+/* סיכום */
+#subchapter15Page .takeaway-card {
+    box-sizing: border-box;
+    width: 100%;
+}
+
+#subchapter15Page .takeaway-items {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+#subchapter15Page .takeaway-items > div {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    line-height: 1.8;
+}
+
+#subchapter15Page .takeaway-items > div > span {
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+}
+
+/* כפתור סיום */
+#subchapter15Page .finish-learning {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    max-width: 100%;
+    box-sizing: border-box;
+    margin: 28px auto 0;
+}
+
+/* ==========================================
+   התאמה לטאבלטים ולטלפונים
+========================================== */
+
+@media (max-width: 700px) {
+
+    #subchapter15Page .subchapter-container {
+        padding: 18px 15px 30px;
+    }
+
+    #subchapter15Page .interactive-cards {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 14px;
+    }
+
+    #subchapter15Page .chip-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 10px;
+    }
+
+    #subchapter15Page .rule-card {
+        padding: 18px;
+    }
+
+    #subchapter15Page .rule-top {
+        gap: 10px;
+    }
+
+    #subchapter15Page .rule-top h3 {
+        font-size: 17px;
+    }
+
+    #subchapter15Page .rule-card p,
+    #subchapter15Page .info-card p {
+        font-size: 14px;
+        line-height: 1.85;
+    }
+
+    #subchapter15Page .info-card {
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    #subchapter15Page .chip-grid > div {
+        padding: 12px;
+        font-size: 14px;
+    }
+
+    #subchapter15Page .section-heading {
+        gap: 12px;
+    }
+
+    #subchapter15Page .section-heading h2 {
+        line-height: 1.5;
+    }
+
+    #subchapter15Page .takeaway-items > div {
+        font-size: 14px;
+    }
+
+    #subchapter15Page .finish-learning {
+        width: 100%;
+        padding: 14px 16px;
+    }
+}
+
+/* מסכים קטנים במיוחד */
+@media (max-width: 380px) {
+
+    #subchapter15Page .subchapter-container {
+        padding-right: 11px;
+        padding-left: 11px;
+    }
+
+    #subchapter15Page .rule-card {
+        padding: 15px 12px;
+    }
+
+    #subchapter15Page .section-heading h2 {
+        font-size: 18px;
+    }
+
+    #subchapter15Page .rule-top h3 {
+        font-size: 16px;
+    }
+}
