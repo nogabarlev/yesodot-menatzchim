@@ -5537,3 +5537,92 @@ body:not(.categories-page) .hero-section{
 
 
 
+/* =========================================
+   1.3 — תיקון כרטיס מקורות המידע ודו"ח הסיכום
+========================================= */
+
+#subchapter13Page {
+    overflow-x: hidden;   /* מחליף את overflow-x:auto שגרם לעמוד כולו לזוז הצידה */
+}
+
+#subchapter13Page .sources-card,
+#subchapter13Page .report-card {
+    display: block;       /* במקום flex בשורה */
+    min-width: 0;
+    margin-top: 16px;
+}
+
+#subchapter13Page .sources-heading,
+#subchapter13Page .report-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+#subchapter13Page .sources-heading h3,
+#subchapter13Page .report-title h3 {
+    margin: 0 0 4px;
+    color: #273328;
+    font-size: 18px;
+    line-height: 1.4;
+}
+
+#subchapter13Page .sources-heading p,
+#subchapter13Page .report-title p {
+    margin: 0;
+    color: #5e665f;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.6;
+}
+
+#subchapter13Page .report-divider {
+    height: 1px;
+    margin: 16px 0 4px;
+    background: rgba(198, 170, 114, .35);
+}
+
+#subchapter13Page .source-item,
+#subchapter13Page .report-item {
+    min-width: 0;
+}
+
+#subchapter13Page .source-number,
+#subchapter13Page .report-item-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    min-width: 32px;
+    height: 32px;
+    padding: 0 6px;
+    border-radius: 9px;
+    font-size: 12px;
+}
+
+#subchapter13Page .source-text,
+#subchapter13Page .report-item-content {
+    flex: 1;
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
+#subchapter13Page .source-text {
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+#subchapter13Page .report-item-content h4 {
+    margin: 0 0 4px;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+#subchapter13Page .report-item-content p {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.7;
+}
+
+
