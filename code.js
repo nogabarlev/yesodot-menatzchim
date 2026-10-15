@@ -199,6 +199,31 @@ const openSubchapter = (chapter) => {
         return;
     }
 
+    /* =========================
+   1.5
+========================= */
+
+if (chapter === "1.5") {
+
+    const page =
+        document.getElementById(
+            "subchapter15Page"
+        );
+
+    if (!page) return;
+
+    page.classList.add("show");
+
+    document.body.style.overflow = "hidden";
+
+    window.scrollTo({
+        top: 0,
+        behavior: "auto"
+    });
+
+    return;
+}
+
 };
 
 
@@ -1345,6 +1370,24 @@ const closeSubchapter14 = () => {
     document.body.style.overflow = "";
 };
 
+/* =========================
+   CLOSE 1.5
+========================= */
+
+const closeSubchapter15 = () => {
+
+    const page =
+        document.getElementById(
+            "subchapter15Page"
+        );
+
+    if (!page) return;
+
+    page.classList.remove("show");
+
+    document.body.style.overflow = "";
+};
+
 
 
 /* FINISH 1.3 */
@@ -1439,6 +1482,47 @@ const finishSubchapter14 = () => {
     );
 
     closeSubchapter14();
+
+    // חזרה לרשימת תתי-הפרקים
+    window.location.href = "categoriesPage.html";
+};
+
+
+/* =========================
+   FINISH 1.5
+========================= */
+
+const finishSubchapter15 = () => {
+
+    const user =
+        JSON.parse(
+            localStorage.getItem("user")
+        ) || {};
+
+    if (!user.subchapters) {
+        user.subchapters = {};
+    }
+
+    if (!user.subchapters.chapter1) {
+        user.subchapters.chapter1 = {};
+    }
+
+    // סימון תת-פרק 1.4 כהושלם
+    user.subchapters.chapter1["1.5"] = 100;
+
+    // סימון תת-פרק 1.6 כתת-הפרק הבא שייפתח
+    sessionStorage.setItem(
+        "newlyUnlockedSubchapter",
+        "1.6"
+    );
+
+    // שמירת ההתקדמות
+    localStorage.setItem(
+        "user",
+        JSON.stringify(user)
+    );
+
+    closeSubchapter15();
 
     // חזרה לרשימת תתי-הפרקים
     window.location.href = "categoriesPage.html";
@@ -1602,3 +1686,9 @@ window.closeSubchapter13 =
 
 window.finishSubchapter13 =
     finishSubchapter13;
+
+window.finishSubchapter14 =
+    finishSubchapter14;
+
+window.closeSubchapter15 = closeSubchapter15;
+window.finishSubchapter15 = finishSubchapter15;
