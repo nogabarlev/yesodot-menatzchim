@@ -172,6 +172,33 @@ const openSubchapter = (chapter) => {
 
         return;
     }
+
+    
+    /* =========================
+       1.4
+    ========================= */
+
+    if (chapter === "1.4") {
+
+        const page =
+            document.getElementById(
+                "subchapter14Page"
+            );
+
+        if (!page) return;
+
+        page.classList.add("show");
+
+        document.body.style.overflow = "hidden";
+
+        window.scrollTo({
+            top: 0,
+            behavior: "auto"
+        });
+
+        return;
+    }
+
 };
 
 
@@ -1300,6 +1327,25 @@ const closeSubchapter13 = () => {
         "";
 };
 
+/* =========================
+   CLOSE 1.4
+========================= */
+
+const closeSubchapter14 = () => {
+
+    const page =
+        document.getElementById(
+            "subchapter14Page"
+        );
+
+    if (!page) return;
+
+    page.classList.remove("show");
+
+    document.body.style.overflow = "";
+};
+
+
 
 /* FINISH 1.3 */
 
@@ -1354,6 +1400,48 @@ const finishSubchapter13 = () => {
 
     window.location.href =
         "categoriesPage.html";
+};
+
+
+
+/* =========================
+   FINISH 1.4
+========================= */
+
+const finishSubchapter14 = () => {
+
+    const user =
+        JSON.parse(
+            localStorage.getItem("user")
+        ) || {};
+
+    if (!user.subchapters) {
+        user.subchapters = {};
+    }
+
+    if (!user.subchapters.chapter1) {
+        user.subchapters.chapter1 = {};
+    }
+
+    // סימון תת-פרק 1.4 כהושלם
+    user.subchapters.chapter1["1.4"] = 100;
+
+    // סימון תת-פרק 1.5 כתת-הפרק הבא שייפתח
+    sessionStorage.setItem(
+        "newlyUnlockedSubchapter",
+        "1.5"
+    );
+
+    // שמירת ההתקדמות
+    localStorage.setItem(
+        "user",
+        JSON.stringify(user)
+    );
+
+    closeSubchapter14();
+
+    // חזרה לרשימת תתי-הפרקים
+    window.location.href = "categoriesPage.html";
 };
 
 
