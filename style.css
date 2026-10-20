@@ -6325,3 +6325,57 @@ body:not(.categories-page) .hero-section{
     min-height: 0;
     align-self: start;
 }
+
+
+/* =====================================================
+   SUBCHAPTERS 1.6 – 1.11  (class: sc-new)
+   להדביק בסוף style.css — עיצוב זהה ל-1.4 / 1.5
+===================================================== */
+.sc-new{direction:rtl;text-align:right;color:#273328;overflow-x:hidden}
+.sc-new,.sc-new *{box-sizing:border-box}
+.sc-new .subchapter-container{position:relative;z-index:1;width:100%;max-width:1050px;margin:0 auto;padding:28px 24px 70px}
+.sc-new .subchapter-header{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:30px;margin-bottom:28px;background:linear-gradient(135deg,#27352a,#344437);color:#fff;border:1px solid rgba(214,193,157,.35);border-radius:30px;box-shadow:0 12px 30px rgba(25,38,27,.14)}
+.sc-new .subchapter-header h1{margin:12px 0 0;color:#fff;font-size:32px;font-weight:700;line-height:1.4;text-align:center;max-width:none}
+.sc-new .subchapter-header h2{position:static;margin:0;color:#d6c19d;font-size:20px!important;font-weight:400;line-height:1.6;text-align:center}
+.sc-new .back-button{display:inline-flex;align-self:flex-start;justify-content:center;gap:10px;width:auto;height:auto;min-height:42px;margin:0;padding:10px 18px;background:rgba(255,255,255,.10);color:#fff;border:1px solid rgba(214,193,157,.55);border-radius:30px;font-family:inherit;font-size:14px;font-weight:500;cursor:pointer}
+.sc-new .back-button span{color:#d6c19d;font-size:20px;line-height:1}
+.sc-new .learning-intro,.sc-new .learning-section,.sc-new .takeaway-section{width:100%;max-width:100%;min-width:0}
+.sc-new .section-heading{text-align:right}
+.sc-new .section-heading>div{min-width:0}
+.sc-new .info-card,.sc-new .rule-card{min-width:0;max-width:100%;background:#fffdf8;border:1px solid rgba(198,170,114,.28);box-shadow:0 7px 22px rgba(39,51,40,.055)}
+.sc-new .highlight-card{background:linear-gradient(135deg,#f5efdf,#fffdf8);border-right:5px solid #b9a16a}
+.sc-new .info-card-icon svg{width:32px;height:32px}
+.sc-new .interactive-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;align-items:start}
+.sc-new .interactive-cards.cols-1{grid-template-columns:minmax(0,1fr)}
+.sc-new .rule-card{padding:20px;overflow-wrap:anywhere;align-self:start}
+.sc-new .rule-top h3{min-width:0;font-size:16px;line-height:1.5}
+.sc-new .rule-card p{font-size:14px;line-height:1.85}
+.sc-new .definition-note{margin-top:13px;padding:12px 14px;background:#f3eddf;color:#6d5b39;border-radius:12px;font-size:13px;line-height:1.75}
+.sc-new .subsection-title{margin:26px 0 14px}
+.sc-new .note-card{margin-top:18px}
+.sc-new .chip-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:18px}
+.sc-new .chip-grid>div{display:flex;align-items:flex-start;gap:10px;min-width:0;padding:14px 16px;background:#f4efe4;color:#4d402e;border:1px solid rgba(198,170,114,.38);border-radius:14px;box-shadow:0 4px 12px rgba(40,35,25,.06);font-size:14px;line-height:1.6;overflow-wrap:anywhere}
+.sc-new .chip-grid>div>span{display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;width:24px;height:24px;background:#e6dbcc;color:#4a3c28;border-radius:7px;font-size:12px;font-weight:800}
+.sc-new .learning-table.tbl-sm{min-width:520px}
+.sc-new .learning-table td:first-child{font-weight:600;color:#273328}
+.sc-new .takeaway-card{width:100%;padding:28px;background:linear-gradient(135deg,#27352a,#354638);color:#fff;border-radius:28px;box-shadow:0 17px 35px rgba(39,53,42,.20);overflow-wrap:anywhere}
+.sc-new .takeaway-label{color:#d6c19d;font-size:13px;font-weight:500}
+.sc-new .takeaway-card h2{margin:6px 0 20px;font-size:28px!important;text-align:right}
+.sc-new .takeaway-items{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.sc-new .takeaway-items>div{display:flex;align-items:flex-start;gap:10px;min-width:0;padding:13px;background:rgba(255,255,255,.08);color:rgba(255,255,255,.82);border:1px solid rgba(255,255,255,.09);border-radius:13px;font-size:13px;line-height:1.55}
+.sc-new .takeaway-items>div>span{flex-shrink:0;color:#d6c19d;font-size:11px;font-weight:600}
+.sc-new .finish-learning{margin:24px 0 20px}
+@media (max-width:700px){
+ .sc-new .subchapter-container{padding:18px 13px 65px}
+ .sc-new .subchapter-header{padding:24px 20px;border-radius:25px}
+ .sc-new .subchapter-header h1{font-size:26px}
+ .sc-new .subchapter-header h2{font-size:17px!important}
+ .sc-new .learning-section{padding:20px}
+ .sc-new .interactive-cards,.sc-new .chip-grid,.sc-new .takeaway-items{grid-template-columns:minmax(0,1fr)}
+ .sc-new .rule-card{padding:17px}
+ .sc-new .takeaway-card{padding:20px;border-radius:23px}
+ .sc-new .takeaway-card h2{font-size:22px!important}
+ .sc-new .takeaway-items>div{font-size:14px;line-height:1.7}
+ .sc-new .highlight-card{align-items:flex-start;gap:12px;padding:17px}
+ .sc-new .finish-learning{font-size:15px;padding:14px}
+}
