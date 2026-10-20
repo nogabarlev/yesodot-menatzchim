@@ -224,6 +224,20 @@ if (chapter === "1.5") {
     return;
 }
 
+ 
+    /* 1.6 – 1.11 */
+    const genericPage = document.getElementById(
+        "subchapter" + chapter.replace(".", "") + "Page"
+    );
+ 
+    if (genericPage && genericPage.classList.contains("sc-new")) {
+ 
+        genericPage.classList.add("show");
+        document.body.style.overflow = "hidden";
+        window.scrollTo({ top: 0, behavior: "auto" });
+        return;
+    }
+
 };
 
 
@@ -1389,6 +1403,20 @@ const closeSubchapter15 = () => {
 };
 
 
+/* CLOSE – 1.6 עד 1.11 */
+const closeSubchapterPage = (chapter) => {
+ 
+    const page = document.getElementById(
+        "subchapter" + chapter.replace(".", "") + "Page"
+    );
+ 
+    if (!page) return;
+ 
+    page.classList.remove("show");
+    document.body.style.overflow = "";
+};
+
+
 
 /* FINISH 1.3 */
 
@@ -1528,6 +1556,34 @@ const finishSubchapter15 = () => {
     window.location.href = "categoriesPage.html";
 };
 
+/* FINISH – 1.6 עד 1.11 */
+const finishSubchapterPage = (chapter) => {
+ 
+    const user = JSON.parse(localStorage.getItem("user")) || {};
+ 
+    if (!user.subchapters) user.subchapters = {};
+    if (!user.subchapters.chapter1) user.subchapters.chapter1 = {};
+ 
+    // סימון תת-הפרק כהושלם
+    user.subchapters.chapter1[chapter] = 100;
+ 
+    // פתיחת תת-הפרק הבא (אחרי 1.11 אין המשך)
+    const number = Number(chapter.split(".")[1]);
+ 
+    if (number < 11) {
+        sessionStorage.setItem(
+            "newlyUnlockedSubchapter",
+            `1.${number + 1}`
+        );
+    }
+ 
+    localStorage.setItem("user", JSON.stringify(user));
+ 
+    closeSubchapterPage(chapter);
+ 
+    window.location.href = "categoriesPage.html";
+};
+
 
 /* =========================
    ESC - GENERAL
@@ -1593,6 +1649,18 @@ document.addEventListener(
         }
     }
 );
+
+/* ESC – סוגר את עמודי 1.6–1.11 */
+document.addEventListener("keydown", (event) => {
+ 
+    if (event.key !== "Escape") return;
+ 
+    document
+        .querySelectorAll(".sc-new.show")
+        .forEach((page) => page.classList.remove("show"));
+ 
+    document.body.style.overflow = "";
+});
 
 
 /* =========================
@@ -1692,3 +1760,6 @@ window.finishSubchapter14 =
 
 window.closeSubchapter15 = closeSubchapter15;
 window.finishSubchapter15 = finishSubchapter15;
+
+window.closeSubchapterPage = closeSubchapterPage;
+window.finishSubchapterPage = finishSubchapterPage;
