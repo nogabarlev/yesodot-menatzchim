@@ -60,186 +60,39 @@ const toggleDropdown = () => {
    OPEN SUBCHAPTER
 ========================= */
 
+const getSubchapterPage = (chapter) => {
+
+    const n = chapter.replace(".", "");
+
+    return (
+        document.getElementById("subchapterNew" + n + "Page") ||
+        document.getElementById("subchapter" + n + "Page")
+    );
+};
+
 const openSubchapter = (chapter) => {
 
-    const user =
-        JSON.parse(
-            localStorage.getItem("user")
-        );
+    const user = JSON.parse(localStorage.getItem("user"));
 
-
-    /* =========================
-       בדיקה שתת הפרק פתוח
-    ========================= */
-
+    // תת-פרק נפתח רק אחרי השלמת הקודם (1.1 תמיד פתוח)
     if (chapter !== "1.1") {
 
-        const number =
-            Number(
-                chapter.split(".")[1]
-            );
-
-        const previousNumber =
-            `1.${number - 1}`;
+        const number = Number(chapter.split(".")[1]);
 
         const previousProgress =
-            user?.subchapters?.chapter1?.[
-                previousNumber
-            ] || 0;
+            user?.subchapters?.chapter1?.[`1.${number - 1}`] || 0;
 
-        if (previousProgress !== 100) {
-            return;
-        }
+        if (previousProgress !== 100) return;
     }
 
-
-    /* =========================
-       1.1
-    ========================= */
-
-    if (chapter === "1.1") {
-
-        const page =
-            document.getElementById(
-                "subchapterPage"
-            );
-
-        if (!page) return;
-
-        page.classList.add("show");
-
-        document.body.style.overflow =
-            "hidden";
-
-        window.scrollTo({
-            top: 0,
-            behavior: "auto"
-        });
-
-        return;
-    }
-
-
-    /* =========================
-       1.2
-    ========================= */
-
-    if (chapter === "1.2") {
-
-        const page =
-            document.getElementById(
-                "subchapter12Page"
-            );
-
-        if (!page) return;
-
-        page.classList.add("show");
-
-        document.body.style.overflow =
-            "hidden";
-
-        window.scrollTo({
-            top: 0,
-            behavior: "auto"
-        });
-
-        return;
-    }
-
-
-    /* =========================
-       1.3
-    ========================= */
-
-    if (chapter === "1.3") {
-
-        const page =
-            document.getElementById(
-                "subchapter13Page"
-            );
-
-        if (!page) return;
-
-        page.classList.add("show");
-
-        document.body.style.overflow =
-            "hidden";
-
-        window.scrollTo({
-            top: 0,
-            behavior: "auto"
-        });
-
-        return;
-    }
-
-    
-    /* =========================
-       1.4
-    ========================= */
-
-    if (chapter === "1.4") {
-
-        const page =
-            document.getElementById(
-                "subchapter14Page"
-            );
-
-        if (!page) return;
-
-        page.classList.add("show");
-
-        document.body.style.overflow = "hidden";
-
-        window.scrollTo({
-            top: 0,
-            behavior: "auto"
-        });
-
-        return;
-    }
-
-    /* =========================
-   1.5
-========================= */
-
-if (chapter === "1.5") {
-
-    const page =
-        document.getElementById(
-            "subchapter15Page"
-        );
+    const page = getSubchapterPage(chapter);
 
     if (!page) return;
 
     page.classList.add("show");
-
     document.body.style.overflow = "hidden";
-
-    window.scrollTo({
-        top: 0,
-        behavior: "auto"
-    });
-
-    return;
-}
-
- 
-    /* 1.6 – 1.11 */
-    const genericPage = document.getElementById(
-        "subchapter" + chapter.replace(".", "") + "Page"
-    );
- 
-    if (genericPage && genericPage.classList.contains("sc-new")) {
- 
-        genericPage.classList.add("show");
-        document.body.style.overflow = "hidden";
-        window.scrollTo({ top: 0, behavior: "auto" });
-        return;
-    }
-
+    window.scrollTo({ top: 0, behavior: "auto" });
 };
-
 
 /* =========================
    CLOSE 1.1
@@ -1223,60 +1076,35 @@ const toggleLearningCard = (card) => {
    QUIZ 1.2
 ========================= */
 
-const checkAnswer12 = (
-    button,
-    isCorrect
-) => {
-
-    const answers =
-        document.querySelectorAll(
-            "#subchapter12Page .quiz-answer"
-        );
-
-
-    const feedback =
-        document.getElementById(
-            "quizFeedback12"
-        );
-
-
+const checkAnswer12 = (button, isCorrect) => {
+ 
+    const card = button.closest(".quiz-card-12");
+ 
+    const answers = card.querySelectorAll(".quiz-answer");
+ 
+    const feedback = card.querySelector(".quiz-feedback");
+ 
     answers.forEach((answer) => {
-
         answer.disabled = true;
     });
-
-
+ 
     if (isCorrect) {
-
-        button.classList.add(
-            "correct"
-        );
-
-
-        if (feedback) {
-
-            feedback.innerHTML =
-                "✓ נכון! שעון הפעילות מגדיר את העיתוי של מופעי ניהול ההדרכה המרכזיים בהכשרה.";
-
-            feedback.style.color =
-                "#687b5b";
-        }
-
+ 
+        button.classList.add("correct");
+ 
+        feedback.innerHTML =
+            "✓ נכון! שעון הפעילות מגדיר את העיתוי של מופעי ניהול ההדרכה המרכזיים בהכשרה.";
+ 
+        feedback.style.color = "#687b5b";
+ 
     } else {
-
-        button.classList.add(
-            "wrong"
-        );
-
-
-        if (feedback) {
-
-            feedback.innerHTML =
-                "לא בדיוק. חפשי את ההגדרה שמתייחסת לעיתוי של מופעי ניהול ההדרכה.";
-
-            feedback.style.color =
-                "#a06c62";
-        }
+ 
+        button.classList.add("wrong");
+ 
+        feedback.innerHTML =
+            "לא בדיוק. חפשי את ההגדרה שמתייחסת לעיתוי של מופעי ניהול ההדרכה.";
+ 
+        feedback.style.color = "#a06c62";
     }
 };
 
@@ -1406,9 +1234,7 @@ const closeSubchapter15 = () => {
 /* CLOSE – 1.6 עד 1.11 */
 const closeSubchapterPage = (chapter) => {
  
-    const page = document.getElementById(
-        "subchapter" + chapter.replace(".", "") + "Page"
-    );
+    const page = getSubchapterPage(chapter);
  
     if (!page) return;
  
@@ -1566,6 +1392,20 @@ const finishSubchapterPage = (chapter) => {
  
     // סימון תת-הפרק כהושלם
     user.subchapters.chapter1[chapter] = 100;
+ 
+    // לוגיקה מיוחדת שהייתה ב-1.1 (מנגנון ההתקדמות הכללי)
+    if (chapter === "1.1") {
+ 
+        if (!user.chapters) user.chapters = {};
+ 
+        if (!user.chapters.chapter1) {
+            user.chapters.chapter1 = { video: false, practice: false };
+        }
+ 
+        user.chapters.chapter1.practice = true;
+ 
+        updateUserProgress(user);
+    }
  
     // פתיחת תת-הפרק הבא (אחרי 1.11 אין המשך)
     const number = Number(chapter.split(".")[1]);
