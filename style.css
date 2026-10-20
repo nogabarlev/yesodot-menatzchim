@@ -6379,3 +6379,21 @@ body:not(.categories-page) .hero-section{
  .sc-new .highlight-card{align-items:flex-start;gap:12px;padding:17px}
  .sc-new .finish-learning{font-size:15px;padding:14px}
 }
+
+
+/* =====================================================
+   תוספות ל-sc-new עבור 1.1–1.5  (להדביק בסוף style.css)
+===================================================== */
+.sc-new .sc-para{margin:0 0 14px;color:#5e665f;font-size:14px;line-height:1.85}
+.sc-new .note-card ul{margin:8px 0 0;padding-right:21px;color:#4f584f;font-size:14px;line-height:1.85}
+.sc-new .note-card li{margin:4px 0}
+.sc-new .learning-table td:last-child{color:#646b63}
+.sc-new .quiz-card-12{display:block}
+.sc-new .quiz-card-12 h3{margin:0 0 9px;color:#273328;font-size:19px;line-height:1.5}
+.sc-new .quiz-card-12>p{margin:0;font-size:14px;line-height:1.8}
+.sc-new .quiz-options-12{display:grid;grid-template-columns:1fr;gap:11px;margin-top:18px}
+.sc-new .quiz-answer{display:block;width:100%;height:auto;min-height:55px;padding:15px 17px;border:1px solid rgba(198,170,114,.35);border-radius:14px;background:#f8f4eb;color:#344036;font:inherit;font-size:14px;font-weight:400;text-align:right;line-height:1.8;cursor:pointer;transition:background-color .2s,border-color .2s}
+.sc-new .quiz-answer:hover{border-color:#9b8151;background:#eee5d2}
+.sc-new .quiz-answer.correct{border-color:#8ca77c;background:#e5efdf;color:#29452c}
+.sc-new .quiz-answer.wrong{border-color:#d5a49b;background:#f5e7e3;color:#743e36}
+.sc-new .quiz-feedback{min-height:20px;margin-top:14px;font-weight:700;line-height:1.8}
