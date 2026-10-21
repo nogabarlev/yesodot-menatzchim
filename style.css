@@ -6397,3 +6397,119 @@ body:not(.categories-page) .hero-section{
 .sc-new .quiz-answer.correct{border-color:#8ca77c;background:#e5efdf;color:#29452c}
 .sc-new .quiz-answer.wrong{border-color:#d5a49b;background:#f5e7e3;color:#743e36}
 .sc-new .quiz-feedback{min-height:20px;margin-top:14px;font-weight:700;line-height:1.8}
+
+
+/* =====================================================
+   פרק 2 – תוכנית הכשרה (2.1–2.4)  |  class: sc-ch2
+   להדביק בסוף style.css
+   פלטת פרק 2: כחול-פטרול + ענבר (פרק 1 = ירוק-זית + זהב)
+===================================================== */
+
+.sc-ch2{
+  --c1:#16404f; --c2:#2a6277; --ac:#f0c27b; --teal:#2a7f96;
+  --card:#f9fcfd; --bd:rgba(42,127,150,.30); --chip:#e2f0f4; --chipn:#bcdbe5; --chipt:#1f4c5c; --note:#e2f0f4;
+  background:#eaf3f6 !important;
+}
+.sc-ch2 .subchapter-background{
+  background:radial-gradient(circle at top right,rgba(42,127,150,.20),transparent 34%),
+             radial-gradient(circle at bottom left,rgba(22,64,79,.14),transparent 36%)}
+
+/* כותרת עליונה */
+.sc-ch2 .subchapter-header{background:linear-gradient(135deg,var(--c1),var(--c2));border-color:rgba(240,194,123,.40);box-shadow:0 12px 30px rgba(16,50,62,.20)}
+.sc-ch2 .subchapter-header h2{color:var(--ac)}
+.sc-ch2 .back-button{border-color:rgba(240,194,123,.6)}
+.sc-ch2 .back-button span{color:var(--ac)}
+
+/* פתיחה וכותרות סעיפים */
+.sc-ch2 .learning-intro{border-color:var(--bd)}
+.sc-ch2 .intro-icon{background:var(--c1);color:var(--ac)}
+.sc-ch2 .learning-intro span,
+.sc-ch2 .section-heading span:not(.section-number){color:var(--teal)}
+.sc-ch2 .section-number{background:rgba(42,127,150,.16);color:#1f6479}
+.sc-ch2 .learning-section{border-color:rgba(255,255,255,.9)}
+.sc-ch2 .section-heading h2,.sc-ch2 .subsection-title{color:var(--c1)}
+
+/* כרטיסים */
+.sc-ch2 .info-card,.sc-ch2 .rule-card{background:var(--card);border-color:var(--bd);box-shadow:0 7px 22px rgba(16,50,62,.07)}
+.sc-ch2 .rule-card:hover{box-shadow:0 12px 25px rgba(16,50,62,.13)}
+.sc-ch2 .rule-number{background:var(--c1);color:var(--ac)}
+.sc-ch2 .rule-top h3{color:var(--c1)}
+.sc-ch2 .rule-card p{color:#4b6068}
+.sc-ch2 .highlight-card{background:linear-gradient(135deg,#d9edf3,var(--card));border-right:5px solid var(--teal)}
+.sc-ch2 .info-card p{color:#233f4a}
+.sc-ch2 .info-card-icon{background:linear-gradient(135deg,#8fc3d2,#d8edf3);border:1px solid rgba(42,127,150,.4);box-shadow:0 8px 20px rgba(22,64,79,.15),inset 0 1px 0 rgba(255,255,255,.8)}
+.sc-ch2 .note-card{background:var(--note);border-right-color:var(--teal)}
+.sc-ch2 .note-card span{color:#1f6479}
+.sc-ch2 .note-card p,.sc-ch2 .note-card ul{color:#3f5760}
+.sc-ch2 .definition-note{background:var(--note);color:#2f5666}
+.sc-ch2 .sc-para{color:#4b6068}
+
+/* מלבנים ממוספרים */
+.sc-ch2 .chip-grid>div{background:var(--chip);color:#264653;border-color:var(--bd);box-shadow:0 4px 12px rgba(16,50,62,.06)}
+.sc-ch2 .chip-grid>div>span{background:var(--chipn);color:var(--chipt)}
+
+/* טבלאות */
+.sc-ch2 .learning-table{background:#f6fafb;border-color:var(--bd)}
+.sc-ch2 .learning-table th{background:var(--c1);color:#f2fafc}
+.sc-ch2 .learning-table td{color:#3f5760}
+.sc-ch2 .learning-table td:first-child{color:var(--c1)}
+.sc-ch2 .learning-table tr:nth-child(even) td{background:rgba(42,127,150,.07)}
+.sc-ch2 .learning-table tr:hover td{background:rgba(42,127,150,.16)}
+
+/* סיכום וכפתור סיום */
+.sc-ch2 .takeaway-card{background:linear-gradient(135deg,var(--c1),var(--c2));box-shadow:0 17px 35px rgba(16,50,62,.24)}
+.sc-ch2 .takeaway-label,.sc-ch2 .takeaway-items>div>span{color:var(--ac)}
+.sc-ch2 .finish-learning{background:var(--ac);color:#16323c;box-shadow:0 10px 24px rgba(16,50,62,.18)}
+.sc-ch2 .finish-learning span{background:rgba(22,64,79,.14)}
+
+/* ---------- אינטראקטיביות ---------- */
+
+/* פס התקדמות קריאה */
+.read-bar{position:sticky;top:0;z-index:20;height:5px;background:rgba(22,64,79,.12)}
+.read-bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--teal),var(--ac));transition:width .15s linear}
+
+/* כרטיס נפתח בלחיצה */
+.sc-ch2 .ix{cursor:pointer;user-select:none}
+.sc-ch2 .ix .ix-hint{display:block;margin-top:8px;color:var(--teal);font-size:12px;font-weight:600}
+.sc-ch2 .ix .ix-hint::before{content:"＋ "}
+.sc-ch2 .ix.open .ix-hint::before{content:"－ "}
+.sc-ch2 .ix .ix-more{display:none;margin-top:12px;padding-top:12px;border-top:1px dashed var(--bd)}
+.sc-ch2 .ix.open .ix-more{display:block;animation:ixOpen .25s ease}
+.sc-ch2 .ix.open{border-color:var(--teal);box-shadow:0 10px 24px rgba(42,127,150,.18)}
+@keyframes ixOpen{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}
+
+/* מספרים בולטים */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px;margin:0 0 18px}
+.stats>div{padding:16px 12px;text-align:center;background:var(--c1);color:#e8f4f7;border-radius:18px;font-size:13px;line-height:1.5;box-shadow:0 8px 20px rgba(16,50,62,.16)}
+.stats b{display:block;color:var(--ac);font-size:30px;line-height:1.1;font-weight:700;margin-bottom:4px}
+
+/* ציר שלבים אנכי */
+.flow{list-style:none;margin:6px 0 0;padding:0;position:relative}
+.flow li{position:relative;margin:0 0 12px;padding:14px 58px 14px 16px;background:var(--card);border:1px solid var(--bd);border-radius:16px;font-size:14px;line-height:1.7;color:#35505a;cursor:pointer;transition:transform .2s,border-color .2s}
+.flow li::before{content:attr(data-n);position:absolute;right:12px;top:12px;width:34px;height:34px;display:flex;align-items:center;justify-content:center;border-radius:11px;background:var(--c1);color:var(--ac);font-weight:700;font-size:14px}
+.flow li:not(:last-child)::after{content:"";position:absolute;right:28px;top:48px;bottom:-14px;width:3px;background:var(--chipn)}
+.flow li strong{display:block;color:var(--c1);font-size:15px}
+.flow li.done{border-color:var(--teal);background:#e6f3f6}
+.flow li.done::before{background:var(--teal);color:#fff;content:"✓"}
+
+/* חידון */
+.sc-ch2 .quiz-card-12{padding:22px;background:var(--card);border:1px solid var(--bd);border-radius:20px;box-shadow:0 7px 22px rgba(16,50,62,.07);margin-bottom:14px}
+.sc-ch2 .quiz-card-12 h3{color:var(--c1)}
+.sc-ch2 .quiz-answer{background:#eef6f8;border-color:var(--bd);color:#264653}
+.sc-ch2 .quiz-answer:hover{background:#d9ecf1;border-color:var(--teal)}
+.sc-ch2 .quiz-answer.correct{background:#dff1e4;border-color:#6fae83;color:#1f4a2e}
+.sc-ch2 .quiz-answer.wrong{background:#f8e6e3;border-color:#d5a49b;color:#743e36}
+.sc-ch2 .quiz-answer:disabled{cursor:default}
+
+/* רשימת פרקים: תתי-פרקים של פרק 2 */
+.subchapter-card[data-chapter="2"] .subchapter-number{color:#2a7f96}
+.subchapter-card[data-chapter="2"].available{border-right:4px solid #2a7f96}
+
+/* הבזק בפתיחת פרק */
+.chapter-group.chapter-just-unlocked>.chapter-card{animation:unlockReveal 1.2s ease-out}
+
+@media (max-width:700px){
+  .stats b{font-size:26px}
+  .flow li{padding:13px 54px 13px 12px;font-size:13.5px}
+}
+@media (prefers-reduced-motion:reduce){.sc-ch2 .ix.open .ix-more{animation:none}.read-bar i{transition:none}}
