@@ -70,6 +70,9 @@ const getSubchapterPage = (chapter) => {
     );
 };
 
+/* קישור למבחן המסכם – להחליף בכתובת האמיתית של המבחן */
+const FINAL_EXAM_URL = "#";
+
 const LAST_SUB = { 1: 11, 2: 4, 3: 8, 4: 5, 5: 3 };
  
 // האם תת-פרק c.n הושלם
@@ -1364,6 +1367,12 @@ const finishSubchapterPage = (chapter) => {
         // סיום התת-פרק האחרון בפרק -> נפתח הפרק הבא (ותת-פרק X.1 שלו)
         sessionStorage.setItem("newlyUnlockedSubchapter", `${c + 1}.1`);
         sessionStorage.setItem("newlyUnlockedChapter", String(c + 1));
+
+    } else if (c === 5) {
+
+        // סיום 5.3 -> הפרקים הסתיימו: נפתח המבחן המסכם ומוצג פופ-אפ
+        sessionStorage.setItem("newlyUnlockedChapter", "6");
+        sessionStorage.setItem("allChaptersDone", "1");
     }
 
     localStorage.setItem("user", JSON.stringify(user));
@@ -1496,7 +1505,8 @@ const refreshChapterLocksUI = () => {
         2: isSubDone(user, 1, LAST_SUB[1]),   // פרק 2 נפתח אחרי 1.11
         3: isSubDone(user, 2, LAST_SUB[2]),   // פרק 3 נפתח אחרי 2.4
         4: isSubDone(user, 3, LAST_SUB[3]),   // פרק 4 נפתח אחרי 3.8
-        5: isSubDone(user, 4, LAST_SUB[4])    // פרק 5 נפתח אחרי 4.5
+        5: isSubDone(user, 4, LAST_SUB[4]),   // פרק 5 נפתח אחרי 4.5
+        6: isSubDone(user, 5, LAST_SUB[5])    // המבחן המסכם נפתח אחרי 5.3
     };
  
     const newly = sessionStorage.getItem("newlyUnlockedChapter");
@@ -1725,6 +1735,56 @@ window.toggleSeries = toggleSeries;
 window.pickGroup = pickGroup;
 window.filterExc = filterExc;
 window.setExcChapter = setExcChapter;
+
+
+/* =========================
+   סיום כל הפרקים + מבחן מסכם
+========================= */
+const allChaptersDone = () => {
+    const user = JSON.parse(localStorage.getItem("user")) || {};
+    return Object.keys(LAST_SUB).every((c) => isSubDone(user, Number(c), LAST_SUB[c]));
+};
+
+const openFinalExam = (event) => {
+    if (event) event.preventDefault();
+    if (!allChaptersDone()) return false;
+    if (FINAL_EXAM_URL && FINAL_EXAM_URL !== "#") {
+        window.open(FINAL_EXAM_URL, "_blank", "noopener");
+    }
+    return false;
+};
+
+const closeAllDonePopup = () => {
+    const popup = document.getElementById("allDonePopup");
+    if (popup) popup.hidden = true;
+    document.body.style.overflow = "";
+};
+
+const showAllDonePopup = () => {
+    const popup = document.getElementById("allDonePopup");
+    if (!popup) return;
+    popup.hidden = false;
+    document.body.style.overflow = "hidden";
+};
+
+const initAllDonePopup = () => {
+    if (sessionStorage.getItem("allChaptersDone") !== "1") return;
+    sessionStorage.removeItem("allChaptersDone");
+    if (allChaptersDone()) {
+        // פותחים את קטגוריית המבחן המסכם ומציגים את הפופ-אפ
+        document.getElementById("chapterGroup6")?.classList.add("open");
+        setTimeout(showAllDonePopup, 450);
+    }
+};
+
+document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") closeAllDonePopup();
+});
+
+window.openFinalExam = openFinalExam;
+window.closeAllDonePopup = closeAllDonePopup;
+
+initAllDonePopup();
 
 window.toggleChapterGroup = toggleChapterGroup;
 window.checkQuiz = checkQuiz;
