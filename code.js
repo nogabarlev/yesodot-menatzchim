@@ -70,26 +70,37 @@ const getSubchapterPage = (chapter) => {
     );
 };
 
+const LAST_SUB = { 1: 11, 2: 4 };
+ 
+// האם תת-פרק c.n הושלם
+const isSubDone = (user, c, n) =>
+    user?.subchapters?.[`chapter${c}`]?.[`${c}.${n}`] === 100;
+ 
+// תת-פרק נפתח רק אחרי השלמת הקודם. 1.1 תמיד פתוח.
+// תת-פרק ראשון בפרק (2.1, 3.1...) נפתח אחרי השלמת התת-פרק האחרון בפרק הקודם.
+const isSubchapterUnlocked = (user, c, n) => {
+ 
+    if (c === 1 && n === 1) return true;
+ 
+    if (n === 1) return isSubDone(user, c - 1, LAST_SUB[c - 1]);
+ 
+    return isSubDone(user, c, n - 1);
+};
+
 const openSubchapter = (chapter) => {
-
+ 
     const user = JSON.parse(localStorage.getItem("user"));
-
-    // תת-פרק נפתח רק אחרי השלמת הקודם (1.1 תמיד פתוח)
-    if (chapter !== "1.1") {
-
-        const number = Number(chapter.split(".")[1]);
-
-        const previousProgress =
-            user?.subchapters?.chapter1?.[`1.${number - 1}`] || 0;
-
-        if (previousProgress !== 100) return;
-    }
-
+ 
+    const [c, n] = chapter.split(".").map(Number);
+ 
+    if (!isSubchapterUnlocked(user, c, n)) return;
+ 
     const page = getSubchapterPage(chapter);
-
+ 
     if (!page) return;
-
+ 
     page.classList.add("show");
+    page.scrollTop = 0;
     document.body.style.overflow = "hidden";
     window.scrollTo({ top: 0, behavior: "auto" });
 };
@@ -849,138 +860,71 @@ const refreshChaptersUI = () => {
 ========================= */
 
 const refreshSubchaptersUI = () => {
-
+ 
     // גם למשתמש חדש (בלי נתונים שמורים) מציגים נכון את הנעילה
-    const user = JSON.parse(
-        localStorage.getItem("user")
-    ) || {};
-
-    if (!user.subchapters) {
-        user.subchapters = {};
-    }
-
-    if (!user.subchapters.chapter1) {
-        user.subchapters.chapter1 = {};
-    }
-
-    const chapter1 = user.subchapters.chapter1;
-
-    for (let i = 1; i <= 11; i++) {
-
-        const currentNumber = `1.${i}`;
-
-        const previousNumber = `1.${i - 1}`;
-
-        const currentCard = document.querySelector(
-            `[data-chapter="1"][data-subchapter="${i}"]`
-        );
-
-        if (!currentCard) continue;
-
-        const progressElement = currentCard.querySelector(
-            ".subchapter-progress"
-        );
-
-        const lockedStatus = currentCard.querySelector(
-            ".locked-status"
-        );
-
-        const currentProgress = chapter1[currentNumber] || 0;
-
-        // 1.1 פתוח מההתחלה.
-        // כל תת-פרק אחר נפתח רק לאחר השלמת הקודם.
-        const isUnlocked =
-            i === 1 ||
-            chapter1[previousNumber] === 100;
-
-        const isCompleted = currentProgress === 100;
-
-        if (isUnlocked) {
-
-            currentCard.classList.remove("locked");
-            currentCard.classList.add("available");
-
-            if (lockedStatus) {
-                lockedStatus.remove();
-            }
-
-            if (progressElement) {
-                progressElement.textContent = isCompleted
-                    ? "100% הושלם"
-                    : "טרם הושלם";
-            }
-
-        } else {
-
-            currentCard.classList.add("locked");
-            currentCard.classList.remove("available");
-
-            if (progressElement) {
-                progressElement.textContent = "🔒 נעול";
-            }
-
-            // אם יש בכרטיס רכיב נפרד של סטטוס נעילה,
-            // נעדכן גם אותו.
-            if (lockedStatus) {
-                lockedStatus.textContent = "🔒 נעול";
-            }
-        }
-
-        // פתיחת תת-הפרק הבא לאחר השלמת הנוכחי
-        const nextCard = document.querySelector(
-            `[data-chapter="1"][data-subchapter="${i + 1}"]`
-        );
-
-        if (nextCard && isCompleted) {
-
-            nextCard.classList.remove("locked");
-            nextCard.classList.add("available");
-
-            const nextLockedStatus = nextCard.querySelector(
-                ".locked-status"
+    const user = JSON.parse(localStorage.getItem("user")) || {};
+ 
+    if (!user.subchapters) user.subchapters = {};
+ 
+    const newlyUnlocked = sessionStorage.getItem("newlyUnlockedSubchapter");
+ 
+    Object.keys(LAST_SUB).forEach((key) => {
+ 
+        const c = Number(key);
+ 
+        const chapterData = user.subchapters[`chapter${c}`] || {};
+ 
+        for (let i = 1; i <= LAST_SUB[c]; i++) {
+ 
+            const card = document.querySelector(
+                `[data-chapter="${c}"][data-subchapter="${i}"]`
             );
-
-            if (nextLockedStatus) {
-                nextLockedStatus.remove();
+ 
+            if (!card) continue;
+ 
+            const progressElement = card.querySelector(".subchapter-progress");
+            const lockedStatus = card.querySelector(".locked-status");
+ 
+            const isUnlocked = isSubchapterUnlocked(user, c, i);
+            const isCompleted = chapterData[`${c}.${i}`] === 100;
+ 
+            if (isUnlocked) {
+ 
+                card.classList.remove("locked");
+                card.classList.add("available");
+ 
+                if (lockedStatus) lockedStatus.remove();
+ 
+                if (progressElement) {
+                    progressElement.textContent = isCompleted
+                        ? "100% הושלם"
+                        : "טרם הושלם";
+                    progressElement.style.display = "";
+                    progressElement.style.visibility = "visible";
+                }
+ 
+            } else {
+ 
+                card.classList.add("locked");
+                card.classList.remove("available");
+ 
+                if (progressElement) progressElement.textContent = "🔒 נעול";
+                if (lockedStatus) lockedStatus.textContent = "🔒 נעול";
             }
-
-            const nextProgressElement = nextCard.querySelector(
-                ".subchapter-progress"
-            );
-
-if (nextProgressElement) {
-
-    const nextProgress =
-        chapter1[`1.${i + 1}`] || 0;
-
-    nextProgressElement.textContent =
-        nextProgress === 100
-            ? "100% הושלם"
-            : "טרם הושלם";
-
-    nextProgressElement.style.display = "";
-    nextProgressElement.style.visibility = "visible";
-}
-
-            // אנימציה לתת-הפרק שנפתח עכשיו
-            const newlyUnlocked = sessionStorage.getItem(
-                "newlyUnlockedSubchapter"
-            );
-
-            if (newlyUnlocked === `1.${i + 1}`) {
-
-                nextCard.classList.add("just-unlocked");
-
-                sessionStorage.removeItem(
-                    "newlyUnlockedSubchapter"
-                );
-
+ 
+            // אנימציה (הבזק) לתת-הפרק שנפתח עכשיו
+            if (isUnlocked && newlyUnlocked === `${c}.${i}`) {
+ 
+                card.classList.add("just-unlocked");
+ 
+                sessionStorage.removeItem("newlyUnlockedSubchapter");
+ 
                 setTimeout(() => {
-                    nextCard.classList.remove("just-unlocked");
+                    card.classList.remove("just-unlocked");
                 }, 1300);
             }
         }
-    }
+    });
 };
 
 
@@ -1387,11 +1331,13 @@ const finishSubchapterPage = (chapter) => {
  
     const user = JSON.parse(localStorage.getItem("user")) || {};
  
+    const [c, n] = chapter.split(".").map(Number);
+ 
     if (!user.subchapters) user.subchapters = {};
-    if (!user.subchapters.chapter1) user.subchapters.chapter1 = {};
+    if (!user.subchapters[`chapter${c}`]) user.subchapters[`chapter${c}`] = {};
  
     // סימון תת-הפרק כהושלם
-    user.subchapters.chapter1[chapter] = 100;
+    user.subchapters[`chapter${c}`][chapter] = 100;
  
     // לוגיקה מיוחדת שהייתה ב-1.1 (מנגנון ההתקדמות הכללי)
     if (chapter === "1.1") {
@@ -1407,14 +1353,22 @@ const finishSubchapterPage = (chapter) => {
         updateUserProgress(user);
     }
  
-    // פתיחת תת-הפרק הבא (אחרי 1.11 אין המשך)
-    const number = Number(chapter.split(".")[1]);
+    // מה נפתח עכשיו?
+    if (n < LAST_SUB[c]) {
  
-    if (number < 11) {
-        sessionStorage.setItem(
-            "newlyUnlockedSubchapter",
-            `1.${number + 1}`
-        );
+        // התת-פרק הבא באותו פרק
+        sessionStorage.setItem("newlyUnlockedSubchapter", `${c}.${n + 1}`);
+ 
+    } else if (c === 1) {
+ 
+        // סיום 1.11 -> נפתח פרק 2 (ותת-פרק 2.1)
+        sessionStorage.setItem("newlyUnlockedSubchapter", "2.1");
+        sessionStorage.setItem("newlyUnlockedChapter", "2");
+ 
+    } else if (c === 2) {
+ 
+        // סיום 2.4 -> נפתח פרק 3
+        sessionStorage.setItem("newlyUnlockedChapter", "3");
     }
  
     localStorage.setItem("user", JSON.stringify(user));
@@ -1527,6 +1481,102 @@ const keepChapterOpenAfterFinish = () => {
     card?.closest(".chapter-group")?.classList.add("open");
 };
 
+/* פתיחה/סגירה של פרק. פרק נעול לא נפתח. */
+const toggleChapterGroup = (card) => {
+ 
+    const group = card.parentElement;
+ 
+    if (!group || group.classList.contains("locked-chapter")) return;
+ 
+    group.classList.toggle("open");
+};
+ 
+ 
+/* נעילה/פתיחה של פרקים 2 ו-3 + הבזק על הפרק שנפתח עכשיו */
+const refreshChapterLocksUI = () => {
+ 
+    const user = JSON.parse(localStorage.getItem("user")) || {};
+ 
+    const rules = {
+        2: isSubDone(user, 1, LAST_SUB[1]),   // פרק 2 נפתח אחרי 1.11
+        3: isSubDone(user, 2, LAST_SUB[2])    // פרק 3 נפתח אחרי 2.4
+    };
+ 
+    const newly = sessionStorage.getItem("newlyUnlockedChapter");
+ 
+    Object.entries(rules).forEach(([c, unlocked]) => {
+ 
+        const group = document.getElementById(`chapterGroup${c}`);
+ 
+        if (!group) return;
+ 
+        group.classList.toggle("locked-chapter", !unlocked);
+ 
+        if (unlocked && newly === c) {
+ 
+            group.classList.add("chapter-just-unlocked");
+ 
+            sessionStorage.removeItem("newlyUnlockedChapter");
+ 
+            setTimeout(() => {
+                group.classList.remove("chapter-just-unlocked");
+            }, 1300);
+        }
+    });
+};
+ 
+ 
+/* חידון: תשובה אחת בלחיצה, עם הסבר.
+   הכפתור הנכון מסומן ב-data-ok="1", וההסבר ב-data-why על הכרטיס */
+const checkQuiz = (button) => {
+ 
+    const card = button.closest(".quiz-card-12");
+ 
+    if (!card) return;
+ 
+    const feedback = card.querySelector(".quiz-feedback");
+ 
+    const isCorrect = button.dataset.ok === "1";
+ 
+    card.querySelectorAll(".quiz-answer").forEach((answer) => {
+ 
+        answer.disabled = true;
+ 
+        if (answer.dataset.ok === "1") answer.classList.add("correct");
+    });
+ 
+    if (!isCorrect) button.classList.add("wrong");
+ 
+    feedback.textContent = (isCorrect ? "✓ נכון! " : "לא בדיוק. ") +
+        (card.dataset.why || "");
+ 
+    feedback.style.color = isCorrect ? "#2f6b43" : "#a06c62";
+};
+ 
+ 
+/* פס התקדמות קריאה בראש עמודי פרק 2 */
+const initReadBars = () => {
+ 
+    document.querySelectorAll(".sc-ch2").forEach((page) => {
+ 
+        const bar = page.querySelector(".read-bar i");
+ 
+        if (!bar) return;
+ 
+        page.addEventListener("scroll", () => {
+ 
+            const max = page.scrollHeight - page.clientHeight;
+ 
+            const percent = max > 0
+                ? Math.min(100, (page.scrollTop / max) * 100)
+                : 0;
+ 
+            bar.style.width = `${percent}%`;
+ 
+        }, { passive: true });
+    });
+};
+
 
 /* =========================
    INIT
@@ -1539,6 +1589,10 @@ refreshChaptersUI();
 keepChapterOpenAfterFinish();
 
 refreshSubchaptersUI();
+
+refreshChapterLocksUI();
+ 
+initReadBars();
 
 updateChapters();
 
@@ -1603,3 +1657,6 @@ window.finishSubchapter15 = finishSubchapter15;
 
 window.closeSubchapterPage = closeSubchapterPage;
 window.finishSubchapterPage = finishSubchapterPage;
+
+window.toggleChapterGroup = toggleChapterGroup;
+window.checkQuiz = checkQuiz;
