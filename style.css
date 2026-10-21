@@ -6474,8 +6474,8 @@ body:not(.categories-page) .hero-section{
 }
 
 .sc-ch2 .finish-learning span {
-    background: rgba(226, 181, 106, 0.25) !important; /* עיגול פנימי בגוון זהוב רך */
-    color: var(--ac) !important;
+    background:#9b8151 !important; /* עיגול פנימי בגוון זהוב רך */
+    color: #ffffff !important;
 }
 
 /* רכיבים אינטראקטיביים נוספים */
