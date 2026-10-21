@@ -6479,9 +6479,9 @@ body:not(.categories-page) .hero-section{
 }
 
 /* רכיבים אינטראקטיביים נוספים */
-.sc-ch2 .ix.open{border-color:var(--teal);box-shadow:0 10px 24px rgba(60,122,137,.15)}
-.sc-ch2 .ix .ix-hint{color:var(--teal)}
-.flow li.done{border-color:var(--teal);background:#e5f0f3}
+
+.sc-new .ix .ix-hint{color:var(--teal)}
+.flow li.done{border-color:var(--teal);background:var(--note,#e5f0f3)}
 
 /* ---------- אינטראקטיביות ---------- */
 
@@ -6490,13 +6490,13 @@ body:not(.categories-page) .hero-section{
 .read-bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--teal),var(--ac));transition:width .15s linear}
 
 /* כרטיס נפתח בלחיצה */
-.sc-ch2 .ix{cursor:pointer;user-select:none}
-.sc-ch2 .ix .ix-hint{display:block;margin-top:8px;color:var(--teal);font-size:12px;font-weight:600}
-.sc-ch2 .ix .ix-hint::before{content:"＋ "}
-.sc-ch2 .ix.open .ix-hint::before{content:"－ "}
-.sc-ch2 .ix .ix-more{display:none;margin-top:12px;padding-top:12px;border-top:1px dashed var(--bd)}
-.sc-ch2 .ix.open .ix-more{display:block;animation:ixOpen .25s ease}
-.sc-ch2 .ix.open{border-color:var(--teal);box-shadow:0 10px 24px rgba(42,127,150,.18)}
+.sc-new .ix{cursor:pointer;user-select:none}
+.sc-new .ix .ix-hint{display:block;margin-top:8px;color:var(--teal);font-size:12px;font-weight:600}
+.sc-new .ix .ix-hint::before{content:"＋ "}
+.sc-new .ix.open .ix-hint::before{content:"－ "}
+.sc-new .ix .ix-more{display:none;margin-top:12px;padding-top:12px;border-top:1px dashed var(--bd)}
+.sc-new .ix.open .ix-more{display:block;animation:ixOpen .25s ease}
+.sc-new .ix.open{border-color:var(--teal);box-shadow:0 10px 24px rgba(0,0,0,.12)}
 @keyframes ixOpen{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}
 
 /* מספרים בולטים */
@@ -6510,8 +6510,8 @@ body:not(.categories-page) .hero-section{
 .flow li::before{content:attr(data-n);position:absolute;right:12px;top:12px;width:34px;height:34px;display:flex;align-items:center;justify-content:center;border-radius:11px;background:var(--c1);color:var(--ac);font-weight:700;font-size:14px}
 .flow li:not(:last-child)::after{content:"";position:absolute;right:28px;top:48px;bottom:-14px;width:3px;background:var(--chipn)}
 .flow li strong{display:block;color:var(--c1);font-size:15px}
-.flow li.done{border-color:var(--teal);background:#e6f3f6}
-.flow li.done::before{background:var(--teal);color:#fff;content:"✓"}
+.flow li.done{border-color:var(--teal);background:var(--note,#e5f0f3)}
+.flow li.done{border-color:var(--teal);background:var(--note,#e5f0f3)}
 
 /* חידון */
 .sc-ch2 .quiz-card-12{padding:22px;background:var(--card);border:1px solid var(--bd);border-radius:20px;box-shadow:0 7px 22px rgba(16,50,62,.07);margin-bottom:14px}
@@ -6985,3 +6985,354 @@ body:not(.categories-page) .hero-section{
 }
 
 
+
+
+
+
+/* =====================================================
+   פלטות צבע לפי פרק (תואמות בין דף הפרקים לדפי תתי-הפרקים)
+   ===================================================== */
+
+.sc-ch1{
+  --c1:#27352a; --c2:#344437; --ac:#d6c19d; --teal:#6f8a5c;
+  --card:#fffdf8; --bd:rgba(198,170,114,.34); --chip:#f4efe4; --chipn:#e6dbcc; --chipt:#4a3c28; --note:#eef3e6;
+}
+.sc-ch1 .rule-number{background:#27352a;color:#d6c19d}
+.sc-ch1 .ix .ix-hint{color:#5e7a4a}
+.sc-ch1 .ix.open{background:#f6faf0}
+.sc-ch1 .quiz-card-12{padding:22px;background:#fffdf8;border:1px solid rgba(198,170,114,.34);border-radius:20px;box-shadow:0 7px 22px rgba(39,51,40,.06);margin-bottom:14px}
+.sc-ch1 .read-bar{background:rgba(39,53,42,.12)}
+.sc-ch1 .read-bar i{background:linear-gradient(90deg,#6f8a5c,#d6c19d)}
+
+/* ---- פרק 3 – סגל הכשרה ---- */
+.sc-ch3{
+  --c1:#3a2d4a; --c2:#50406a; --ac:#e3c07a; --teal:#7a62a0;
+  --card:#f5f2f8; --bd:rgba(122,98,160,.24); --chip:#e4dcf0; --chipn:#c4b3de; --chipt:#2e2240; --note:#ece6f3;
+  background:#f1eef6 !important;
+}
+.sc-ch3 .subchapter-background{
+  background:radial-gradient(circle at top right,rgba(122,98,160,.12),transparent 34%),
+             radial-gradient(circle at bottom left,rgba(58,45,74,.09),transparent 36%)}
+
+/* כותרת עליונה */
+.sc-ch3 .subchapter-header{background:linear-gradient(135deg,var(--c1),var(--c2));border-color:rgba(227,192,122,.35);box-shadow:0 12px 30px rgba(58,45,74,.18)}
+.sc-ch3 .subchapter-header h2{color:var(--ac)}
+.sc-ch3 .back-button{border-color:rgba(227,192,122,.5)}
+.sc-ch3 .back-button span{color:var(--ac)}
+
+/* פתיחה וכותרות סעיפים */
+.sc-ch3 .learning-intro{border-color:var(--bd); background: rgba(250,248,252, 0.85);}
+.sc-ch3 .intro-icon{background:var(--c1);color:var(--ac)}
+.sc-ch3 .learning-intro span,
+.sc-ch3 .section-heading span:not(.section-number){color:var(--teal)}
+.sc-ch3 .section-number{background:rgba(122,98,160,.14);color:#4b3a68}
+.sc-ch3 .learning-section{border-color:rgba(255,255,255,.9); background: rgba(250,248,252, 0.75);}
+.sc-ch3 .section-heading h2,.sc-ch3 .subsection-title{color:var(--c1)}
+
+/* כרטיסים */
+.sc-ch3 .info-card,.sc-ch3 .rule-card{background:var(--card);border-color:var(--bd);box-shadow:0 7px 22px rgba(58,45,74,.06)}
+.sc-ch3 .rule-card:hover{box-shadow:0 12px 25px rgba(58,45,74,.11)}
+.sc-ch3 .rule-number{background:var(--c1);color:var(--ac)}
+.sc-ch3 .rule-top h3{color:var(--c1)}
+.sc-ch3 .rule-card p{color:#554a66}
+.sc-ch3 .highlight-card{background:linear-gradient(135deg,#e8e1f1,var(--card));border-right:5px solid var(--teal)}
+.sc-ch3 .info-card p{color:#2f2540}
+.sc-ch3 .info-card-icon{background:linear-gradient(135deg,#c4b3de,#e4dcf0);border:1px solid rgba(122,98,160,.35);box-shadow:0 8px 20px rgba(58,45,74,.12),inset 0 1px 0 rgba(255,255,255,.8)}
+.sc-ch3 .note-card{background:var(--note);border-right-color:var(--teal)}
+.sc-ch3 .note-card span{color:#4b3a68}
+.sc-ch3 .note-card p,.sc-ch3 .note-card ul{color:#4b4259}
+.sc-ch3 .definition-note{background:var(--note);color:#4b4259}
+.sc-ch3 .sc-para{color:#554a66}
+
+/* מלבנים ממוספרים */
+.sc-ch3 .chip-grid>div{background:var(--chip);color:#2f2540;border-color:var(--bd);box-shadow:0 4px 12px rgba(58,45,74,.05)}
+.sc-ch3 .chip-grid>div>span{background:var(--chipn);color:var(--chipt)}
+
+/* טבלאות */
+.sc-ch3 .learning-table{background:#f8f6fb;border-color:var(--bd)}
+.sc-ch3 .learning-table th{background:var(--c1);color:#ffffff}
+.sc-ch3 .learning-table td{color:#4b4259}
+.sc-ch3 .learning-table td:first-child{color:var(--c1)}
+.sc-ch3 .learning-table tr:nth-child(even) td{background:rgba(122,98,160,.06)}
+.sc-ch3 .learning-table tr:hover td{background:rgba(122,98,160,.12)}
+
+/* סיכום וכפתור סיום */
+.sc-ch3 .takeaway-card{background:linear-gradient(135deg,var(--c1),var(--c2));box-shadow:0 17px 35px rgba(58,45,74,.20)}
+.sc-ch3 .takeaway-label,.sc-ch3 .takeaway-items>div>span{color:var(--ac)}
+.sc-ch3 .finish-learning{background:var(--ac);color:#3a2d4a;box-shadow:0 10px 24px rgba(58,45,74,.15)}
+.sc-ch3 .finish-learning span{background:rgba(58,45,74,.12)}
+
+/* כפתור סיום כהה ובולט לפרק 2 */
+.sc-ch3 .finish-learning {
+    background:#b9a16a !important; /* כחול כהה ועמוק יותר מהרקע של הסיכום */
+    color: #ffffff !important;        /* טקסט לבן חד וברור */
+    box-shadow: 0 10px 24px rgba(58,45,74, 0.3) !important;
+}
+
+.sc-ch3 .finish-learning:hover {
+    background:#8d7445 !important; /* כהה עוד יותר בריחוף */
+}
+
+.sc-ch3 .finish-learning span {
+    background:#9b8151 !important; /* עיגול פנימי בגוון זהוב רך */
+    color: #ffffff !important;
+}
+
+/* רכיבים אינטראקטיביים נוספים */
+
+.sc-new .ix .ix-hint{color:var(--teal)}
+.sc-ch3 .quiz-card-12{padding:22px;background:var(--card);border:1px solid var(--bd);border-radius:20px;box-shadow:0 7px 22px rgba(58,45,74,.07);margin-bottom:14px}
+.sc-ch3 .quiz-card-12 h3{color:var(--c1)}
+.sc-ch3 .quiz-answer{background:#f1ecf7;border-color:var(--bd);color:#35294a}
+.sc-ch3 .quiz-answer:hover{background:#e4dcf0;border-color:var(--teal)}
+.sc-ch3 .quiz-answer.correct{background:#dff1e4;border-color:#6fae83;color:#1f4a2e}
+.sc-ch3 .quiz-answer.wrong{background:#f8e6e3;border-color:#d5a49b;color:#743e36}
+.sc-ch3 .quiz-answer:disabled{cursor:default}
+.sc-ch3 .read-bar{background:rgba(58,45,74,.12)}
+
+/* ---- פרק 4 – חניכים בהכשרה ---- */
+.sc-ch4{
+  --c1:#4a3322; --c2:#6b4a30; --ac:#f0c987; --teal:#b0763f;
+  --card:#faf4ee; --bd:rgba(176,118,63,.24); --chip:#f1e2d0; --chipn:#dfbf98; --chipt:#3d2a18; --note:#f6ebdd;
+  background:#f7f0e8 !important;
+}
+.sc-ch4 .subchapter-background{
+  background:radial-gradient(circle at top right,rgba(176,118,63,.12),transparent 34%),
+             radial-gradient(circle at bottom left,rgba(74,51,34,.09),transparent 36%)}
+
+/* כותרת עליונה */
+.sc-ch4 .subchapter-header{background:linear-gradient(135deg,var(--c1),var(--c2));border-color:rgba(240,201,135,.35);box-shadow:0 12px 30px rgba(74,51,34,.18)}
+.sc-ch4 .subchapter-header h2{color:var(--ac)}
+.sc-ch4 .back-button{border-color:rgba(240,201,135,.5)}
+.sc-ch4 .back-button span{color:var(--ac)}
+
+/* פתיחה וכותרות סעיפים */
+.sc-ch4 .learning-intro{border-color:var(--bd); background: rgba(253,250,246, 0.85);}
+.sc-ch4 .intro-icon{background:var(--c1);color:var(--ac)}
+.sc-ch4 .learning-intro span,
+.sc-ch4 .section-heading span:not(.section-number){color:var(--teal)}
+.sc-ch4 .section-number{background:rgba(176,118,63,.14);color:#7a4f24}
+.sc-ch4 .learning-section{border-color:rgba(255,255,255,.9); background: rgba(253,250,246, 0.75);}
+.sc-ch4 .section-heading h2,.sc-ch4 .subsection-title{color:var(--c1)}
+
+/* כרטיסים */
+.sc-ch4 .info-card,.sc-ch4 .rule-card{background:var(--card);border-color:var(--bd);box-shadow:0 7px 22px rgba(74,51,34,.06)}
+.sc-ch4 .rule-card:hover{box-shadow:0 12px 25px rgba(74,51,34,.11)}
+.sc-ch4 .rule-number{background:var(--c1);color:var(--ac)}
+.sc-ch4 .rule-top h3{color:var(--c1)}
+.sc-ch4 .rule-card p{color:#6a5442}
+.sc-ch4 .highlight-card{background:linear-gradient(135deg,#f3e4d2,var(--card));border-right:5px solid var(--teal)}
+.sc-ch4 .info-card p{color:#3d2a18}
+.sc-ch4 .info-card-icon{background:linear-gradient(135deg,#dfbf98,#f1e2d0);border:1px solid rgba(176,118,63,.35);box-shadow:0 8px 20px rgba(74,51,34,.12),inset 0 1px 0 rgba(255,255,255,.8)}
+.sc-ch4 .note-card{background:var(--note);border-right-color:var(--teal)}
+.sc-ch4 .note-card span{color:#7a4f24}
+.sc-ch4 .note-card p,.sc-ch4 .note-card ul{color:#5e4a38}
+.sc-ch4 .definition-note{background:var(--note);color:#5e4a38}
+.sc-ch4 .sc-para{color:#6a5442}
+
+/* מלבנים ממוספרים */
+.sc-ch4 .chip-grid>div{background:var(--chip);color:#3d2a18;border-color:var(--bd);box-shadow:0 4px 12px rgba(74,51,34,.05)}
+.sc-ch4 .chip-grid>div>span{background:var(--chipn);color:var(--chipt)}
+
+/* טבלאות */
+.sc-ch4 .learning-table{background:#fcf8f3;border-color:var(--bd)}
+.sc-ch4 .learning-table th{background:var(--c1);color:#ffffff}
+.sc-ch4 .learning-table td{color:#5e4a38}
+.sc-ch4 .learning-table td:first-child{color:var(--c1)}
+.sc-ch4 .learning-table tr:nth-child(even) td{background:rgba(176,118,63,.06)}
+.sc-ch4 .learning-table tr:hover td{background:rgba(176,118,63,.12)}
+
+/* סיכום וכפתור סיום */
+.sc-ch4 .takeaway-card{background:linear-gradient(135deg,var(--c1),var(--c2));box-shadow:0 17px 35px rgba(74,51,34,.20)}
+.sc-ch4 .takeaway-label,.sc-ch4 .takeaway-items>div>span{color:var(--ac)}
+.sc-ch4 .finish-learning{background:var(--ac);color:#4a3322;box-shadow:0 10px 24px rgba(74,51,34,.15)}
+.sc-ch4 .finish-learning span{background:rgba(74,51,34,.12)}
+
+/* כפתור סיום כהה ובולט לפרק 2 */
+.sc-ch4 .finish-learning {
+    background:#b9a16a !important; /* כחול כהה ועמוק יותר מהרקע של הסיכום */
+    color: #ffffff !important;        /* טקסט לבן חד וברור */
+    box-shadow: 0 10px 24px rgba(74,51,34, 0.3) !important;
+}
+
+.sc-ch4 .finish-learning:hover {
+    background:#8d7445 !important; /* כהה עוד יותר בריחוף */
+}
+
+.sc-ch4 .finish-learning span {
+    background:#9b8151 !important; /* עיגול פנימי בגוון זהוב רך */
+    color: #ffffff !important;
+}
+
+/* רכיבים אינטראקטיביים נוספים */
+
+.sc-new .ix .ix-hint{color:var(--teal)}
+.sc-ch4 .quiz-card-12{padding:22px;background:var(--card);border:1px solid var(--bd);border-radius:20px;box-shadow:0 7px 22px rgba(74,51,34,.07);margin-bottom:14px}
+.sc-ch4 .quiz-card-12 h3{color:var(--c1)}
+.sc-ch4 .quiz-answer{background:#f7eee3;border-color:var(--bd);color:#4a3322}
+.sc-ch4 .quiz-answer:hover{background:#f1e2d0;border-color:var(--teal)}
+.sc-ch4 .quiz-answer.correct{background:#dff1e4;border-color:#6fae83;color:#1f4a2e}
+.sc-ch4 .quiz-answer.wrong{background:#f8e6e3;border-color:#d5a49b;color:#743e36}
+.sc-ch4 .quiz-answer:disabled{cursor:default}
+.sc-ch4 .read-bar{background:rgba(74,51,34,.12)}
+
+/* ---- פרק 5 – סביבת הכשרה ---- */
+.sc-ch5{
+  --c1:#4a2630; --c2:#693541; --ac:#e8c28a; --teal:#a8556a;
+  --card:#faf2f4; --bd:rgba(168,85,106,.24); --chip:#f0dde2; --chipn:#dfb3be; --chipt:#3d1c25; --note:#f6e8ec;
+  background:#f7eef0 !important;
+}
+.sc-ch5 .subchapter-background{
+  background:radial-gradient(circle at top right,rgba(168,85,106,.12),transparent 34%),
+             radial-gradient(circle at bottom left,rgba(74,38,48,.09),transparent 36%)}
+
+/* כותרת עליונה */
+.sc-ch5 .subchapter-header{background:linear-gradient(135deg,var(--c1),var(--c2));border-color:rgba(232,194,138,.35);box-shadow:0 12px 30px rgba(74,38,48,.18)}
+.sc-ch5 .subchapter-header h2{color:var(--ac)}
+.sc-ch5 .back-button{border-color:rgba(232,194,138,.5)}
+.sc-ch5 .back-button span{color:var(--ac)}
+
+/* פתיחה וכותרות סעיפים */
+.sc-ch5 .learning-intro{border-color:var(--bd); background: rgba(253,248,250, 0.85);}
+.sc-ch5 .intro-icon{background:var(--c1);color:var(--ac)}
+.sc-ch5 .learning-intro span,
+.sc-ch5 .section-heading span:not(.section-number){color:var(--teal)}
+.sc-ch5 .section-number{background:rgba(168,85,106,.14);color:#7a3a4a}
+.sc-ch5 .learning-section{border-color:rgba(255,255,255,.9); background: rgba(253,248,250, 0.75);}
+.sc-ch5 .section-heading h2,.sc-ch5 .subsection-title{color:var(--c1)}
+
+/* כרטיסים */
+.sc-ch5 .info-card,.sc-ch5 .rule-card{background:var(--card);border-color:var(--bd);box-shadow:0 7px 22px rgba(74,38,48,.06)}
+.sc-ch5 .rule-card:hover{box-shadow:0 12px 25px rgba(74,38,48,.11)}
+.sc-ch5 .rule-number{background:var(--c1);color:var(--ac)}
+.sc-ch5 .rule-top h3{color:var(--c1)}
+.sc-ch5 .rule-card p{color:#6a4a52}
+.sc-ch5 .highlight-card{background:linear-gradient(135deg,#f2e0e5,var(--card));border-right:5px solid var(--teal)}
+.sc-ch5 .info-card p{color:#3d1c25}
+.sc-ch5 .info-card-icon{background:linear-gradient(135deg,#dfb3be,#f0dde2);border:1px solid rgba(168,85,106,.35);box-shadow:0 8px 20px rgba(74,38,48,.12),inset 0 1px 0 rgba(255,255,255,.8)}
+.sc-ch5 .note-card{background:var(--note);border-right-color:var(--teal)}
+.sc-ch5 .note-card span{color:#7a3a4a}
+.sc-ch5 .note-card p,.sc-ch5 .note-card ul{color:#5e4249}
+.sc-ch5 .definition-note{background:var(--note);color:#5e4249}
+.sc-ch5 .sc-para{color:#6a4a52}
+
+/* מלבנים ממוספרים */
+.sc-ch5 .chip-grid>div{background:var(--chip);color:#3d1c25;border-color:var(--bd);box-shadow:0 4px 12px rgba(74,38,48,.05)}
+.sc-ch5 .chip-grid>div>span{background:var(--chipn);color:var(--chipt)}
+
+/* טבלאות */
+.sc-ch5 .learning-table{background:#fcf6f8;border-color:var(--bd)}
+.sc-ch5 .learning-table th{background:var(--c1);color:#ffffff}
+.sc-ch5 .learning-table td{color:#5e4249}
+.sc-ch5 .learning-table td:first-child{color:var(--c1)}
+.sc-ch5 .learning-table tr:nth-child(even) td{background:rgba(168,85,106,.06)}
+.sc-ch5 .learning-table tr:hover td{background:rgba(168,85,106,.12)}
+
+/* סיכום וכפתור סיום */
+.sc-ch5 .takeaway-card{background:linear-gradient(135deg,var(--c1),var(--c2));box-shadow:0 17px 35px rgba(74,38,48,.20)}
+.sc-ch5 .takeaway-label,.sc-ch5 .takeaway-items>div>span{color:var(--ac)}
+.sc-ch5 .finish-learning{background:var(--ac);color:#4a2630;box-shadow:0 10px 24px rgba(74,38,48,.15)}
+.sc-ch5 .finish-learning span{background:rgba(74,38,48,.12)}
+
+/* כפתור סיום כהה ובולט לפרק 2 */
+.sc-ch5 .finish-learning {
+    background:#b9a16a !important; /* כחול כהה ועמוק יותר מהרקע של הסיכום */
+    color: #ffffff !important;        /* טקסט לבן חד וברור */
+    box-shadow: 0 10px 24px rgba(74,38,48, 0.3) !important;
+}
+
+.sc-ch5 .finish-learning:hover {
+    background:#8d7445 !important; /* כהה עוד יותר בריחוף */
+}
+
+.sc-ch5 .finish-learning span {
+    background:#9b8151 !important; /* עיגול פנימי בגוון זהוב רך */
+    color: #ffffff !important;
+}
+
+/* רכיבים אינטראקטיביים נוספים */
+
+.sc-new .ix .ix-hint{color:var(--teal)}
+.sc-ch5 .quiz-card-12{padding:22px;background:var(--card);border:1px solid var(--bd);border-radius:20px;box-shadow:0 7px 22px rgba(74,38,48,.07);margin-bottom:14px}
+.sc-ch5 .quiz-card-12 h3{color:var(--c1)}
+.sc-ch5 .quiz-answer{background:#f7ebee;border-color:var(--bd);color:#4a2630}
+.sc-ch5 .quiz-answer:hover{background:#f0dde2;border-color:var(--teal)}
+.sc-ch5 .quiz-answer.correct{background:#dff1e4;border-color:#6fae83;color:#1f4a2e}
+.sc-ch5 .quiz-answer.wrong{background:#f8e6e3;border-color:#d5a49b;color:#743e36}
+.sc-ch5 .quiz-answer:disabled{cursor:default}
+.sc-ch5 .read-bar{background:rgba(74,38,48,.12)}
+
+
+/* =====================================================
+   דף הפרקים – צבע לכל פרק (מספר הפרק, כיתוב ההתקדמות והחץ)
+   ===================================================== */
+
+.categories-page .chapters-list > .chapter-group[data-ch="1"] { --chapter-accent: #3f5a40; }
+.categories-page .chapters-list > .chapter-group[data-ch="1"] .chapter-card { background: rgba(63,90,64,.075); border-color: rgba(63,90,64,.28); }
+.categories-page .chapters-list > .chapter-group[data-ch="1"] .chapter-card:hover { background: rgba(63,90,64,.12); }
+.categories-page .chapters-list > .chapter-group[data-ch="1"] .chapter-card::before { background: #3f5a40; }
+.categories-page .chapters-list > .chapter-group[data-ch="1"] .chapter-number { background: #344437; color: #fff; }
+.categories-page .chapters-list > .chapter-group[data-ch="1"] .chapter-arrow { color: #3f5a40; background: rgba(63,90,64,.12); }
+.categories-page .chapters-list > .chapter-group[data-ch="1"] .chapter-text strong { color: #344437; }
+.categories-page .chapters-list > .chapter-group[data-ch="1"] .subchapter-card .subchapter-number { color: #3f5a40; }
+.categories-page .chapters-list > .chapter-group[data-ch="1"] .subchapter-card.available { border-right: 4px solid #3f5a40; }
+.categories-page .chapters-list > .chapter-group[data-ch="1"] .subchapter-card .subchapter-progress { color: #3f5a40; font-weight: 700; }
+.categories-page .chapters-list > .chapter-group[data-ch="1"] .subchapter-card .subchapter-arrow { color: #3f5a40; font-weight: 700; }
+.categories-page .chapters-list > .chapter-group[data-ch="1"] .subchapter-card.locked .subchapter-progress { color: #777; font-weight: 400; }
+.categories-page .chapters-list > .chapter-group[data-ch="1"] .subchapter-card.locked .subchapter-number { color: #8a8a80; }
+
+.categories-page .chapters-list > .chapter-group[data-ch="2"] { --chapter-accent: #265464; }
+.categories-page .chapters-list > .chapter-group[data-ch="2"] .chapter-card { background: rgba(38,84,100,.075); border-color: rgba(38,84,100,.28); }
+.categories-page .chapters-list > .chapter-group[data-ch="2"] .chapter-card:hover { background: rgba(38,84,100,.12); }
+.categories-page .chapters-list > .chapter-group[data-ch="2"] .chapter-card::before { background: #265464; }
+.categories-page .chapters-list > .chapter-group[data-ch="2"] .chapter-number { background: #265464; color: #fff; }
+.categories-page .chapters-list > .chapter-group[data-ch="2"] .chapter-arrow { color: #265464; background: rgba(38,84,100,.12); }
+.categories-page .chapters-list > .chapter-group[data-ch="2"] .chapter-text strong { color: #265464; }
+.categories-page .chapters-list > .chapter-group[data-ch="2"] .subchapter-card .subchapter-number { color: #265464; }
+.categories-page .chapters-list > .chapter-group[data-ch="2"] .subchapter-card.available { border-right: 4px solid #265464; }
+.categories-page .chapters-list > .chapter-group[data-ch="2"] .subchapter-card .subchapter-progress { color: #265464; font-weight: 700; }
+.categories-page .chapters-list > .chapter-group[data-ch="2"] .subchapter-card .subchapter-arrow { color: #265464; font-weight: 700; }
+.categories-page .chapters-list > .chapter-group[data-ch="2"] .subchapter-card.locked .subchapter-progress { color: #777; font-weight: 400; }
+.categories-page .chapters-list > .chapter-group[data-ch="2"] .subchapter-card.locked .subchapter-number { color: #8a8a80; }
+
+.categories-page .chapters-list > .chapter-group[data-ch="3"] { --chapter-accent: #5b4a7d; }
+.categories-page .chapters-list > .chapter-group[data-ch="3"] .chapter-card { background: rgba(91,74,125,.075); border-color: rgba(91,74,125,.28); }
+.categories-page .chapters-list > .chapter-group[data-ch="3"] .chapter-card:hover { background: rgba(91,74,125,.12); }
+.categories-page .chapters-list > .chapter-group[data-ch="3"] .chapter-card::before { background: #5b4a7d; }
+.categories-page .chapters-list > .chapter-group[data-ch="3"] .chapter-number { background: #50406a; color: #fff; }
+.categories-page .chapters-list > .chapter-group[data-ch="3"] .chapter-arrow { color: #5b4a7d; background: rgba(91,74,125,.12); }
+.categories-page .chapters-list > .chapter-group[data-ch="3"] .chapter-text strong { color: #50406a; }
+.categories-page .chapters-list > .chapter-group[data-ch="3"] .subchapter-card .subchapter-number { color: #5b4a7d; }
+.categories-page .chapters-list > .chapter-group[data-ch="3"] .subchapter-card.available { border-right: 4px solid #5b4a7d; }
+.categories-page .chapters-list > .chapter-group[data-ch="3"] .subchapter-card .subchapter-progress { color: #5b4a7d; font-weight: 700; }
+.categories-page .chapters-list > .chapter-group[data-ch="3"] .subchapter-card .subchapter-arrow { color: #5b4a7d; font-weight: 700; }
+.categories-page .chapters-list > .chapter-group[data-ch="3"] .subchapter-card.locked .subchapter-progress { color: #777; font-weight: 400; }
+.categories-page .chapters-list > .chapter-group[data-ch="3"] .subchapter-card.locked .subchapter-number { color: #8a8a80; }
+
+.categories-page .chapters-list > .chapter-group[data-ch="4"] { --chapter-accent: #8a5a2b; }
+.categories-page .chapters-list > .chapter-group[data-ch="4"] .chapter-card { background: rgba(138,90,43,.075); border-color: rgba(138,90,43,.28); }
+.categories-page .chapters-list > .chapter-group[data-ch="4"] .chapter-card:hover { background: rgba(138,90,43,.12); }
+.categories-page .chapters-list > .chapter-group[data-ch="4"] .chapter-card::before { background: #8a5a2b; }
+.categories-page .chapters-list > .chapter-group[data-ch="4"] .chapter-number { background: #6b4a30; color: #fff; }
+.categories-page .chapters-list > .chapter-group[data-ch="4"] .chapter-arrow { color: #8a5a2b; background: rgba(138,90,43,.12); }
+.categories-page .chapters-list > .chapter-group[data-ch="4"] .chapter-text strong { color: #6b4a30; }
+.categories-page .chapters-list > .chapter-group[data-ch="4"] .subchapter-card .subchapter-number { color: #8a5a2b; }
+.categories-page .chapters-list > .chapter-group[data-ch="4"] .subchapter-card.available { border-right: 4px solid #8a5a2b; }
+.categories-page .chapters-list > .chapter-group[data-ch="4"] .subchapter-card .subchapter-progress { color: #8a5a2b; font-weight: 700; }
+.categories-page .chapters-list > .chapter-group[data-ch="4"] .subchapter-card .subchapter-arrow { color: #8a5a2b; font-weight: 700; }
+.categories-page .chapters-list > .chapter-group[data-ch="4"] .subchapter-card.locked .subchapter-progress { color: #777; font-weight: 400; }
+.categories-page .chapters-list > .chapter-group[data-ch="4"] .subchapter-card.locked .subchapter-number { color: #8a8a80; }
+
+.categories-page .chapters-list > .chapter-group[data-ch="5"] { --chapter-accent: #7a3a4a; }
+.categories-page .chapters-list > .chapter-group[data-ch="5"] .chapter-card { background: rgba(122,58,74,.075); border-color: rgba(122,58,74,.28); }
+.categories-page .chapters-list > .chapter-group[data-ch="5"] .chapter-card:hover { background: rgba(122,58,74,.12); }
+.categories-page .chapters-list > .chapter-group[data-ch="5"] .chapter-card::before { background: #7a3a4a; }
+.categories-page .chapters-list > .chapter-group[data-ch="5"] .chapter-number { background: #693541; color: #fff; }
+.categories-page .chapters-list > .chapter-group[data-ch="5"] .chapter-arrow { color: #7a3a4a; background: rgba(122,58,74,.12); }
+.categories-page .chapters-list > .chapter-group[data-ch="5"] .chapter-text strong { color: #693541; }
+.categories-page .chapters-list > .chapter-group[data-ch="5"] .subchapter-card .subchapter-number { color: #7a3a4a; }
+.categories-page .chapters-list > .chapter-group[data-ch="5"] .subchapter-card.available { border-right: 4px solid #7a3a4a; }
+.categories-page .chapters-list > .chapter-group[data-ch="5"] .subchapter-card .subchapter-progress { color: #7a3a4a; font-weight: 700; }
+.categories-page .chapters-list > .chapter-group[data-ch="5"] .subchapter-card .subchapter-arrow { color: #7a3a4a; font-weight: 700; }
+.categories-page .chapters-list > .chapter-group[data-ch="5"] .subchapter-card.locked .subchapter-progress { color: #777; font-weight: 400; }
+.categories-page .chapters-list > .chapter-group[data-ch="5"] .subchapter-card.locked .subchapter-number { color: #8a8a80; }
