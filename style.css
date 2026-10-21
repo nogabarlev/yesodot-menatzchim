@@ -6919,3 +6919,26 @@ body:not(.categories-page) .hero-section{
         background: rgba(229, 228, 215, .97);
     }
 }
+
+
+
+/* =====================================
+   רקע תמונה לעמוד ראשי הפרקים
+===================================== */
+
+.categories-page .categories-hero {
+    position: relative;
+    isolation: isolate;
+
+    background:
+        linear-gradient(
+            rgba(25, 31, 24, 0.30),
+            rgba(25, 31, 24, 0.48)
+        ),
+        url("media/backgroundCategoriesPage.jpg");
+
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+}
