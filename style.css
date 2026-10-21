@@ -6399,68 +6399,88 @@ body:not(.categories-page) .hero-section{
 .sc-new .quiz-feedback{min-height:20px;margin-top:14px;font-weight:700;line-height:1.8}
 
 
+
 /* =====================================================
-   פרק 2 – תוכנית הכשרה (2.1–2.4)  |  class: sc-ch2
-   להדביק בסוף style.css
-   פלטת פרק 2: כחול-פטרול + ענבר (פרק 1 = ירוק-זית + זהב)
-===================================================== */
+   פרק 2 – תוכנית הכשרה (2.1–2.4) | כחול עמוק ותכלת עדין
+   ===================================================== */
 
 .sc-ch2{
-  --c1:#16404f; --c2:#2a6277; --ac:#f0c27b; --teal:#2a7f96;
-  --card:#f9fcfd; --bd:rgba(42,127,150,.30); --chip:#e2f0f4; --chipn:#bcdbe5; --chipt:#1f4c5c; --note:#e2f0f4;
-  background:#eaf3f6 !important;
+  --c1:#193a47; --c2:#265464; --ac:#e2b56a; --teal:#3c7a89;
+  --card:#f2f7f9; --bd:rgba(60,122,137,.22); --chip:#d9ecef; --chipn:#a5cbdb; --chipt:#153945; --note:#e5f0f3;
+  background:#edf4f6 !important;
 }
 .sc-ch2 .subchapter-background{
-  background:radial-gradient(circle at top right,rgba(42,127,150,.20),transparent 34%),
-             radial-gradient(circle at bottom left,rgba(22,64,79,.14),transparent 36%)}
+  background:radial-gradient(circle at top right,rgba(60,122,137,.12),transparent 34%),
+             radial-gradient(circle at bottom left,rgba(25,58,71,.09),transparent 36%)}
 
 /* כותרת עליונה */
-.sc-ch2 .subchapter-header{background:linear-gradient(135deg,var(--c1),var(--c2));border-color:rgba(240,194,123,.40);box-shadow:0 12px 30px rgba(16,50,62,.20)}
+.sc-ch2 .subchapter-header{background:linear-gradient(135deg,var(--c1),var(--c2));border-color:rgba(226,181,106,.35);box-shadow:0 12px 30px rgba(25,58,71,.18)}
 .sc-ch2 .subchapter-header h2{color:var(--ac)}
-.sc-ch2 .back-button{border-color:rgba(240,194,123,.6)}
+.sc-ch2 .back-button{border-color:rgba(226,181,106,.5)}
 .sc-ch2 .back-button span{color:var(--ac)}
 
 /* פתיחה וכותרות סעיפים */
-.sc-ch2 .learning-intro{border-color:var(--bd)}
+.sc-ch2 .learning-intro{border-color:var(--bd); background: rgba(248, 251, 252, 0.85);}
 .sc-ch2 .intro-icon{background:var(--c1);color:var(--ac)}
 .sc-ch2 .learning-intro span,
 .sc-ch2 .section-heading span:not(.section-number){color:var(--teal)}
-.sc-ch2 .section-number{background:rgba(42,127,150,.16);color:#1f6479}
-.sc-ch2 .learning-section{border-color:rgba(255,255,255,.9)}
+.sc-ch2 .section-number{background:rgba(60,122,137,.14);color:#24535e}
+.sc-ch2 .learning-section{border-color:rgba(255,255,255,.9); background: rgba(248, 251, 252, 0.75);}
 .sc-ch2 .section-heading h2,.sc-ch2 .subsection-title{color:var(--c1)}
 
 /* כרטיסים */
-.sc-ch2 .info-card,.sc-ch2 .rule-card{background:var(--card);border-color:var(--bd);box-shadow:0 7px 22px rgba(16,50,62,.07)}
-.sc-ch2 .rule-card:hover{box-shadow:0 12px 25px rgba(16,50,62,.13)}
+.sc-ch2 .info-card,.sc-ch2 .rule-card{background:var(--card);border-color:var(--bd);box-shadow:0 7px 22px rgba(25,58,71,.06)}
+.sc-ch2 .rule-card:hover{box-shadow:0 12px 25px rgba(25,58,71,.11)}
 .sc-ch2 .rule-number{background:var(--c1);color:var(--ac)}
 .sc-ch2 .rule-top h3{color:var(--c1)}
-.sc-ch2 .rule-card p{color:#4b6068}
-.sc-ch2 .highlight-card{background:linear-gradient(135deg,#d9edf3,var(--card));border-right:5px solid var(--teal)}
-.sc-ch2 .info-card p{color:#233f4a}
-.sc-ch2 .info-card-icon{background:linear-gradient(135deg,#8fc3d2,#d8edf3);border:1px solid rgba(42,127,150,.4);box-shadow:0 8px 20px rgba(22,64,79,.15),inset 0 1px 0 rgba(255,255,255,.8)}
+.sc-ch2 .rule-card p{color:#485d65}
+.sc-ch2 .highlight-card{background:linear-gradient(135deg,#e3edf1,var(--card));border-right:5px solid var(--teal)}
+.sc-ch2 .info-card p{color:#2a4149}
+.sc-ch2 .info-card-icon{background:linear-gradient(135deg,#a3cbdb,#d9ecef);border:1px solid rgba(60,122,137,.35);box-shadow:0 8px 20px rgba(25,58,71,.12),inset 0 1px 0 rgba(255,255,255,.8)}
 .sc-ch2 .note-card{background:var(--note);border-right-color:var(--teal)}
-.sc-ch2 .note-card span{color:#1f6479}
-.sc-ch2 .note-card p,.sc-ch2 .note-card ul{color:#3f5760}
-.sc-ch2 .definition-note{background:var(--note);color:#2f5666}
-.sc-ch2 .sc-para{color:#4b6068}
+.sc-ch2 .note-card span{color:#24535e}
+.sc-ch2 .note-card p,.sc-ch2 .note-card ul{color:#3c5058}
+.sc-ch2 .definition-note{background:var(--note);color:#2b4d5a}
+.sc-ch2 .sc-para{color:#485d65}
 
 /* מלבנים ממוספרים */
-.sc-ch2 .chip-grid>div{background:var(--chip);color:#264653;border-color:var(--bd);box-shadow:0 4px 12px rgba(16,50,62,.06)}
+.sc-ch2 .chip-grid>div{background:var(--chip);color:#223c46;border-color:var(--bd);box-shadow:0 4px 12px rgba(25,58,71,.05)}
 .sc-ch2 .chip-grid>div>span{background:var(--chipn);color:var(--chipt)}
 
 /* טבלאות */
-.sc-ch2 .learning-table{background:#f6fafb;border-color:var(--bd)}
-.sc-ch2 .learning-table th{background:var(--c1);color:#f2fafc}
-.sc-ch2 .learning-table td{color:#3f5760}
+.sc-ch2 .learning-table{background:#f5f9fa;border-color:var(--bd)}
+.sc-ch2 .learning-table th{background:var(--c1);color:#f0f7f9}
+.sc-ch2 .learning-table td{color:#3c5058}
 .sc-ch2 .learning-table td:first-child{color:var(--c1)}
-.sc-ch2 .learning-table tr:nth-child(even) td{background:rgba(42,127,150,.07)}
-.sc-ch2 .learning-table tr:hover td{background:rgba(42,127,150,.16)}
+.sc-ch2 .learning-table tr:nth-child(even) td{background:rgba(60,122,137,.06)}
+.sc-ch2 .learning-table tr:hover td{background:rgba(60,122,137,.12)}
 
 /* סיכום וכפתור סיום */
-.sc-ch2 .takeaway-card{background:linear-gradient(135deg,var(--c1),var(--c2));box-shadow:0 17px 35px rgba(16,50,62,.24)}
+.sc-ch2 .takeaway-card{background:linear-gradient(135deg,var(--c1),var(--c2));box-shadow:0 17px 35px rgba(25,58,71,.20)}
 .sc-ch2 .takeaway-label,.sc-ch2 .takeaway-items>div>span{color:var(--ac)}
-.sc-ch2 .finish-learning{background:var(--ac);color:#16323c;box-shadow:0 10px 24px rgba(16,50,62,.18)}
-.sc-ch2 .finish-learning span{background:rgba(22,64,79,.14)}
+.sc-ch2 .finish-learning{background:var(--ac);color:#193a47;box-shadow:0 10px 24px rgba(25,58,71,.15)}
+.sc-ch2 .finish-learning span{background:rgba(25,58,71,.12)}
+
+/* כפתור סיום כהה ובולט לפרק 2 */
+.sc-ch2 .finish-learning {
+    background: #102630 !important; /* כחול כהה ועמוק יותר מהרקע של הסיכום */
+    color: #ffffff !important;        /* טקסט לבן חד וברור */
+    box-shadow: 0 10px 24px rgba(16, 38, 48, 0.3) !important;
+}
+
+.sc-ch2 .finish-learning:hover {
+    background: #09171f !important; /* כהה עוד יותר בריחוף */
+}
+
+.sc-ch2 .finish-learning span {
+    background: rgba(226, 181, 106, 0.25) !important; /* עיגול פנימי בגוון זהוב רך */
+    color: var(--ac) !important;
+}
+
+/* רכיבים אינטראקטיביים נוספים */
+.sc-ch2 .ix.open{border-color:var(--teal);box-shadow:0 10px 24px rgba(60,122,137,.15)}
+.sc-ch2 .ix .ix-hint{color:var(--teal)}
+.flow li.done{border-color:var(--teal);background:#e5f0f3}
 
 /* ---------- אינטראקטיביות ---------- */
 
@@ -6955,3 +6975,12 @@ body:not(.categories-page) .hero-section{
 .categories-page .subchapter-card.active-subchapter .subchapter-progress {
     color: var(--chapter-accent, #657c58);
 }
+
+
+/* התאמת צבע כיתוב ההתקדמות של פרק 2 לכחול עמוק */
+.categories-page .chapters-list > .chapter-group:nth-child(2) .subchapter-card .subchapter-progress {
+    color: #223c46;
+    font-weight: 700;
+}
+
+
