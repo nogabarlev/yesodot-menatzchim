@@ -1656,5 +1656,75 @@ window.finishSubchapter15 = finishSubchapter15;
 window.closeSubchapterPage = closeSubchapterPage;
 window.finishSubchapterPage = finishSubchapterPage;
 
+
+/* =========================
+   נספחים
+========================= */
+const openAppendix = (id) => {
+    const page = document.getElementById(`appendix${id}Page`);
+    if (!page) return;
+    page.classList.add("show");
+    page.scrollTop = 0;
+    document.body.style.overflow = "hidden";
+};
+
+const closeAppendix = (id) => {
+    const page = document.getElementById(`appendix${id}Page`);
+    if (!page) return;
+    page.classList.remove("show");
+    document.body.style.overflow = "";
+};
+
+/* גרף: הסתרה/הצגה של סדרה */
+const toggleSeries = (btn, i) => {
+    const chart = btn.closest(".bchart");
+    const off = btn.getAttribute("aria-pressed") === "true";
+    btn.setAttribute("aria-pressed", off ? "false" : "true");
+    chart.classList.toggle(`hide-s${i}`, off);
+};
+
+/* גרף: בחירת תחום והצגת הנתונים שלו */
+const pickGroup = (group) => {
+    const chart = group.closest(".bchart");
+    chart.querySelectorAll(".bgroup").forEach((g) => g.classList.remove("picked"));
+    group.classList.add("picked");
+    const vals = group.dataset.vals.split(",");
+    const names = [...chart.querySelectorAll(".bl")].map((b) => b.textContent.trim());
+    const note = chart.querySelector(".chart-note");
+    note.innerHTML = `<strong>${group.dataset.name}</strong>: ` +
+        names.map((n, i) => `${n} – <b>${vals[i]}</b>`).join(" · ");
+};
+
+/* טבלת החרגות: חיפוש וסינון */
+let excChapter = "all";
+const filterExc = () => {
+    const q = (document.getElementById("excSearch")?.value || "").trim();
+    let shown = 0;
+    document.querySelectorAll(".exc-list .exc").forEach((card) => {
+        const okCh = excChapter === "all" || card.dataset.ch === excChapter;
+        const okQ = !q || card.textContent.includes(q);
+        const ok = okCh && okQ;
+        card.hidden = !ok;
+        if (ok) shown++;
+    });
+    const cnt = document.getElementById("excCount");
+    if (cnt) cnt.textContent = `${shown} החרגות`;
+    const empty = document.getElementById("excEmpty");
+    if (empty) empty.hidden = shown !== 0;
+};
+
+const setExcChapter = (btn) => {
+    excChapter = btn.dataset.ch;
+    document.querySelectorAll(".exc-chips .ec").forEach((b) => b.classList.toggle("on", b === btn));
+    filterExc();
+};
+
+window.openAppendix = openAppendix;
+window.closeAppendix = closeAppendix;
+window.toggleSeries = toggleSeries;
+window.pickGroup = pickGroup;
+window.filterExc = filterExc;
+window.setExcChapter = setExcChapter;
+
 window.toggleChapterGroup = toggleChapterGroup;
 window.checkQuiz = checkQuiz;
