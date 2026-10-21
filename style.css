@@ -6513,3 +6513,409 @@ body:not(.categories-page) .hero-section{
   .flow li{padding:13px 54px 13px 12px;font-size:13.5px}
 }
 @media (prefers-reduced-motion:reduce){.sc-ch2 .ix.open .ix-more{animation:none}.read-bar i{transition:none}}
+
+
+/* =====================================================
+   קטגוריות – פלטת פסטל צבאית, בהירה ומובחנת
+   תוספת בסוף הקובץ כדי לשמור על שאר עיצובי האתר
+===================================================== */
+
+.categories-page {
+    background: #e8e8dc !important;
+}
+
+.categories-page .categories-hero {
+    background-color: #e7e8dc;
+    background-image:
+        linear-gradient(135deg, rgba(239, 239, 225, .72), rgba(220, 228, 216, .62)),
+        url("media/categoriesPagePic.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+/* שכבת רקע בהירה יותר – עדיין שומרת על התמונה ועל האופי הצבאי */
+.categories-page .categories-hero > .hero-overlay {
+    background:
+        radial-gradient(ellipse at 15% 12%, rgba(255, 250, 230, .62), transparent 42%),
+        linear-gradient(180deg, rgba(244, 242, 228, .42) 0%, rgba(227, 232, 218, .30) 58%, rgba(93, 112, 88, .20) 100%);
+}
+
+/* הכרטיס הראשי – שמנת בהירה, פחות אפרפרה וכבדה */
+.categories-page .categories-card {
+    background: rgba(250, 248, 239, .88);
+    border: 1px solid rgba(255, 255, 255, .9);
+    box-shadow: 0 24px 60px rgba(48, 62, 44, .18);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+.categories-page .categories-title {
+    color: #26372b;
+}
+
+.categories-page .small-title {
+    color: #8a7041;
+}
+
+.categories-page .choose-title {
+    color: #536252;
+}
+
+.categories-page .title-divider {
+    background: linear-gradient(90deg, #b8a06b, #71856b);
+    width: 64px;
+    height: 3px;
+}
+
+/* בסיס משותף לכרטיסי הפרקים */
+.categories-page .chapter-card {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    background: var(--chapter-bg, rgba(255,255,255,.7));
+    border: 1px solid var(--chapter-border, rgba(255,255,255,.92));
+    box-shadow: 0 5px 16px rgba(42, 53, 39, .08);
+    transition: transform .22s ease, box-shadow .22s ease, filter .22s ease;
+}
+
+.categories-page .chapter-card::before {
+    content: "";
+    display: block;
+    position: absolute;
+    z-index: -1;
+    inset: 0 auto 0 0;
+    width: 5px;
+    background: var(--chapter-accent, #71856b);
+    opacity: .95;
+}
+
+.categories-page .chapter-card:hover {
+    background: var(--chapter-bg, rgba(255,255,255,.7));
+    box-shadow: 0 9px 22px rgba(42, 53, 39, .13);
+    transform: translateY(-2px);
+}
+
+.categories-page .chapter-number {
+    background: var(--chapter-accent, #536b4e);
+    color: #fffdf5;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.22);
+}
+
+.categories-page .chapter-text strong {
+    color: var(--chapter-text, #2d3b30);
+    font-weight: 600;
+}
+
+.categories-page .chapter-arrow {
+    background: var(--chapter-arrow-bg, rgba(255,255,255,.55));
+    color: var(--chapter-accent, #536b4e);
+}
+
+/* פרק 1 – ירוק מרווה / זית בהיר: יותר אופי, בלי להעמיס */
+.categories-page .chapters-list > .chapter-group:nth-child(1) {
+    --chapter-bg: #e5ebdc;
+    --chapter-border: #cbd8bf;
+    --chapter-accent: #657c58;
+    --chapter-text: #2f422f;
+    --chapter-arrow-bg: #d2dfc8;
+}
+
+/* פרק 2 – כחול-פטרול מעושן, מרוכך כדי שלא יקפוץ בחדות */
+.categories-page .chapters-list > .chapter-group:nth-child(2) {
+    --chapter-bg: #e0ebed;
+    --chapter-border: #c4d9dc;
+    --chapter-accent: #4d7f89;
+    --chapter-text: #294951;
+    --chapter-arrow-bg: #cfe1e4;
+}
+
+/* פרק 3 – לבנדר אפור, מאופק ומקצועי */
+.categories-page .chapters-list > .chapter-group:nth-child(3) {
+    --chapter-bg: #e9e5ee;
+    --chapter-border: #d7cde2;
+    --chapter-accent: #827394;
+    --chapter-text: #443b52;
+    --chapter-arrow-bg: #ddd5e7;
+}
+
+/* פרק 4 – חול ורדרד / חאקי בהיר */
+.categories-page .chapters-list > .chapter-group:nth-child(4) {
+    --chapter-bg: #f0e5d9;
+    --chapter-border: #e1cdb8;
+    --chapter-accent: #a77c58;
+    --chapter-text: #59412f;
+    --chapter-arrow-bg: #e8d5c1;
+}
+
+/* פרק 5 – כחול-אפור בהיר */
+.categories-page .chapters-list > .chapter-group:nth-child(5) {
+    --chapter-bg: #e2e8ef;
+    --chapter-border: #cbd7e3;
+    --chapter-accent: #627d9a;
+    --chapter-text: #30465b;
+    --chapter-arrow-bg: #d0dce8;
+}
+
+/* תתי-הפרקים ממשיכים באותה שפה, עם רקע בהיר וניגודיות טובה */
+.categories-page .chapter-group .subchapters-list {
+    padding: 8px 5px 5px;
+    gap: 7px;
+}
+
+.categories-page .subchapter-card {
+    background: rgba(250, 249, 243, .94);
+    border: 1px solid rgba(255, 255, 255, .95);
+    box-shadow: 0 3px 10px rgba(42, 53, 39, .06);
+}
+
+.categories-page .subchapter-card strong {
+    color: #354438;
+}
+
+.categories-page .subchapter-card .subchapter-number {
+    color: var(--chapter-accent, #657c58);
+    font-weight: 700;
+}
+
+.categories-page .subchapter-card.available {
+    border-right: 4px solid var(--chapter-accent, #657c58);
+    background: #fbfaf5;
+}
+
+.categories-page .subchapter-card.locked {
+    background: rgba(239, 238, 231, .78);
+    opacity: .68;
+    filter: grayscale(12%);
+}
+
+@media (max-width: 700px) {
+    .categories-page .categories-hero {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .categories-page .categories-card {
+        padding: 27px 17px 21px;
+    }
+
+    .categories-page .chapter-card {
+        min-height: 60px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .categories-page .chapter-card {
+        transition: none;
+    }
+}
+
+/* =====================================================
+   CATEGORIES – גרסה מאופקת ומקצועית יותר
+   פלטה אחידה בהשראת גווני זית, אבן וחאקי
+===================================================== */
+
+.categories-page {
+    background: #deded3 !important;
+}
+
+.categories-page .categories-hero {
+    background-color: #d9dbd0;
+    background-image:
+        linear-gradient(135deg, rgba(231, 231, 218, .78), rgba(202, 207, 193, .70)),
+        url("media/categoriesPagePic.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.categories-page .categories-hero > .hero-overlay {
+    background: linear-gradient(
+        180deg,
+        rgba(233, 232, 218, .30) 0%,
+        rgba(218, 220, 206, .24) 55%,
+        rgba(64, 75, 58, .20) 100%
+    );
+}
+
+.categories-page .categories-card {
+    background: rgba(247, 246, 238, .94);
+    border: 1px solid rgba(255, 255, 255, .76);
+    box-shadow: 0 18px 42px rgba(42, 48, 38, .15);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.categories-page .categories-title {
+    color: #30392e;
+}
+
+.categories-page .small-title {
+    color: #77714e;
+}
+
+.categories-page .choose-title {
+    color: #555d4c;
+}
+
+.categories-page .title-divider {
+    background: #858768;
+    width: 54px;
+    height: 2px;
+}
+
+/* כל הפרקים באותו בסיס – ההבחנה ביניהם נעשית בפרטים קטנים בלבד */
+.categories-page .chapter-card,
+.categories-page .chapters-list > .chapter-group:nth-child(n) .chapter-card {
+    --chapter-bg: #efefe7;
+    --chapter-border: #d9dbcf;
+    --chapter-accent: #667052;
+    --chapter-text: #30392e;
+    --chapter-arrow-bg: #e4e5da;
+    background: #efefe7;
+    border: 1px solid #d9dbcf;
+    box-shadow: 0 3px 10px rgba(43, 49, 38, .055);
+}
+
+.categories-page .chapter-card::before {
+    width: 3px;
+    background: #747b5c;
+    opacity: .9;
+}
+
+.categories-page .chapter-card:hover {
+    background: #f3f3ec;
+    box-shadow: 0 6px 15px rgba(43, 49, 38, .09);
+    transform: translateY(-1px);
+}
+
+.categories-page .chapter-number {
+    background: #697354;
+    color: #fffef7;
+    box-shadow: none;
+}
+
+.categories-page .chapter-text strong {
+    color: #30392e;
+    font-weight: 600;
+}
+
+.categories-page .chapter-arrow {
+    background: #e3e5da;
+    color: #667052;
+}
+
+/* הבדלים זעירים בלבד בין הפרקים, בלי מעבר בין צבעים שונים */
+.categories-page .chapters-list > .chapter-group:nth-child(2) .chapter-number { background: #626f6c; }
+.categories-page .chapters-list > .chapter-group:nth-child(3) .chapter-number { background: #777967; }
+.categories-page .chapters-list > .chapter-group:nth-child(4) .chapter-number { background: #817a62; }
+.categories-page .chapters-list > .chapter-group:nth-child(5) .chapter-number { background: #646e60; }
+
+.categories-page .chapter-group .subchapters-list {
+    padding: 7px 5px 5px;
+    gap: 6px;
+}
+
+.categories-page .subchapter-card {
+    background: #f8f7f1;
+    border: 1px solid #e2e2d8;
+    box-shadow: none;
+}
+
+.categories-page .subchapter-card strong {
+    color: #394136;
+}
+
+.categories-page .subchapter-card .subchapter-number {
+    color: #697354;
+}
+
+.categories-page .subchapter-card.available {
+    border-right: 3px solid #7b8264;
+    background: #f8f7f1;
+}
+
+.categories-page .subchapter-card.locked {
+    background: #eeeee7;
+    opacity: .72;
+    filter: none;
+}
+
+@media (max-width: 700px) {
+    .categories-page .categories-card {
+        background: rgba(247, 246, 238, .96);
+    }
+
+    .categories-page .chapter-card {
+        box-shadow: 0 2px 8px rgba(43, 49, 38, .05);
+    }
+}
+
+/* =====================================================
+   תיקון איזון בהירות – יותר עומק, בלי לחזור למראה קודר
+===================================================== */
+.categories-page {
+    background: #c5c7ba !important;
+}
+
+.categories-page .categories-hero {
+    background-color: #c4c7b9;
+    background-image:
+        linear-gradient(135deg, rgba(199, 202, 185, .88), rgba(165, 173, 153, .82)),
+        url("media/categoriesPagePic.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.categories-page .categories-hero > .hero-overlay {
+    background: linear-gradient(
+        180deg,
+        rgba(190, 194, 176, .30) 0%,
+        rgba(166, 174, 153, .32) 58%,
+        rgba(63, 75, 57, .27) 100%
+    );
+}
+
+.categories-page .categories-card {
+    background: rgba(229, 228, 215, .96);
+    border: 1px solid rgba(248, 247, 235, .62);
+    box-shadow: 0 16px 38px rgba(42, 48, 38, .20);
+}
+
+.categories-page .small-title {
+    color: #6d704f;
+}
+
+.categories-page .choose-title {
+    color: #454d3e;
+}
+
+.categories-page .chapter-card,
+.categories-page .chapters-list > .chapter-group:nth-child(n) .chapter-card {
+    background: #d9dbce;
+    border-color: #c2c7b5;
+    box-shadow: 0 3px 10px rgba(43, 49, 38, .09);
+}
+
+.categories-page .chapter-card:hover {
+    background: #e0e1d5;
+    box-shadow: 0 6px 15px rgba(43, 49, 38, .13);
+}
+
+.categories-page .chapter-arrow {
+    background: #c9cdbd;
+}
+
+.categories-page .subchapter-card,
+.categories-page .subchapter-card.available {
+    background: #eeede3;
+    border-color: #d2d3c6;
+}
+
+.categories-page .subchapter-card.locked {
+    background: #d6d8cc;
+}
+
+@media (max-width: 700px) {
+    .categories-page .categories-card {
+        background: rgba(229, 228, 215, .97);
+    }
+}
