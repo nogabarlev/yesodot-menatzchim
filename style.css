@@ -7263,6 +7263,92 @@ body:not(.categories-page) .hero-section{
 .sc-ch5 .quiz-answer:disabled{cursor:default}
 .sc-ch5 .read-bar{background:rgba(74,38,48,.12)}
 
+/* ---- פרק 6 – נספחים ---- */
+.sc-ch6{
+  --c1:#2f3a45; --c2:#46525e; --ac:#d9b36c; --teal:#5f7385;
+  --card:#f3f5f7; --bd:rgba(95,115,133,.24); --chip:#e1e7ec; --chipn:#b9c6d2; --chipt:#26323d; --note:#e9eef2;
+  background:#eef1f4 !important;
+}
+.sc-ch6 .subchapter-background{
+  background:radial-gradient(circle at top right,rgba(95,115,133,.12),transparent 34%),
+             radial-gradient(circle at bottom left,rgba(47,58,69,.09),transparent 36%)}
+
+/* כותרת עליונה */
+.sc-ch6 .subchapter-header{background:linear-gradient(135deg,var(--c1),var(--c2));border-color:rgba(217,179,108,.35);box-shadow:0 12px 30px rgba(47,58,69,.18)}
+.sc-ch6 .subchapter-header h2{color:var(--ac)}
+.sc-ch6 .back-button{border-color:rgba(217,179,108,.5)}
+.sc-ch6 .back-button span{color:var(--ac)}
+
+/* פתיחה וכותרות סעיפים */
+.sc-ch6 .learning-intro{border-color:var(--bd); background: rgba(249,250,252, 0.85);}
+.sc-ch6 .intro-icon{background:var(--c1);color:var(--ac)}
+.sc-ch6 .learning-intro span,
+.sc-ch6 .section-heading span:not(.section-number){color:var(--teal)}
+.sc-ch6 .section-number{background:rgba(95,115,133,.14);color:#3d4f5f}
+.sc-ch6 .learning-section{border-color:rgba(255,255,255,.9); background: rgba(249,250,252, 0.75);}
+.sc-ch6 .section-heading h2,.sc-ch6 .subsection-title{color:var(--c1)}
+
+/* כרטיסים */
+.sc-ch6 .info-card,.sc-ch6 .rule-card{background:var(--card);border-color:var(--bd);box-shadow:0 7px 22px rgba(47,58,69,.06)}
+.sc-ch6 .rule-card:hover{box-shadow:0 12px 25px rgba(47,58,69,.11)}
+.sc-ch6 .rule-number{background:var(--c1);color:var(--ac)}
+.sc-ch6 .rule-top h3{color:var(--c1)}
+.sc-ch6 .rule-card p{color:#52606d}
+.sc-ch6 .highlight-card{background:linear-gradient(135deg,#e3e9ee,var(--card));border-right:5px solid var(--teal)}
+.sc-ch6 .info-card p{color:#26323d}
+.sc-ch6 .info-card-icon{background:linear-gradient(135deg,#b9c6d2,#e1e7ec);border:1px solid rgba(95,115,133,.35);box-shadow:0 8px 20px rgba(47,58,69,.12),inset 0 1px 0 rgba(255,255,255,.8)}
+.sc-ch6 .note-card{background:var(--note);border-right-color:var(--teal)}
+.sc-ch6 .note-card span{color:#3d4f5f}
+.sc-ch6 .note-card p,.sc-ch6 .note-card ul{color:#485562}
+.sc-ch6 .definition-note{background:var(--note);color:#485562}
+.sc-ch6 .sc-para{color:#52606d}
+
+/* מלבנים ממוספרים */
+.sc-ch6 .chip-grid>div{background:var(--chip);color:#26323d;border-color:var(--bd);box-shadow:0 4px 12px rgba(47,58,69,.05)}
+.sc-ch6 .chip-grid>div>span{background:var(--chipn);color:var(--chipt)}
+
+/* טבלאות */
+.sc-ch6 .learning-table{background:#f7f9fa;border-color:var(--bd)}
+.sc-ch6 .learning-table th{background:var(--c1);color:#ffffff}
+.sc-ch6 .learning-table td{color:#485562}
+.sc-ch6 .learning-table td:first-child{color:var(--c1)}
+.sc-ch6 .learning-table tr:nth-child(even) td{background:rgba(95,115,133,.06)}
+.sc-ch6 .learning-table tr:hover td{background:rgba(95,115,133,.12)}
+
+/* סיכום וכפתור סיום */
+.sc-ch6 .takeaway-card{background:linear-gradient(135deg,var(--c1),var(--c2));box-shadow:0 17px 35px rgba(47,58,69,.20)}
+.sc-ch6 .takeaway-label,.sc-ch6 .takeaway-items>div>span{color:var(--ac)}
+.sc-ch6 .finish-learning{background:var(--ac);color:#2f3a45;box-shadow:0 10px 24px rgba(47,58,69,.15)}
+.sc-ch6 .finish-learning span{background:rgba(47,58,69,.12)}
+
+/* כפתור סיום כהה ובולט לפרק 2 */
+.sc-ch6 .finish-learning {
+    background:#b9a16a !important; /* כחול כהה ועמוק יותר מהרקע של הסיכום */
+    color: #ffffff !important;        /* טקסט לבן חד וברור */
+    box-shadow: 0 10px 24px rgba(47,58,69, 0.3) !important;
+}
+
+.sc-ch6 .finish-learning:hover {
+    background:#8d7445 !important; /* כהה עוד יותר בריחוף */
+}
+
+.sc-ch6 .finish-learning span {
+    background:#9b8151 !important; /* עיגול פנימי בגוון זהוב רך */
+    color: #ffffff !important;
+}
+
+/* רכיבים אינטראקטיביים נוספים */
+
+.sc-new .ix .ix-hint{color:var(--teal)}
+.sc-ch6 .quiz-card-12{padding:22px;background:var(--card);border:1px solid var(--bd);border-radius:20px;box-shadow:0 7px 22px rgba(47,58,69,.07);margin-bottom:14px}
+.sc-ch6 .quiz-card-12 h3{color:var(--c1)}
+.sc-ch6 .quiz-answer{background:#edf1f4;border-color:var(--bd);color:#2f3a45}
+.sc-ch6 .quiz-answer:hover{background:#e1e7ec;border-color:var(--teal)}
+.sc-ch6 .quiz-answer.correct{background:#dff1e4;border-color:#6fae83;color:#1f4a2e}
+.sc-ch6 .quiz-answer.wrong{background:#f8e6e3;border-color:#d5a49b;color:#743e36}
+.sc-ch6 .quiz-answer:disabled{cursor:default}
+.sc-ch6 .read-bar{background:rgba(47,58,69,.12)}
+
 
 /* =====================================================
    דף הפרקים – צבע לכל פרק (מספר הפרק, כיתוב ההתקדמות והחץ)
@@ -7337,3 +7423,64 @@ body:not(.categories-page) .hero-section{
 .categories-page .chapters-list > .chapter-group[data-ch="5"] .subchapter-card .subchapter-arrow { color: #7a3a4a; font-weight: 700; }
 .categories-page .chapters-list > .chapter-group[data-ch="5"] .subchapter-card.locked .subchapter-progress { color: #777; font-weight: 400; }
 .categories-page .chapters-list > .chapter-group[data-ch="5"] .subchapter-card.locked .subchapter-number { color: #8a8a80; }
+
+.categories-page .chapters-list > .chapter-group[data-ch="6"] { --chapter-accent: #5f7385; }
+.categories-page .chapters-list > .chapter-group[data-ch="6"] .chapter-card { background: rgba(95,115,133,.075); border-color: rgba(95,115,133,.28); }
+.categories-page .chapters-list > .chapter-group[data-ch="6"] .chapter-card:hover { background: rgba(95,115,133,.12); }
+.categories-page .chapters-list > .chapter-group[data-ch="6"] .chapter-card::before { background: #5f7385; }
+.categories-page .chapters-list > .chapter-group[data-ch="6"] .chapter-number { background: #46525e; color: #fff; }
+.categories-page .chapters-list > .chapter-group[data-ch="6"] .chapter-arrow { color: #5f7385; background: rgba(95,115,133,.12); }
+.categories-page .chapters-list > .chapter-group[data-ch="6"] .chapter-text strong { color: #46525e; }
+.categories-page .chapters-list > .chapter-group[data-ch="6"] .subchapter-card .subchapter-number { color: #5f7385; }
+.categories-page .chapters-list > .chapter-group[data-ch="6"] .subchapter-card.available { border-right: 4px solid #5f7385; }
+.categories-page .chapters-list > .chapter-group[data-ch="6"] .subchapter-card .subchapter-progress { color: #5f7385; font-weight: 700; }
+.categories-page .chapters-list > .chapter-group[data-ch="6"] .subchapter-card .subchapter-arrow { color: #5f7385; font-weight: 700; }
+.categories-page .chapters-list > .chapter-group[data-ch="6"] .subchapter-card.locked .subchapter-progress { color: #777; font-weight: 400; }
+.categories-page .chapters-list > .chapter-group[data-ch="6"] .subchapter-card.locked .subchapter-number { color: #8a8a80; }
+
+
+/* ---------------- נספחים: גרף אינטראקטיבי ---------------- */
+.bchart{padding:18px 14px 14px;background:var(--card);border:1px solid var(--bd);border-radius:20px}
+.bchart-legend{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
+.bchart .bl{display:inline-flex;align-items:center;gap:7px;padding:7px 12px;border:1px solid var(--bd);border-radius:999px;background:#fff;color:var(--c1);font:inherit;font-size:12.5px;cursor:pointer;transition:opacity .2s}
+.bchart .bl,.exc-chips .ec{width:auto !important;height:auto !important;min-height:0 !important;margin:0 !important;flex:0 0 auto}
+.exc-chips .ec{display:inline-flex;align-items:center}
+.bchart .bl i{width:12px;height:12px;border-radius:4px;display:inline-block}
+.bchart .bl[aria-pressed="false"]{opacity:.38;text-decoration:line-through}
+.bchart .bl0 i,.bchart .s0{background:#b9c6d2}
+.bchart .bl1 i,.bchart .s1{background:#8fa3b5}
+.bchart .bl2 i,.bchart .s2{background:#5f7385}
+.bchart .bl3 i,.bchart .s3{background:#2f3a45}
+.bchart-plot{display:flex;gap:8px;align-items:flex-end;padding-top:22px;border-bottom:2px solid var(--bd)}
+.bchart .bgroup{flex:1;min-width:0;display:flex;flex-direction:column;align-items:center;padding:6px 3px 0;border-radius:12px 12px 0 0;cursor:pointer;transition:background .2s}
+.bchart .bgroup:hover,.bchart .bgroup.picked{background:rgba(95,115,133,.14)}
+.bchart .bgroup.hl{outline:2px dashed var(--teal);outline-offset:-2px}
+.bchart .bars{display:flex;align-items:flex-end;gap:3px;height:210px;width:100%;justify-content:center}
+.bchart .bar{position:relative;flex:1;max-width:22px;height:var(--h);border-radius:5px 5px 0 0;transition:height .5s ease,opacity .2s}
+.bchart .bar b{position:absolute;bottom:100%;left:50%;transform:translateX(-50%);padding-bottom:3px;font-size:11px;font-weight:600;color:var(--c1)}
+.bchart .gname{padding:9px 0 8px;font-size:12.5px;font-weight:600;color:var(--c1);text-align:center}
+.bchart.hide-s0 .s0,.bchart.hide-s1 .s1,.bchart.hide-s2 .s2,.bchart.hide-s3 .s3{visibility:hidden}
+.bchart .chart-note{margin-top:14px;padding:12px 14px;background:var(--note);border-radius:12px;font-size:13.5px;line-height:1.8;color:#485562}
+@media (max-width:560px){.bchart .bar b{font-size:9.5px}.bchart .bars{gap:2px}.bchart-plot{gap:3px}}
+
+/* ---------------- נספחים: טבלת החרגות ---------------- */
+.exc-tools{display:flex;flex-direction:column;gap:12px;margin-bottom:16px}
+.exc-search{width:100%;padding:13px 16px;border:1px solid var(--bd);border-radius:14px;background:#fff;font:inherit;font-size:14px;color:var(--c1);outline:none}
+.exc-search:focus{border-color:var(--teal);box-shadow:0 0 0 3px rgba(95,115,133,.18)}
+.exc-chips{display:flex;flex-wrap:wrap;gap:8px}
+.exc-chips .ec{padding:7px 14px;border:1px solid var(--bd);border-radius:999px;background:#fff;color:var(--c1);font:inherit;font-size:13px;cursor:pointer}
+.exc-chips .ec.on{background:var(--c1);color:var(--ac);border-color:var(--c1)}
+.exc-count{font-size:12.5px;color:var(--teal);font-weight:600}
+.exc-list{display:grid;grid-template-columns:minmax(0,1fr);gap:12px}
+.exc-list .exc[hidden],.exc-empty[hidden]{display:none}
+.exc .exc-clause{margin:6px 0 0;font-size:13px;color:var(--teal);font-weight:600}
+.exc .rule-top h3{font-size:15px}
+.exc-box{padding:12px 14px;border-radius:12px;margin-top:10px;font-size:14px;line-height:1.8}
+.exc-box span{display:block;margin-bottom:3px;font-size:12px;font-weight:700}
+.exc-box p{margin:0}
+.exc-box.g{background:#eef1f4;border-right:4px solid #8fa3b5}
+.exc-box.g span{color:#5f7385}
+.exc-box.x{background:#fbf3e1;border-right:4px solid #d9b36c}
+.exc-box.x span{color:#8a6a2c}
+.exc-empty{padding:20px;text-align:center;color:var(--teal)}
+.appendices-group .subchapter-card .subchapter-number{min-width:64px}
