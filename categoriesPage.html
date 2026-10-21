@@ -312,56 +312,78 @@
 
 
             <!-- =========================
-                                 CHAPTER 2
-                            ========================== -->
-
-            <div class="chapter-group locked-chapter">
-
-              <div class="chapter-card">
-
-                <div class="chapter-number">
-                  2
-                </div>
-
-                <div class="chapter-text">
-                  <strong>
-                    תוכנית הכשרה
-                  </strong>
-                </div>
-
-                <div class="chapter-arrow">
-                  ‹
-                </div>
-
+                 CHAPTER 2
+            ========================== -->
+ 
+            <div class="chapter-group locked-chapter" id="chapterGroup2">
+ 
+              <div class="chapter-card" onclick="toggleChapterGroup(this)">
+                <div class="chapter-number">2</div>
+                <div class="chapter-text"><strong>תוכנית הכשרה</strong></div>
+                <div class="chapter-arrow">‹</div>
               </div>
-
+ 
+              <div class="subchapters-list">
+ 
+                <div class="subchapter-card locked" data-chapter="2" data-subchapter="1" onclick="openSubchapter('2.1')">
+                  <div class="subchapter-content">
+                    <span class="subchapter-number">2.1</span>
+                    <strong>פיתוח הכשרה חדשה</strong>
+                  </div>
+                  <div class="subchapter-action">
+                    <span class="subchapter-progress">טרם הושלם</span>
+                    <span class="subchapter-arrow">‹</span>
+                  </div>
+                </div>
+ 
+                <div class="subchapter-card locked" data-chapter="2" data-subchapter="2" onclick="openSubchapter('2.2')">
+                  <div class="subchapter-content">
+                    <span class="subchapter-number">2.2</span>
+                    <strong>כתיבת עדכון ואישור תיקי יסוד</strong>
+                  </div>
+                  <div class="subchapter-action">
+                    <span class="subchapter-progress">טרם הושלם</span>
+                    <span class="subchapter-arrow">‹</span>
+                  </div>
+                </div>
+ 
+                <div class="subchapter-card locked" data-chapter="2" data-subchapter="3" onclick="openSubchapter('2.3')">
+                  <div class="subchapter-content">
+                    <span class="subchapter-number">2.3</span>
+                    <strong>הערכת חניכים (מבחנים בהכשרות)</strong>
+                  </div>
+                  <div class="subchapter-action">
+                    <span class="subchapter-progress">טרם הושלם</span>
+                    <span class="subchapter-arrow">‹</span>
+                  </div>
+                </div>
+ 
+                <div class="subchapter-card locked" data-chapter="2" data-subchapter="4" onclick="openSubchapter('2.4')">
+                  <div class="subchapter-content">
+                    <span class="subchapter-number">2.4</span>
+                    <strong>תיק מדריך</strong>
+                  </div>
+                  <div class="subchapter-action">
+                    <span class="subchapter-progress">טרם הושלם</span>
+                    <span class="subchapter-arrow">‹</span>
+                  </div>
+                </div>
+ 
+              </div>
             </div>
 
 
             <!-- =========================
-                                 CHAPTER 3
-                            ========================== -->
-
-            <div class="chapter-group locked-chapter">
-
-              <div class="chapter-card">
-
-                <div class="chapter-number">
-                  3
-                </div>
-
-                <div class="chapter-text">
-                  <strong>
-                    סגל הכשרה
-                  </strong>
-                </div>
-
-                <div class="chapter-arrow">
-                  ‹
-                </div>
-
+                 CHAPTER 3  (נפתח אחרי 2.4)
+            ========================== -->
+ 
+            <div class="chapter-group locked-chapter" id="chapterGroup3">
+              <div class="chapter-card" onclick="toggleChapterGroup(this)">
+                <div class="chapter-number">3</div>
+                <div class="chapter-text"><strong>סגל הכשרה</strong></div>
+                <div class="chapter-arrow">‹</div>
               </div>
-
+              <div class="subchapters-list"><!-- תתי-פרקים של פרק 3 יתווספו כאן --></div>
             </div>
 
 
@@ -1612,6 +1634,543 @@
         </div>
       </section><button class="finish-learning" onclick="finishSubchapterPage('1.11')"><span>✓</span> סיימתי ללמוד את
         תת־הפרק</button>
+    </div>
+  </section>
+
+  <!-- ========================= SUBCHAPTER 2.1 פיתוח הכשרה חדשה ========================= -->
+  <section id="subchapterNew21Page" class="subchapter-page sc-new sc-ch2">
+    <div class="read-bar"><i></i></div>
+    <div class="subchapter-background"></div>
+    <div class="subchapter-container">
+      <header class="subchapter-header"><button class="back-button" onclick="closeSubchapterPage('2.1')"><span>→</span> חזרה לפרקים</button>
+        <h1>פיתוח הכשרה חדשה</h1>
+        <h2>מהחלטת החיל ועד תיק יסוד בטיוטה</h2>
+      </header>
+
+      <section class="learning-intro">
+        <div class="intro-icon">2.1</div>
+        <div><span>מה נלמד?</span>
+          <h2>איך נולדת הכשרה חדשה?</h2>
+          <p>נכיר מי מחליט על הכשרה חדשה, מה החיל מעביר לבה״ד, איך פועל צוות הפיתוח ומה הם תשעת המרכיבים של תהליך הפיתוח.</p>
+        </div>
+      </section>
+
+      <section class="learning-section">
+        <div class="section-heading"><span class="section-number">01</span><div><span>מטרת הנוהל</span><h2>למה הנוהל קיים?</h2></div></div>
+        <div class="info-card highlight-card">
+          <div class="info-card-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 12l2 2 4-4M5 5h14v14H5z" fill="none" stroke="#222" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+          <p>להגדיר את תהליך פיתוח הכשרה חדשה ביחידת הדרכה.</p>
+        </div>
+      </section>
+
+      <section class="learning-section">
+        <div class="section-heading"><span class="section-number">02</span><div><span>כללי</span><h2>מתי מפתחים הכשרה חדשה?</h2></div></div>
+        <div class="interactive-cards">
+          <article class="rule-card"><div class="rule-top"><span class="rule-number">א</span><h3>שינוי בשטח</h3></div><p>הכשרה חדשה מתפתחת בדרך כלל לאור שינויים בתו״ל, תפיסות ואמל״ח שדורשים בעלי תפקידים חדשים שלא היו קיימים בעבר.</p></article>
+          <article class="rule-card"><div class="rule-top"><span class="rule-number">ב</span><h3>רה-פיתוח</h3></div><p>במקרים חריגים, כשעולה פער כולל בהכשרה מסוימת, אפשר להחליט לפתח אותה מחדש.</p></article>
+          <article class="rule-card"><div class="rule-top"><span class="rule-number">ג</span><h3>מי מחליט ומי מבצע</h3></div><p>ההחלטה היא של מפקד החיל הרלוונטי. הביצוע הוא של בית הספר.</p></article>
+        </div>
+        <div class="note-card"><span>שימו לב</span><p>לכל הכשרה חדשה מתבצע תהליך פיתוח סדור ומתועד.</p></div>
+      </section>
+
+      <section class="learning-section">
+        <div class="section-heading"><span class="section-number">03</span><div><span>הגדרות</span><h2>ארבעה מושגים, לחצו כדי לפתוח</h2></div></div>
+        <div class="interactive-cards">
+          <article class="rule-card ix" onclick="toggleLearningCard(this)"><div class="rule-top"><span class="rule-number">א</span><h3>קורס</h3></div><p>לימודים בארגון לשם הכשרה מסמיכה.</p><span class="ix-hint">מה ההבדל מהשתלמות?</span><div class="ix-more"><p>קורס מסמיך. השתלמות אינה מסמיכה.</p></div></article>
+          <article class="rule-card ix" onclick="toggleLearningCard(this)"><div class="rule-top"><span class="rule-number">ב</span><h3>השתלמות</h3></div><p>לימודים בארגון לשם הכשרה לא מסמיכה.</p><span class="ix-hint">פרטים</span><div class="ix-more"><p>גם להשתלמות נכתב תיק יסוד, כמו לקורס.</p></div></article>
+          <article class="rule-card ix" onclick="toggleLearningCard(this)"><div class="rule-top"><span class="rule-number">ג</span><h3>תיק יסוד</h3></div><p>מסמך מחייב לכל קורס או השתלמות.</p><span class="ix-hint">מה כולל התיק?</span>
+            <div class="ix-more"><div class="chip-grid" style="grid-template-columns:1fr;margin-top:0"><div><span>1</span>מטרות הקורס או ההשתלמות</div><div><span>2</span>ההסמכה הניתנת בקורס</div><div><span>3</span>מהלך הקורס, הרציונאל ותנאי ההסמכה</div><div><span>4</span>המשאבים הנדרשים לקיום הקורס</div></div></div></article>
+          <article class="rule-card ix" onclick="toggleLearningCard(this)"><div class="rule-top"><span class="rule-number">ד</span><h3>מודלים לפיתוח הדרכה</h3></div><p>מודל עבודה שיטתי המציג תהליך עקרוני לקבלת החלטות בפיתוח הכשרה.</p><span class="ix-hint">אילו מודלים נפוצים?</span><div class="ix-more"><p>השכיחים: מודל אלפ״א ומודל תל״ם.</p></div></article>
+        </div>
+      </section>
+
+      <section class="learning-section">
+        <div class="section-heading"><span class="section-number">04</span><div><span>שלב מקדים</span><h2>מה החיל מעביר לבה״ד לפני הפיתוח?</h2></div></div>
+        <p class="sc-para">מפקד החיל מחליט על פיתוח הכשרה חדשה לאור שינויי תו״ל, תפיסות ואמל״ח. באחריות החיל להגדיר לבה״ד שלושה נושאים:</p>
+        <div class="chip-grid">
+          <div><span>1</span>ניתוח תפקיד: מצבי התפקוד של בעל התפקיד, תחומי אחריותו ותהליך העבודה שלו</div>
+          <div><span>2</span>הכשירויות והמדדים הנדרשים לבעל התפקיד</div>
+          <div><span>3</span>תרחיש הייחוס שבו יפעל בעל התפקיד</div>
+        </div>
+      </section>
+
+      <section class="learning-section">
+        <div class="section-heading"><span class="section-number">05</span><div><span>תהליך הפיתוח</span><h2>מי עושה מה ובאיזה סדר?</h2></div></div>
+        <div class="interactive-cards">
+          <article class="rule-card"><div class="rule-top"><span class="rule-number">א</span><h3>צוות פיתוח</h3></div><p>מפקד הבה״ד מגדיר צוות פיתוח שכולל מפקדים ואנשי הדרכה מטעם גפ״ה היחידה.</p></article>
+          <article class="rule-card"><div class="rule-top"><span class="rule-number">ב</span><h3>שלבים ולוחות זמנים</h3></div><p>מפקד צוות הפיתוח מגדיר את השלבים ואת לוחות הזמנים.</p></article>
+          <article class="rule-card"><div class="rule-top"><span class="rule-number">ג</span><h3>בחירת מודל</h3></div><p>הפיתוח נעשה לפי מודלים להדרכה, לשיקול דעת מפקד הצוות, ובכל מקרה כולל את תשעת המרכיבים שלהלן.</p></article>
+        </div>
+        <h3 class="subsection-title">תשעת מרכיבי התהליך (לחצו על שלב כדי לסמן אותו)</h3>
+        <ol class="flow">
+          <li data-n="1" onclick="this.classList.toggle('done')"><strong>עיבוד הנתונים מהחיל</strong>ניתוח התפקיד, הכשירויות ותרחיש הייחוס שהועברו על ידי החיל.</li>
+          <li data-n="2" onclick="this.classList.toggle('done')"><strong>רציונאל ההכשרה</strong>הרעיון המסדר של מבנה ההכשרה.</li>
+          <li data-n="3" onclick="this.classList.toggle('done')"><strong>ניתוח כשירויות ומדדים</strong>הידע והמיומנויות הנדרשים, והגדרת רמת הידע לכל כשירות.</li>
+          <li data-n="4" onclick="this.classList.toggle('done')"><strong>מצב המבחן המסכם</strong>הגדרת מצב או מצבי המבחן של בעל התפקיד.</li>
+          <li data-n="5" onclick="this.classList.toggle('done')"><strong>יחידות הלימוד</strong>שיעורים, תצוגות תכלית, סדנאות, תרגולים ומצבי מבחן.</li>
+          <li data-n="6" onclick="this.classList.toggle('done')"><strong>עץ הערכה</strong>אופן הערכת החניך והאקטים המחייבים להסמכתו.</li>
+          <li data-n="7" onclick="this.classList.toggle('done')"><strong>מערכת שעות עקרונית</strong>בניית מערכת השעות הכללית להכשרה.</li>
+          <li data-n="8" onclick="this.classList.toggle('done')"><strong>תשומות נדרשות</strong>כ״א, תשתיות, אמצעים ומשאבים.</li>
+          <li data-n="9" onclick="this.classList.toggle('done')"><strong>המשך פיתוח תוצרי ״מיקרו״</strong>לוחות זמנים ואחריות למערכי שיעור, מבחנים ותרגילים.</li>
+        </ol>
+        <div class="note-card"><span>התוצר</span><p>בסוף התהליך נכתב תיק יסוד במעמד טיוטה, לפי מנחה תיק יסוד.</p></div>
+      </section>
+
+      <section class="learning-section">
+        <div class="section-heading"><span class="section-number">06</span><div><span>תיעוד וניהול ידע</span><h2>כמה זמן שומרים?</h2></div></div>
+        <div class="stats"><div><b>5</b>שנות שימור, מיום פתיחת ההכשרה הראשונה</div></div>
+        <div class="interactive-cards">
+          <article class="rule-card"><div class="rule-top"><span class="rule-number">א</span><h3>מה מתועד</h3></div><p>תהליך הפיתוח, כולל חומרי הגלם והמסמכים הנלווים.</p></article>
+          <article class="rule-card"><div class="rule-top"><span class="rule-number">ב</span><h3>אחריות</h3></div><p>ניהול ושימור הידע באחריות מפקד הגפ״ה בבה״ד.</p></article>
+        </div>
+        <div class="note-card"><span>לקריאה נוספת</span><p>תורת פיתוח הכשרות יבשה 8-זי-6 (מחלקת הדרכה, אוגוסט 2014) וספר המדור (מחלקת הדרכה, 2000).</p></div>
+      </section>
+
+      <section class="learning-section">
+        <div class="section-heading"><span class="section-number">07</span><div><span>בדיקת ידע</span><h2>בואו נבדוק</h2></div></div>
+        <div class="quiz-card-12" data-why="ההחלטה על הכשרה חדשה היא של מפקד החיל הרלוונטי, והביצוע הוא של בית הספר.">
+          <h3>מי מחליט על פיתוח הכשרה חדשה?</h3>
+          <div class="quiz-options-12">
+            <button type="button" class="quiz-answer" onclick="checkQuiz(this)">מפקד הבה״ד</button>
+            <button type="button" class="quiz-answer" data-ok="1" onclick="checkQuiz(this)">מפקד החיל הרלוונטי</button>
+            <button type="button" class="quiz-answer" onclick="checkQuiz(this)">מפקד הגפ״ה</button>
+          </div><div class="quiz-feedback"></div>
+        </div>
+        <div class="quiz-card-12" data-why="תיק היסוד נכתב בסוף התהליך, במעמד טיוטה.">
+          <h3>מתי נכתב תיק היסוד בטיוטה?</h3>
+          <div class="quiz-options-12">
+            <button type="button" class="quiz-answer" onclick="checkQuiz(this)">לפני שהחיל מגדיר ניתוח תפקיד</button>
+            <button type="button" class="quiz-answer" data-ok="1" onclick="checkQuiz(this)">בסוף תהליך הפיתוח</button>
+            <button type="button" class="quiz-answer" onclick="checkQuiz(this)">אחרי הקורס הראשון</button>
+          </div><div class="quiz-feedback"></div>
+        </div>
+      </section>
+
+      <section class="takeaway-section">
+        <div class="takeaway-card"><span class="takeaway-label">לסיכום</span>
+          <h2>מה חשוב לזכור?</h2>
+          <div class="takeaway-items">
+            <div><span>1</span>מפקד החיל מחליט, בית הספר מבצע.</div>
+            <div><span>2</span>החיל מעביר ניתוח תפקיד, כשירויות ותרחיש ייחוס.</div>
+            <div><span>3</span>צוות פיתוח של מפקדים ואנשי גפ״ה מוביל את התהליך.</div>
+            <div><span>4</span>התהליך כולל תשעה מרכיבים ומסתיים בתיק יסוד בטיוטה.</div>
+            <div><span>5</span>הידע נשמר 5 שנים באחריות מפקד הגפ״ה.</div>
+          </div>
+        </div>
+      </section>
+      <button class="finish-learning" onclick="finishSubchapterPage('2.1')"><span>✓</span> סיימתי ללמוד את תת־הפרק</button>
+    </div>
+  </section>
+
+  <!-- ========================= SUBCHAPTER 2.2 כתיבת עדכון ואישור תיקי יסוד ========================= -->
+  <section id="subchapterNew22Page" class="subchapter-page sc-new sc-ch2">
+    <div class="read-bar"><i></i></div>
+    <div class="subchapter-background"></div>
+    <div class="subchapter-container">
+      <header class="subchapter-header"><button class="back-button" onclick="closeSubchapterPage('2.2')"><span>→</span> חזרה לפרקים</button>
+        <h1>כתיבת עדכון ואישור תיקי יסוד</h1>
+        <h2>מתי כותבים, מי מאשר ואיך מעדכנים</h2>
+      </header>
+
+      <section class="learning-intro">
+        <div class="intro-icon">2.2</div>
+        <div><span>מה נלמד?</span>
+          <h2>מחזור החיים של תיק יסוד</h2>
+          <p>נכיר את שלושת המצבים שמחייבים כתיבה, את שלבי הכתיבה, את סבב האישורים ואת ניהול העדכונים בין אישור לאישור.</p>
+        </div>
+      </section>
+
+      <section class="learning-section">
+        <div class="section-heading"><span class="section-number">01</span><div><span>מטרת הנוהל</span><h2>למה הנוהל קיים?</h2></div></div>
+        <div class="info-card highlight-card">
+          <div class="info-card-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 12l2 2 4-4M5 5h14v14H5z" fill="none" stroke="#222" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+          <p>להגדיר את תהליך כתיבה, עדכון ואישור של תיק יסוד ליחידת ההכשרה.</p>
+        </div>
+      </section>
+
+      <section class="learning-section">
+        <div class="section-heading"><span class="section-number">02</span><div><span>כללי</span><h2>למה תיק היסוד כל כך חשוב?</h2></div></div>
+        <div class="interactive-cards">
+          <article class="rule-card"><div class="rule-top"><span class="rule-number">א</span><h3>המסמך המחייב</h3></div><p>תיק היסוד מתעד את מבנה הקורס והתנאים לקיומו, כתוצר של תהליך הפיתוח ההדרכתי.</p></article>
+          <article class="rule-card"><div class="rule-top"><span class="rule-number">ב</span><h3>בסיס לעבודת המטה</h3></div><p>עבודות המטה של זרוע היבשה והחילות בנושאי תקינה ואמצעים נשענות על תיקי היסוד, ולא על ההכשרה בפועל אם אין הלימה.</p></article>
+          <article class="rule-card"><div class="rule-top"><span class="rule-number">ג</span><h3>מקור הנוהל</h3></div><p>מבוסס על הוז״י תיקי יסוד 05.01.40, המשלימה את הוראת אמ״ץ תוה״ד 3.11.</p></article>
+        </div>
+      </section>
+
+      <section class="learning-section">
+        <div class="section-heading"><span class="section-number">03</span><div><span>הגדרות</span><h2>מושגים, לחצו כדי לפתוח</h2></div></div>
+        <div class="interactive-cards">
+          <article class="rule-card ix" onclick="toggleLearningCard(this)"><div class="rule-top"><span class="rule-number">א</span><h3>הכשרה</h3></div><p>תהליך למידה שמקנה ידע, מיומנויות ועמדות.</p><span class="ix-hint">הגדרה מלאה</span><div class="ix-more"><p>תהליך למידה באמצעות מקנים לחיילים, מפקדים ומסגרות, ידע, מיומנויות ועמדות החסרים להם והנחוצים לביצוע תפקידים.</p></div></article>
+          <article class="rule-card ix" onclick="toggleLearningCard(this)"><div class="rule-top"><span class="rule-number">ב</span><h3>הסמכה</h3></div><p>אישור רשמי שבעל התפקיד הוכשר.</p><span class="ix-hint">הגדרה מלאה</span><div class="ix-more"><p>מתן אישור רשמי לבעל תפקיד שסיים קורס מתאים, כי הוכשר למלא תפקיד ולמלא את המטלות הצפויות לו.</p></div></article>
+          <article class="rule-card ix" onclick="toggleLearningCard(this)"><div class="rule-top"><span class="rule-number">ג</span><h3>כשירות</h3></div><p>יכולת ביצוע בתחום פעילות מסוים.</p><span class="ix-hint">איך היא נרכשת?</span><div class="ix-more"><p>כשירות נרכשת במסגרת תהליכי ההכשרה ומשופרת במסגרת אימונים.</p></div></article>
+          <article class="rule-card ix" onclick="toggleLearningCard(this)"><div class="rule-top"><span class="rule-number">ד</span><h3>תיק יסוד לקורס</h3></div><p>המסמך המחייב שמהווה בסיס לביצוע קורס או השתלמות.</p><span class="ix-hint">מה מתועד בו?</span><div class="ix-more"><p>הגדרות, החלטות, נתונים ומשאבים; ניתוח התפקיד לרבות כשירויות נדרשות, הגיון מסדר, תכנים ושיטות הדרכה.</p></div></article>
+        </div>
+        <div class="note-card"><span>קורס והשתלמות</span><p>קורס הוא לימודים להכשרה מסמיכה. השתלמות היא לימודים להכשרה שאינה מסמיכה.</p></div>
+      </section>
+
+      <section class="learning-section">
+        <div class="section-heading"><span class="section-number">04</span><div><span>עקרונות עבודה</span><h2>שלבים מקדימים לכתיבה</h2></div></div>
+        <p class="sc-para">יחידה מבצעת הכשרה נדרשת לבצע תהליך כתיבה ואישור תיק יסוד בשלושה מצבים:</p>
+        <div class="stats"><div><b>1</b>פיתוח קורס או השתלמות חדשים (נוהל 2.1)</div><div><b>2</b>צורך בשינוי מרכזי בקורס קיים (סעיף 8ב להוראת אמ״ץ תוה״ד)</div><div><b>5</b>שנים: תיקוף תיק היסוד, לעיתים בסבב אישורים בלבד</div></div>
+        <div class="interactive-cards">
+          <article class="rule-card"><div class="rule-top"><span class="rule-number">א</span><h3>לפני כתיבת תיק קבוע</h3></div><p>לקבל אישור כתוב מענף הדרכה כתנאי לקבלת סימול קורס או השתלמות חדשים, ולוודא שקיימות כשירויות כתובות לבעל התפקיד.</p></article>
+          <article class="rule-card"><div class="rule-top"><span class="rule-number">ב</span><h3>תיק במעמד טיוטה</h3></div><p>בפיתוח הכשרה חדשה נכתב תיק יסוד במעמד טיוטה לפי סעיף 11 בהוראת אמ״ץ תוה״ד 3.11.</p></article>
+          <article class="rule-card"><div class="rule-top"><span class="rule-number">ג</span><h3>תיק קבוע</h3></div><p>נכתב בפורמט המלא ועובר סבב אישורים לא יאוחר משנה או משני מחזורים מהקורס הנסיוני הראשון, המוקדם מביניהם.</p></article>
+        </div>
+        <div class="note-card"><span>השתלמויות</span><p>כל התנאים חלים גם על תיק יסוד להשתלמות. החריג: השתלמות שמשכה קטן משבוע, שמאושרת על ידי מפקד הבה״ד בלבד.</p></div>
+      </section>
+
+      <section class="learning-section">
+        <div class="section-heading"><span class="section-number">05</span><div><span>כתיבה</span><h2>איך כותבים תיק יסוד?</h2></div></div>
+        <div class="interactive-cards">
+          <article class="rule-card"><div class="rule-top"><span class="rule-number">1</span><h3>בשיתוף החיל</h3></div><p>היחידה כותבת בשיתוף הגורם החילי הרלוונטי, ומשלבת גורם מוסמך ממחלקת האימונים בנושא המשאבים.</p></article>
+          <article class="rule-card"><div class="rule-top"><span class="rule-number">2</span><h3>לפי המנחה</h3></div><p>הכתיבה לפי מנחה לכתיבת תיק יסוד (מחלקת הדרכה, אפריל 2020), כולל נושאי החובה בפק״ז 6-001.</p></article>
+        </div>
+      </section>
+
+      <section class="learning-section">
+        <div class="section-heading"><span class="section-number">06</span><div><span>אישור</span><h2>סבב האישורים, לחצו על כל גורם</h2></div></div>
+        <div class="interactive-cards">
+          <article class="rule-card ix" onclick="toggleLearningCard(this)"><div class="rule-top"><span class="rule-number">1</span><h3>מפקד החיל</h3></div><p>מאשר כל תיק יסוד לפני ההכשרה הראשונה.</p><span class="ix-hint">מתי עוד?</span><div class="ix-more"><p>בכל שינוי ברצף או במשך ההכשרה. אם לא היה שינוי, התיק מאושר אחת לשלוש שנים.</p></div></article>
+          <article class="rule-card ix" onclick="toggleLearningCard(this)"><div class="rule-top"><span class="rule-number">2</span><h3>הקמפוס</h3></div><p>תיק היסוד מתוקשב כקורס אב במערכת הקמפוס.</p><span class="ix-hint">איך מאשרים?</span><div class="ix-more"><p>האישור מתבצע באופן ממוחשב בקמפוס, או במסמך וורד עד להחלת הרכיב בקמפוס.</p></div></article>
+        </div>
+        <h3 class="subsection-title">מי מאשר מה?</h3>
+        <div class="table-wrapper"><table class="learning-table tbl-sm"><thead><tr><th>הגורם</th><th>מה מאשר</th></tr></thead><tbody>
+          <tr><td>מפקד היחידה המכשירה</td><td>מבנה הקורס, תכניו וגזרת המשמעויות ליחידת ההדרכה</td></tr>
+          <tr><td>גורם חילי (רע״ן כשירויות / רמ״ח תורה / מוקד ידע)</td><td>הכשירויות המוקנות בקורס ואופן השגתן. בקורסי קצונה חיליים, מפקד החיל מאשר את התיק</td></tr>
+          <tr><td>המרכז להכשרות היסוד</td><td>תוכנית ההכשרה לאור הכשירויות ותפיסת ההדרכה של המרכז</td></tr>
+          <tr><td>מחלקת ארגון</td><td>תקורות הקורס: משך וכ״א נדרש כסגל</td></tr>
+          <tr><td>חטכ״א</td><td>נתוני כניסה להכשרה, סימול הקורס וסימול המקצוע</td></tr>
+          <tr><td>מחלקת אימונים</td><td>המשאבים הנדרשים, לאור המפתח המשבי ושיבוץ ההכשרה בגרף ההכשרות הזרועי</td></tr>
+          <tr><td>מחלקת בטיחות</td><td>פרק הבטיחות. בהכשרות נהיגה, כל תכני הבטיחות מאושרים גם על ידי מבק״א יבשה</td></tr>
+          <tr><td>מפקד החיל</td><td>בסיום הסבב הזרועי, אישור סופי של התיק</td></tr>
+        </tbody></table></div>
+        <div class="note-card"><span>הכשרות יחידות אט״ל</span><p>נתוני הכניסה ופרק המשאבים מאושרים על ידי החילות בלבד.</p></div>
+      </section>
+
+      <section class="learning-section">
+        <div class="section-heading"><span class="section-number">07</span><div><span>עדכון</span><h2>מה עושים בין אישור לאישור?</h2></div></div>
+        <div class="interactive-cards">
+          <article class="rule-card"><div class="rule-top"><span class="rule-number">1</span><h3>דף העדכונים</h3></div><p>בתוך חמש השנים מתעדים כל עדכון בהכשרה ב״דף העדכונים״ שבתיק, כדי לשמור על הלימה מלאה בין התיק לבין ההכשרה בפועל.</p></article>
+          <article class="rule-card"><div class="rule-top"><span class="rule-number">2</span><h3>לא שינוי מהותי</h3></div><p>סך העדכונים בטווח החמש שנים לא יכלול שינוי מהותי (לפי סעיף 8ב להוראת אמ״ץ תוה״ד).</p></article>
+          <article class="rule-card"><div class="rule-top"><span class="rule-number">3</span><h3>גרסאות בקמפוס</h3></div><p>העדכונים מתבטאים בגרסאות הקורס בקמפוס. יש לוודא שהם לא מחייבים כתיבה ותיקוף מחדש.</p></article>
+        </div>
+        <div class="note-card"><span>לקריאה נוספת</span><p>הוז״י תיק יסוד מספר 05.01.40.</p></div>
+      </section>
+
+      <section class="learning-section">
+        <div class="section-heading"><span class="section-number">08</span><div><span>בדיקת ידע</span><h2>בואו נבדוק</h2></div></div>
+        <div class="quiz-card-12" data-why="גם בלי שינוי בתיק, מפקד החיל מאשר אותו אחת לשלוש שנים.">
+          <h3>אם לא בוצע שינוי בתיק היסוד, כל כמה זמן מפקד החיל מאשר אותו?</h3>
+          <div class="quiz-options-12">
+            <button type="button" class="quiz-answer" onclick="checkQuiz(this)">אחת לשנה</button>
+            <button type="button" class="quiz-answer" data-ok="1" onclick="checkQuiz(this)">אחת לשלוש שנים</button>
+            <button type="button" class="quiz-answer" onclick="checkQuiz(this)">אחת לעשר שנים</button>
+          </div><div class="quiz-feedback"></div>
+        </div>
+        <div class="quiz-card-12" data-why="תיקוף תיק היסוד נדרש אחת לחמש שנים, ולעיתים מספיק סבב אישורים בלי כתיבה מחדש.">
+          <h3>כל כמה זמן נדרש תיקוף של תיק היסוד?</h3>
+          <div class="quiz-options-12">
+            <button type="button" class="quiz-answer" data-ok="1" onclick="checkQuiz(this)">אחת לחמש שנים</button>
+            <button type="button" class="quiz-answer" onclick="checkQuiz(this)">בכל מחזור</button>
+            <button type="button" class="quiz-answer" onclick="checkQuiz(this)">רק בפיתוח הכשרה חדשה</button>
+          </div><div class="quiz-feedback"></div>
+        </div>
+      </section>
+
+      <section class="takeaway-section">
+        <div class="takeaway-card"><span class="takeaway-label">לסיכום</span>
+          <h2>מה חשוב לזכור?</h2>
+          <div class="takeaway-items">
+            <div><span>1</span>תיק היסוד הוא המסמך המחייב לכל קורס והשתלמות.</div>
+            <div><span>2</span>כותבים בשלושה מצבים: הכשרה חדשה, שינוי מרכזי ותיקוף אחת לחמש שנים.</div>
+            <div><span>3</span>מפקד החיל מאשר לפני ההכשרה הראשונה ובסיום סבב האישורים הזרועי.</div>
+            <div><span>4</span>הגורמים המאשרים: יחידה, חיל, מרכז להכשרות, ארגון, חטכ״א, אימונים ובטיחות.</div>
+            <div><span>5</span>בין האישורים מתעדים עדכונים בדף העדכונים ובגרסאות הקמפוס.</div>
+          </div>
+        </div>
+      </section>
+      <button class="finish-learning" onclick="finishSubchapterPage('2.2')"><span>✓</span> סיימתי ללמוד את תת־הפרק</button>
+    </div>
+  </section>
+
+  <!-- ========================= SUBCHAPTER 2.3 הערכת חניכים (מבחנים בהכשרות) ========================= -->
+  <section id="subchapterNew23Page" class="subchapter-page sc-new sc-ch2">
+    <div class="read-bar"><i></i></div>
+    <div class="subchapter-background"></div>
+    <div class="subchapter-container">
+      <header class="subchapter-header"><button class="back-button" onclick="closeSubchapterPage('2.3')"><span>→</span> חזרה לפרקים</button>
+        <h1>הערכת חניכים</h1>
+        <h2>מבחנים בהכשרות</h2>
+      </header>
+
+      <section class="learning-intro">
+        <div class="intro-icon">2.3</div>
+        <div><span>מה נלמד?</span>
+          <h2>איך בוחנים חניכים נכון?</h2>
+          <p>נכיר את סוגי המבחנים, את תמהיל המבחנים בהכשרה, את תהליך הפיתוח והאישור, את ניהול המבחן, את המועדים ואת עיבוד התוצאות.</p>
+        </div>
+      </section>
+
+      <section class="learning-section">
+        <div class="section-heading"><span class="section-number">01</span><div><span>מטרת הנוהל</span><h2>למה הנוהל קיים?</h2></div></div>
+        <div class="info-card highlight-card">
+          <div class="info-card-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 12l2 2 4-4M5 5h14v14H5z" fill="none" stroke="#222" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+          <p>להגדיר את האופן שבו בוחנים חניכים בהכשרה ואת התנאים הנדרשים לביצוע מבחן.</p>
+        </div>
+      </section>
+
+      <section class="learning-section">
+        <div class="section-heading"><span class="section-number">02</span><div><span>כללי</span><h2>מה תפקיד המבחן?</h2></div></div>
+        <div class="interactive-cards">
+          <article class="rule-card"><div class="rule-top"><span class="rule-number">א</span><h3>כלי למפקדים</h3></div><p>המבחן מאפשר להעריך את רמת הידע, ההבנה והכשירות של חניך במהלך ההכשרה.</p></article>
+          <article class="rule-card"><div class="rule-top"><span class="rule-number">ב</span><h3>תמונת מצב</h3></div><p>הערכה איכותית ומדויקת נותנת תמונת מצב מלאה על כשירות החיילים, ומאפשרת להסיק מסקנות על איכות תהליך ההכשרה.</p></article>
+        </div>
+      </section>
+
+      <section class="learning-section">
+        <div class="section-heading"><span class="section-number">03</span><div><span>הגדרות</span><h2>מושגים, לחצו כדי לפתוח</h2></div></div>
+        <div class="interactive-cards">
+          <article class="rule-card ix" onclick="toggleLearningCard(this)"><div class="rule-top"><span class="rule-number">א</span><h3>מבחן</h3></div><p>כלי מדידה או תהליך שיטתי לבחינת תכונה של אדם בתחום מסוים.</p><span class="ix-hint">מה תפקידו בקורס?</span><div class="ix-more"><p>המבחנים הם הכלי המרכזי להערכת ההתקדמות של החניכים ברכישת ידע ומיומנויות.</p></div></article>
+          <article class="rule-card ix" onclick="toggleLearningCard(this)"><div class="rule-top"><span class="rule-number">ב</span><h3>מבחן עיוני</h3></div><p>בודק ידע תיאורטי.</p><span class="ix-hint">איך עונים?</span><div class="ix-more"><p>על גבי טופס קשיח או מקוון, או בעל פה, על שאלות רב ברירתיות או פתוחות.</p></div></article>
+          <article class="rule-card ix" onclick="toggleLearningCard(this)"><div class="rule-top"><span class="rule-number">ג</span><h3>מבחן מעשי</h3></div><p>הנבחן מבצע פעולה מול עיני הבוחן.</p><span class="ix-hint">שתי צורות</span>
+            <div class="ix-more"><div class="chip-grid" style="grid-template-columns:1fr;margin-top:0"><div><span>1</span>בוחן מעשי מפורק או ״מבחן תחנות״: מטלות בדידות ללא הקשר ותרחיש</div><div><span>2</span>תרגיל אינטגרטיבי: כמה מטלות עם הקשר ותרחיש</div></div><p style="margin-top:10px">יש להבחין בין תרגיל שהוא חלק מהלמידה לבין תרגיל שהוא מבחן עבור החניך.</p></div></article>
+          <article class="rule-card ix" onclick="toggleLearningCard(this)"><div class="rule-top"><span class="rule-number">ד</span><h3>מצב מבחן</h3></div><p>מושג ממודל אלפ״א לפיתוח הכשרות.</p><span class="ix-hint">מה זה?</span><div class="ix-more"><p>תרגיל מרכזי בהכשרה שמתרגל את החניך בביצוע משימה על כל שלביה.</p></div></article>
+          <article class="rule-card ix" onclick="toggleLearningCard(this)"><div class="rule-top"><span class="rule-number">ה</span><h3>עץ הערכה</h3></div><p>כלי שמשקף את כשירות החניך בכל אחד ממרכיבי תפקידו בסוף ההכשרה.</p><span class="ix-hint">מה מופיע בו?</span><div class="ix-more"><p>ציוני כל מצבי המבחן: עיוניים, מעשיים, תרגילים והתנסויות מחייבות. הציונים משוכללים לציון סופי לפי משקלים שנקבעו מראש.</p></div></article>
+        </div>
+      </section>
+
+      <section class="learning-section">
+        <div class="section-heading"><span class="section-number">04</span><div><span>תמהיל מבחנים</span><h2>איזה מבחנים משלבים?</h2></div></div>
+        <div class="stats"><div><b>30%</b>התקרה למבחנים עיוניים מסך המבחנים המסמיכים</div></div>
+        <div class="chip-grid">
+          <div><span>1</span>מבחנים עיוניים</div>
+          <div><span>2</span>מבחנים מעשיים מפורקים</div>
+          <div><span>3</span>מבחנים מעשיים אינטגרטיביים</div>
+        </div>
+        <p class="sc-para" style="margin-top:14px">ההערכה מתבצעת על בסיס התמהיל הזה, לפי מודל הערכת חניך בהכשרה.</p>
+      </section>
+
+      <section class="learning-section">
+        <div class="section-heading"><span class="section-number">05</span><div><span>פיתוח המבחן</span><h2>מה צריך להכין לכל מבחן?</h2></div></div>
+        <div class="interactive-cards">
+          <article class="rule-card"><div class="rule-top"><span class="rule-number">א</span><h3>לפי התורה המקצועית</h3></div><p>הפיתוח לפי התורה בנושא כתיבת מבחנים (״לבנות מבחן: עקרונות בסיסיים״, יולי 2007).</p></article>
+          <article class="rule-card"><div class="rule-top"><span class="rule-number">ב</span><h3>מתאר מבחן (עיוני)</h3></div><p>מגדיר את הנושאים המוערכים, היקף השאלות בכל נושא וברמת ידע, חלוקת הציונים וציון הסף. הטופס חשוף לנבחנים במעמד המבחן.</p></article>
+          <article class="rule-card"><div class="rule-top"><span class="rule-number">ג</span><h3>תשובון (עיוני)</h3></div><p>משמש את הבודקים ואת הנבחנים לצורך תיקון המבחן.</p></article>
+          <article class="rule-card"><div class="rule-top"><span class="rule-number">ד</span><h3>דף הערכה (מעשי)</h3></div><p>כולל את קריטריוני ההערכה ואת חלוקת המשקלים הפנימית לצורך מתן ציון.</p></article>
+          <article class="rule-card"><div class="rule-top"><span class="rule-number">ה</span><h3>ניתוח סטטיסטי</h3></div><p>לכל מבחן חדש, עיוני או מעשי, מבצעים ניתוח סטטיסטי לבחינת תוקף המבחן.</p></article>
+        </div>
+      </section>
+
+      <section class="learning-section">
+        <div class="section-heading"><span class="section-number">06</span><div><span>אישור מבחן</span><h2>מי בודק מה?</h2></div></div>
+        <p class="sc-para">כל מבחן, תשובון ודף הערכה למבחן מעשי מקבלים את אישור שלושת הגורמים:</p>
+        <div class="table-wrapper"><table class="learning-table tbl-sm"><thead><tr><th>גורם</th><th>מה בודק?</th></tr></thead><tbody>
+          <tr><td>מפקד ההכשרה בדרגת סרן ומעלה</td><td>זמן למידה מקדימה נדרש, משך המבחן, רמה מקצועית של השאלות</td></tr>
+          <tr><td>רמ״ד התורה בחיל / רמ״ד מקצועי בבה״ד</td><td>עדכניות השאלות והתשובות, או הקריטריונים להערכה במבחן מעשי</td></tr>
+          <tr><td>גפ״ה היחידה / קצינת הצפ״ה</td><td>ניסוח ברור, שאלות במגוון רמות ידע, תמהיל שאלות פתוחות וסגורות, התאמת סוג השאלות לתוכן. במבחן מעשי: קריטריונים ברורים וניתנים להערכה</td></tr>
+        </tbody></table></div>
+        <div class="note-card"><span>שינוי במבחן</span><p>כל שינוי במבחן דורש אישור מחודש של הגורמים הנ״ל. גוף פיתוח ההדרכה היחידתי מנהל טבלת מעקב לאישור המבחנים.</p></div>
+      </section>
+
+      <section class="learning-section">
+        <div class="section-heading"><span class="section-number">07</span><div><span>ניהול המבחן</span><h2>לפני ואחרי המבחן</h2></div></div>
+        <h3 class="subsection-title">התארגנות לפני המבחן</h3>
+        <div class="interactive-cards">
+          <article class="rule-card"><div class="rule-top"><span class="rule-number">1</span><h3>פרסום נושאים</h3></div><p>לפני המבחן מפרסמים לחניכים את הנושאים, ממקדים את התוכן, ועיתוי הפרסום נקבע על ידי מ״פ או מקבילו.</p></article>
+          <article class="rule-card"><div class="rule-top"><span class="rule-number">2</span><h3>למידה עצמית</h3></div><p>יש לאפשר לחניכים זמן ללמידה עצמית. משך הזמן נקבע על ידי מ״פ או מקבילו.</p></article>
+          <article class="rule-card"><div class="rule-top"><span class="rule-number">3</span><h3>בוחן פתע</h3></div><p>מפקד ענף או מגמה רשאי לאשר מבחן ללא ידיעת החניכים מראש. הוא חייב לעמוד בכל הקריטריונים, ובוחן קבוע צריך להופיע בתיק היסוד ובעץ ההערכה.</p></article>
+        </div>
+        <h3 class="subsection-title">בדיקה ומשוב</h3>
+        <div class="stats"><div><b>7</b>ימים מיום הבחינה לציון לכל חניך</div><div><b>7</b>ימים לתת משוב פרונטלי או כתוב במבחן מעשי</div></div>
+        <div class="chip-grid">
+          <div><span>1</span>הבדיקה לפי דף התשובות המאושר</div>
+          <div><span>2</span>במבחן עיוני או מקוון עוברים על דף התשובות עם חלוקת הטפסים הבדוקים</div>
+          <div><span>3</span>עם חניך שנכשל מקיימים שיחה אישית: מסבירים את נקודות הכשל ואת המשך תהליך הלמידה</div>
+        </div>
+      </section>
+
+      <section class="learning-section">
+        <div class="section-heading"><span class="section-number">08</span><div><span>מועדי מבחן</span><h2>כמה הזדמנויות יש לחניך?</h2></div></div>
+        <ol class="flow">
+          <li data-n="א" onclick="this.classList.toggle('done')"><strong>מועד א׳ ומועד ב׳</strong>לכל חניך שני מועדים. למועד ב׳ ניגשים מי שלא עברו את הסף וגם מי שרוצים לשפר ציון (החלטת מפקד).</li>
+          <li data-n="ב" onclick="this.classList.toggle('done')"><strong>תנאים למועד ב׳</strong>אחרי מתן ההודעה האישית לחניך שנכשל, ולפחות יממה אחרי השיחה. שאלות שונות מהמועד הראשון במבחן עיוני, ותרחיש שונה במבחן מעשי.</li>
+          <li data-n="ג" onclick="this.classList.toggle('done')"><strong>מועד ג׳</strong>בסמכות מ״פ או מקבילו ומעלה.</li>
+          <li data-n="ד" onclick="this.classList.toggle('done')"><strong>ציון סופי</strong>הציון הגבוה מבין המועדים.</li>
+          <li data-n="ה" onclick="this.classList.toggle('done')"><strong>נכשל בשלושה מועדים</strong>פותחים עבורו תהליך חניך מתקשה (נוהל 5.1).</li>
+        </ol>
+      </section>
+
+      <section class="learning-section">
+        <div class="section-heading"><span class="section-number">09</span><div><span>עיבוד תוצאות</span><h2>מתי עושים תחקור?</h2></div></div>
+        <p class="sc-para">גוף ההדרכה ביחידה מבצע אנליזה לכל מבחן חדש, כדי לוודא את תקפות הכלי ואת מהימנותו. תחקור לתוצאות המבחן, כולל אנליזה, נדרש בשני מקרים:</p>
+        <div class="stats"><div><b>50%</b>למעלה מ-50% נכשלים</div><div><b>10</b>נקודות מנעד ציונים בין הגבוה לנמוך במבחן אחד</div></div>
+        <div class="note-card"><span>ניתוח סטטיסטי</span><p>מגדירים מבחנים עיוניים או מעשיים שיעברו ניתוח סטטיסטי לבחינת הקניית התוכן. לקריאה נוספת: ״לבנות מבחן: עקרונות בסיסיים״, פרק 6.</p></div>
+      </section>
+
+      <section class="learning-section">
+        <div class="section-heading"><span class="section-number">10</span><div><span>בדיקת ידע</span><h2>בואו נבדוק</h2></div></div>
+        <div class="quiz-card-12" data-why="המבחנים העיוניים לא יעלו על 30% מסך המבחנים המסמיכים בהכשרה.">
+          <h3>מהי התקרה למבחנים עיוניים מסך המבחנים המסמיכים?</h3>
+          <div class="quiz-options-12">
+            <button type="button" class="quiz-answer" onclick="checkQuiz(this)">10%</button>
+            <button type="button" class="quiz-answer" data-ok="1" onclick="checkQuiz(this)">30%</button>
+            <button type="button" class="quiz-answer" onclick="checkQuiz(this)">50%</button>
+          </div><div class="quiz-feedback"></div>
+        </div>
+        <div class="quiz-card-12" data-why="חניך שנכשל בשלושה מועדים שונים נכנס לתהליך חניך מתקשה (נוהל 5.1).">
+          <h3>חניך נכשל בשלושה מועדים. מה עושים?</h3>
+          <div class="quiz-options-12">
+            <button type="button" class="quiz-answer" onclick="checkQuiz(this)">מאשרים מועד ד׳</button>
+            <button type="button" class="quiz-answer" data-ok="1" onclick="checkQuiz(this)">פותחים תהליך חניך מתקשה</button>
+            <button type="button" class="quiz-answer" onclick="checkQuiz(this)">מעבירים אותו לקורס אחר</button>
+          </div><div class="quiz-feedback"></div>
+        </div>
+      </section>
+
+      <section class="takeaway-section">
+        <div class="takeaway-card"><span class="takeaway-label">לסיכום</span>
+          <h2>מה חשוב לזכור?</h2>
+          <div class="takeaway-items">
+            <div><span>1</span>ההערכה משלבת מבחנים עיוניים, מעשיים מפורקים ואינטגרטיביים, והעיוניים עד 30%.</div>
+            <div><span>2</span>לכל מבחן יש מתאר, תשובון או דף הערכה, והם מאושרים בשלושה גורמים.</div>
+            <div><span>3</span>ציון ומשוב תוך שבוע, ושיחה אישית עם מי שנכשל.</div>
+            <div><span>4</span>שני מועדים לכל חניך, והציון הסופי הוא הגבוה שבהם.</div>
+            <div><span>5</span>תחקור נדרש כשלמעלה מ-50% נכשלים או כשהמנעד נמוך מ-10 נקודות.</div>
+          </div>
+        </div>
+      </section>
+      <button class="finish-learning" onclick="finishSubchapterPage('2.3')"><span>✓</span> סיימתי ללמוד את תת־הפרק</button>
+    </div>
+  </section>
+
+  <!-- ========================= SUBCHAPTER 2.4 תיק מדריך ========================= -->
+  <section id="subchapterNew24Page" class="subchapter-page sc-new sc-ch2">
+    <div class="read-bar"><i></i></div>
+    <div class="subchapter-background"></div>
+    <div class="subchapter-container">
+      <header class="subchapter-header"><button class="back-button" onclick="closeSubchapterPage('2.4')"><span>→</span> חזרה לפרקים</button>
+        <h1>תיק מדריך</h1>
+        <h2>כתיבה, אישור ותיקוף של יחידות לימוד</h2>
+      </header>
+
+      <section class="learning-intro">
+        <div class="intro-icon">2.4</div>
+        <div><span>מה נלמד?</span>
+          <h2>מה יש בתיק של המדריך?</h2>
+          <p>נכיר את יחידת הלימוד ואת תיק המדריך, את מי שכותב ומאשר, את ששת פרקי התיק, את מועדי העדכון ואת ניהול הידע.</p>
+        </div>
+      </section>
+
+      <section class="learning-section">
+        <div class="section-heading"><span class="section-number">01</span><div><span>מטרת הנוהל</span><h2>למה הנוהל קיים?</h2></div></div>
+        <div class="info-card highlight-card">
+          <div class="info-card-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 12l2 2 4-4M5 5h14v14H5z" fill="none" stroke="#222" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+          <p>להגדיר את תהליך הכתיבה של תיק מדריך, את אופן אישורו ואת תיקופו העיתי.</p>
+        </div>
+      </section>
+
+      <section class="learning-section">
+        <div class="section-heading"><span class="section-number">02</span><div><span>כללי</span><h2>למה זה חשוב?</h2></div></div>
+        <div class="interactive-cards">
+          <article class="rule-card"><div class="rule-top"><span class="rule-number">א</span><h3>איכות ההכשרה</h3></div><p>איכות תוכנית ההכשרה תלויה, בין היתר, באיכות יחידות הלימוד שמרכיבות אותה.</p></article>
+          <article class="rule-card"><div class="rule-top"><span class="rule-number">ב</span><h3>יחידת לימוד אפקטיבית</h3></div><p>פותחה נכון ומקצועית, אושרה על ידי הגורמים הרלוונטיים, ממוסדת, מונגשת ונוחה לשימוש המדריך.</p></article>
+          <article class="rule-card"><div class="rule-top"><span class="rule-number">ג</span><h3>גבולות הנוהל</h3></div><p>הנוהל לא מפרט את תהליך הפיתוח ההדרכתי, אלא את התהליכים והפעולות המחייבות לכתיבה וניהול של יחידות לימוד מסוג שיעור.</p></article>
+        </div>
+      </section>
+
+      <section class="learning-section">
+        <div class="section-heading"><span class="section-number">03</span><div><span>הגדרות</span><h2>מושגים, לחצו כדי לפתוח</h2></div></div>
+        <div class="interactive-cards">
+          <article class="rule-card ix" onclick="toggleLearningCard(this)"><div class="rule-top"><span class="rule-number">א</span><h3>יחידת לימוד</h3></div><p>פעילות הדרכתית עם התחלה, אמצע וסוף, מתוחמת בזמן ומאורגנת להשגת מטרת למידה.</p><span class="ix-hint">מה יכולה להיות?</span><div class="ix-more"><p>שיעור, או קובץ שיעורים. הם נבדלים בהיקף החומר ובאופי הפעילות.</p></div></article>
+          <article class="rule-card ix" onclick="toggleLearningCard(this)"><div class="rule-top"><span class="rule-number">ב</span><h3>שיעור</h3></div><p>יחידת הלימוד הבסיסית והקטנה ביותר.</p><span class="ix-hint">אילו סוגים?</span><div class="ix-more"><p>עיוני או מעשי, פרונטלי, מכוון או משולב (היברידי).</p></div></article>
+          <article class="rule-card ix" onclick="toggleLearningCard(this)"><div class="rule-top"><span class="rule-number">ג</span><h3>קובץ שיעורים</h3></div><p>כמה שיעורים באותו נושא.</p><span class="ix-hint">מה מחבר אותם?</span><div class="ix-more"><p>שיעורים עיוניים ו/או מעשיים שמובילים להשגת מטרת על משותפת.</p></div></article>
+          <article class="rule-card ix" onclick="toggleLearningCard(this)"><div class="rule-top"><span class="rule-number">ד</span><h3>תיק מדריך</h3></div><p>תיק עם התוכן המקצועי והפעולות ההדרכתיות של שיעור או פעילות מעשית.</p><span class="ix-hint">למה הוא נועד?</span><div class="ix-more"><p>להכנה מקצועית של המדריך או המפקד, להביא ליחידה מקצועית ולתרום לזיכרון הארגוני. בחלק מהיחידות הוא נקרא ״מארז הדרכה״.</p></div></article>
+          <article class="rule-card ix" onclick="toggleLearningCard(this)"><div class="rule-top"><span class="rule-number">ה</span><h3>פיתוח הדרכתי</h3></div><p>תהליך פיצוח התוכן וקביעת המתודולוגיה.</p><span class="ix-hint">מה כולל?</span><div class="ix-more"><p>הרצף, שיטות הלמידה המשולבות ביחידה ותכולות ההדרכה הרלוונטיות: מצגת, לומדה, סרטון וכו׳.</p></div></article>
+        </div>
+      </section>
+
+      <section class="learning-section">
+        <div class="section-heading"><span class="section-number">04</span><div><span>כתיבה ותיקוף</span><h2>מי כותב ומי מאשר?</h2></div></div>
+        <div class="interactive-cards">
+          <article class="rule-card"><div class="rule-top"><span class="rule-number">א</span><h3>פיתוח לפי תו״ל</h3></div><p>לכל יחידת לימוד מבצעים פיתוח הדרכתי לפי התו״ל (כרך 5 במארז מב״ב ומארז התקנים לפיתוח אמצעי הדרכה ליחידת לימוד, 2006).</p></article>
+          <article class="rule-card"><div class="rule-top"><span class="rule-number">ב</span><h3>תיק לכל שיעור</h3></div><p>לכל יחידת לימוד מסוג שיעור עיוני או מעשי נכתב תיק מדריך. רצף שיעורים באותו נושא נקרא יחידת לימוד ויש לו כמה תיקי מדריך.</p></article>
+          <article class="rule-card"><div class="rule-top"><span class="rule-number">ג</span><h3>המדור המקצועי</h3></div><p>הפיתוח נעשה על ידי המדור המקצועי בבה״ד, הסמכות ההדרכתית הנגזרת מהסמכות התורתית של החיל. מדור לא יכתוב יחידת לימוד שתוכנה בסמכות תורתית של חיל אחר.</p></article>
+          <article class="rule-card"><div class="rule-top"><span class="rule-number">ד</span><h3>קצין אחראי</h3></div><p>על כל יחידת לימוד יהיה תחום קצין בדרגת סגן לכל הפחות.</p></article>
+        </div>
+        <h3 class="subsection-title">שני אישורים לכל תיק</h3>
+        <div class="chip-grid">
+          <div><span>1</span>אישור תורתי ממפקדת החיל הרלוונטי, או ממוביל תחום שניתנה לו הסמכות</div>
+          <div><span>2</span>אישור הדרכתי מגורם מגוף פיתוח ההדרכה הבה״די</div>
+        </div>
+      </section>
+
+      <section class="learning-section">
+        <div class="section-heading"><span class="section-number">05</span><div><span>מבנה התיק</span><h2>ששת הפרקים, סמנו כל פרק</h2></div></div>
+        <ol class="flow">
+          <li data-n="1" onclick="this.classList.toggle('done')"><strong>דף אישורים</strong>הגורמים המאשרים את תיק המדריך.</li>
+          <li data-n="2" onclick="this.classList.toggle('done')"><strong>מבוא</strong>קהל היעד, מיקום השיעור ברצף ההכשרה, מידת קושי השיעור ודגשים למדריך.</li>
+          <li data-n="3" onclick="this.classList.toggle('done')"><strong>מטרות השיעור וכשירויות משוגות</strong></li>
+          <li data-n="4" onclick="this.classList.toggle('done')"><strong>תיק תוכן</strong>העמקה מקצועית בתוכן עבור המדריך. כדי למנוע כפילויות וסרבול אפשר להוסיף הפניות לספרי תו״ל ולהוראות מבצעיות.</li>
+          <li data-n="5" onclick="this.classList.toggle('done')"><strong>מערך שיעור</strong>רצף השיעור והנחיות למעביר באשר לאופן העברתו.</li>
+          <li data-n="6" onclick="this.classList.toggle('done')"><strong>נספחים</strong>מצגת, לומדה, סרטון וכו׳.</li>
+        </ol>
+      </section>
+
+      <section class="learning-section">
+        <div class="section-heading"><span class="section-number">06</span><div><span>מתי כותבים או מתקפים?</span><h2>ארבעה מקרים</h2></div></div>
+        <div class="stats"><div><b>3</b>שנים: תיקוף תיק מדריך לכל הפחות</div></div>
+        <div class="chip-grid">
+          <div><span>1</span>פיתוח קורס חדש: נכתבה מערכת שעות חדשה ושיעורים חדשים</div>
+          <div><span>2</span>רה-פיתוח של קורס קיים: נתיב חדש או כשירויות נוספות שמחייבות שיעורים נוספים או חדשים</div>
+          <div><span>3</span>עדכון שיטת לימוד או תו״ל: פותחים את התיק ומשנים אותו, או כותבים חדש</div>
+          <div><span>4</span>אחת לשלוש שנים</div>
+        </div>
+      </section>
+
+      <section class="learning-section">
+        <div class="section-heading"><span class="section-number">07</span><div><span>ניהול ידע</span><h2>איך שומרים על תיקים עדכניים?</h2></div></div>
+        <div class="interactive-cards">
+          <article class="rule-card"><div class="rule-top"><span class="rule-number">א</span><h3>רשימת יח״לים</h3></div><p>גוף פיתוח ההדרכה בבה״ד מנהל את רשימת יחידות הלימוד על בסיס רשימה מתעדכנת.</p></article>
+          <article class="rule-card"><div class="rule-top"><span class="rule-number">ב</span><h3>ארכיון</h3></div><p>בכל עדכון מעבירים את הגרסה הקודמת למאגר ארכיון, כדי למנוע שימוש בתיק הלא נכון.</p></article>
+          <article class="rule-card"><div class="rule-top"><span class="rule-number">ג</span><h3>הנגשה</h3></div><p>התיקים המעודכנים מונגשים לכל בעלי התפקידים הרלוונטיים: מפקדים בהכשרות, מדריכים ובעלי תפקידים בתחום ההדרכה.</p></article>
+        </div>
+        <div class="note-card"><span>לקריאה נוספת</span><p>מארז תקנים לפיתוח אמצעי הדרכה ליחידת לימוד, עמודים 3-10.</p></div>
+      </section>
+
+      <section class="learning-section">
+        <div class="section-heading"><span class="section-number">08</span><div><span>בדיקת ידע</span><h2>בואו נבדוק</h2></div></div>
+        <div class="quiz-card-12" data-why="תיק המדריך כולל שישה פרקים: דף אישורים, מבוא, מטרות וכשירויות, תיק תוכן, מערך שיעור ונספחים.">
+          <h3>איזה פרק נמצא בתיק מדריך?</h3>
+          <div class="quiz-options-12">
+            <button type="button" class="quiz-answer" onclick="checkQuiz(this)">עץ הערכה</button>
+            <button type="button" class="quiz-answer" data-ok="1" onclick="checkQuiz(this)">מערך שיעור</button>
+            <button type="button" class="quiz-answer" onclick="checkQuiz(this)">דף עדכונים</button>
+          </div><div class="quiz-feedback"></div>
+        </div>
+        <div class="quiz-card-12" data-why="נדרשים אישור תורתי מהחיל (או ממוביל תחום) ואישור הדרכתי מגוף פיתוח ההדרכה בבה״ד.">
+          <h3>מי מאשר תיק מדריך?</h3>
+          <div class="quiz-options-12">
+            <button type="button" class="quiz-answer" onclick="checkQuiz(this)">מפקד הבה״ד בלבד</button>
+            <button type="button" class="quiz-answer" data-ok="1" onclick="checkQuiz(this)">גורם תורתי מהחיל וגורם הדרכתי מבה״ד</button>
+            <button type="button" class="quiz-answer" onclick="checkQuiz(this)">מחלקת בטיחות</button>
+          </div><div class="quiz-feedback"></div>
+        </div>
+      </section>
+
+      <section class="takeaway-section">
+        <div class="takeaway-card"><span class="takeaway-label">לסיכום</span>
+          <h2>מה חשוב לזכור?</h2>
+          <div class="takeaway-items">
+            <div><span>1</span>לכל שיעור עיוני או מעשי נכתב תיק מדריך.</div>
+            <div><span>2</span>המדור המקצועי בבה״ד כותב, אבל רק בתחום הסמכות התורתית של החיל שלו.</div>
+            <div><span>3</span>נדרשים אישור תורתי ואישור הדרכתי.</div>
+            <div><span>4</span>בתיק שישה פרקים: אישורים, מבוא, מטרות, תוכן, מערך שיעור ונספחים.</div>
+            <div><span>5</span>מתקפים אחת לשלוש שנים ובכל שינוי, ומעבירים גרסאות ישנות לארכיון.</div>
+          </div>
+        </div>
+      </section>
+      <button class="finish-learning" onclick="finishSubchapterPage('2.4')"><span>✓</span> סיימתי ללמוד את תת־הפרק</button>
     </div>
   </section>
 
