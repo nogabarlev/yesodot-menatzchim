@@ -70,7 +70,7 @@ const getSubchapterPage = (chapter) => {
     );
 };
 
-const LAST_SUB = { 1: 11, 2: 4 };
+const LAST_SUB = { 1: 11, 2: 4, 3: 8, 4: 5, 5: 3 };
  
 // האם תת-פרק c.n הושלם
 const isSubDone = (user, c, n) =>
@@ -1359,18 +1359,13 @@ const finishSubchapterPage = (chapter) => {
         // התת-פרק הבא באותו פרק
         sessionStorage.setItem("newlyUnlockedSubchapter", `${c}.${n + 1}`);
  
-    } else if (c === 1) {
- 
-        // סיום 1.11 -> נפתח פרק 2 (ותת-פרק 2.1)
-        sessionStorage.setItem("newlyUnlockedSubchapter", "2.1");
-        sessionStorage.setItem("newlyUnlockedChapter", "2");
- 
-    } else if (c === 2) {
- 
-        // סיום 2.4 -> נפתח פרק 3
-        sessionStorage.setItem("newlyUnlockedChapter", "3");
+    } else if (c < 5) {
+
+        // סיום התת-פרק האחרון בפרק -> נפתח הפרק הבא (ותת-פרק X.1 שלו)
+        sessionStorage.setItem("newlyUnlockedSubchapter", `${c + 1}.1`);
+        sessionStorage.setItem("newlyUnlockedChapter", String(c + 1));
     }
- 
+
     localStorage.setItem("user", JSON.stringify(user));
  
     closeSubchapterPage(chapter);
@@ -1492,14 +1487,16 @@ const toggleChapterGroup = (card) => {
 };
  
  
-/* נעילה/פתיחה של פרקים 2 ו-3 + הבזק על הפרק שנפתח עכשיו */
+/* נעילה/פתיחה של פרקים 2 עד 5 + הבזק על הפרק שנפתח עכשיו */
 const refreshChapterLocksUI = () => {
  
     const user = JSON.parse(localStorage.getItem("user")) || {};
  
     const rules = {
         2: isSubDone(user, 1, LAST_SUB[1]),   // פרק 2 נפתח אחרי 1.11
-        3: isSubDone(user, 2, LAST_SUB[2])    // פרק 3 נפתח אחרי 2.4
+        3: isSubDone(user, 2, LAST_SUB[2]),   // פרק 3 נפתח אחרי 2.4
+        4: isSubDone(user, 3, LAST_SUB[3]),   // פרק 4 נפתח אחרי 3.8
+        5: isSubDone(user, 4, LAST_SUB[4])    // פרק 5 נפתח אחרי 4.5
     };
  
     const newly = sessionStorage.getItem("newlyUnlockedChapter");
@@ -1554,10 +1551,10 @@ const checkQuiz = (button) => {
 };
  
  
-/* פס התקדמות קריאה בראש עמודי פרק 2 */
+/* פס התקדמות קריאה בראש עמודי כל הפרקים */
 const initReadBars = () => {
  
-    document.querySelectorAll(".sc-ch2").forEach((page) => {
+    document.querySelectorAll(".sc-new").forEach((page) => {
  
         const bar = page.querySelector(".read-bar i");
  
@@ -1576,6 +1573,7 @@ const initReadBars = () => {
         }, { passive: true });
     });
 };
+
 
 
 /* =========================
