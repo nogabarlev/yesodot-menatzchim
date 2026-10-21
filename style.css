@@ -6944,3 +6944,14 @@ body:not(.categories-page) .hero-section{
 }
 
 
+/* התאמת צבע כיתוב ההתקדמות לצבע האצבע של הפרק */
+.categories-page .subchapter-card .subchapter-progress {
+    color: var(--chapter-accent, #657c58);
+    font-weight: 600;
+}
+
+/* אם הפרק הושלם לחלוטין ויש לו סטטוס אחר, אפשר לוודא שהוא מקבל את הצבע המותאם */
+.categories-page .subchapter-card.completed .subchapter-progress,
+.categories-page .subchapter-card.active-subchapter .subchapter-progress {
+    color: var(--chapter-accent, #657c58);
+}
