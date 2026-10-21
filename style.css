@@ -7484,3 +7484,40 @@ body:not(.categories-page) .hero-section{
 .exc-box.x span{color:#8a6a2c}
 .exc-empty{padding:20px;text-align:center;color:var(--teal)}
 .appendices-group .subchapter-card .subchapter-number{min-width:64px}
+
+/* ---------------- קטגוריית המבחן המסכם ---------------- */
+.categories-page .chapters-list > .chapter-group[data-ch="7"] { --chapter-accent: #8a6a2c; }
+.categories-page .chapters-list > .chapter-group[data-ch="7"] .chapter-card { background: rgba(185,161,106,.16); border-color: rgba(138,106,44,.38); }
+.categories-page .chapters-list > .chapter-group[data-ch="7"] .chapter-card:hover { background: rgba(185,161,106,.24); }
+.categories-page .chapters-list > .chapter-group[data-ch="7"] .chapter-card::before { background: #b99a5e; }
+.categories-page .chapters-list > .chapter-group[data-ch="7"] .chapter-number { background: #6f5521; color: #f6e7bd; }
+.categories-page .chapters-list > .chapter-group[data-ch="7"] .chapter-arrow { color: #8a6a2c; background: rgba(185,161,106,.2); }
+.categories-page .chapters-list > .chapter-group[data-ch="7"] .chapter-text strong { color: #5a4519; }
+.categories-page .chapters-list > .chapter-group[data-ch="7"] .subchapter-card .subchapter-number { color: #8a6a2c; }
+.categories-page .chapters-list > .chapter-group[data-ch="7"] .subchapter-card.available { border-right: 4px solid #b99a5e; }
+.categories-page .chapters-list > .chapter-group[data-ch="7"] .subchapter-card .subchapter-progress,
+.categories-page .chapters-list > .chapter-group[data-ch="7"] .subchapter-card .subchapter-arrow { color: #8a6a2c; font-weight: 700; }
+
+/* ---------------- פופ-אפ סיום כל הפרקים ---------------- */
+.done-popup{position:fixed;inset:0;z-index:10050;display:flex;align-items:center;justify-content:center;padding:20px;background:rgba(25,31,24,.62);backdrop-filter:blur(4px);animation:donePopupFade .3s ease}
+.done-popup[hidden]{display:none}
+.done-popup-card{position:relative;width:100%;max-width:400px;padding:34px 26px 26px;text-align:center;direction:rtl;background:linear-gradient(160deg,#fbfaf3,#efeedf);border:1px solid #d6cfae;border-radius:28px;box-shadow:0 24px 60px rgba(25,31,24,.35);overflow:hidden;animation:donePopupPop .45s cubic-bezier(.2,1.2,.4,1)}
+.done-badge{width:74px;height:74px;margin:0 auto 16px;display:flex;align-items:center;justify-content:center;border-radius:50%;background:linear-gradient(135deg,#3f5a40,#27352a);color:#e7d6a6;font-size:38px;line-height:1;box-shadow:0 10px 24px rgba(39,53,42,.3)}
+.done-popup-card h2{margin:0 0 10px;color:#27352a;font-size:24px;line-height:1.4;font-weight:700}
+.done-popup-card p{margin:0 0 22px;color:#566055;font-size:15px;line-height:1.8}
+.done-btn{display:block;width:100%;margin:0 0 10px;padding:14px 18px;border:1px solid #cfc7a4;border-radius:16px;background:#fff;color:#3b4636;font:inherit;font-size:15px;font-weight:600;text-align:center;text-decoration:none;cursor:pointer;transition:transform .15s,box-shadow .15s}
+.done-btn:hover{transform:translateY(-1px);box-shadow:0 8px 18px rgba(39,53,42,.12)}
+.done-btn.primary{background:linear-gradient(135deg,#b99a5e,#8a6a2c);border-color:#8a6a2c;color:#fff}
+.done-confetti i{position:absolute;top:-12px;width:9px;height:14px;border-radius:2px;opacity:.9;animation:doneFall 2.6s ease-in infinite}
+.done-confetti i:nth-child(1){right:8%;background:#b99a5e;animation-delay:0s}
+.done-confetti i:nth-child(2){right:20%;background:#3f5a40;animation-delay:.4s}
+.done-confetti i:nth-child(3){right:33%;background:#5b4a7d;animation-delay:.9s}
+.done-confetti i:nth-child(4){right:46%;background:#265464;animation-delay:.2s}
+.done-confetti i:nth-child(5){right:58%;background:#8a5a2b;animation-delay:1.1s}
+.done-confetti i:nth-child(6){right:70%;background:#7a3a4a;animation-delay:.6s}
+.done-confetti i:nth-child(7){right:82%;background:#b99a5e;animation-delay:1.4s}
+.done-confetti i:nth-child(8){right:92%;background:#3f5a40;animation-delay:.8s}
+@keyframes doneFall{0%{transform:translateY(0) rotate(0)}100%{transform:translateY(420px) rotate(320deg);opacity:0}}
+@keyframes donePopupPop{from{opacity:0;transform:scale(.88) translateY(14px)}to{opacity:1;transform:none}}
+@keyframes donePopupFade{from{opacity:0}to{opacity:1}}
+@media (prefers-reduced-motion:reduce){.done-confetti i,.done-popup-card,.done-popup{animation:none}}
