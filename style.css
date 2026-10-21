@@ -7001,6 +7001,7 @@ body:not(.categories-page) .hero-section{
 .sc-ch1 .ix .ix-hint{color:#5e7a4a}
 .sc-ch1 .ix.open{background:#f6faf0}
 .sc-ch1 .quiz-card-12{padding:22px;background:#fffdf8;border:1px solid rgba(198,170,114,.34);border-radius:20px;box-shadow:0 7px 22px rgba(39,51,40,.06);margin-bottom:14px}
+.sc-ch1 .info-card-icon{background:#eadfc8 !important;border:1px solid rgba(185,161,106,.5) !important;box-shadow:0 8px 20px rgba(74,60,40,.10) !important}
 .sc-ch1 .read-bar{background:rgba(39,53,42,.12)}
 .sc-ch1 .read-bar i{background:linear-gradient(90deg,#6f8a5c,#d6c19d)}
 
