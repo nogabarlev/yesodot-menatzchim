@@ -6157,6 +6157,7 @@ body:not(.categories-page) .hero-section{
     margin: 28px auto 0;
 }
 
+
 /* ==========================================
    התאמה לטאבלטים ולטלפונים
 ========================================== */
@@ -6463,13 +6464,13 @@ body:not(.categories-page) .hero-section{
 
 /* כפתור סיום כהה ובולט לפרק 2 */
 .sc-ch2 .finish-learning {
-    background: #102630 !important; /* כחול כהה ועמוק יותר מהרקע של הסיכום */
+    background:#b9a16a !important; /* כחול כהה ועמוק יותר מהרקע של הסיכום */
     color: #ffffff !important;        /* טקסט לבן חד וברור */
     box-shadow: 0 10px 24px rgba(16, 38, 48, 0.3) !important;
 }
 
 .sc-ch2 .finish-learning:hover {
-    background: #09171f !important; /* כהה עוד יותר בריחוף */
+    background:#8d7445 !important; /* כהה עוד יותר בריחוף */
 }
 
 .sc-ch2 .finish-learning span {
