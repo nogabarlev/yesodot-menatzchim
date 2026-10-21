@@ -1670,18 +1670,59 @@ window.finishSubchapterPage = finishSubchapterPage;
 /* =========================
    נספחים
 ========================= */
+let appendixReturn = null;   // דף הפרק שממנו הגענו לנספח (אם הגענו מקישור בתוך תוכן)
+
+const setAppendixBackLabels = (page, label) => {
+    const back = page.querySelector(".back-button");
+    const fin = page.querySelector(".finish-learning");
+    if (back) {
+        if (!back.dataset.orig) back.dataset.orig = back.innerHTML;
+        back.innerHTML = label ? `<span>→</span> ${label}` : back.dataset.orig;
+    }
+    if (fin) {
+        if (!fin.dataset.orig) fin.dataset.orig = fin.innerHTML;
+        fin.innerHTML = label ? `<span>←</span> ${label}` : fin.dataset.orig;
+    }
+};
+
 const openAppendix = (id) => {
     const page = document.getElementById(`appendix${id}Page`);
     if (!page) return;
+    if (!appendixReturn) setAppendixBackLabels(page, "");
     page.classList.add("show");
     page.scrollTop = 0;
     document.body.style.overflow = "hidden";
+};
+
+/* מעבר מתוך תוכן של תת-פרק אל נספח, עם אפשרות חזרה לאותו מקום בדיוק */
+const gotoAppendix = (id, link, event) => {
+    if (event) { event.preventDefault(); event.stopPropagation(); }
+    const from = link.closest(".subchapter-page");
+    const page = document.getElementById(`appendix${id}Page`);
+    if (!from || !page) return false;
+    const lab = from.querySelector(".intro-icon")?.textContent.trim() || "";
+    appendixReturn = { page: from, scroll: from.scrollTop };
+    from.classList.remove("show");
+    setAppendixBackLabels(page, lab ? `חזרה לתת־פרק ${lab}` : "חזרה לתת־פרק");
+    page.classList.add("show");
+    page.scrollTop = 0;
+    document.body.style.overflow = "hidden";
+    return false;
 };
 
 const closeAppendix = (id) => {
     const page = document.getElementById(`appendix${id}Page`);
     if (!page) return;
     page.classList.remove("show");
+    if (appendixReturn) {
+        const { page: from, scroll } = appendixReturn;
+        appendixReturn = null;
+        from.classList.add("show");
+        from.scrollTop = scroll;
+        setAppendixBackLabels(page, "");
+        document.body.style.overflow = "hidden";
+        return;
+    }
     document.body.style.overflow = "";
 };
 
@@ -1730,6 +1771,7 @@ const setExcChapter = (btn) => {
 };
 
 window.openAppendix = openAppendix;
+window.gotoAppendix = gotoAppendix;
 window.closeAppendix = closeAppendix;
 window.toggleSeries = toggleSeries;
 window.pickGroup = pickGroup;
@@ -1778,7 +1820,7 @@ const initAllDonePopup = () => {
 };
 
 document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape") closeAllDonePopup();
+    if (event.key === "Escape") { closeAllDonePopup(); appendixReturn = null; }
 });
 
 window.openFinalExam = openFinalExam;
