@@ -470,6 +470,21 @@
   </div>
 </div>
 
+<!-- FINAL EXAM -->
+<div class="chapter-group locked-chapter exam-group" id="chapterGroup6" data-ch="7">
+  <div class="chapter-card" onclick="toggleChapterGroup(this)">
+    <div class="chapter-number">✓</div>
+    <div class="chapter-text"><strong>מבחן מסכם</strong></div>
+    <div class="chapter-arrow">‹</div>
+  </div>
+  <div class="subchapters-list">
+    <div class="subchapter-card available" onclick="openFinalExam()">
+      <div class="subchapter-content"><span class="subchapter-number">מבחן</span><strong>המבחן המסכם בתקן ״יסודות מנצחים״</strong></div>
+      <div class="subchapter-action"><span class="subchapter-progress">למעבר למבחן</span> <span class="subchapter-arrow">‹</span></div>
+    </div>
+  </div>
+</div>
+
 <!-- APPENDICES -->
 <div class="chapter-group appendices-group" id="appendicesGroup" data-ch="6">
   <div class="chapter-card" onclick="toggleChapterGroup(this)">
@@ -2747,7 +2762,19 @@
 <button class="finish-learning" onclick="closeAppendix('D')"><span>←</span> חזרה לרשימת הפרקים</button>
 </div></section>
 
-  <!-- =========================
+  <!-- ========================= POPUP: סיום כל הפרקים ========================= -->
+<div class="done-popup" id="allDonePopup" role="dialog" aria-modal="true" aria-labelledby="allDoneTitle" hidden>
+  <div class="done-popup-card">
+    <div class="done-confetti" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="done-badge">✓</div>
+    <h2 id="allDoneTitle">כל הכבוד! סיימת את כל הפרקים בהצלחה</h2>
+    <p>השלמת את כל פרקי תקן ״יסודות מנצחים״. הצעד האחרון הוא המבחן המסכם.</p>
+    <a class="done-btn primary" href="#" target="_blank" rel="noopener" onclick="return openFinalExam(event)">למבחן המסכם</a>
+    <button type="button" class="done-btn" onclick="closeAllDonePopup()">סגירה</button>
+  </div>
+</div>
+
+<!-- =========================
      FOOTER (מחוץ לדפים, קבוע במסך הראשי)
 ========================= -->
   <div class="footer-credit">
