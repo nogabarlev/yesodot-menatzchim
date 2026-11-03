@@ -7526,4 +7526,18 @@ body:not(.categories-page) .hero-section{
 .appx-link{color:var(--teal,#5f7385);font-weight:700;text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:2px;cursor:pointer;white-space:nowrap}
 .appx-link:hover{color:var(--c1,#27352a);background:rgba(185,154,94,.18);border-radius:4px}
 
+/* כל הפרקים ותתי־הפרקים פתוחים תמיד */
+.subchapter-card.locked,
+.chapter-group.locked-chapter {
+    opacity: 1 !important;
+    filter: none !important;
+}
 
+.chapter-group.locked-chapter .chapter-card,
+.subchapter-card.locked {
+    cursor: pointer !important;
+}
+
+.subchapter-card.locked .subchapter-arrow {
+    display: inline !important;
+}
