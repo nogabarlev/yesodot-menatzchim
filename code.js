@@ -96,7 +96,6 @@ const openSubchapter = (chapter) => {
  
     const [c, n] = chapter.split(".").map(Number);
  
-    if (!isSubchapterUnlocked(user, c, n)) return;
  
     const page = getSubchapterPage(chapter);
  
@@ -863,68 +862,48 @@ const refreshChaptersUI = () => {
 ========================= */
 
 const refreshSubchaptersUI = () => {
- 
-    // גם למשתמש חדש (בלי נתונים שמורים) מציגים נכון את הנעילה
+
     const user = JSON.parse(localStorage.getItem("user")) || {};
- 
+
     if (!user.subchapters) user.subchapters = {};
- 
+
     const newlyUnlocked = sessionStorage.getItem("newlyUnlockedSubchapter");
- 
+
     Object.keys(LAST_SUB).forEach((key) => {
- 
+
         const c = Number(key);
- 
+
         const chapterData = user.subchapters[`chapter${c}`] || {};
- 
+
         for (let i = 1; i <= LAST_SUB[c]; i++) {
- 
+
             const card = document.querySelector(
                 `[data-chapter="${c}"][data-subchapter="${i}"]`
             );
- 
+
             if (!card) continue;
- 
+
             const progressElement = card.querySelector(".subchapter-progress");
             const lockedStatus = card.querySelector(".locked-status");
- 
-            const isUnlocked = isSubchapterUnlocked(user, c, i);
+
             const isCompleted = chapterData[`${c}.${i}`] === 100;
- 
-            if (isUnlocked) {
- 
-                card.classList.remove("locked");
-                card.classList.add("available");
- 
-                if (lockedStatus) lockedStatus.remove();
- 
-                if (progressElement) {
-                    progressElement.textContent = isCompleted
-                        ? "100% הושלם"
-                        : "טרם הושלם";
-                    progressElement.style.display = "";
-                    progressElement.style.visibility = "visible";
-                }
- 
-            } else {
- 
-                card.classList.add("locked");
-                card.classList.remove("available");
- 
-                if (progressElement) progressElement.textContent = "🔒 נעול";
-                if (lockedStatus) lockedStatus.textContent = "🔒 נעול";
+
+            card.classList.remove("locked");
+            card.classList.add("available");
+
+            if (lockedStatus) lockedStatus.remove();
+
+            if (progressElement) {
+                progressElement.textContent = isCompleted
+                    ? "100% הושלם"
+                    : "טרם הושלם";
+                progressElement.style.display = "";
+                progressElement.style.visibility = "visible";
             }
- 
-            // אנימציה (הבזק) לתת-הפרק שנפתח עכשיו
-            if (isUnlocked && newlyUnlocked === `${c}.${i}`) {
- 
-                card.classList.add("just-unlocked");
- 
+
+            // ההבזק על תת־פרק שנפתח כבר לא רלוונטי, אבל מנקים את הדגל
+            if (newlyUnlocked === `${c}.${i}`) {
                 sessionStorage.removeItem("newlyUnlockedSubchapter");
- 
-                setTimeout(() => {
-                    card.classList.remove("just-unlocked");
-                }, 1300);
             }
         }
     });
@@ -1498,38 +1477,12 @@ const toggleChapterGroup = (card) => {
  
 /* נעילה/פתיחה של פרקים 2 עד 5 + הבזק על הפרק שנפתח עכשיו */
 const refreshChapterLocksUI = () => {
- 
-    const user = JSON.parse(localStorage.getItem("user")) || {};
- 
-    const rules = {
-        2: isSubDone(user, 1, LAST_SUB[1]),   // פרק 2 נפתח אחרי 1.11
-        3: isSubDone(user, 2, LAST_SUB[2]),   // פרק 3 נפתח אחרי 2.4
-        4: isSubDone(user, 3, LAST_SUB[3]),   // פרק 4 נפתח אחרי 3.8
-        5: isSubDone(user, 4, LAST_SUB[4]),   // פרק 5 נפתח אחרי 4.5
-        6: isSubDone(user, 5, LAST_SUB[5])    // המבחן המסכם נפתח אחרי 5.3
-    };
- 
-    const newly = sessionStorage.getItem("newlyUnlockedChapter");
- 
-    Object.entries(rules).forEach(([c, unlocked]) => {
- 
-        const group = document.getElementById(`chapterGroup${c}`);
- 
-        if (!group) return;
- 
-        group.classList.toggle("locked-chapter", !unlocked);
- 
-        if (unlocked && newly === c) {
- 
-            group.classList.add("chapter-just-unlocked");
- 
-            sessionStorage.removeItem("newlyUnlockedChapter");
- 
-            setTimeout(() => {
-                group.classList.remove("chapter-just-unlocked");
-            }, 1300);
-        }
+
+    document.querySelectorAll(".chapter-group").forEach((group) => {
+        group.classList.remove("locked-chapter");
     });
+
+    sessionStorage.removeItem("newlyUnlockedChapter");
 };
  
  
@@ -1544,6 +1497,7 @@ const checkQuiz = (button) => {
     const feedback = card.querySelector(".quiz-feedback");
  
     const isCorrect = button.dataset.ok === "1";
+
  
     card.querySelectorAll(".quiz-answer").forEach((answer) => {
  
