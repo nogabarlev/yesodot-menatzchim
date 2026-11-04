@@ -1627,16 +1627,10 @@ window.finishSubchapterPage = finishSubchapterPage;
 let appendixReturn = null;   // דף הפרק שממנו הגענו לנספח (אם הגענו מקישור בתוך תוכן)
 
 const setAppendixBackLabels = (page, label) => {
-    const back = page.querySelector(".back-button");
     const fin = page.querySelector(".finish-learning");
-    if (back) {
-        if (!back.dataset.orig) back.dataset.orig = back.innerHTML;
-        back.innerHTML = label ? `<span>→</span> ${label}` : back.dataset.orig;
-    }
-    if (fin) {
-        if (!fin.dataset.orig) fin.dataset.orig = fin.innerHTML;
-        fin.innerHTML = label ? `<span>←</span> ${label}` : fin.dataset.orig;
-    }
+    if (!fin) return;
+    if (!fin.dataset.orig) fin.dataset.orig = fin.innerHTML;
+    fin.innerHTML = label ? label : fin.dataset.orig;
 };
 
 const openAppendix = (id) => {
