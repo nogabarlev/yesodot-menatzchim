@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>יסודות מנצחים | מבחן מסכם</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Rubik',sans-serif;background:#f3efe6;color:#273328;min-height:100vh;direction:rtl}
+.wrap{max-width:760px;margin:0 auto;padding:22px 16px 60px}
+.head{background:linear-gradient(135deg,#27352a,#344437);color:#fff;border-radius:26px;padding:24px 22px;text-align:center;border:1px solid rgba(214,193,157,.35);box-shadow:0 12px 30px rgba(25,38,27,.14);margin-bottom:18px}
+.head small{color:#d6c19d;font-size:14px}
+.head h1{font-size:28px;margin-top:6px;line-height:1.4}
+.bar{height:7px;border-radius:9px;background:rgba(39,53,42,.12);overflow:hidden;margin-bottom:6px}
+.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#6f8a5c,#d6c19d);transition:width .3s}
+.count{font-size:13px;color:#8d7445;font-weight:600;margin-bottom:12px}
+.card{background:#fffdf8;border:1px solid rgba(198,170,114,.34);border-radius:22px;padding:22px;box-shadow:0 7px 22px rgba(39,51,40,.06)}
+.qtype{display:inline-block;font-size:12px;font-weight:700;color:#8d7445;background:#f3eddf;border-radius:999px;padding:4px 12px;margin-bottom:12px}
+.qtext{font-size:19px;font-weight:600;line-height:1.6;margin-bottom:6px}
+.hint{font-size:13.5px;color:#6a6f66;margin-bottom:14px;line-height:1.7}
+.opts{display:grid;gap:10px;margin-top:12px}
+.opt,.tfbtn,.chip,.blank{font:inherit;cursor:pointer;transition:background .15s,border-color .15s}
+.opt{display:block;width:100%;text-align:right;padding:14px 16px;border:1px solid rgba(198,170,114,.4);border-radius:14px;background:#f8f4eb;color:#344036;font-size:15px;line-height:1.7}
+.opt:hover{border-color:#9b8151;background:#eee5d2}
+.opt.sel{border-color:#27352a;background:#e4ecdc;color:#1f3322;font-weight:600}
+.txt{width:100%;padding:13px 15px;border:1px solid rgba(198,170,114,.5);border-radius:14px;background:#fff;font:inherit;font-size:15px;color:#273328;margin-top:10px;outline:none}
+.txt:focus{border-color:#27352a;box-shadow:0 0 0 3px rgba(111,138,92,.2)}
+.tfrow{padding:14px 0;border-top:1px dashed rgba(198,170,114,.5)}
+.tfrow:first-child{border-top:none}
+.tfrow p{font-size:15.5px;line-height:1.7;margin-bottom:10px}
+.tfbtns{display:flex;gap:10px}
+.tfbtn{flex:1;padding:11px;border:1px solid rgba(198,170,114,.45);border-radius:12px;background:#f8f4eb;font-size:15px;color:#344036}
+.tfbtn.sel{background:#27352a;color:#f6ecd0;border-color:#27352a;font-weight:600}
+.sentence{font-size:18px;line-height:2.5;margin:8px 0 6px}
+.blank{display:inline-block;min-width:96px;padding:2px 12px;margin:0 3px;border:2px dashed #b9a16a;border-radius:10px;background:#faf6ea;color:#273328;font-size:16px;font-weight:600;text-align:center;line-height:1.7}
+.blank.act{border-style:solid;border-color:#27352a;background:#e4ecdc}
+.blank.filled{border-style:solid;background:#e4ecdc}
+.bank{display:flex;flex-wrap:wrap;gap:9px;margin-top:14px;padding-top:14px;border-top:1px solid rgba(198,170,114,.4)}
+.chip{padding:8px 16px;border:1px solid #b9a16a;border-radius:999px;background:#f4efe4;color:#4a3c28;font-size:15px}
+.chip.used{opacity:.3;pointer-events:none}
+.nav{display:flex;gap:10px;margin-top:18px}
+.btn{font:inherit;flex:1;padding:15px;border:none;border-radius:16px;font-size:16px;font-weight:600;cursor:pointer;background:#d6c19d;color:#273328;box-shadow:0 8px 20px rgba(39,53,42,.12)}
+.btn.dark{background:#27352a;color:#f6ecd0}
+.btn.ghost{background:#fff;border:1px solid rgba(198,170,114,.5);box-shadow:none;flex:.5}
+.err{color:#a03c32;font-size:14px;font-weight:600;margin-top:12px;min-height:20px}
+.start p{font-size:16px;line-height:1.8;color:#4b554a;margin-bottom:6px}
+.track{display:block;width:100%;text-align:right;margin-top:12px;padding:18px;border:1px solid rgba(198,170,114,.5);border-radius:18px;background:#f8f4eb;font:inherit;cursor:pointer}
+.track:hover{background:#eee5d2;border-color:#9b8151}
+.track b{display:block;font-size:18px;color:#273328}
+.track span{font-size:14px;color:#6a6f66}
+.score{text-align:center}
+.ring{width:150px;height:150px;border-radius:50%;margin:6px auto 14px;display:flex;align-items:center;justify-content:center;font-size:40px;font-weight:700}
+.ring div{width:114px;height:114px;border-radius:50%;background:#fffdf8;display:flex;align-items:center;justify-content:center}
+.rev{margin-top:14px;padding:16px;border-radius:16px;border:1px solid;line-height:1.8;font-size:14.5px}
+.rev.bad{background:#f8ece9;border-color:#d8aaa0}
+.rev.good{background:#e8f1e2;border-color:#a8bd9a}
+.rev h4{font-size:15.5px;margin-bottom:6px}
+.rev .lbl{font-weight:700;color:#8d7445}
+.back{display:block;text-align:center;margin-top:16px;color:#344036;font-weight:600;text-decoration:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="head"><small>יסודות מנצחים</small><h1>המבחן המסכם</h1></div>
+  <div id="root"></div>
+</div>
+
+<script>
+/* ===== עזרים ===== */
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const norm = s => String(s || '').replace(/[״"'׳`.,:;!?()\-–־]/g, ' ').replace(/\s+/g, ' ').trim();
+const shuffle = a => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+
+/* ===== בנק השאלות ===== */
+/* open: slots = סעיפים נדרשים; כל סעיף = רשימת חלופות; כל חלופה = מילים שחייבות להופיע */
+const QUESTIONS = [
+ { n:1, type:'open', text:'מהם הראשי תיבות של התל״ב?', fields:1,
+   slots:[{alts:[['תקן','איכות','הדרכה']]}], answer:'תקן לאיכות בהדרכה' },
+
+ { n:2, type:'multi', pick:5, text:'מהם סוגי הסיכומים העיתיים שחייבים לקרות במהלך ההכשרה?',
+   good:['סיכום יומי','סיכום שבועי','סיכום לשבועות עצימים','סיכום אמצע מחזור','סטטוס הסמכות'],
+   bad:['סיכום חודשי','סיכום רבעוני','סיכום חציוני'] },
+
+ { n:3, type:'open', text:'באילו תחומים הסיכומים העיתיים צריכים לגעת?', fields:4,
+   hint:'כתבו תחום אחד בכל שורה.',
+   slots:[{alts:[['סביבה']]},{alts:[['חניכ']]},{alts:[['סגל']]},{alts:[['הכשרה'],['תוכנית']]}],
+   answer:'סביבה, חניכים, סגל והכשרה' },
+
+ { n:4, type:'mcq', text:'הערכת החניכים מתבצעת על ידי מבחנים עיוניים, מעשיים ותרגולים. מה תהיה החלוקה הנכונה?',
+   good:'70%:30% מבחנים מעשיים יותר',
+   bad:['50%:50%','70%:30% מבחנים עיוניים יותר','60%:40% מבחנים עיוניים יותר'] },
+
+ { n:5, type:'tf', text:'סמנו לכל אחד מהמשפטים האם הוא נכון או לא נכון:',
+   items:[
+    {t:'החייל חייב לדעת את ציון הסף שלו.', v:true},
+    {t:'ציון של מבחן עיוני או מעשי ינתן עד שבוע מיום הבחינה.', v:true},
+    {t:'חייל הניגש למועד ג׳ חייב לקבל אישור מ״פ.', v:true}] },
+
+ { n:6, type:'fill', text:'השלימו את המשפט בעזרת מחסן המילים:',
+   parts:['חניך מתקשה הוא מי שאינו עומד ב',0,' להכשרה בהיבט ',1,' או ',2,'.'],
+   words:['תנאי הסף','לימודי','נורמטיבי'], extra:['משמעתי','פיזי','רפואי'] },
+
+ { n:7, type:'open', text:'מה תכלול תוכנית אישית לחניך מתקשה?', fields:2,
+   hint:'כתבו שני פריטים, אחד בכל שורה.',
+   slots:[{alts:[['קושי'],['תחומ']]},{alts:[['יעד']]}],
+   answer:'פירוט התחומים בהם יתבטא הקושי של החניך והגדרת יעדים אישיים בהתאם לקשיים שלו' },
+
+ { n:8, type:'mcq', text:'התוכנית האישית לחניך המתקשה תוצג לחייל בשיחת מפקד ישיר. כל כמה זמן תהיה שיחת המשך?',
+   good:'כל שבועיים', bad:['כל שבוע','כל שלושה שבועות','כל חודש'] },
+
+ { n:9, type:'fill', text:'מתי ועדת הערכה תתקיים? השלימו את המשפט:',
+   parts:['ועדת הערכה תתקיים כשקיים ',0,' לגבי התאמתו של החניך ',1,' ולאחר שבוצעו כל ',2,' לעזור לו ',3,'.'],
+   words:['חשש','לתפקיד','הניסיונות','להשתפר'], extra:['ודאות','למסגרת','ההמלצות'] },
+
+ { n:10, type:'tf', text:'סמנו לכל אחד מהמשפטים האם הוא נכון או לא נכון:',
+   items:[
+    {t:'עיתוי להעלאת חניך לוועדת הערכה יהיה לפני שעברו 80% מהתכנים המחייבים.', v:true},
+    {t:'החניך יקבל התראה של 3 ימים לפני הוועדה.', v:true},
+    {t:'השיחה תהיה מתועדת וחתומה בתיק האישי של החניך.', v:true},
+    {t:'השיחה עם המפקד תכלול הסבר מפורט של הסיבות לוועדת הערכה.', v:true}] },
+
+ { n:11, type:'open', text:'מהן העילות להעלאת חניך לוועדת הערכה?', fields:3,
+   hint:'כתבו עילה אחת בכל שורה.',
+   slots:[{alts:[['הפסד'],['ימי','הכשרה']]},{alts:[['אירוע'],['ערכי'],['נורמטיבי'],['משמעת']]},{alts:[['ציונ','סף'],['עמיד'],['סף']]}],
+   answer:'הפסד ימי הכשרה ע״פ תיק יסוד · אירוע ערכי / נורמטיבי / משמעתי · אי עמידה בציוני הסף' },
+
+ { n:12, type:'multi', pick:5, text:'מהם הקריטריונים לחניך מצטיין?',
+   good:['ציון סופי מעל 80','חוות דעת מפקד בולטת לחיוב','ללא אירועי משמעת חמורים','סוציומטרי עמיתים גבוה','תכונות אופי המעידות על חתירה למצוינות, יוזמה, התמדה ורעות'],
+   bad:['ציון סופי מעל 60','המלצת מ״פ בלבד, ללא חוות דעת נוספות','השתתפות בכל טקסי היחידה'] },
+
+ { n:13, type:'multi', pick:5, text:'מהם הקריטריונים לחניך למופת?',
+   good:['חוות דעת מפקד בולטת לחיוב','ללא אירועי משמעת חמורים','סוציומטרי עמיתים גבוה','תכונות אופי המעידות על השקעה ויוזמה','תכונות אופי המעידות על התמדה, למידה, השתפרות ורעות'],
+   bad:['ציון סופי מעל 80','מקום בעשירון העליון בציון היחסי','עמידה בכל המבחנים במועד א׳'] },
+
+ /* ----- שאלות למסו״לים בלבד ----- */
+ { n:14, type:'mcq', text:'מה כוללת העברת מקל?',
+   good:'פרטים אישיים, מידע מקצועי, מידע אודות נורמות וערכים, ונתונים נוספים כגון סוגיות ת״ש, רפואה, בה״ר ע״פ שיקול דעת של מג״ד או רע״ן',
+   bad:['פרטים אישיים ומידע מקצועי בלבד','ציוני מבחנים ותוצאות כש״ג בלבד','מידע אישי ותוכנית חניכה להמשך שירותו של החייל'] },
+
+ { n:15, type:'tf', text:'איך מתבצעת העברת מקל? סמנו לכל משפט האם הוא נכון או לא נכון:',
+   items:[
+    {t:'בהכשרות שמשכן פחות מ־4 חודשים, העברת המקל תתבצע על ידי שליחת דו״ח ליחידה הקולטת, בליווי שיח מ״פים על חיילים חריגים.', v:true},
+    {t:'בהכשרות שמשכן 16 שבועות ומעלה, העברת המקל תתבצע על ידי שיחה פיזית או טלפונית בדרג של מ״פ מול מ״פ.', v:true},
+    {t:'באחריות המ״פ או מקבילו לוודא שנתוני העברת המקל הגיעו למ״פ הקולט.', v:true}] }
+];
+
+const TRACKS = {
+  masol: { title:'מסו״לים', max:15 },
+  mafkatz: { title:'מפק״צים ומפל״גים', max:13 }
+};
+
+/* ===== מצב ===== */
+let list = [], idx = 0, ans = [], track = null, finished = false;
+const root = document.getElementById('root');
+
+function start(key){
+  track = key;
+  list = QUESTIONS.filter(q => q.n <= TRACKS[key].max).map(q => {
+    const c = JSON.parse(JSON.stringify(q));
+    if (c.type === 'mcq') c.opts = shuffle([c.good, ...c.bad]);
+    if (c.type === 'multi') c.opts = shuffle([...c.good, ...c.bad]);
+    if (c.type === 'fill') c.bank = shuffle([...c.words, ...c.extra]);
+    return c;
+  });
+  ans = list.map(q => {
+    if (q.type === 'open') return Array(q.fields).fill('');
+    if (q.type === 'multi') return [];
+    if (q.type === 'mcq') return null;
+    if (q.type === 'tf') return Array(q.items.length).fill(null);
+    if (q.type === 'fill') return Array(q.words.length).fill(null);
+  });
+  idx = 0; finished = false; activeBlank = 0;
+  render();
+}
+
+let activeBlank = 0;
+
+/* ===== הצגה ===== */
+const TYPE_LABEL = { open:'שאלה פתוחה', multi:'בחירה מרובה', mcq:'שאלה אמריקאית', tf:'נכון / לא נכון', fill:'השלמה' };
+
+function render(){
+  if (!track) return renderStart();
+  if (finished) return renderResult();
+  const q = list[idx], a = ans[idx];
+  let body = '';
+  if (q.type === 'open'){
+    body = (q.hint ? `<div class="hint">${esc(q.hint)}</div>` : '') +
+      a.map((v,i)=>`<input class="txt" data-i="${i}" placeholder="${q.fields>1 ? 'תשובה '+(i+1) : 'התשובה שלך'}" value="${esc(v)}">`).join('');
+  } else if (q.type === 'multi'){
+    body = `<div class="hint">בחרו בדיוק ${q.pick} תשובות. נבחרו: <b id="pc">${a.length}</b></div><div class="opts">` +
+      q.opts.map((o,i)=>`<button class="opt ${a.includes(i)?'sel':''}" data-act="multi" data-i="${i}">${esc(o)}</button>`).join('') + '</div>';
+  } else if (q.type === 'mcq'){
+    body = '<div class="opts">' + q.opts.map((o,i)=>`<button class="opt ${a===i?'sel':''}" data-act="mcq" data-i="${i}">${esc(o)}</button>`).join('') + '</div>';
+  } else if (q.type === 'tf'){
+    body = q.items.map((it,i)=>`<div class="tfrow"><p>${esc(it.t)}</p><div class="tfbtns">
+      <button class="tfbtn ${a[i]===true?'sel':''}" data-act="tf" data-i="${i}" data-v="1">נכון</button>
+      <button class="tfbtn ${a[i]===false?'sel':''}" data-act="tf" data-i="${i}" data-v="0">לא נכון</button></div></div>`).join('');
+  } else if (q.type === 'fill'){
+    const sent = q.parts.map(p => typeof p === 'number'
+      ? `<button class="blank ${a[p]?'filled':''} ${activeBlank===p&&!a[p]?'act':''}" data-act="blank" data-i="${p}">${a[p] ? esc(a[p]) : '＿＿＿'}</button>`
+      : esc(p)).join('');
+    body = `<div class="sentence">${sent}</div><div class="hint">לחצו על מילה כדי למלא את החסר. לחיצה על מילה שמולאה מחזירה אותה למחסן.</div>
+      <div class="bank">${q.bank.map(w=>`<button class="chip ${a.includes(w)?'used':''}" data-act="bank" data-w="${esc(w)}">${esc(w)}</button>`).join('')}</div>`;
+  }
+  root.innerHTML = `
+   <div class="bar"><i style="width:${(idx/list.length)*100}%"></i></div>
+   <div class="count">שאלה ${idx+1} מתוך ${list.length}</div>
+   <div class="card"><span class="qtype">${TYPE_LABEL[q.type]}</span><div class="qtext">${esc(q.text)}</div>${body}
+   <div class="err" id="err"></div></div>
+   <div class="nav">${idx>0?'<button class="btn ghost" data-act="prev">הקודמת</button>':''}
+   <button class="btn dark" data-act="next">${idx===list.length-1?'סיום והגשה':'לשאלה הבאה'}</button></div>`;
+}
+
+function renderStart(){
+  root.innerHTML = `<div class="card start"><div class="qtext">ברוכים הבאים למבחן המסכם</div>
+   <p>בחרו את המסלול המתאים לתפקיד שלכם. אפשר לחזור לשאלה הקודמת ולשנות תשובה עד ההגשה.</p>
+   <button class="track" data-act="track" data-k="masol"><b>מסו״לים</b><span>15 שאלות</span></button>
+   <button class="track" data-act="track" data-k="mafkatz"><b>מפק״צים ומפל״גים</b><span>13 שאלות</span></button></div>
+   <a class="back" href="categoriesPage.html">חזרה לרשימת הפרקים</a>`;
+}
+
+/* ===== בדיקה ===== */
+function slotMatched(slot, texts){
+  return texts.some(t => { const n = norm(t); return slot.alts.some(words => words.every(w => n.includes(w))); });
+}
+function grade(q, a){
+  if (q.type === 'open'){
+    const used = new Set(); let ok = true;
+    q.slots.forEach(slot => {
+      let found = -1;
+      a.forEach((t,i)=>{ if (found<0 && !used.has(i) && slotMatched(slot,[t])) found = i; });
+      if (found<0) ok = false; else used.add(found);
+    });
+    return ok;
+  }
+  if (q.type === 'multi'){
+    return a.length === q.pick && a.every(i => q.good.includes(q.opts[i]));
+  }
+  if (q.type === 'mcq') return a !== null && q.opts[a] === q.good;
+  if (q.type === 'tf') return a.every((v,i)=> v === q.items[i].v);
+  if (q.type === 'fill'){
+    const order = q.parts.filter(p => typeof p === 'number');
+    return order.every(p => a[p] === q.words[p]);
+  }
+}
+function complete(q, a){
+  if (q.type === 'open') return a.every(t => t.trim());
+  if (q.type === 'multi') return a.length === q.pick;
+  if (q.type === 'mcq') return a !== null;
+  if (q.type === 'tf') return a.every(v => v !== null);
+  if (q.type === 'fill') return a.every(v => v);
+}
+function correctText(q){
+  if (q.type === 'open') return q.answer;
+  if (q.type === 'multi') return q.good.join(' · ');
+  if (q.type === 'mcq') return q.good;
+  if (q.type === 'tf') return q.items.map(i=>`${i.t} ← ${i.v?'נכון':'לא נכון'}`).join('<br>');
+  if (q.type === 'fill') return q.parts.map(p => typeof p === 'number' ? `<b>${esc(q.words[p])}</b>` : esc(p)).join('');
+}
+function userText(q, a){
+  if (q.type === 'open') return a.filter(t=>t.trim()).map(esc).join(' · ') || '—';
+  if (q.type === 'multi') return a.map(i=>esc(q.opts[i])).join(' · ') || '—';
+  if (q.type === 'mcq') return a===null ? '—' : esc(q.opts[a]);
+  if (q.type === 'tf') return a.map((v,i)=>`${esc(q.items[i].t)} ← ${v===null?'—':v?'נכון':'לא נכון'}`).join('<br>');
+  if (q.type === 'fill') return q.parts.map(p => typeof p === 'number' ? `<b>${esc(a[p]||'＿＿')}</b>` : esc(p)).join('');
+}
+
+function renderResult(){
+  const results = list.map((q,i)=>grade(q, ans[i]));
+  const score = results.filter(Boolean).length;
+  const pct = Math.round(score/list.length*100);
+  try {
+    const u = JSON.parse(localStorage.getItem('user')) || {};
+    u.finalExam = { track, score, total:list.length, percent:pct, date:new Date().toISOString() };
+    localStorage.setItem('user', JSON.stringify(u));
+  } catch(e){}
+  const wrong = list.map((q,i)=>({q,i})).filter(o=>!results[o.i]);
+  root.innerHTML = `<div class="card score"><span class="qtype">${TRACKS[track].title}</span>
+    <div class="ring" style="background:conic-gradient(#6f8a5c 0 ${pct}%, #e4dcc8 ${pct}% 100%)"><div>${pct}%</div></div>
+    <div class="qtext">ענית נכון על ${score} מתוך ${list.length} שאלות</div>
+    ${wrong.length ? '' : '<div class="hint">מצוין! כל התשובות נכונות.</div>'}</div>
+    ${wrong.map(({q,i})=>`<div class="rev bad"><h4>שאלה ${i+1}: ${esc(q.text)}</h4>
+      <div><span class="lbl">התשובה שלך:</span> ${userText(q,ans[i])}</div>
+      <div><span class="lbl">התשובה הנכונה:</span> ${correctText(q)}</div></div>`).join('')}
+    <div class="nav"><button class="btn dark" data-act="again">מבחן חדש</button></div>
+    <a class="back" href="categoriesPage.html">חזרה לרשימת הפרקים</a>`;
+  window.scrollTo(0,0);
+}
+
+/* ===== אירועים ===== */
+root.addEventListener('input', e => {
+  if (e.target.classList.contains('txt')) ans[idx][+e.target.dataset.i] = e.target.value;
+});
+root.addEventListener('click', e => {
+  const el = e.target.closest('[data-act]'); if (!el) return;
+  const act = el.dataset.act, q = list[idx];
+  if (act === 'track') return start(el.dataset.k);
+  if (act === 'again'){ track = null; return render(); }
+  if (act === 'prev'){ idx--; activeBlank = 0; return render(); }
+  if (act === 'next'){
+    if (!complete(q, ans[idx])){
+      document.getElementById('err').textContent =
+        q.type==='multi' ? `יש לבחור בדיוק ${q.pick} תשובות.` :
+        q.type==='open' ? 'יש למלא את כל השורות.' : 'יש לענות לפני שממשיכים.';
+      return;
+    }
+    if (idx === list.length-1) finished = true; else { idx++; activeBlank = 0; }
+    return render();
+  }
+  if (act === 'mcq'){ ans[idx] = +el.dataset.i; return render(); }
+  if (act === 'multi'){
+    const i = +el.dataset.i, a = ans[idx], p = a.indexOf(i);
+    if (p >= 0) a.splice(p,1); else if (a.length < q.pick) a.push(i);
+    return render();
+  }
+  if (act === 'tf'){ ans[idx][+el.dataset.i] = el.dataset.v === '1'; return render(); }
+  if (act === 'blank'){
+    const i = +el.dataset.i;
+    if (ans[idx][i]) ans[idx][i] = null;
+    activeBlank = i; return render();
+  }
+  if (act === 'bank'){
+    const a = ans[idx];
+    let target = a[activeBlank] ? a.findIndex(v=>!v) : activeBlank;
+    if (target < 0) return;
+    a[target] = el.dataset.w;
+    const nxt = a.findIndex(v=>!v); activeBlank = nxt < 0 ? 0 : nxt;
+    return render();
+  }
+});
+
+render();
+</script>
+</body>
+</html>
