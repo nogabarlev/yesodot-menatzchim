@@ -1737,7 +1737,6 @@ const allChaptersDone = () => {
 
 const openFinalExam = (event) => {
     if (event) event.preventDefault();
-    if (!allChaptersDone()) return false;
     if (FINAL_EXAM_URL && FINAL_EXAM_URL !== "#") {
         window.location.href = FINAL_EXAM_URL;
     }
