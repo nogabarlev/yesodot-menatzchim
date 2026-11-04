@@ -7,62 +7,124 @@
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap');
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Rubik',sans-serif;background:#f3efe6;color:#273328;min-height:100vh;direction:rtl}
-.wrap{max-width:760px;margin:0 auto;padding:22px 16px 60px}
-.head{background:linear-gradient(135deg,#27352a,#344437);color:#fff;border-radius:26px;padding:24px 22px;text-align:center;border:1px solid rgba(214,193,157,.35);box-shadow:0 12px 30px rgba(25,38,27,.14);margin-bottom:18px}
-.head small{color:#d6c19d;font-size:14px}
-.head h1{font-size:28px;margin-top:6px;line-height:1.4}
-.bar{height:7px;border-radius:9px;background:rgba(39,53,42,.12);overflow:hidden;margin-bottom:6px}
-.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#6f8a5c,#d6c19d);transition:width .3s}
-.count{font-size:13px;color:#8d7445;font-weight:600;margin-bottom:12px}
-.card{background:#fffdf8;border:1px solid rgba(198,170,114,.34);border-radius:22px;padding:22px;box-shadow:0 7px 22px rgba(39,51,40,.06)}
-.qtype{display:inline-block;font-size:12px;font-weight:700;color:#8d7445;background:#f3eddf;border-radius:999px;padding:4px 12px;margin-bottom:12px}
-.qtext{font-size:19px;font-weight:600;line-height:1.6;margin-bottom:6px}
-.hint{font-size:13.5px;color:#6a6f66;margin-bottom:14px;line-height:1.7}
-.opts{display:grid;gap:10px;margin-top:12px}
-.opt,.tfbtn,.chip,.blank{font:inherit;cursor:pointer;transition:background .15s,border-color .15s}
-.opt{display:block;width:100%;text-align:right;padding:14px 16px;border:1px solid rgba(198,170,114,.4);border-radius:14px;background:#f8f4eb;color:#344036;font-size:15px;line-height:1.7}
-.opt:hover{border-color:#9b8151;background:#eee5d2}
-.opt.sel{border-color:#27352a;background:#e4ecdc;color:#1f3322;font-weight:600}
-.txt{width:100%;padding:13px 15px;border:1px solid rgba(198,170,114,.5);border-radius:14px;background:#fff;font:inherit;font-size:15px;color:#273328;margin-top:10px;outline:none}
-.txt:focus{border-color:#27352a;box-shadow:0 0 0 3px rgba(111,138,92,.2)}
-.tfrow{padding:14px 0;border-top:1px dashed rgba(198,170,114,.5)}
-.tfrow:first-child{border-top:none}
-.tfrow p{font-size:15.5px;line-height:1.7;margin-bottom:10px}
+body{font-family:'Rubik',sans-serif;color:#273328;min-height:100vh;direction:rtl;background:#1a231b url("media/backgroundCategoriesPage.jpg") center/cover fixed no-repeat}
+body::before{content:"";position:fixed;inset:0;z-index:-2;background:linear-gradient(180deg,rgba(18,26,19,.74),rgba(28,40,30,.90))}
+.curve{position:fixed;border:2px solid rgba(198,170,114,.38);border-radius:50%;pointer-events:none;z-index:-1}
+.c1{width:300px;height:300px;top:-170px;left:-130px}
+.c2{width:360px;height:360px;bottom:-230px;right:-170px}
+.wrap{max-width:720px;margin:0 auto;padding:20px 16px 60px}
+
+.top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px}
+.top .ttl small{display:block;color:#d6c19d;font-size:13px;letter-spacing:.4px}
+.top .ttl h1{color:#fff;font-size:26px;font-weight:700;line-height:1.3}
+.top .ttl i{display:block;width:44px;height:3px;border-radius:9px;background:linear-gradient(90deg,#d6c19d,#b99a5e);margin-top:9px}
+.top img{width:54px;height:auto;opacity:.9;filter:drop-shadow(0 4px 10px rgba(0,0,0,.35))}
+
+.steps{display:flex;gap:5px;margin-bottom:8px}
+.steps i{flex:1;height:7px;border-radius:7px;background:rgba(255,255,255,.17);transition:background .3s,transform .3s}
+.steps i.done{background:#8fae78}
+.steps i.cur{background:#d6c19d;transform:scaleY(1.5)}
+.count{font-size:13px;color:#d6c19d;font-weight:500;margin-bottom:12px;display:flex;justify-content:space-between}
+
+.card{position:relative;background:rgba(251,248,239,.97);border-radius:28px;padding:26px 22px 22px;box-shadow:0 24px 60px rgba(0,0,0,.38);overflow:hidden}
+.card::before{content:"";position:absolute;top:0;right:0;left:0;height:6px;background:linear-gradient(90deg,#27352a,#6f8a5c,#d6c19d)}
+.card::after{content:"";position:absolute;width:200px;height:200px;left:-100px;bottom:-120px;border:2px solid rgba(198,170,114,.4);border-radius:50%;pointer-events:none}
+.card.enter{animation:slideIn .38s cubic-bezier(.2,.9,.3,1)}
+@keyframes slideIn{from{opacity:0;transform:translateX(-26px)}to{opacity:1;transform:none}}
+
+.qhead{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.qnum{width:54px;height:54px;flex-shrink:0;border-radius:18px;background:linear-gradient(135deg,#27352a,#3d5240);color:#e7d6a6;font-size:24px;font-weight:700;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 18px rgba(39,53,42,.3)}
+.qtype{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;font-weight:700;color:#7d6535;background:#f1e8d0;border-radius:999px;padding:6px 14px}
+.qtext{font-size:20px;font-weight:600;line-height:1.65;margin-bottom:8px;position:relative;z-index:1}
+.hint{font-size:14px;color:#6a6f66;margin-bottom:14px;line-height:1.7;position:relative;z-index:1}
+
+.opts{display:grid;gap:11px;margin-top:14px;position:relative;z-index:1}
+.opt,.tfbtn,.chip,.blank,.track,.btn{font:inherit;cursor:pointer}
+.opt{display:flex;align-items:center;gap:13px;width:100%;text-align:right;padding:13px 15px;border:1.5px solid #e2d8bd;border-radius:16px;background:#fff;color:#344036;font-size:15.5px;line-height:1.65;transition:transform .15s,border-color .15s,background .15s,box-shadow .15s}
+.opt:hover{transform:translateY(-2px);border-color:#b99a5e;box-shadow:0 8px 18px rgba(39,53,42,.1)}
+.opt .let{width:34px;height:34px;flex-shrink:0;border-radius:11px;background:#f1e8d0;color:#7d6535;font-weight:700;display:flex;align-items:center;justify-content:center;transition:all .15s}
+.opt.multi .let{border-radius:9px}
+.opt.sel{border-color:#27352a;background:#eaf1e3;box-shadow:0 8px 20px rgba(39,53,42,.14)}
+.opt.sel .let{background:#27352a;color:#e7d6a6}
+.opt.sel .let::before{content:"✓"}
+.opt.sel .let span{display:none}
+
+.txt{width:100%;padding:14px 16px;border:1.5px solid #e2d8bd;border-radius:16px;background:#fff;font:inherit;font-size:16px;color:#273328;margin-top:11px;outline:none;transition:border-color .15s,box-shadow .15s;position:relative;z-index:1}
+.txt:focus{border-color:#27352a;box-shadow:0 0 0 4px rgba(111,138,92,.22)}
+
+.tfrow{padding:15px 0;border-top:1px dashed #d9cca6;position:relative;z-index:1}
+.tfrow:first-of-type{border-top:none}
+.tfrow p{font-size:16px;line-height:1.7;margin-bottom:11px}
 .tfbtns{display:flex;gap:10px}
-.tfbtn{flex:1;padding:11px;border:1px solid rgba(198,170,114,.45);border-radius:12px;background:#f8f4eb;font-size:15px;color:#344036}
-.tfbtn.sel{background:#27352a;color:#f6ecd0;border-color:#27352a;font-weight:600}
-.sentence{font-size:18px;line-height:2.5;margin:8px 0 6px}
-.blank{display:inline-block;min-width:96px;padding:2px 12px;margin:0 3px;border:2px dashed #b9a16a;border-radius:10px;background:#faf6ea;color:#273328;font-size:16px;font-weight:600;text-align:center;line-height:1.7}
-.blank.act{border-style:solid;border-color:#27352a;background:#e4ecdc}
-.blank.filled{border-style:solid;background:#e4ecdc}
-.bank{display:flex;flex-wrap:wrap;gap:9px;margin-top:14px;padding-top:14px;border-top:1px solid rgba(198,170,114,.4)}
-.chip{padding:8px 16px;border:1px solid #b9a16a;border-radius:999px;background:#f4efe4;color:#4a3c28;font-size:15px}
-.chip.used{opacity:.3;pointer-events:none}
+.tfbtn{flex:1;padding:12px;border:1.5px solid #e2d8bd;border-radius:14px;background:#fff;font-size:15.5px;color:#344036;transition:all .15s;font-weight:500}
+.tfbtn:hover{transform:translateY(-2px)}
+.tfbtn.sel.y{background:#2f5a38;border-color:#2f5a38;color:#fff}
+.tfbtn.sel.n{background:#8a3b33;border-color:#8a3b33;color:#fff}
+.tfbtn.sel::before{content:"✓ "}
+.tfbtn.sel.n::before{content:"✕ "}
+
+.sentence{font-size:19px;line-height:2.7;margin:10px 0 6px;position:relative;z-index:1}
+.blank{display:inline-block;min-width:104px;padding:1px 14px;margin:0 4px;border:2px dashed #b99a5e;border-radius:12px;background:#fbf4de;color:#273328;font-size:17px;font-weight:700;text-align:center;line-height:1.7;transition:all .15s}
+.blank.act{border-style:solid;border-color:#27352a;background:#eaf1e3;animation:pulse 1.4s infinite}
+.blank.filled{border-style:solid;border-color:#27352a;background:#e4ecdc}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(111,138,92,.45)}50%{box-shadow:0 0 0 7px rgba(111,138,92,0)}}
+.bank{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px;padding:16px;border-radius:18px;background:#f4ecd6;position:relative;z-index:1}
+.chip{padding:9px 18px;border:1.5px solid #b99a5e;border-radius:999px;background:#fffaf0;color:#4a3c28;font-size:15.5px;font-weight:500;box-shadow:0 3px 8px rgba(74,60,40,.1);transition:all .15s}
+.chip:hover{transform:translateY(-2px) rotate(-1.5deg)}
+.chip.used{opacity:.25;pointer-events:none;box-shadow:none}
+
 .nav{display:flex;gap:10px;margin-top:18px}
-.btn{font:inherit;flex:1;padding:15px;border:none;border-radius:16px;font-size:16px;font-weight:600;cursor:pointer;background:#d6c19d;color:#273328;box-shadow:0 8px 20px rgba(39,53,42,.12)}
-.btn.dark{background:#27352a;color:#f6ecd0}
-.btn.ghost{background:#fff;border:1px solid rgba(198,170,114,.5);box-shadow:none;flex:.5}
-.err{color:#a03c32;font-size:14px;font-weight:600;margin-top:12px;min-height:20px}
-.start p{font-size:16px;line-height:1.8;color:#4b554a;margin-bottom:6px}
-.track{display:block;width:100%;text-align:right;margin-top:12px;padding:18px;border:1px solid rgba(198,170,114,.5);border-radius:18px;background:#f8f4eb;font:inherit;cursor:pointer}
-.track:hover{background:#eee5d2;border-color:#9b8151}
-.track b{display:block;font-size:18px;color:#273328}
+.btn{flex:1;padding:16px;border:none;border-radius:18px;font-size:16.5px;font-weight:700;background:#d6c19d;color:#273328;box-shadow:0 10px 22px rgba(0,0,0,.25);transition:transform .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn:active{transform:scale(.98)}
+.btn.dark{background:linear-gradient(135deg,#d6c19d,#b99a5e);color:#22301f}
+.btn.ghost{background:rgba(255,255,255,.14);color:#fff;box-shadow:none;border:1px solid rgba(255,255,255,.3);flex:.45}
+.err{color:#a03c32;font-size:14px;font-weight:600;margin-top:12px;min-height:20px;position:relative;z-index:1}
+.shake{animation:shake .35s}
+@keyframes shake{25%{transform:translateX(7px)}75%{transform:translateX(-7px)}}
+
+/* מסך פתיחה */
+.hero{text-align:center;padding:10px 4px 6px;position:relative;z-index:1}
+.hero .seal{width:84px;height:84px;margin:0 auto 14px;border-radius:50%;background:linear-gradient(135deg,#27352a,#3d5240);color:#e7d6a6;font-size:42px;display:flex;align-items:center;justify-content:center;box-shadow:0 12px 28px rgba(39,53,42,.35),0 0 0 6px rgba(214,193,157,.35)}
+.hero h2{font-size:28px;line-height:1.35;margin-bottom:8px}
+.hero p{font-size:15.5px;line-height:1.8;color:#59614f;margin-bottom:6px}
+.tracks{display:grid;gap:13px;margin-top:20px;position:relative;z-index:1}
+.track{display:flex;align-items:center;gap:15px;width:100%;text-align:right;padding:17px;border:1.5px solid #e2d8bd;border-radius:22px;background:#fff;transition:all .18s}
+.track:hover{transform:translateY(-3px);border-color:#b99a5e;box-shadow:0 14px 28px rgba(39,53,42,.16)}
+.track .ic{width:58px;height:58px;flex-shrink:0;border-radius:18px;background:linear-gradient(135deg,#27352a,#3d5240);color:#e7d6a6;font-size:28px;display:flex;align-items:center;justify-content:center}
+.track.alt .ic{background:linear-gradient(135deg,#8d7445,#b99a5e);color:#fff}
+.track b{display:block;font-size:19px;color:#273328}
 .track span{font-size:14px;color:#6a6f66}
-.score{text-align:center}
-.ring{width:150px;height:150px;border-radius:50%;margin:6px auto 14px;display:flex;align-items:center;justify-content:center;font-size:40px;font-weight:700}
-.ring div{width:114px;height:114px;border-radius:50%;background:#fffdf8;display:flex;align-items:center;justify-content:center}
-.rev{margin-top:14px;padding:16px;border-radius:16px;border:1px solid;line-height:1.8;font-size:14.5px}
-.rev.bad{background:#f8ece9;border-color:#d8aaa0}
-.rev.good{background:#e8f1e2;border-color:#a8bd9a}
-.rev h4{font-size:15.5px;margin-bottom:6px}
-.rev .lbl{font-weight:700;color:#8d7445}
-.back{display:block;text-align:center;margin-top:16px;color:#344036;font-weight:600;text-decoration:none}
+.track em{margin-right:auto;font-style:normal;font-size:13px;font-weight:700;color:#7d6535;background:#f1e8d0;border-radius:999px;padding:6px 13px;white-space:nowrap}
+
+/* תוצאות */
+.score{text-align:center;position:relative;z-index:1}
+.ring{--p:0;width:176px;height:176px;border-radius:50%;margin:10px auto 16px;display:flex;align-items:center;justify-content:center;background:conic-gradient(#6f8a5c calc(var(--p)*1%),#e7dec6 0);box-shadow:0 14px 30px rgba(39,53,42,.2)}
+.ring div{width:138px;height:138px;border-radius:50%;background:#fbf8ef;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:42px;font-weight:700;color:#27352a;line-height:1}
+.ring div small{font-size:12px;color:#8d7445;font-weight:500;margin-top:5px}
+.score h2{font-size:24px;margin-bottom:6px}
+.score p{color:#59614f;font-size:15.5px;line-height:1.7}
+.rev{margin-top:14px;padding:16px 18px;border-radius:20px;background:rgba(251,248,239,.97);border-right:6px solid #a8554a;line-height:1.8;font-size:14.5px;box-shadow:0 10px 24px rgba(0,0,0,.25)}
+.rev h4{font-size:16px;margin-bottom:8px;display:flex;gap:10px;align-items:flex-start}
+.rev h4 b{flex-shrink:0;width:28px;height:28px;border-radius:9px;background:#a8554a;color:#fff;font-size:13px;display:flex;align-items:center;justify-content:center}
+.rev .row{padding:8px 12px;border-radius:12px;margin-top:6px}
+.rev .u{background:#f6e4e0}
+.rev .g{background:#e4efdc}
+.rev .lbl{display:block;font-weight:700;font-size:12.5px;margin-bottom:2px}
+.rev .u .lbl{color:#8a3b33}
+.rev .g .lbl{color:#2f5a38}
+.back{display:block;text-align:center;margin-top:18px;color:#d6c19d;font-weight:600;text-decoration:none}
+.confetti{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:50}
+.confetti i{position:absolute;top:-16px;width:9px;height:15px;border-radius:2px;animation:fall linear forwards}
+@keyframes fall{to{transform:translateY(110vh) rotate(540deg);opacity:.8}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+@media (max-width:480px){.qtext{font-size:18px}.top .ttl h1{font-size:22px}.track em{display:none}}
 </style>
 </head>
 <body>
+<div class="curve c1"></div><div class="curve c2"></div>
 <div class="wrap">
-  <div class="head"><small>יסודות מנצחים</small><h1>המבחן המסכם</h1></div>
+  <div class="top"><div class="ttl"><small>יסודות מנצחים</small><h1>המבחן המסכם</h1><i></i></div><img src="media/logo.png" alt="" onerror="this.style.display='none'"></div>
   <div id="root"></div>
 </div>
 
@@ -177,7 +239,9 @@ function start(key){
 let activeBlank = 0;
 
 /* ===== הצגה ===== */
-const TYPE_LABEL = { open:'שאלה פתוחה', multi:'בחירה מרובה', mcq:'שאלה אמריקאית', tf:'נכון / לא נכון', fill:'השלמה' };
+const TYPE_LABEL = { open:'✎ שאלה פתוחה', multi:'☑ בחירה מרובה', mcq:'◉ שאלה אמריקאית', tf:'⇄ נכון / לא נכון', fill:'▭ השלמה' };
+const LET = ['א','ב','ג','ד','ה','ו','ז','ח'];
+let animate = true;
 
 function render(){
   if (!track) return renderStart();
@@ -188,14 +252,14 @@ function render(){
     body = (q.hint ? `<div class="hint">${esc(q.hint)}</div>` : '') +
       a.map((v,i)=>`<input class="txt" data-i="${i}" placeholder="${q.fields>1 ? 'תשובה '+(i+1) : 'התשובה שלך'}" value="${esc(v)}">`).join('');
   } else if (q.type === 'multi'){
-    body = `<div class="hint">בחרו בדיוק ${q.pick} תשובות. נבחרו: <b id="pc">${a.length}</b></div><div class="opts">` +
-      q.opts.map((o,i)=>`<button class="opt ${a.includes(i)?'sel':''}" data-act="multi" data-i="${i}">${esc(o)}</button>`).join('') + '</div>';
+    body = `<div class="hint">בחרו בדיוק ${q.pick} תשובות · נבחרו <b>${a.length}</b> מתוך ${q.pick}</div><div class="opts">` +
+      q.opts.map((o,i)=>`<button class="opt multi ${a.includes(i)?'sel':''}" data-act="multi" data-i="${i}"><span class="let"><span>${LET[i]}</span></span><span>${esc(o)}</span></button>`).join('') + '</div>';
   } else if (q.type === 'mcq'){
-    body = '<div class="opts">' + q.opts.map((o,i)=>`<button class="opt ${a===i?'sel':''}" data-act="mcq" data-i="${i}">${esc(o)}</button>`).join('') + '</div>';
+    body = '<div class="opts">' + q.opts.map((o,i)=>`<button class="opt ${a===i?'sel':''}" data-act="mcq" data-i="${i}"><span class="let"><span>${LET[i]}</span></span><span>${esc(o)}</span></button>`).join('') + '</div>';
   } else if (q.type === 'tf'){
     body = q.items.map((it,i)=>`<div class="tfrow"><p>${esc(it.t)}</p><div class="tfbtns">
-      <button class="tfbtn ${a[i]===true?'sel':''}" data-act="tf" data-i="${i}" data-v="1">נכון</button>
-      <button class="tfbtn ${a[i]===false?'sel':''}" data-act="tf" data-i="${i}" data-v="0">לא נכון</button></div></div>`).join('');
+      <button class="tfbtn y ${a[i]===true?'sel':''}" data-act="tf" data-i="${i}" data-v="1">נכון</button>
+      <button class="tfbtn n ${a[i]===false?'sel':''}" data-act="tf" data-i="${i}" data-v="0">לא נכון</button></div></div>`).join('');
   } else if (q.type === 'fill'){
     const sent = q.parts.map(p => typeof p === 'number'
       ? `<button class="blank ${a[p]?'filled':''} ${activeBlank===p&&!a[p]?'act':''}" data-act="blank" data-i="${p}">${a[p] ? esc(a[p]) : '＿＿＿'}</button>`
@@ -203,20 +267,25 @@ function render(){
     body = `<div class="sentence">${sent}</div><div class="hint">לחצו על מילה כדי למלא את החסר. לחיצה על מילה שמולאה מחזירה אותה למחסן.</div>
       <div class="bank">${q.bank.map(w=>`<button class="chip ${a.includes(w)?'used':''}" data-act="bank" data-w="${esc(w)}">${esc(w)}</button>`).join('')}</div>`;
   }
+  const steps = list.map((x,i)=>`<i class="${i===idx?'cur':complete(x,ans[i])?'done':''}"></i>`).join('');
   root.innerHTML = `
-   <div class="bar"><i style="width:${(idx/list.length)*100}%"></i></div>
-   <div class="count">שאלה ${idx+1} מתוך ${list.length}</div>
-   <div class="card"><span class="qtype">${TYPE_LABEL[q.type]}</span><div class="qtext">${esc(q.text)}</div>${body}
+   <div class="steps">${steps}</div>
+   <div class="count"><span>שאלה ${idx+1} מתוך ${list.length}</span><span>${TRACKS[track].title}</span></div>
+   <div class="card ${animate?'enter':''}"><div class="qhead"><div class="qnum">${q.n}</div><span class="qtype">${TYPE_LABEL[q.type]}</span></div>
+   <div class="qtext">${esc(q.text)}</div>${body}
    <div class="err" id="err"></div></div>
    <div class="nav">${idx>0?'<button class="btn ghost" data-act="prev">הקודמת</button>':''}
    <button class="btn dark" data-act="next">${idx===list.length-1?'סיום והגשה':'לשאלה הבאה'}</button></div>`;
+  animate = false;
 }
 
 function renderStart(){
-  root.innerHTML = `<div class="card start"><div class="qtext">ברוכים הבאים למבחן המסכם</div>
-   <p>בחרו את המסלול המתאים לתפקיד שלכם. אפשר לחזור לשאלה הקודמת ולשנות תשובה עד ההגשה.</p>
-   <button class="track" data-act="track" data-k="masol"><b>מסו״לים</b><span>15 שאלות</span></button>
-   <button class="track" data-act="track" data-k="mafkatz"><b>מפק״צים ומפל״גים</b><span>13 שאלות</span></button></div>
+  root.innerHTML = `<div class="card enter"><div class="hero"><div class="seal">★</div>
+   <h2>מוכנים למבחן המסכם?</h2>
+   <p>בחרו את המסלול המתאים לתפקיד שלכם.<br>אפשר לחזור לשאלה הקודמת ולשנות תשובה עד ההגשה.</p></div>
+   <div class="tracks">
+   <button class="track" data-act="track" data-k="masol"><div class="ic">⚑</div><div><b>מסו״לים</b><span>המסלול המלא</span></div><em>15 שאלות</em></button>
+   <button class="track alt" data-act="track" data-k="mafkatz"><div class="ic">✦</div><div><b>מפק״צים ומפל״גים</b><span>מסלול לסגל ההכשרה</span></div><em>13 שאלות</em></button></div></div>
    <a class="back" href="categoriesPage.html">חזרה לרשימת הפרקים</a>`;
 }
 
@@ -276,16 +345,42 @@ function renderResult(){
     localStorage.setItem('user', JSON.stringify(u));
   } catch(e){}
   const wrong = list.map((q,i)=>({q,i})).filter(o=>!results[o.i]);
-  root.innerHTML = `<div class="card score"><span class="qtype">${TRACKS[track].title}</span>
-    <div class="ring" style="background:conic-gradient(#6f8a5c 0 ${pct}%, #e4dcc8 ${pct}% 100%)"><div>${pct}%</div></div>
-    <div class="qtext">ענית נכון על ${score} מתוך ${list.length} שאלות</div>
-    ${wrong.length ? '' : '<div class="hint">מצוין! כל התשובות נכונות.</div>'}</div>
-    ${wrong.map(({q,i})=>`<div class="rev bad"><h4>שאלה ${i+1}: ${esc(q.text)}</h4>
-      <div><span class="lbl">התשובה שלך:</span> ${userText(q,ans[i])}</div>
-      <div><span class="lbl">התשובה הנכונה:</span> ${correctText(q)}</div></div>`).join('')}
+  const msg = pct>=90 ? ['מצוין! שליטה מלאה בתקן','כל הכבוד על ההשקעה והלמידה.']
+            : pct>=70 ? ['כל הכבוד!','כמעט שם. שווה לעבור על השאלות שלמטה.']
+            : ['יש לאן להתקדם','כדאי לחזור על הפרקים הרלוונטיים ולנסות שוב.'];
+  root.innerHTML = `<div class="card enter"><div class="score">
+    <span class="qtype">${TRACKS[track].title}</span>
+    <div class="ring" id="ring"><div><span id="pctn">0%</span><small>${score} מתוך ${list.length}</small></div></div>
+    <h2>${msg[0]}</h2><p>${msg[1]}</p></div></div>
+    ${wrong.map(({q,i})=>`<div class="rev"><h4><b>${q.n}</b><span>${esc(q.text)}</span></h4>
+      <div class="row u"><span class="lbl">התשובה שלך</span>${userText(q,ans[i])}</div>
+      <div class="row g"><span class="lbl">התשובה הנכונה</span>${correctText(q)}</div></div>`).join('')}
     <div class="nav"><button class="btn dark" data-act="again">מבחן חדש</button></div>
     <a class="back" href="categoriesPage.html">חזרה לרשימת הפרקים</a>`;
   window.scrollTo(0,0);
+  const ring = document.getElementById('ring'), num = document.getElementById('pctn');
+  const t0 = performance.now(), dur = 1200;
+  (function tick(t){
+    const k = Math.min(1,(t-t0)/dur), e = 1-Math.pow(1-k,3), v = Math.round(pct*e);
+    ring.style.setProperty('--p', v); num.textContent = v+'%';
+    if (k<1) requestAnimationFrame(tick);
+  })(t0);
+  if (pct>=80) confetti();
+}
+
+function confetti(){
+  const box = document.createElement('div'); box.className='confetti';
+  const cols = ['#d6c19d','#b99a5e','#6f8a5c','#27352a','#8fae78','#e7d6a6'];
+  for (let i=0;i<46;i++){
+    const c = document.createElement('i');
+    c.style.right = Math.random()*100+'%';
+    c.style.background = cols[i%cols.length];
+    c.style.animationDuration = (2.2+Math.random()*2)+'s';
+    c.style.animationDelay = (Math.random()*.8)+'s';
+    box.appendChild(c);
+  }
+  document.body.appendChild(box);
+  setTimeout(()=>box.remove(),5500);
 }
 
 /* ===== אירועים ===== */
@@ -295,17 +390,19 @@ root.addEventListener('input', e => {
 root.addEventListener('click', e => {
   const el = e.target.closest('[data-act]'); if (!el) return;
   const act = el.dataset.act, q = list[idx];
-  if (act === 'track') return start(el.dataset.k);
-  if (act === 'again'){ track = null; return render(); }
-  if (act === 'prev'){ idx--; activeBlank = 0; return render(); }
+  if (act === 'track'){ animate = true; return start(el.dataset.k); }
+  if (act === 'again'){ track = null; animate = true; return render(); }
+  if (act === 'prev'){ idx--; activeBlank = 0; animate = true; return render(); }
   if (act === 'next'){
     if (!complete(q, ans[idx])){
       document.getElementById('err').textContent =
         q.type==='multi' ? `יש לבחור בדיוק ${q.pick} תשובות.` :
         q.type==='open' ? 'יש למלא את כל השורות.' : 'יש לענות לפני שממשיכים.';
+      const cd = document.querySelector('.card'); cd.classList.remove('shake'); void cd.offsetWidth; cd.classList.add('shake');
       return;
     }
     if (idx === list.length-1) finished = true; else { idx++; activeBlank = 0; }
+    animate = true;
     return render();
   }
   if (act === 'mcq'){ ans[idx] = +el.dataset.i; return render(); }
