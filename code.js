@@ -71,7 +71,7 @@ const getSubchapterPage = (chapter) => {
 };
 
 /* קישור למבחן המסכם – להחליף בכתובת האמיתית של המבחן */
-const FINAL_EXAM_URL = "#";
+const FINAL_EXAM_URL = "examPage.html";
 
 const LAST_SUB = { 1: 11, 2: 4, 3: 8, 4: 5, 5: 3 };
  
@@ -1745,7 +1745,7 @@ const openFinalExam = (event) => {
     if (event) event.preventDefault();
     if (!allChaptersDone()) return false;
     if (FINAL_EXAM_URL && FINAL_EXAM_URL !== "#") {
-        window.open(FINAL_EXAM_URL, "_blank", "noopener");
+        window.location.href = FINAL_EXAM_URL;
     }
     return false;
 };
