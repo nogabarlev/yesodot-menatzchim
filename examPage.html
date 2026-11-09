@@ -123,42 +123,25 @@ body::before{content:"";position:fixed;inset:0;z-index:-2;background:linear-grad
 .qtype .ico{width:16px;height:16px}
 .hero .seal .ico{width:40px;height:40px}
 .track .ic .ico{width:28px;height:28px}
-/* סידור מאגר התשובות בטלפון */
-@media (max-width: 600px) {
-    .bank {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
-        gap: 8px;
-    }
 
-    .bank .chip {
-        display: inline-flex;
-        width: auto;
-        max-width: 100%;
-        flex: 0 1 auto;
-        white-space: normal;
-        text-align: center;
-    }
-}
+
+/* מאגר תשובות בשאלות פתוחות */
 .bank.fill-bank {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: flex-start;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 10px;
-    margin-top: 16px;
-    padding: 16px;
-    border-radius: 18px;
-    background: #f4ecd6;
+    align-items: stretch;
 }
 
 .bank.fill-bank .chip {
-    width: auto;
-    flex: 0 1 auto;
+    width: 100%;
+    min-width: 0;
+    padding: 10px 8px;
     white-space: normal;
+    overflow-wrap: break-word;
+    text-align: center;
+    line-height: 1.5;
+    border-radius: 14px;
 }
 </style>
 </head>
@@ -299,7 +282,7 @@ function render(){
 if (q.type === 'open'){
   body = `<div class="hint">${q.hint ? esc(q.hint)+' · ' : ''}אפשר לכתוב בחופשיות או לבחור תשובות ממאגר התשובות.</div>` +
     a.map((v,i)=>`<input class="txt" data-i="${i}" placeholder="${q.fields>1 ? 'תשובה '+(i+1) : 'התשובה שלך'}" value="${esc(v)}">`).join('') +
-    (q.chips ? `<div class="bank fill-bank">${q.chips.map(w=>`<button class="chip ${a.includes(w)?'used':''}" data-act="obank" data-w="${esc(w)}">${esc(w)}</button>`).join('')}</div>` : '');
+    (q.chips ? `<div class="bank.fill-bank ">${q.chips.map(w=>`<button class="chip ${a.includes(w)?'used':''}" data-act="obank" data-w="${esc(w)}">${esc(w)}</button>`).join('')}</div>` : '');
   } else if (q.type === 'multi'){
     body = `<div class="hint">בחרו בדיוק ${q.pick} תשובות · נבחרו <b>${a.length}</b> מתוך ${q.pick}</div><div class="opts">` +
       q.opts.map((o,i)=>`<button class="opt multi ${a.includes(i)?'sel':''}" data-act="multi" data-i="${i}"><span class="let"><span>${LET[i]}</span></span><span>${esc(o)}</span></button>`).join('') + '</div>';
