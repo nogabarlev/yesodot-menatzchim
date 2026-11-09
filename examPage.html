@@ -239,7 +239,6 @@ return c;
     if (q.type === 'mcq') return null;
     if (q.type === 'tf') return Array(q.items.length).fill(null);
     if (q.type === 'fill') return Array(q.words.length).fill(null);
-    if (c.type === 'open' && c.bank) c.chips = shuffle(c.bank);
   });
   idx = 0; finished = false; activeBlank = 0;
   render();
