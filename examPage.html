@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>יסודות מנצחים | מבחן מסכם</title>
+<link rel="stylesheet" href="style.css">
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap');
 *{margin:0;padding:0;box-sizing:border-box}
@@ -22,7 +23,7 @@ body::before{content:"";position:fixed;inset:0;z-index:-2;background:linear-grad
 
 .steps{display:flex;gap:5px;margin-bottom:8px}
 .steps i{flex:1;height:7px;border-radius:7px;background:rgba(255,255,255,.17);transition:background .3s,transform .3s}
-.steps i.done{background:#8fae78}
+.steps i.done{background:rgba(207, 167, 93, 0.55)}
 .steps i.cur{background:#d6c19d;transform:scaleY(1.5)}
 .count{font-size:13px;color:#d6c19d;font-weight:500;margin-bottom:12px;display:flex;justify-content:space-between}
 
@@ -44,10 +45,11 @@ body::before{content:"";position:fixed;inset:0;z-index:-2;background:linear-grad
 .opt:hover{transform:translateY(-2px);border-color:#b99a5e;box-shadow:0 8px 18px rgba(39,53,42,.1)}
 .opt .let{width:34px;height:34px;flex-shrink:0;border-radius:11px;background:#f1e8d0;color:#7d6535;font-weight:700;display:flex;align-items:center;justify-content:center;transition:all .15s}
 .opt.multi .let{border-radius:9px}
-.opt.sel{border-color:#27352a;background:#eaf1e3;box-shadow:0 8px 20px rgba(39,53,42,.14)}
+.opt.sel{border-color:#27352a;background:#f1ecdc;box-shadow:0 8px 20px rgba(39,53,42,.14)}
 .opt.sel .let{background:#27352a;color:#e7d6a6}
-.opt.sel .let::before{content:"✓"}
 .opt.sel .let span{display:none}
+.opt.sel .let::before{content:"";width:9px;height:9px;border-radius:50%;background:currentColor}
+.opt.multi.sel .let::before{width:6px;height:11px;border-radius:0;background:none;border:solid currentColor;border-width:0 2px 2px 0;transform:rotate(45deg) translate(-1px,-1px)}
 
 .txt{width:100%;padding:14px 16px;border:1.5px solid #e2d8bd;border-radius:16px;background:#fff;font:inherit;font-size:16px;color:#273328;margin-top:11px;outline:none;transition:border-color .15s,box-shadow .15s;position:relative;z-index:1}
 .txt:focus{border-color:#27352a;box-shadow:0 0 0 4px rgba(111,138,92,.22)}
@@ -58,10 +60,8 @@ body::before{content:"";position:fixed;inset:0;z-index:-2;background:linear-grad
 .tfbtns{display:flex;gap:10px}
 .tfbtn{flex:1;padding:12px;border:1.5px solid #e2d8bd;border-radius:14px;background:#fff;font-size:15.5px;color:#344036;transition:all .15s;font-weight:500}
 .tfbtn:hover{transform:translateY(-2px)}
-.tfbtn.sel.y{background:#2f5a38;border-color:#2f5a38;color:#fff}
-.tfbtn.sel.n{background:#8a3b33;border-color:#8a3b33;color:#fff}
-.tfbtn.sel::before{content:"✓ "}
-.tfbtn.sel.n::before{content:"✕ "}
+.tfbtn.sel{background:#27352a;border-color:#27352a;color:#fff}
+.tfbtn.sel::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:#e7d6a6;margin-left:8px}
 
 .sentence{font-size:19px;line-height:2.7;margin:10px 0 6px;position:relative;z-index:1}
 .blank{display:inline-block;min-width:104px;padding:1px 14px;margin:0 4px;border:2px dashed #b99a5e;border-radius:12px;background:#fbf4de;color:#273328;font-size:17px;font-weight:700;text-align:center;line-height:1.7;transition:all .15s}
@@ -71,7 +71,7 @@ body::before{content:"";position:fixed;inset:0;z-index:-2;background:linear-grad
 .bank{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px;padding:16px;border-radius:18px;background:#f4ecd6;position:relative;z-index:1}
 .chip{padding:9px 18px;border:1.5px solid #b99a5e;border-radius:999px;background:#fffaf0;color:#4a3c28;font-size:15.5px;font-weight:500;box-shadow:0 3px 8px rgba(74,60,40,.1);transition:all .15s}
 .chip:hover{transform:translateY(-2px) rotate(-1.5deg)}
-.chip.used{opacity:.25;pointer-events:none;box-shadow:none}
+.chip.used{opacity:.25;box-shadow:none}
 
 .nav{display:flex;gap:10px;margin-top:18px}
 .btn{flex:1;padding:16px;border:none;border-radius:18px;font-size:16.5px;font-weight:700;background:#d6c19d;color:#273328;box-shadow:0 10px 22px rgba(0,0,0,.25);transition:transform .15s}
@@ -137,7 +137,7 @@ const shuffle = a => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { c
 /* ===== בנק השאלות ===== */
 /* open: slots = סעיפים נדרשים; כל סעיף = רשימת חלופות; כל חלופה = מילים שחייבות להופיע */
 const QUESTIONS = [
- { n:1, type:'open', text:'מהם הראשי תיבות של התל״ב?', fields:1,
+ { n:1, type:'open', text:'מהם הראשי תיבות של התל״ב?', fields:1, bank:['תקן לאיכות בהדרכה','תקן לאיכות הכשרה','תו לאיכות בהדרכה','תקן לניהול הדרכה'],
    slots:[{alts:[['תקן','איכות','הדרכה']]}], answer:'תקן לאיכות בהדרכה' },
 
  { n:2, type:'multi', pick:5, text:'מהם סוגי הסיכומים העיתיים שחייבים לקרות במהלך ההכשרה?',
@@ -145,7 +145,7 @@ const QUESTIONS = [
    bad:['סיכום חודשי','סיכום רבעוני','סיכום חציוני'] },
 
  { n:3, type:'open', text:'באילו תחומים הסיכומים העיתיים צריכים לגעת?', fields:4,
-   hint:'כתבו תחום אחד בכל שורה.',
+   hint:'כתבו תחום אחד בכל שורה.', bank:['סביבה','חניכים','סגל','תוכנית ההכשרה','תקציב','לוגיסטיקה','ציוד'],
    slots:[{alts:[['סביבה']]},{alts:[['חניכ']]},{alts:[['סגל']]},{alts:[['הכשרה'],['תוכנית']]}],
    answer:'סביבה, חניכים, סגל והכשרה' },
 
@@ -163,8 +163,8 @@ const QUESTIONS = [
    parts:['חניך מתקשה הוא מי שאינו עומד ב',0,' להכשרה בהיבט ',1,' או ',2,'.'],
    words:['תנאי הסף','לימודי','נורמטיבי'], extra:['משמעתי','פיזי','רפואי'] },
 
- { n:7, type:'open', text:'מה תכלול תוכנית אישית לחניך מתקשה?', fields:2,
-   hint:'כתבו שני פריטים, אחד בכל שורה.',
+ { n:7, type:'open', text:'מה תכלול תוכנית אישית לחניך מתקשה?', fields:2, 
+   hint:'כתבו שני פריטים, אחד בכל שורה.', bank:['פירוט התחומים בהם יתבטא הקושי','הגדרת יעדים אישיים','ציוני הסף של החניך','חוות דעת מפקד','רשימת ציוד לחניך'],
    slots:[{alts:[['קושי'],['תחומ']]},{alts:[['יעד']]}],
    answer:'פירוט התחומים בהם יתבטא הקושי של החניך והגדרת יעדים אישיים בהתאם לקשיים שלו' },
 
@@ -183,8 +183,8 @@ const QUESTIONS = [
     {t:'השיחה עם המפקד תכלול הסבר מפורט של הסיבות לוועדת הערכה.', v:true}] },
 
  { n:11, type:'open', text:'מהן העילות להעלאת חניך לוועדת הערכה?', fields:3,
-   hint:'כתבו עילה אחת בכל שורה.',
-   slots:[{alts:[['הפסד'],['ימי','הכשרה']]},{alts:[['אירוע'],['ערכי'],['נורמטיבי'],['משמעת']]},{alts:[['ציונ','סף'],['עמיד'],['סף']]}],
+   hint:'כתבו עילה אחת בכל שורה.', bank:['הפסד ימי הכשרה','אירוע ערכי / נורמטיבי / משמעתי','אי עמידה בציוני הסף','בקשה אישית של החניך','המלצת רופא','גיל החניך'],
+   slots:[{alts:[['הפסד'],['ימי','הכשרה']]},{alts:[['אירוע'],['ערכי'],['נורמטיבי'],['משמעת']]},{alts:[['ציונ','סף'],['עמיד'],['סף']]}], 
    answer:'הפסד ימי הכשרה ע״פ תיק יסוד · אירוע ערכי / נורמטיבי / משמעתי · אי עמידה בציוני הסף' },
 
  { n:12, type:'multi', pick:5, text:'מהם הקריטריונים לחניך מצטיין?',
@@ -205,6 +205,8 @@ const QUESTIONS = [
     {t:'בהכשרות שמשכן פחות מ־4 חודשים, העברת המקל תתבצע על ידי שליחת דו״ח ליחידה הקולטת, בליווי שיח מ״פים על חיילים חריגים.', v:true},
     {t:'בהכשרות שמשכן 16 שבועות ומעלה, העברת המקל תתבצע על ידי שיחה פיזית או טלפונית בדרג של מ״פ מול מ״פ.', v:true},
     {t:'באחריות המ״פ או מקבילו לוודא שנתוני העברת המקל הגיעו למ״פ הקולט.', v:true}] }
+
+    
 ];
 
 const TRACKS = {
@@ -223,6 +225,7 @@ function start(key){
     if (c.type === 'mcq') c.opts = shuffle([c.good, ...c.bad]);
     if (c.type === 'multi') c.opts = shuffle([...c.good, ...c.bad]);
     if (c.type === 'fill') c.bank = shuffle([...c.words, ...c.extra]);
+    if (c.type === 'open' && c.bank) c.chips = shuffle(c.bank);
     return c;
   });
   ans = list.map(q => {
@@ -239,6 +242,11 @@ function start(key){
 let activeBlank = 0;
 
 /* ===== הצגה ===== */
+const svg = p => `<svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${p}</svg>`;
+const IC = {
+  masol: svg('<path d="M6 10l6-5 6 5"/><path d="M6 15l6-5 6 5"/><path d="M6 20l6-5 6 5"/>'),
+  mafkatz: svg('<rect x="6" y="4" width="12" height="17" rx="2"/><path d="M9 4h6v3H9z"/><path d="M9 12h6M9 16h6"/>')
+};
 const TYPE_LABEL = { open:'✎ שאלה פתוחה', multi:'☑ בחירה מרובה', mcq:'◉ שאלה אמריקאית', tf:'⇄ נכון / לא נכון', fill:'▭ השלמה' };
 const LET = ['א','ב','ג','ד','ה','ו','ז','ח'];
 let animate = true;
@@ -248,9 +256,11 @@ function render(){
   if (finished) return renderResult();
   const q = list[idx], a = ans[idx];
   let body = '';
-  if (q.type === 'open'){
-    body = (q.hint ? `<div class="hint">${esc(q.hint)}</div>` : '') +
-      a.map((v,i)=>`<input class="txt" data-i="${i}" placeholder="${q.fields>1 ? 'תשובה '+(i+1) : 'התשובה שלך'}" value="${esc(v)}">`).join('');
+if (q.type === 'open'){
+  body = `<div class="hint">${q.hint ? esc(q.hint)+' · ' : ''}אפשר לכתוב בחופשיות או לבחור תשובות ממאגר התשובות.</div>` +
+    a.map((v,i)=>`<input class="txt" data-i="${i}" placeholder="${q.fields>1 ? 'תשובה '+(i+1) : 'התשובה שלך'}" value="${esc(v)}">`).join('') +
+    (q.chips ? `<div class="bank">${q.chips.map(w=>`<button class="chip ${a.includes(w)?'used':''}" data-act="obank" data-w="${esc(w)}">${esc(w)}</button>`).join('')}</div>` : '');
+
   } else if (q.type === 'multi'){
     body = `<div class="hint">בחרו בדיוק ${q.pick} תשובות · נבחרו <b>${a.length}</b> מתוך ${q.pick}</div><div class="opts">` +
       q.opts.map((o,i)=>`<button class="opt multi ${a.includes(i)?'sel':''}" data-act="multi" data-i="${i}"><span class="let"><span>${LET[i]}</span></span><span>${esc(o)}</span></button>`).join('') + '</div>';
@@ -284,8 +294,8 @@ function renderStart(){
    <h2>מוכנים למבחן המסכם?</h2>
    <p>בחרו את המסלול המתאים לתפקיד שלכם.<br>אפשר לחזור לשאלה הקודמת ולשנות תשובה עד ההגשה.</p></div>
    <div class="tracks">
-   <button class="track" data-act="track" data-k="masol"><div class="ic">⚑</div><div><b>מסו״לים</b><span>המסלול המלא</span></div><em>15 שאלות</em></button>
-   <button class="track alt" data-act="track" data-k="mafkatz"><div class="ic">✦</div><div><b>מפק״צים ומפל״גים</b><span>מסלול לסגל ההכשרה</span></div><em>13 שאלות</em></button></div></div>
+   <button class="track" data-act="track" data-k="masol"><div class="ic">${IC.masol}</div><div><b>מסו״לים</b><span>המסלול המלא</span></div><em>15 שאלות</em></button>
+   <button class="track alt" data-act="track" data-k="mafkatz"><div class="ic">${IC.mafkatz}</div><div><b>מפק״צים ומפל״גים</b><span>מסלול לסגל ההכשרה</span></div><em>13 שאלות</em></button></div></div>
    <a class="back" href="categoriesPage.html">חזרה לרשימת הפרקים</a>`;
 }
 
@@ -393,8 +403,15 @@ root.addEventListener('click', e => {
   if (act === 'track'){ animate = true; return start(el.dataset.k); }
   if (act === 'again'){ track = null; animate = true; return render(); }
   if (act === 'prev'){ idx--; activeBlank = 0; animate = true; return render(); }
+  if (act === 'obank'){
+    const a = ans[idx], w = el.dataset.w, p = a.indexOf(w);
+    if (p >= 0) a[p] = '';
+    else { const e = a.findIndex(v => !v.trim()); if (e >= 0) a[e] = w; }
+    return render();
+  }
   if (act === 'next'){
     if (!complete(q, ans[idx])){
+
       document.getElementById('err').textContent =
         q.type==='multi' ? `יש לבחור בדיוק ${q.pick} תשובות.` :
         q.type==='open' ? 'יש למלא את כל השורות.' : 'יש לענות לפני שממשיכים.';
