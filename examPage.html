@@ -125,24 +125,7 @@ body::before{content:"";position:fixed;inset:0;z-index:-2;background:linear-grad
 .track .ic .ico{width:28px;height:28px}
 
 
-/* מאגר תשובות בשאלות פתוחות */
-.bank.fill-bank {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 10px;
-    align-items: stretch;
-}
-
-.bank.fill-bank .chip {
-    width: 100%;
-    min-width: 0;
-    padding: 10px 8px;
-    white-space: normal;
-    overflow-wrap: break-word;
-    text-align: center;
-    line-height: 1.5;
-    border-radius: 14px;
-}
+.bank .chip{max-width:100%;white-space:normal;text-align:center;line-height:1.5}
 </style>
 </head>
 <body>
@@ -282,8 +265,7 @@ function render(){
 if (q.type === 'open'){
   body = `<div class="hint">${q.hint ? esc(q.hint)+' · ' : ''}אפשר לכתוב בחופשיות או לבחור תשובות ממאגר התשובות.</div>` +
     a.map((v,i)=>`<input class="txt" data-i="${i}" placeholder="${q.fields>1 ? 'תשובה '+(i+1) : 'התשובה שלך'}" value="${esc(v)}">`).join('') +
-    (q.chips ? `<div class="bank.fill-bank ">${q.chips.map(w=>`<button class="chip ${a.includes(w)?'used':''}" data-act="obank" data-w="${esc(w)}">${esc(w)}</button>`).join('')}</div>` : '');
-  } else if (q.type === 'multi'){
+(q.chips ? `<div class="bank.fill-bank ">${q.chips.map(w=>`<button class="chip ${a.includes(w)?'used':''}" data-act="obank" data-w="${esc(w)}">${esc(w)}</button>`).join('')}</div>` : '');  } else if (q.type === 'multi'){
     body = `<div class="hint">בחרו בדיוק ${q.pick} תשובות · נבחרו <b>${a.length}</b> מתוך ${q.pick}</div><div class="opts">` +
       q.opts.map((o,i)=>`<button class="opt multi ${a.includes(i)?'sel':''}" data-act="multi" data-i="${i}"><span class="let"><span>${LET[i]}</span></span><span>${esc(o)}</span></button>`).join('') + '</div>';
   } else if (q.type === 'mcq'){
