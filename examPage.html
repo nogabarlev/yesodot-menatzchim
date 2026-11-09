@@ -126,7 +126,7 @@ body::before{content:"";position:fixed;inset:0;z-index:-2;background:linear-grad
 
 
 .bank .chip{max-width:100%;white-space:normal;text-align:center;line-height:1.5}
-.open-bank{gap:10px 8px;margin-top:20px;margin-bottom:10px}
+.txt + .bank{margin-top:18px}
 </style>
 </head>
 <body>
@@ -240,7 +240,7 @@ function start(key){
     if (c.type === 'mcq') c.opts = shuffle([c.good, ...c.bad]);
     if (c.type === 'multi') c.opts = shuffle([...c.good, ...c.bad]);
 if (c.type === 'fill') c.bank = shuffle([...c.words, ...c.extra]);
-if (c.type === 'open' && c.bank) c.chips = seeded(c.bank, c.n);
+if (c.type === 'open' && c.bank) c.chips = c.bank;
 return c;
   });
   ans = list.map(q => {
@@ -274,7 +274,7 @@ function render(){
 if (q.type === 'open'){
   body = `<div class="hint">${q.hint ? esc(q.hint)+' · ' : ''}אפשר לכתוב בחופשיות או לבחור תשובות ממאגר התשובות.</div>` +
     a.map((v,i)=>`<input class="txt" data-i="${i}" placeholder="${q.fields>1 ? 'תשובה '+(i+1) : 'התשובה שלך'}" value="${esc(v)}">`).join('') +
-(q.chips ? `<div class="bank open-bank">${q.chips.map(w=>`<button class="chip ${a.includes(w)?'used':''}" data-act="obank" data-w="${esc(w)}">${esc(w)}</button>`).join('')}</div>` : '');  } else if (q.type === 'multi'){
+(q.chips ? `<div class="bank">${q.chips.map(w=>`<button class="chip ${a.includes(w)?'used':''}" data-act="obank" data-w="${esc(w)}">${esc(w)}</button>`).join('')}</div>` : '');  } else if (q.type === 'multi'){
     body = `<div class="hint">בחרו בדיוק ${q.pick} תשובות · נבחרו <b>${a.length}</b> מתוך ${q.pick}</div><div class="opts">` +
       q.opts.map((o,i)=>`<button class="opt multi ${a.includes(i)?'sel':''}" data-act="multi" data-i="${i}"><span class="let"><span>${LET[i]}</span></span><span>${esc(o)}</span></button>`).join('') + '</div>';
   } else if (q.type === 'mcq'){
