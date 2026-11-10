@@ -1,1786 +1,482 @@
-/* =========================
-   GENERAL
-========================= */
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>יסודות מנצחים | מבחן מסכם</title>
 
-let touchStartY = 0;
-let hasScrolled = false;
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Rubik',sans-serif;color:#273328;min-height:100vh;direction:rtl;background:#1a231b url("media/backgroundCategoriesPage.jpg") center/cover fixed no-repeat}
+body::before{content:"";position:fixed;inset:0;z-index:-2;background:linear-gradient(180deg,rgba(18,26,19,.74),rgba(28,40,30,.90))}
+.curve{position:fixed;border:2px solid rgba(198,170,114,.38);border-radius:50%;pointer-events:none;z-index:-1}
+.c1{width:300px;height:300px;top:-170px;left:-130px}
+.c2{width:360px;height:360px;bottom:-230px;right:-170px}
+.wrap{max-width:720px;margin:0 auto;padding:20px 16px 60px}
+
+.top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px}
+.top .ttl small{display:block;color:#d6c19d;font-size:13px;letter-spacing:.4px}
+.top .ttl h1{color:#fff;font-size:26px;font-weight:700;line-height:1.3}
+.top .ttl i{display:block;width:44px;height:3px;border-radius:9px;background:linear-gradient(90deg,#d6c19d,#b99a5e);margin-top:9px}
+.top img{width:54px;height:auto;opacity:.9;filter:drop-shadow(0 4px 10px rgba(0,0,0,.35))}
+
+.steps{display:flex;gap:5px;margin-bottom:8px}
+.steps i{flex:1;height:7px;border-radius:7px;background:rgba(255,255,255,.17);transition:background .3s,transform .3s}
+.steps i.done{background:rgba(173, 151, 108, 0.767)}
+.steps i.cur{background:#d6c19d;transform:scaleY(1.5)}
+.count{font-size:13px;color:#d6c19d;font-weight:500;margin-bottom:12px;display:flex;justify-content:space-between}
+
+.card{position:relative;background:rgba(251,248,239,.97);border-radius:28px;padding:26px 22px 22px;box-shadow:0 24px 60px rgba(0,0,0,.38);overflow:hidden}
+.card::before{content:"";position:absolute;top:0;right:0;left:0;height:6px;background:linear-gradient(90deg,#27352a,#6f8a5c,#d6c19d)}
+.card::after{content:"";position:absolute;width:200px;height:200px;left:-100px;bottom:-120px;border:2px solid rgba(198,170,114,.4);border-radius:50%;pointer-events:none}
+.card.enter{animation:slideIn .38s cubic-bezier(.2,.9,.3,1)}
+@keyframes slideIn{from{opacity:0;transform:translateX(-26px)}to{opacity:1;transform:none}}
+
+.qhead{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.qnum{width:54px;height:54px;flex-shrink:0;border-radius:18px;background:linear-gradient(135deg,#27352a,#3d5240);color:#e7d6a6;font-size:24px;font-weight:700;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 18px rgba(39,53,42,.3)}
+.qtype{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;font-weight:700;color:#7d6535;background:#f1e8d0;border-radius:999px;padding:6px 14px}
+.qtext{font-size:20px;font-weight:600;line-height:1.65;margin-bottom:8px;position:relative;z-index:1}
+.hint{font-size:14px;color:#6a6f66;margin-bottom:14px;line-height:1.7;position:relative;z-index:1}
+
+.opts{display:grid;gap:11px;margin-top:14px;position:relative;z-index:1}
+.opt,.tfbtn,.chip,.blank,.track,.btn{font:inherit;cursor:pointer}
+.opt{display:flex;align-items:center;gap:13px;width:100%;text-align:right;padding:13px 15px;border:1.5px solid #e2d8bd;border-radius:16px;background:#fff;color:#344036;font-size:15.5px;line-height:1.65;transition:transform .15s,border-color .15s,background .15s,box-shadow .15s}
+.opt:hover{transform:translateY(-2px);border-color:#b99a5e;box-shadow:0 8px 18px rgba(39,53,42,.1)}
+.opt .let{width:34px;height:34px;flex-shrink:0;border-radius:11px;background:#f1e8d0;color:#7d6535;font-weight:700;display:flex;align-items:center;justify-content:center;transition:all .15s}
+.opt.multi .let{border-radius:9px}
+.opt.sel{border-color:#27352a;background:#f1ecdc;box-shadow:0 8px 20px rgba(39,53,42,.14)}
+.opt.sel .let{background:#27352a;color:#e7d6a6}
+.opt.sel .let span{display:none}
+.opt.sel .let::before{content:"";width:9px;height:9px;border-radius:50%;background:currentColor}
+.opt.multi.sel .let::before{width:6px;height:11px;border-radius:0;background:none;border:solid currentColor;border-width:0 2px 2px 0;transform:rotate(45deg) translate(-1px,-1px)}
+
+.txt{width:100%;padding:14px 16px;border:1.5px solid #e2d8bd;border-radius:16px;background:#fff;font:inherit;font-size:16px;color:#273328;margin-top:11px;outline:none;transition:border-color .15s,box-shadow .15s;position:relative;z-index:1}
+.txt:focus{border-color:#27352a;box-shadow:0 0 0 4px rgba(111,138,92,.22)}
+
+.tfrow{padding:15px 0;border-top:1px dashed #d9cca6;position:relative;z-index:1}
+.tfrow:first-of-type{border-top:none}
+.tfrow p{font-size:16px;line-height:1.7;margin-bottom:11px}
+.tfbtns{display:flex;gap:10px}
+.tfbtn{flex:1;padding:12px;border:1.5px solid #e2d8bd;border-radius:14px;background:#fff;font-size:15.5px;color:#344036;transition:all .15s;font-weight:500}
+.tfbtn:hover{transform:translateY(-2px)}
+.tfbtn.sel{background:#27352a;border-color:#27352a;color:#fff}
+.tfbtn.sel::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:#e7d6a6;margin-left:8px}
+
+.sentence{font-size:19px;line-height:2.7;margin:10px 0 6px;position:relative;z-index:1}
+.blank{display:inline-block;min-width:104px;padding:1px 14px;margin:0 4px;border:2px dashed #b99a5e;border-radius:12px;background:#fbf4de;color:#273328;font-size:17px;font-weight:700;text-align:center;line-height:1.7;transition:all .15s}
+.blank.act{border-style:solid;border-color:#27352a;background:#eaf1e3;animation:pulse 1.4s infinite}
+.blank.filled{border-style:solid;border-color:#27352a;background:#e4ecdc}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(111,138,92,.45)}50%{box-shadow:0 0 0 7px rgba(111,138,92,0)}}
+.bank{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px;padding:16px;border-radius:18px;background:#f4ecd6;position:relative;z-index:1}
+.chip{padding:9px 18px;border:1.5px solid #b99a5e;border-radius:999px;background:#fffaf0;color:#4a3c28;font-size:15.5px;font-weight:500;box-shadow:0 3px 8px rgba(74,60,40,.1);transition:all .15s}
+.chip:hover{transform:translateY(-2px) rotate(-1.5deg)}
+.chip.used{opacity:.25;box-shadow:none}
+
+.nav{display:flex;gap:10px;margin-top:18px}
+.btn{flex:1;padding:16px;border:none;border-radius:18px;font-size:16.5px;font-weight:700;background:#d6c19d;color:#273328;box-shadow:0 10px 22px rgba(0,0,0,.25);transition:transform .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn:active{transform:scale(.98)}
+.btn.dark{background:linear-gradient(135deg,#d6c19d,#b99a5e);color:#22301f}
+.btn.ghost{background:rgba(255,255,255,.14);color:#fff;box-shadow:none;border:1px solid rgba(255,255,255,.3);flex:.45}
+.err{color:#a03c32;font-size:14px;font-weight:600;margin-top:12px;min-height:20px;position:relative;z-index:1}
+.shake{animation:shake .35s}
+@keyframes shake{25%{transform:translateX(7px)}75%{transform:translateX(-7px)}}
+
+/* מסך פתיחה */
+.hero{text-align:center;padding:10px 4px 6px;position:relative;z-index:1}
+.hero .seal{width:84px;height:84px;margin:0 auto 14px;border-radius:50%;background:linear-gradient(135deg,#27352a,#3d5240);color:#e7d6a6;font-size:42px;display:flex;align-items:center;justify-content:center;box-shadow:0 12px 28px rgba(39,53,42,.35),0 0 0 6px rgba(214,193,157,.35)}
+.hero h2{font-size:28px;line-height:1.35;margin-bottom:8px}
+.hero p{font-size:15.5px;line-height:1.8;color:#59614f;margin-bottom:6px}
+.tracks{display:grid;gap:13px;margin-top:20px;position:relative;z-index:1}
+.track{display:flex;align-items:center;gap:15px;width:100%;text-align:right;padding:17px;border:1.5px solid #e2d8bd;border-radius:22px;background:#fff;transition:all .18s}
+.track:hover{transform:translateY(-3px);border-color:#b99a5e;box-shadow:0 14px 28px rgba(39,53,42,.16)}
+.track .ic{width:58px;height:58px;flex-shrink:0;border-radius:18px;background:linear-gradient(135deg,#27352a,#3d5240);color:#e7d6a6;font-size:28px;display:flex;align-items:center;justify-content:center}
+.track.alt .ic{background:linear-gradient(135deg,#8d7445,#b99a5e);color:#fff}
+.track b{display:block;font-size:19px;color:#273328}
+.track span{font-size:14px;color:#6a6f66}
+.track em{margin-right:auto;font-style:normal;font-size:13px;font-weight:700;color:#7d6535;background:#f1e8d0;border-radius:999px;padding:6px 13px;white-space:nowrap}
+
+/* תוצאות */
+.score{text-align:center;position:relative;z-index:1}
+.ring{--p:0;width:176px;height:176px;border-radius:50%;margin:10px auto 16px;display:flex;align-items:center;justify-content:center;background:conic-gradient(#6f8a5c calc(var(--p)*1%),#e7dec6 0);box-shadow:0 14px 30px rgba(39,53,42,.2)}
+.ring div{width:138px;height:138px;border-radius:50%;background:#fbf8ef;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:42px;font-weight:700;color:#27352a;line-height:1}
+.ring div small{font-size:12px;color:#8d7445;font-weight:500;margin-top:5px}
+.score h2{font-size:24px;margin-bottom:6px}
+.score p{color:#59614f;font-size:15.5px;line-height:1.7}
+.rev{margin-top:14px;padding:16px 18px;border-radius:20px;background:rgba(251,248,239,.97);border-right:6px solid #a8554a;line-height:1.8;font-size:14.5px;box-shadow:0 10px 24px rgba(0,0,0,.25)}
+.rev h4{font-size:16px;margin-bottom:8px;display:flex;gap:10px;align-items:flex-start}
+.rev h4 b{flex-shrink:0;width:28px;height:28px;border-radius:9px;background:#a8554a;color:#fff;font-size:13px;display:flex;align-items:center;justify-content:center}
+.rev .row{padding:8px 12px;border-radius:12px;margin-top:6px}
+.rev .u{background:#f6e4e0}
+.rev .g{background:#e4efdc}
+.rev .lbl{display:block;font-weight:700;font-size:12.5px;margin-bottom:2px}
+.rev .u .lbl{color:#8a3b33}
+.rev .g .lbl{color:#2f5a38}
+.back{display:block;width:100%;text-align:center;margin-top:12px;padding:15px;border-radius:18px;background:rgba(255,255,255,.14);border:1px solid rgba(214,193,157,.6);color:#f3e6c4;font-size:16px;font-weight:600;text-decoration:none;transition:background .15s,transform .15s}.back:hover{background:rgba(255,255,255,.24);transform:translateY(-2px)}.back:active{transform:scale(.98)}
+.confetti{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:50}
+.confetti i{position:absolute;top:-16px;width:9px;height:15px;border-radius:2px;animation:fall linear forwards}
+@keyframes fall{to{transform:translateY(110vh) rotate(540deg);opacity:.8}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+@media (max-width:480px){.qtext{font-size:18px}.top .ttl h1{font-size:22px}.track em{display:none}}
+.ico{width:1.15em;height:1.15em;flex-shrink:0}
+.qtype .ico{width:16px;height:16px}
+.hero .seal .ico{width:40px;height:40px}
+.track .ic .ico{width:28px;height:28px}
 
 
-window.addEventListener("touchstart", (event) => {
+.bank .chip{max-width:100%;white-space:normal;text-align:center;line-height:1.5}
+.txt + .bank{margin-top:18px}
+/* מחסן תשובות בשתי עמודות (שאלה 1) */
+.bank.grid2{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:9px;
+  padding:13px;
+}
+.bank.grid2 .chip{
+  width:100%;
+  padding:11px 8px;
+  border-radius:14px;
+  font-size:14.5px;
+  line-height:1.4;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-height:52px;
+}
+.bank.grid2 .chip:hover{transform:translateY(-2px)}
+</style>
+</head>
+<body>
+<div class="curve c1"></div><div class="curve c2"></div>
+<div class="wrap">
+  <div class="top"><div class="ttl"><small>יסודות מנצחים</small><h1>המבחן המסכם</h1><i></i></div><img src="media/logo.png" alt="" onerror="this.style.display='none'"></div>
+  <div id="root"></div>
+</div>
 
-    if (!event.changedTouches.length) return;
+<script>
+/* ===== עזרים ===== */
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const norm = s => String(s || '').replace(/[״"'׳`.,:;!?()\-–־]/g, ' ').replace(/\s+/g, ' ').trim();
+const shuffle = a => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+const seeded = (arr, seed) => {
+  arr = arr.slice();
+  let s = seed * 9301 + 49297;
+  const rnd = () => (s = (s * 9301 + 49297) % 233280) / 233280;
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(rnd() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+};
+/* ===== בנק השאלות ===== */
+/* open: slots = סעיפים נדרשים; כל סעיף = רשימת חלופות; כל חלופה = מילים שחייבות להופיע */
+const QUESTIONS = [
+ { n:1, type:'open', text:'מהם הראשי תיבות של התל״ב?', fields:1, grid:true,
+   slots:[{alts:[['תקן','איכות','הדרכה']]}], answer:'תקן לאיכות בהדרכה', bank:['תקן לאיכות בהדרכה','תקן לאיכות הכשרה','תו לאיכות בהדרכה','תקן לניהול הדרכה'], },
 
-    touchStartY =
-        event.changedTouches[0].clientY;
-});
+ { n:2, type:'multi', pick:5, text:'מהם סוגי הסיכומים העיתיים שחייבים לקרות במהלך ההכשרה?',
+   good:['סיכום יומי','סיכום שבועי','סיכום לשבועות עצימים','סיכום אמצע מחזור','סטטוס הסמכות'],
+   bad:['סיכום חודשי','סיכום רבעוני','סיכום חציוני'] },
 
+ { n:3, type:'open', text:'באילו תחומים הסיכומים העיתיים צריכים לגעת?', fields:4,
+   hint:'כתבו תחום אחד בכל שורה.',
+   slots:[{alts:[['סביבה']]},{alts:[['חניכ']]},{alts:[['סגל']]},{alts:[['הכשרה'],['תוכנית']]}],
+   answer:'סביבה, חניכים, סגל והכשרה', bank:['סביבה','חניכים','סגל','תוכנית ההכשרה','תקציב','לוגיסטיקה','ציוד'], },
 
-window.addEventListener("touchend", (event) => {
+ { n:4, type:'mcq', text:'הערכת החניכים מתבצעת על ידי מבחנים עיוניים, מעשיים ותרגולים. מה תהיה החלוקה הנכונה?',
+   good:'70%:30% מבחנים מעשיים יותר',
+   bad:['50%:50%','70%:30% מבחנים עיוניים יותר','60%:40% מבחנים עיוניים יותר'] },
 
-    if (hasScrolled) return;
-    if (!event.changedTouches.length) return;
+ { n:5, type:'tf', text:'סמנו לכל אחד מהמשפטים האם הוא נכון או לא נכון:',
+   items:[
+    {t:'החייל חייב לדעת את ציון הסף שלו.', v:true},
+    {t:'ציון של מבחן עיוני או מעשי ינתן עד שבוע מיום הבחינה.', v:true},
+    {t:'חייל הניגש למועד ג׳ חייב לקבל אישור מ״פ.', v:true}] },
 
-    const touchEndY =
-        event.changedTouches[0].clientY;
+ { n:6, type:'fill', text:'השלימו את המשפט בעזרת מחסן המילים:',
+   parts:['חניך מתקשה הוא מי שאינו עומד ב',0,' להכשרה בהיבט ',1,' או ',2,'.'],
+   words:['תנאי הסף','לימודי','נורמטיבי'], extra:['משמעתי','פיזי','רפואי'] },
 
-    if (touchStartY - touchEndY > 30) {
+ { n:7, type:'open', text:'מה תכלול תוכנית אישית לחניך מתקשה?', fields:2,
+   hint:'כתבו שני פריטים, אחד בכל שורה.',
+   slots:[{alts:[['קושי'],['תחומ']]},{alts:[['יעד']]}],
+   answer:'פירוט התחומים בהם יתבטא הקושי של החניך והגדרת יעדים אישיים בהתאם לקשיים שלו' , bank:['פירוט התחומים בהם יתבטא הקושי','הגדרת יעדים אישיים','ציוני הסף של החניך','חוות דעת מפקד','רשימת ציוד לחניך'],},
 
-        hasScrolled = true;
+ { n:8, type:'mcq', text:'התוכנית האישית לחניך המתקשה תוצג לחייל בשיחת מפקד ישיר. כל כמה זמן תהיה שיחת המשך?',
+   good:'כל שבועיים', bad:['כל שבוע','כל שלושה שבועות','כל חודש'] },
 
-        if (
-            window.location.pathname.includes(
-                "openPage"
-            )
-        ) {
+ { n:9, type:'fill', text:'מתי ועדת הערכה תתקיים? השלימו את המשפט:',
+   parts:['ועדת הערכה תתקיים כשקיים ',0,' לגבי התאמתו של החניך ',1,' ולאחר שבוצעו כל ',2,' לעזור לו ',3,'.'],
+   words:['חשש','לתפקיד','הניסיונות','להשתפר'], extra:['ודאות','למסגרת','ההמלצות'] },
 
-            window.location.href =
-                "categoriesPage.html";
-        }
-    }
-});
+ { n:10, type:'tf', text:'סמנו לכל אחד מהמשפטים האם הוא נכון או לא נכון:',
+   items:[
+    {t:'עיתוי להעלאת חניך לוועדת הערכה יהיה לפני שעברו 80% מהתכנים המחייבים.', v:true},
+    {t:'החניך יקבל התראה של 3 ימים לפני הוועדה.', v:true},
+    {t:'השיחה תהיה מתועדת וחתומה בתיק האישי של החניך.', v:true},
+    {t:'השיחה עם המפקד תכלול הסבר מפורט של הסיבות לוועדת הערכה.', v:true}] },
 
+ { n:11, type:'open', text:'מהן העילות להעלאת חניך לוועדת הערכה?', fields:3,
+   hint:'כתבו עילה אחת בכל שורה.',
+   slots:[{alts:[['הפסד'],['ימי','הכשרה']]},{alts:[['אירוע'],['ערכי'],['נורמטיבי'],['משמעת']]},{alts:[['ציונ','סף'],['עמיד'],['סף']]}],
+   answer:'הפסד ימי הכשרה ע״פ תיק יסוד · אירוע ערכי / נורמטיבי / משמעתי · אי עמידה בציוני הסף' , bank:['הפסד ימי הכשרה','אירוע ערכי / נורמטיבי / משמעתי','אי עמידה בציוני הסף','בקשה אישית של החניך','המלצת רופא','גיל החניך'],},
 
-/* =========================
-   DROPDOWN
-========================= */
+ { n:12, type:'multi', pick:5, text:'מהם הקריטריונים לחניך מצטיין?',
+   good:['ציון סופי מעל 80','חוות דעת מפקד בולטת לחיוב','ללא אירועי משמעת חמורים','סוציומטרי עמיתים גבוה','תכונות אופי המעידות על חתירה למצוינות, יוזמה, התמדה ורעות'],
+   bad:['ציון סופי מעל 60','המלצת מ״פ בלבד, ללא חוות דעת נוספות','השתתפות בכל טקסי היחידה'] },
 
-const toggleDropdown = () => {
+ { n:13, type:'multi', pick:5, text:'מהם הקריטריונים לחניך למופת?',
+   good:['חוות דעת מפקד בולטת לחיוב','ללא אירועי משמעת חמורים','סוציומטרי עמיתים גבוה','תכונות אופי המעידות על השקעה ויוזמה','תכונות אופי המעידות על התמדה, למידה, השתפרות ורעות'],
+   bad:['ציון סופי מעל 80','מקום בעשירון העליון בציון היחסי','עמידה בכל המבחנים במועד א׳'] },
 
-    const dropdown =
-        document.getElementById("dropdownMenu");
+ /* ----- שאלות למסו״לים בלבד ----- */
+ { n:14, type:'mcq', text:'מה כוללת העברת מקל?',
+   good:'פרטים אישיים, מידע מקצועי, מידע אודות נורמות וערכים, ונתונים נוספים כגון סוגיות ת״ש, רפואה, בה״ר ע״פ שיקול דעת של מג״ד או רע״ן',
+   bad:['פרטים אישיים ומידע מקצועי בלבד','ציוני מבחנים ותוצאות כש״ג בלבד','מידע אישי ותוכנית חניכה להמשך שירותו של החייל'] },
 
-    if (dropdown) {
+ { n:15, type:'tf', text:'איך מתבצעת העברת מקל? סמנו לכל משפט האם הוא נכון או לא נכון:',
+   items:[
+    {t:'בהכשרות שמשכן פחות מ־4 חודשים, העברת המקל תתבצע על ידי שליחת דו״ח ליחידה הקולטת, בליווי שיח מ״פים על חיילים חריגים.', v:true},
+    {t:'בהכשרות שמשכן 16 שבועות ומעלה, העברת המקל תתבצע על ידי שיחה פיזית או טלפונית בדרג של מ״פ מול מ״פ.', v:true},
+    {t:'באחריות המ״פ או מקבילו לוודא שנתוני העברת המקל הגיעו למ״פ הקולט.', v:true}] }
+];
 
-        dropdown.classList.toggle("open");
-    }
+const TRACKS = {
+  masol: { title:'מסו״לים', max:15 },
+  mafkatz: { title:'מפק״צים ומפל״גים', max:13 }
 };
 
-
-/* =========================
-   OPEN SUBCHAPTER
-========================= */
-
-const getSubchapterPage = (chapter) => {
-
-    const n = chapter.replace(".", "");
-
-    return (
-        document.getElementById("subchapterNew" + n + "Page") ||
-        document.getElementById("subchapter" + n + "Page")
-    );
-};
-
-/* קישור למבחן המסכם – להחליף בכתובת האמיתית של המבחן */
-const FINAL_EXAM_URL = "examPage.html";
-
-const LAST_SUB = { 1: 11, 2: 4, 3: 8, 4: 5, 5: 3 };
- 
-// האם תת-פרק c.n הושלם
-const isSubDone = (user, c, n) =>
-    user?.subchapters?.[`chapter${c}`]?.[`${c}.${n}`] === 100;
- 
-// תת-פרק נפתח רק אחרי השלמת הקודם. 1.1 תמיד פתוח.
-// תת-פרק ראשון בפרק (2.1, 3.1...) נפתח אחרי השלמת התת-פרק האחרון בפרק הקודם.
-const isSubchapterUnlocked = (user, c, n) => {
- 
-    if (c === 1 && n === 1) return true;
- 
-    if (n === 1) return isSubDone(user, c - 1, LAST_SUB[c - 1]);
- 
-    return isSubDone(user, c, n - 1);
-};
-
-const openSubchapter = (chapter) => {
- 
-    const user = JSON.parse(localStorage.getItem("user"));
- 
-    const [c, n] = chapter.split(".").map(Number);
- 
- 
-    const page = getSubchapterPage(chapter);
- 
-    if (!page) return;
- 
-    page.classList.add("show");
-    page.scrollTop = 0;
-    document.body.style.overflow = "hidden";
-    window.scrollTo({ top: 0, behavior: "auto" });
-};
-
-/* =========================
-   CLOSE 1.1
-========================= */
-
-const closeSubchapter = () => {
-
-    const page =
-        document.getElementById(
-            "subchapterPage"
-        );
-
-    if (!page) return;
-
-    page.classList.remove("show");
-
-    document.body.style.overflow = "";
-};
-
-
-/* =========================
-   FINISH 1.1
-========================= */
-
-const finishSubchapter = () => {
-
-    // אין יותר הרשמה, לכן אם אין עדיין אובייקט משתמש - יוצרים אחד חדש
-    const user = JSON.parse(
-        localStorage.getItem("user")
-    ) || {};
-
-    if (!user.chapters) {
-        user.chapters = {};
-    }
-
-    if (!user.chapters.chapter1) {
-        user.chapters.chapter1 = {
-            video: false,
-            practice: false
-        };
-    }
-
-    if (!user.subchapters) {
-        user.subchapters = {};
-    }
-
-    if (!user.subchapters.chapter1) {
-        user.subchapters.chapter1 = {};
-    }
-
-    // סימון תת-פרק 1.1 כהושלם
-    user.subchapters.chapter1["1.1"] = 100;
-
-    // שמירה על מנגנון ההתקדמות הקיים
-    user.chapters.chapter1.practice = true;
-
-    // עדכון ההתקדמות הכללית
-    updateUserProgress(user);
-
-    // סימון תת-פרק 1.2 כתת-הפרק הבא שנפתח
-    sessionStorage.setItem(
-        "newlyUnlockedSubchapter",
-        "1.2"
-    );
-
-    // שמירת כל הנתונים לפני המעבר
-    localStorage.setItem(
-        "user",
-        JSON.stringify(user)
-    );
-
-    closeSubchapter();
-
-    // חזרה לרשימת תתי-הפרקים
-    window.location.href = "categoriesPage.html";
-};
-
-
-/* =========================
-   VIDEO
-========================= */
-
-const openVideo = (event) => {
-
-    if (event) {
-
-        event.stopPropagation();
-    }
-
-
-    const videoModal =
-        document.getElementById(
-            "videoModal"
-        );
-
-    const youtubeVideo =
-        document.getElementById(
-            "youtubeVideo"
-        );
-
-
-    if (!videoModal || !youtubeVideo) {
-
-        console.log(
-            "חלון הסרטון לא נמצא ב-HTML"
-        );
-
-        return;
-    }
-
-
-    youtubeVideo.src =
-        "https://www.youtube.com/embed/ucrmCmw2Yic?autoplay=1";
-
-
-    videoModal.classList.add("show");
-
-
-    const user =
-        JSON.parse(
-            localStorage.getItem("user")
-        );
-
-
-    if (
-        user &&
-        user.chapters &&
-        user.chapters.chapter4
-    ) {
-
-        user.chapters.chapter4.video =
-            true;
-
-        updateUserProgress(user);
-
-
-        localStorage.setItem(
-            "user",
-            JSON.stringify(user)
-        );
-    }
-};
-
-
-const closeVideo = () => {
-
-    const videoModal =
-        document.getElementById(
-            "videoModal"
-        );
-
-    const youtubeVideo =
-        document.getElementById(
-            "youtubeVideo"
-        );
-
-
-    if (videoModal) {
-
-        videoModal.classList.remove(
-            "show"
-        );
-    }
-
-
-    if (youtubeVideo) {
-
-        youtubeVideo.src = "";
-    }
-};
-
-
-/* =========================
-   REGISTER
-========================= */
-
-const registerUser = async () => {
-
-    const fullName =
-        document.getElementById(
-            "fullName"
-        )?.value;
-
-    const personalNumber =
-        document.getElementById(
-            "personalNumber"
-        )?.value;
-
-    const verifyNumber =
-        document.getElementById(
-            "verifyNumber"
-        )?.value;
-
-    const rank =
-        document.getElementById(
-            "rank"
-        )?.value;
-
-
-    if (
-        !fullName ||
-        !personalNumber ||
-        !verifyNumber ||
-        !rank
-    ) {
-
-        alert(
-            "יש למלא את כל השדות"
-        );
-
-        return;
-    }
-
-
-    if (
-        personalNumber !== verifyNumber
-    ) {
-
-        alert(
-            "המספרים האישיים אינם תואמים"
-        );
-
-        return;
-    }
-
-
-    const user = {
-
-        fullName,
-
-        personalNumber,
-
-        rank,
-
-        isAdmin:
-            personalNumber === "9598269",
-
-        totalProgress: 0,
-
-
-        chapters: {
-
-            chapter1: {
-                video: false,
-                practice: false
-            },
-
-            chapter2: {
-                video: false,
-                practice: false
-            },
-
-            chapter3: {
-                video: false,
-                practice: false
-            },
-
-            chapter4: {
-                video: false,
-                practice: false
-            },
-
-            chapter5: {
-                video: false,
-                practice: false
-            }
-        },
-
-
-        subchapters: {
-
-            chapter1: {}
-        }
-    };
-
-
-    localStorage.setItem(
-        "user",
-        JSON.stringify(user)
-    );
-
-
-    try {
-
-        if (
-            typeof setDoc === "function" &&
-            typeof doc === "function" &&
-            typeof db !== "undefined"
-        ) {
-
-            await setDoc(
-
-                doc(
-                    db,
-                    "users",
-                    personalNumber
-                ),
-
-                user
-            );
-        }
-
-    } catch (error) {
-
-        console.log(error);
-
-        alert(
-            "אירעה שגיאה בשמירת המשתמש"
-        );
-
-        return;
-    }
-
-
-    alert(
-        "ההרשמה בוצעה בהצלחה"
-    );
-
-
-    window.location.href =
-        "loginPage.html";
-};
-
-
-/* =========================
-   LOGIN
-========================= */
-
-const loginUser = () => {
-
-    const loginName =
-        document.getElementById(
-            "loginName"
-        )?.value;
-
-    const loginNumber =
-        document.getElementById(
-            "loginNumber"
-        )?.value;
-
-
-    const savedUser =
-        JSON.parse(
-            localStorage.getItem("user")
-        );
-
-
-    if (!savedUser) {
-
-        alert(
-            "לא נמצא משתמש רשום"
-        );
-
-        return;
-    }
-
-
-    if (
-        loginName === savedUser.fullName &&
-        loginNumber ===
-            savedUser.personalNumber
-    ) {
-
-        localStorage.setItem(
-            "loggedIn",
-            "true"
-        );
-
-
-        if (savedUser.isAdmin) {
-
-            window.location.href =
-                "adminPage.html";
-
-        } else {
-
-            window.location.href =
-                "openPage.html";
-        }
-
-    } else {
-
-        alert(
-            "פרטים שגויים"
-        );
-    }
-};
-
-
-/* =========================
-   REGISTER PAGE LINK
-========================= */
-
-const goToRegister = () => {
-
-    window.location.href =
-        "registerPage.html";
-};
-
-
-/* =========================
-   SHOW USER
-========================= */
-
-const helloText =
-    document.getElementById(
-        "helloText"
-    );
-
-
-if (helloText) {
-
-    const user =
-        JSON.parse(
-            localStorage.getItem("user")
-        );
-
-
-    if (user) {
-
-        helloText.innerHTML =
-            `👋 שלום ${user.rank} ${user.fullName}`;
-    }
+/* ===== מצב ===== */
+let list = [], idx = 0, ans = [], track = null, finished = false;
+const root = document.getElementById('root');
+
+function start(key){
+  track = key;
+  list = QUESTIONS.filter(q => q.n <= TRACKS[key].max).map(q => {
+    const c = JSON.parse(JSON.stringify(q));
+    if (c.type === 'mcq') c.opts = shuffle([c.good, ...c.bad]);
+    if (c.type === 'multi') c.opts = shuffle([...c.good, ...c.bad]);
+if (c.type === 'fill') c.bank = shuffle([...c.words, ...c.extra]);
+if (c.type === 'open' && c.bank) c.chips = c.bank;
+return c;
+  });
+  ans = list.map(q => {
+    if (q.type === 'open') return Array(q.fields).fill('');
+    if (q.type === 'multi') return [];
+    if (q.type === 'mcq') return null;
+    if (q.type === 'tf') return Array(q.items.length).fill(null);
+    if (q.type === 'fill') return Array(q.words.length).fill(null);
+  });
+  idx = 0; finished = false; activeBlank = 0;
+  render();
 }
 
+let activeBlank = 0;
 
-/* =========================
-   CHAPTER PROGRESS
-========================= */
-
-const getChapterProgress = (chapter) => {
-
-    if (!chapter) return 0;
-
-    let progress = 0;
-
-
-    if (chapter.video) {
-
-        progress += 50;
-    }
-
-
-    if (chapter.practice) {
-
-        progress += 50;
-    }
-
-
-    return progress;
+/* ===== הצגה ===== */
+const svg = p => `<svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${p}</svg>`;
+const IC = {
+  masol: svg('<path d="M6 10l6-5 6 5"/><path d="M6 15l6-5 6 5"/><path d="M6 20l6-5 6 5"/>'),
+  mafkatz: svg('<rect x="6" y="4" width="12" height="17" rx="2"/><path d="M9 4h6v3H9z"/><path d="M9 12h6M9 16h6"/>')
 };
-
-
-/* =========================
-   TOTAL PROGRESS
-========================= */
-
-const updateUserProgress = (user) => {
-
-    if (
-        !user ||
-        !user.chapters
-    ) {
-
-        return;
-    }
-
-
-    let total = 0;
-
-
-    for (let i = 1; i <= 5; i++) {
-
-        total +=
-            getChapterProgress(
-                user.chapters[
-                    `chapter${i}`
-                ]
-            );
-    }
-
-
-    user.totalProgress =
-        Math.round(
-            total / 5
-        );
-};
-
-
-/* =========================
-   OPEN CHAPTERS
-========================= */
-
-const updateChapters = () => {
-
-    const user =
-        JSON.parse(
-            localStorage.getItem("user")
-        );
-
-
-    if (
-        !user ||
-        !user.chapters
-    ) {
-
-        return;
-    }
-
-
-    for (let i = 2; i <= 5; i++) {
-
-        const previous =
-            user.chapters[
-                `chapter${i - 1}`
-            ];
-
-
-        const current =
-            document.getElementById(
-                `chapter${i}`
-            );
-
-
-        if (!current) continue;
-
-
-        if (
-            getChapterProgress(
-                previous
-            ) === 100
-        ) {
-
-            current.classList.remove(
-                "locked"
-            );
-        }
-    }
-};
-
-
-/* =========================
-   SHOW TOTAL PROGRESS
-========================= */
-
-const refreshProgressUI = () => {
-
-    const user =
-        JSON.parse(
-            localStorage.getItem("user")
-        );
-
-
-    if (!user) return;
-
-
-    updateUserProgress(user);
-
-
-    localStorage.setItem(
-        "user",
-        JSON.stringify(user)
-    );
-
-
-    const progressRing =
-        document.getElementById(
-            "progressRing"
-        );
-
-
-    const totalProgress =
-        document.getElementById(
-            "totalProgress"
-        );
-
-
-    const progressDescription =
-        document.getElementById(
-            "progressDescription"
-        );
-
-
-    if (progressRing) {
-
-        progressRing.style.background =
-            `conic-gradient(
-                #9BCB5A 0% ${user.totalProgress}%,
-                #475247 ${user.totalProgress}% 100%
-            )`;
-    }
-
-
-    if (totalProgress) {
-
-        totalProgress.innerHTML =
-            `${user.totalProgress}%`;
-    }
-
-
-    if (progressDescription) {
-
-        if (
-            user.totalProgress === 0
-        ) {
-
-            progressDescription.innerHTML =
-                "ברוכים הבאים! התחילו את הפרק הראשון";
-
-        } else if (
-            user.totalProgress < 50
-        ) {
-
-            progressDescription.innerHTML =
-                "התחלה מצוינת, המשיכו כך";
-
-        } else if (
-            user.totalProgress < 100
-        ) {
-
-            progressDescription.innerHTML =
-                "כל הכבוד! אתם מתקדמים יפה";
-
-        } else {
-
-            progressDescription.innerHTML =
-                "סיימתם את כל התוכן בהצלחה";
-        }
-    }
-};
-
-
-/* =========================
-   CHAPTER UI
-========================= */
-
-const refreshChaptersUI = () => {
-
-    const user =
-        JSON.parse(
-            localStorage.getItem("user")
-        );
-
-
-    if (
-        !user ||
-        !user.chapters
-    ) {
-
-        return;
-    }
-
-
-    for (let i = 1; i <= 5; i++) {
-
-        const chapter =
-            user.chapters[
-                `chapter${i}`
-            ];
-
-
-        if (!chapter) continue;
-
-
-        const progress =
-            getChapterProgress(
-                chapter
-            );
-
-
-        const fill =
-            document.getElementById(
-                `chapter${i}Fill`
-            );
-
-
-        const text =
-            document.getElementById(
-                `chapter${i}Text`
-            );
-
-
-        const card =
-            document.getElementById(
-                `chapter${i}`
-            );
-
-
-        let unlocked = false;
-
-
-        if (i === 1) {
-
-            unlocked = true;
-
-        } else {
-
-            const previous =
-                user.chapters[
-                    `chapter${i - 1}`
-                ];
-
-
-            unlocked =
-                getChapterProgress(
-                    previous
-                ) === 100;
-        }
-
-
-        if (card) {
-
-            if (unlocked) {
-
-                card.classList.remove(
-                    "locked"
-                );
-
-            } else {
-
-                card.classList.add(
-                    "locked"
-                );
-            }
-        }
-
-
-        if (fill) {
-
-            fill.style.width =
-                `${progress}%`;
-        }
-
-
-        if (text) {
-
-            if (unlocked) {
-
-                text.innerHTML =
-                    `${progress}% הושלם`;
-
-            } else {
-
-                text.innerHTML =
-                    "🔒 טרם נפתח";
-            }
-        }
-    }
-};
-
-
-/* =========================
-   SUBCHAPTER PROGRESS
-========================= */
-
-const refreshSubchaptersUI = () => {
-
-    const user = JSON.parse(localStorage.getItem("user")) || {};
-
-    if (!user.subchapters) user.subchapters = {};
-
-    const newlyUnlocked = sessionStorage.getItem("newlyUnlockedSubchapter");
-
-    Object.keys(LAST_SUB).forEach((key) => {
-
-        const c = Number(key);
-
-        const chapterData = user.subchapters[`chapter${c}`] || {};
-
-        for (let i = 1; i <= LAST_SUB[c]; i++) {
-
-            const card = document.querySelector(
-                `[data-chapter="${c}"][data-subchapter="${i}"]`
-            );
-
-            if (!card) continue;
-
-            const progressElement = card.querySelector(".subchapter-progress");
-            const lockedStatus = card.querySelector(".locked-status");
-
-            const isCompleted = chapterData[`${c}.${i}`] === 100;
-
-            card.classList.remove("locked");
-            card.classList.add("available");
-
-            if (lockedStatus) lockedStatus.remove();
-
-            if (progressElement) {
-                progressElement.textContent = isCompleted
-                    ? "100% הושלם"
-                    : "טרם הושלם";
-                progressElement.style.display = "";
-                progressElement.style.visibility = "visible";
-            }
-
-            // ההבזק על תת־פרק שנפתח כבר לא רלוונטי, אבל מנקים את הדגל
-            if (newlyUnlocked === `${c}.${i}`) {
-                sessionStorage.removeItem("newlyUnlockedSubchapter");
-            }
-        }
+const TYPE_LABEL = { open:'שאלה פתוחה', multi:'בחירה מרובה', mcq:'שאלה אמריקאית', tf:'נכון / לא נכון', fill:'השלמה' };
+const LET = ['א','ב','ג','ד','ה','ו','ז','ח'];
+let animate = true;
+
+function render(){
+  if (!track) return renderStart();
+  if (finished) return renderResult();
+  const q = list[idx], a = ans[idx];
+  let body = '';
+if (q.type === 'open'){
+  body = `<div class="hint">${q.hint ? esc(q.hint)+' · ' : ''}אפשר לכתוב בחופשיות או לבחור תשובות ממאגר התשובות.</div>` +
+    a.map((v,i)=>`<input class="txt" data-i="${i}" placeholder="${q.fields>1 ? 'תשובה '+(i+1) : 'התשובה שלך'}" value="${esc(v)}">`).join('') +
+(q.chips ? `<div class="bank ${q.grid ? 'grid2' : ''}">${q.chips.map(w=>`<button class="chip ${a.includes(w)?'used':''}" data-act="obank" data-w="${esc(w)}">${esc(w)}</button>`).join('')}</div>` : '');  } else if (q.type === 'multi'){
+    body = `<div class="hint">בחרו בדיוק ${q.pick} תשובות · נבחרו <b>${a.length}</b> מתוך ${q.pick}</div><div class="opts">` +
+      q.opts.map((o,i)=>`<button class="opt multi ${a.includes(i)?'sel':''}" data-act="multi" data-i="${i}"><span class="let"><span>${LET[i]}</span></span><span>${esc(o)}</span></button>`).join('') + '</div>';
+  } else if (q.type === 'mcq'){
+    body = '<div class="opts">' + q.opts.map((o,i)=>`<button class="opt ${a===i?'sel':''}" data-act="mcq" data-i="${i}"><span class="let"><span>${LET[i]}</span></span><span>${esc(o)}</span></button>`).join('') + '</div>';
+  } else if (q.type === 'tf'){
+    body = q.items.map((it,i)=>`<div class="tfrow"><p>${esc(it.t)}</p><div class="tfbtns">
+      <button class="tfbtn y ${a[i]===true?'sel':''}" data-act="tf" data-i="${i}" data-v="1">נכון</button>
+      <button class="tfbtn n ${a[i]===false?'sel':''}" data-act="tf" data-i="${i}" data-v="0">לא נכון</button></div></div>`).join('');
+  } else if (q.type === 'fill'){
+    const sent = q.parts.map(p => typeof p === 'number'
+      ? `<button class="blank ${a[p]?'filled':''} ${activeBlank===p&&!a[p]?'act':''}" data-act="blank" data-i="${p}">${a[p] ? esc(a[p]) : '＿＿＿'}</button>`
+      : esc(p)).join('');
+    body = `<div class="sentence">${sent}</div><div class="hint">לחצו על מילה כדי למלא את החסר. לחיצה על מילה שמולאה מחזירה אותה למחסן.</div>
+      <div class="bank">${q.bank.map(w=>`<button class="chip ${a.includes(w)?'used':''}" data-act="bank" data-w="${esc(w)}">${esc(w)}</button>`).join('')}</div>`;
+  }
+  const steps = list.map((x,i)=>`<i class="${i===idx?'cur':complete(x,ans[i])?'done':''}"></i>`).join('');
+  root.innerHTML = `
+   <div class="steps">${steps}</div>
+   <div class="count"><span>שאלה ${idx+1} מתוך ${list.length}</span><span>${TRACKS[track].title}</span></div>
+   <div class="card ${animate?'enter':''}"><div class="qhead"><div class="qnum">${q.n}</div><span class="qtype">${TYPE_LABEL[q.type]}</span></div>
+   <div class="qtext">${esc(q.text)}</div>${body}
+   <div class="err" id="err"></div></div>
+   <div class="nav">${idx>0?'<button class="btn ghost" data-act="prev">הקודמת</button>':''}
+   <button class="btn dark" data-act="next">${idx===list.length-1?'סיום והגשה':'לשאלה הבאה'}</button></div>`;
+  animate = false;
+}
+
+function renderStart(){
+  root.innerHTML = `<div class="card enter"><div class="hero"><div class="seal">★</div>
+   <h2>מוכנים למבחן המסכם?</h2>
+   <p>בחרו את המסלול המתאים לתפקיד שלכם.<br>אפשר לחזור לשאלה הקודמת ולשנות תשובה עד ההגשה.</p></div>
+   <div class="tracks">
+   <button class="track" data-act="track" data-k="masol"><div class="ic">${IC.masol}</div><div><b>מסו״לים</b><span>המסלול המלא</span></div><em>15 שאלות</em></button>
+   <button class="track alt" data-act="track" data-k="mafkatz"><div class="ic">${IC.mafkatz}</div><div><b>מפק״צים ומפל״גים</b><span>מסלול לסגל ההכשרה</span></div><em>13 שאלות</em></button></div></div>
+   <a class="back" href="categoriesPage.html">חזרה לרשימת הפרקים</a>`;
+}
+
+/* ===== בדיקה ===== */
+function slotMatched(slot, texts){
+  return texts.some(t => { const n = norm(t); return slot.alts.some(words => words.every(w => n.includes(w))); });
+}
+function grade(q, a){
+  if (q.type === 'open'){
+    const used = new Set(); let ok = true;
+    q.slots.forEach(slot => {
+      let found = -1;
+      a.forEach((t,i)=>{ if (found<0 && !used.has(i) && slotMatched(slot,[t])) found = i; });
+      if (found<0) ok = false; else used.add(found);
     });
-};
+    return ok;
+  }
+  if (q.type === 'multi'){
+    return a.length === q.pick && a.every(i => q.good.includes(q.opts[i]));
+  }
+  if (q.type === 'mcq') return a !== null && q.opts[a] === q.good;
+  if (q.type === 'tf') return a.every((v,i)=> v === q.items[i].v);
+  if (q.type === 'fill'){
+    const order = q.parts.filter(p => typeof p === 'number');
+    return order.every(p => a[p] === q.words[p]);
+  }
+}
+function complete(q, a){
+  if (q.type === 'open') return a.every(t => t.trim());
+  if (q.type === 'multi') return a.length === q.pick;
+  if (q.type === 'mcq') return a !== null;
+  if (q.type === 'tf') return a.every(v => v !== null);
+  if (q.type === 'fill') return a.every(v => v);
+}
+function correctText(q){
+  if (q.type === 'open') return q.answer;
+  if (q.type === 'multi') return q.good.join(' · ');
+  if (q.type === 'mcq') return q.good;
+  if (q.type === 'tf') return q.items.map(i=>`${i.t} ← ${i.v?'נכון':'לא נכון'}`).join('<br>');
+  if (q.type === 'fill') return q.parts.map(p => typeof p === 'number' ? `<b>${esc(q.words[p])}</b>` : esc(p)).join('');
+}
+function userText(q, a){
+  if (q.type === 'open') return a.filter(t=>t.trim()).map(esc).join(' · ') || '—';
+  if (q.type === 'multi') return a.map(i=>esc(q.opts[i])).join(' · ') || '—';
+  if (q.type === 'mcq') return a===null ? '—' : esc(q.opts[a]);
+  if (q.type === 'tf') return a.map((v,i)=>`${esc(q.items[i].t)} ← ${v===null?'—':v?'נכון':'לא נכון'}`).join('<br>');
+  if (q.type === 'fill') return q.parts.map(p => typeof p === 'number' ? `<b>${esc(a[p]||'＿＿')}</b>` : esc(p)).join('');
+}
 
+function renderResult(){
+  const results = list.map((q,i)=>grade(q, ans[i]));
+  const score = results.filter(Boolean).length;
+  const pct = Math.round(score/list.length*100);
+  try {
+    const u = JSON.parse(localStorage.getItem('user')) || {};
+    u.finalExam = { track, score, total:list.length, percent:pct, date:new Date().toISOString() };
+    localStorage.setItem('user', JSON.stringify(u));
+  } catch(e){}
+  const wrong = list.map((q,i)=>({q,i})).filter(o=>!results[o.i]);
+  const msg = pct>=90 ? ['מצוין! שליטה מלאה בתקן','כל הכבוד על ההשקעה והלמידה.']
+            : pct>=70 ? ['כל הכבוד!','כמעט שם. שווה לעבור על השאלות שלמטה.']
+            : ['יש לאן להתקדם','כדאי לחזור על הפרקים הרלוונטיים ולנסות שוב.'];
+  root.innerHTML = `<div class="card enter"><div class="score">
+    <span class="qtype">${TRACKS[track].title}</span>
+    <div class="ring" id="ring"><div><span id="pctn">0%</span><small>${score} מתוך ${list.length}</small></div></div>
+    <h2>${msg[0]}</h2><p>${msg[1]}</p></div></div>
+    ${wrong.map(({q,i})=>`<div class="rev"><h4><b>${q.n}</b><span>${esc(q.text)}</span></h4>
+      <div class="row u"><span class="lbl">התשובה שלך</span>${userText(q,ans[i])}</div>
+      <div class="row g"><span class="lbl">התשובה הנכונה</span>${correctText(q)}</div></div>`).join('')}
+    <div class="nav"><button class="btn dark" data-act="again">מבחן חדש</button></div>
+    <a class="back" href="categoriesPage.html">חזרה לרשימת הפרקים</a>`;
+  window.scrollTo(0,0);
+  const ring = document.getElementById('ring'), num = document.getElementById('pctn');
+  const t0 = performance.now(), dur = 1200;
+  (function tick(t){
+    const k = Math.min(1,(t-t0)/dur), e = 1-Math.pow(1-k,3), v = Math.round(pct*e);
+    ring.style.setProperty('--p', v); num.textContent = v+'%';
+    if (k<1) requestAnimationFrame(tick);
+  })(t0);
+  if (pct>=80) confetti();
+}
 
-/* =========================
-   MAIN CATEGORY
-========================= */
+function confetti(){
+  const box = document.createElement('div'); box.className='confetti';
+  const cols = ['#d6c19d','#b99a5e','#6f8a5c','#27352a','#8fae78','#e7d6a6'];
+  for (let i=0;i<46;i++){
+    const c = document.createElement('i');
+    c.style.right = Math.random()*100+'%';
+    c.style.background = cols[i%cols.length];
+    c.style.animationDuration = (2.2+Math.random()*2)+'s';
+    c.style.animationDelay = (Math.random()*.8)+'s';
+    box.appendChild(c);
+  }
+  document.body.appendChild(box);
+  setTimeout(()=>box.remove(),5500);
+}
 
-window.toggleMain = function(element) {
-
-    const category =
-        element.closest(
-            ".main-category"
-        );
-
-
-    if (!category) return;
-
-
-    category.classList.toggle(
-        "open"
-    );
-};
-
-
-/* =========================
-   SUBCHAPTER 1.2
-========================= */
-
-
-/* OPEN 1.2 */
-
-const openSubchapter12 = () => {
-
-    const page =
-        document.getElementById(
-            "subchapter12Page"
-        );
-
-
-    if (!page) return;
-
-
-    page.classList.add("show");
-
-
-    document.body.style.overflow =
-        "hidden";
-
-
-    window.scrollTo({
-        top: 0,
-        behavior: "auto"
-    });
-};
-
-
-/* CLOSE 1.2 */
-
-const closeSubchapter12 = () => {
-
-    const page =
-        document.getElementById(
-            "subchapter12Page"
-        );
-
-
-    if (!page) return;
-
-
-    page.classList.remove(
-        "show"
-    );
-
-
-    document.body.style.overflow =
-        "";
-};
-
-
-/* =========================
-   INTERACTIVE CARDS
-========================= */
-
-const toggleLearningCard = (card) => {
-
-    if (!card) return;
-
-    card.classList.toggle("open");
-};
-
-
-/* =========================
-   QUIZ 1.2
-========================= */
-
-const checkAnswer12 = (button, isCorrect) => {
- 
-    const card = button.closest(".quiz-card-12");
- 
-    const answers = card.querySelectorAll(".quiz-answer");
- 
-    const feedback = card.querySelector(".quiz-feedback");
- 
-    answers.forEach((answer) => {
-        answer.disabled = true;
-    });
- 
-    if (isCorrect) {
- 
-        button.classList.add("correct");
- 
-        feedback.innerHTML =
-            "✓ נכון! שעון הפעילות מגדיר את העיתוי של מופעי ניהול ההדרכה המרכזיים בהכשרה.";
- 
-        feedback.style.color = "#687b5b";
- 
-    } else {
- 
-        button.classList.add("wrong");
- 
-        feedback.innerHTML =
-            "לא בדיוק. חפשי את ההגדרה שמתייחסת לעיתוי של מופעי ניהול ההדרכה.";
- 
-        feedback.style.color = "#a06c62";
+/* ===== אירועים ===== */
+root.addEventListener('input', e => {
+  if (e.target.classList.contains('txt')) ans[idx][+e.target.dataset.i] = e.target.value;
+});
+root.addEventListener('click', e => {
+  const el = e.target.closest('[data-act]'); if (!el) return;
+  const act = el.dataset.act, q = list[idx];
+  if (act === 'track'){ animate = true; return start(el.dataset.k); }
+  if (act === 'again'){ track = null; animate = true; return render(); }
+  if (act === 'prev'){ idx--; activeBlank = 0; animate = true; return render(); }
+      if (act === 'obank'){
+      const a = ans[idx], w = el.dataset.w, p = a.indexOf(w);
+      if (p >= 0) a[p] = '';
+      else { const e = a.findIndex(v => !v.trim()); if (e >= 0) a[e] = w; }
+      return render();
     }
-};
-
-
-/* =========================
-   FINISH 1.2
-========================= */
-
-const finishSubchapter12 = () => {
-
-    const user =
-        JSON.parse(
-            localStorage.getItem("user")
-        ) || {};
-
-
-    if (!user.subchapters) {
-
-        user.subchapters = {};
+  if (act === 'next'){
+    if (!complete(q, ans[idx])){
+      document.getElementById('err').textContent =
+        q.type==='multi' ? `יש לבחור בדיוק ${q.pick} תשובות.` :
+        q.type==='open' ? 'יש למלא את כל השורות.' : 'יש לענות לפני שממשיכים.';
+      const cd = document.querySelector('.card'); cd.classList.remove('shake'); void cd.offsetWidth; cd.classList.add('shake');
+      return;
     }
-
-
-    if (!user.subchapters.chapter1) {
-
-        user.subchapters.chapter1 = {};
-    }
-
-
-    /* =========================
-       1.2 הושלם
-    ========================= */
-
-    user.subchapters.chapter1["1.2"] =
-        100;
-
-
-    /* =========================
-       1.3 נפתח עכשיו
-    ========================= */
-
-    sessionStorage.setItem(
-        "newlyUnlockedSubchapter",
-        "1.3"
-    );
-
-
-    /* שמירה */
-
-    localStorage.setItem(
-        "user",
-        JSON.stringify(user)
-    );
-
-
-    closeSubchapter12();
-
-
-    window.location.href =
-        "categoriesPage.html";
-};
-
-
-/* =========================
-   SUBCHAPTER 1.3
-========================= */
-
-
-/* CLOSE 1.3 */
-
-const closeSubchapter13 = () => {
-
-    const page =
-        document.getElementById(
-            "subchapter13Page"
-        );
-
-
-    if (!page) return;
-
-
-    page.classList.remove(
-        "show"
-    );
-
-
-    document.body.style.overflow =
-        "";
-};
-
-/* =========================
-   CLOSE 1.4
-========================= */
-
-const closeSubchapter14 = () => {
-
-    const page =
-        document.getElementById(
-            "subchapter14Page"
-        );
-
-    if (!page) return;
-
-    page.classList.remove("show");
-
-    document.body.style.overflow = "";
-};
-
-/* =========================
-   CLOSE 1.5
-========================= */
-
-const closeSubchapter15 = () => {
-
-    const page =
-        document.getElementById(
-            "subchapter15Page"
-        );
-
-    if (!page) return;
-
-    page.classList.remove("show");
-
-    document.body.style.overflow = "";
-};
-
-
-/* CLOSE – 1.6 עד 1.11 */
-const closeSubchapterPage = (chapter) => {
-
-    const page = getSubchapterPage(chapter);
-
-    if (!page) return;
-
-    // עוצר סרטונים מוטמעים בעת סגירת העמוד
-    page.querySelectorAll(".video-embed iframe").forEach((frame) => {
-        const src = frame.src;
-        frame.src = "";
-        frame.src = src;
-    });
-
-    page.classList.remove("show");
-    document.body.style.overflow = "";
-};
-
-
-
-/* FINISH 1.3 */
-
-const finishSubchapter13 = () => {
-
-    const user =
-        JSON.parse(
-            localStorage.getItem("user")
-        ) || {};
-
-
-    if (!user.subchapters) {
-
-        user.subchapters = {};
-    }
-
-
-    if (!user.subchapters.chapter1) {
-
-        user.subchapters.chapter1 = {};
-    }
-
-
-    /* =========================
-       1.3 הושלם
-    ========================= */
-
-    user.subchapters.chapter1["1.3"] =
-        100;
-
-
-    /* =========================
-       1.4 נפתח עכשיו
-    ========================= */
-
-    sessionStorage.setItem(
-        "newlyUnlockedSubchapter",
-        "1.4"
-    );
-
-
-    /* שמירה */
-
-    localStorage.setItem(
-        "user",
-        JSON.stringify(user)
-    );
-
-
-    closeSubchapter13();
-
-
-    window.location.href =
-        "categoriesPage.html";
-};
-
-
-
-/* =========================
-   FINISH 1.4
-========================= */
-
-const finishSubchapter14 = () => {
-
-    const user =
-        JSON.parse(
-            localStorage.getItem("user")
-        ) || {};
-
-    if (!user.subchapters) {
-        user.subchapters = {};
-    }
-
-    if (!user.subchapters.chapter1) {
-        user.subchapters.chapter1 = {};
-    }
-
-    // סימון תת-פרק 1.4 כהושלם
-    user.subchapters.chapter1["1.4"] = 100;
-
-    // סימון תת-פרק 1.5 כתת-הפרק הבא שייפתח
-    sessionStorage.setItem(
-        "newlyUnlockedSubchapter",
-        "1.5"
-    );
-
-    // שמירת ההתקדמות
-    localStorage.setItem(
-        "user",
-        JSON.stringify(user)
-    );
-
-    closeSubchapter14();
-
-    // חזרה לרשימת תתי-הפרקים
-    window.location.href = "categoriesPage.html";
-};
-
-
-/* =========================
-   FINISH 1.5
-========================= */
-
-const finishSubchapter15 = () => {
-
-    const user =
-        JSON.parse(
-            localStorage.getItem("user")
-        ) || {};
-
-    if (!user.subchapters) {
-        user.subchapters = {};
-    }
-
-    if (!user.subchapters.chapter1) {
-        user.subchapters.chapter1 = {};
-    }
-
-    // סימון תת-פרק 1.4 כהושלם
-    user.subchapters.chapter1["1.5"] = 100;
-
-    // סימון תת-פרק 1.6 כתת-הפרק הבא שייפתח
-    sessionStorage.setItem(
-        "newlyUnlockedSubchapter",
-        "1.6"
-    );
-
-    // שמירת ההתקדמות
-    localStorage.setItem(
-        "user",
-        JSON.stringify(user)
-    );
-
-    closeSubchapter15();
-
-    // חזרה לרשימת תתי-הפרקים
-    window.location.href = "categoriesPage.html";
-};
-
-/* FINISH – 1.6 עד 1.11 */
-const finishSubchapterPage = (chapter) => {
- 
-    const user = JSON.parse(localStorage.getItem("user")) || {};
- 
-    const [c, n] = chapter.split(".").map(Number);
- 
-    if (!user.subchapters) user.subchapters = {};
-    if (!user.subchapters[`chapter${c}`]) user.subchapters[`chapter${c}`] = {};
- 
-    // סימון תת-הפרק כהושלם
-    user.subchapters[`chapter${c}`][chapter] = 100;
- 
-    // לוגיקה מיוחדת שהייתה ב-1.1 (מנגנון ההתקדמות הכללי)
-    if (chapter === "1.1") {
- 
-        if (!user.chapters) user.chapters = {};
- 
-        if (!user.chapters.chapter1) {
-            user.chapters.chapter1 = { video: false, practice: false };
-        }
- 
-        user.chapters.chapter1.practice = true;
- 
-        updateUserProgress(user);
-    }
- 
-    // מה נפתח עכשיו?
-    if (n < LAST_SUB[c]) {
- 
-        // התת-פרק הבא באותו פרק
-        sessionStorage.setItem("newlyUnlockedSubchapter", `${c}.${n + 1}`);
- 
-    } else if (c < 5) {
-
-        // סיום התת-פרק האחרון בפרק -> נפתח הפרק הבא (ותת-פרק X.1 שלו)
-        sessionStorage.setItem("newlyUnlockedSubchapter", `${c + 1}.1`);
-        sessionStorage.setItem("newlyUnlockedChapter", String(c + 1));
-
-    } else if (c === 5) {
-
-        // סיום 5.3 -> הפרקים הסתיימו: נפתח המבחן המסכם ומוצג פופ-אפ
-        sessionStorage.setItem("newlyUnlockedChapter", "6");
-        sessionStorage.setItem("allChaptersDone", "1");
-    }
-
-    localStorage.setItem("user", JSON.stringify(user));
- 
-    closeSubchapterPage(chapter);
- 
-    window.location.href = "categoriesPage.html";
-};
-
-
-/* =========================
-   ESC - GENERAL
-========================= */
-
-document.addEventListener(
-    "keydown",
-    (event) => {
-
-        if (event.key !== "Escape") {
-            return;
-        }
-
-
-        const page1 =
-            document.getElementById(
-                "subchapterPage"
-            );
-
-
-        const page12 =
-            document.getElementById(
-                "subchapter12Page"
-            );
-
-
-        const page13 =
-            document.getElementById(
-                "subchapter13Page"
-            );
-
-
-        if (
-            page1 &&
-            page1.classList.contains("show")
-        ) {
-
-            closeSubchapter();
-
-            return;
-        }
-
-
-        if (
-            page12 &&
-            page12.classList.contains("show")
-        ) {
-
-            closeSubchapter12();
-
-            return;
-        }
-
-
-        if (
-            page13 &&
-            page13.classList.contains("show")
-        ) {
-
-            closeSubchapter13();
-
-            return;
-        }
-    }
-);
-
-/* ESC – סוגר את עמודי 1.6–1.11 */
-document.addEventListener("keydown", (event) => {
- 
-    if (event.key !== "Escape") return;
- 
-    document
-        .querySelectorAll(".sc-new.show")
-        .forEach((page) => page.classList.remove("show"));
- 
-    document.body.style.overflow = "";
+    if (idx === list.length-1) finished = true; else { idx++; activeBlank = 0; }
+    animate = true;
+    return render();
+
+  }
+  if (act === 'mcq'){ ans[idx] = +el.dataset.i; return render(); }
+  if (act === 'multi'){
+    const i = +el.dataset.i, a = ans[idx], p = a.indexOf(i);
+    if (p >= 0) a.splice(p,1); else if (a.length < q.pick) a.push(i);
+    return render();
+  }
+  if (act === 'tf'){ ans[idx][+el.dataset.i] = el.dataset.v === '1'; return render(); }
+  if (act === 'blank'){
+    const i = +el.dataset.i;
+    if (ans[idx][i]) ans[idx][i] = null;
+    activeBlank = i; return render();
+  }
+  if (act === 'bank'){
+    const a = ans[idx];
+    let target = a[activeBlank] ? a.findIndex(v=>!v) : activeBlank;
+    if (target < 0) return;
+    a[target] = el.dataset.w;
+    const nxt = a.findIndex(v=>!v); activeBlank = nxt < 0 ? 0 : nxt;
+    return render();
+  }
 });
 
-
-/* =========================
-   KEEP CHAPTER OPEN AFTER FINISH
-========================= */
-
-// אחרי "סיימתי" הדף נטען מחדש - פותחים שוב את הנושא
-// של תת-הפרק שנפתח עכשיו, כדי שהרשימה לא תיסגר
-const keepChapterOpenAfterFinish = () => {
-
-    const newlyUnlocked = sessionStorage.getItem(
-        "newlyUnlockedSubchapter"
-    );
-
-    if (!newlyUnlocked) return;
-
-    const [chapter, subchapter] =
-        newlyUnlocked.split(".");
-
-    const card = document.querySelector(
-        `[data-chapter="${chapter}"][data-subchapter="${subchapter}"]`
-    );
-
-    card?.closest(".chapter-group")?.classList.add("open");
-};
-
-/* פתיחה/סגירה של פרק. פרק נעול לא נפתח. */
-const toggleChapterGroup = (card) => {
- 
-    const group = card.parentElement;
- 
-    if (!group || group.classList.contains("locked-chapter")) return;
- 
-    group.classList.toggle("open");
-};
- 
- 
-/* נעילה/פתיחה של פרקים 2 עד 5 + הבזק על הפרק שנפתח עכשיו */
-const refreshChapterLocksUI = () => {
-
-    document.querySelectorAll(".chapter-group").forEach((group) => {
-        group.classList.remove("locked-chapter");
-    });
-
-    sessionStorage.removeItem("newlyUnlockedChapter");
-};
- 
- 
-/* חידון: תשובה אחת בלחיצה, עם הסבר.
-   הכפתור הנכון מסומן ב-data-ok="1", וההסבר ב-data-why על הכרטיס */
-const checkQuiz = (button) => {
- 
-    const card = button.closest(".quiz-card-12");
- 
-    if (!card) return;
- 
-    const feedback = card.querySelector(".quiz-feedback");
- 
-    const isCorrect = button.dataset.ok === "1";
-
- 
-    card.querySelectorAll(".quiz-answer").forEach((answer) => {
- 
-        answer.disabled = true;
- 
-        if (answer.dataset.ok === "1") answer.classList.add("correct");
-    });
- 
-    if (!isCorrect) button.classList.add("wrong");
- 
-    feedback.textContent = (isCorrect ? "✓ נכון! " : "לא בדיוק. ") +
-        (card.dataset.why || "");
- 
-    feedback.style.color = isCorrect ? "#2f6b43" : "#a06c62";
-};
- 
- 
-/* פס התקדמות קריאה בראש עמודי כל הפרקים */
-const initReadBars = () => {
- 
-    document.querySelectorAll(".sc-new").forEach((page) => {
- 
-        const bar = page.querySelector(".read-bar i");
- 
-        if (!bar) return;
- 
-        page.addEventListener("scroll", () => {
- 
-            const max = page.scrollHeight - page.clientHeight;
- 
-            const percent = max > 0
-                ? Math.min(100, (page.scrollTop / max) * 100)
-                : 0;
- 
-            bar.style.width = `${percent}%`;
- 
-        }, { passive: true });
-    });
-};
-
-
-
-/* =========================
-   INIT
-========================= */
-
-refreshProgressUI();
-
-refreshChaptersUI();
-
-keepChapterOpenAfterFinish();
-
-refreshSubchaptersUI();
-
-refreshChapterLocksUI();
- 
-initReadBars();
-
-updateChapters();
-
-
-/* =========================
-   GLOBAL FUNCTIONS
-========================= */
-
-window.registerUser =
-    registerUser;
-
-window.loginUser =
-    loginUser;
-
-window.openVideo =
-    openVideo;
-
-window.closeVideo =
-    closeVideo;
-
-window.goToRegister =
-    goToRegister;
-
-
-window.openSubchapter =
-    openSubchapter;
-
-window.closeSubchapter =
-    closeSubchapter;
-
-window.finishSubchapter =
-    finishSubchapter;
-
-
-window.openSubchapter12 =
-    openSubchapter12;
-
-window.closeSubchapter12 =
-    closeSubchapter12;
-
-window.toggleLearningCard =
-    toggleLearningCard;
-
-window.checkAnswer12 =
-    checkAnswer12;
-
-window.finishSubchapter12 =
-    finishSubchapter12;
-
-
-window.closeSubchapter13 =
-    closeSubchapter13;
-
-window.finishSubchapter13 =
-    finishSubchapter13;
-
-window.finishSubchapter14 =
-    finishSubchapter14;
-
-window.closeSubchapter15 = closeSubchapter15;
-window.finishSubchapter15 = finishSubchapter15;
-
-window.closeSubchapterPage = closeSubchapterPage;
-window.finishSubchapterPage = finishSubchapterPage;
-
-
-/* =========================
-   נספחים
-========================= */
-let appendixReturn = null;   // דף הפרק שממנו הגענו לנספח (אם הגענו מקישור בתוך תוכן)
-
-const setAppendixBackLabels = (page, label) => {
-    const fin = page.querySelector(".finish-learning");
-    if (!fin) return;
-    if (!fin.dataset.orig) fin.dataset.orig = fin.innerHTML;
-    fin.innerHTML = label ? label : fin.dataset.orig;
-};
-
-const openAppendix = (id) => {
-    const page = document.getElementById(`appendix${id}Page`);
-    if (!page) return;
-    if (!appendixReturn) setAppendixBackLabels(page, "");
-    page.classList.add("show");
-    page.scrollTop = 0;
-    document.body.style.overflow = "hidden";
-};
-
-/* מעבר מתוך תוכן של תת-פרק אל נספח, עם אפשרות חזרה לאותו מקום בדיוק */
-const gotoAppendix = (id, link, event) => {
-    if (event) { event.preventDefault(); event.stopPropagation(); }
-    const from = link.closest(".subchapter-page");
-    const page = document.getElementById(`appendix${id}Page`);
-    if (!from || !page) return false;
-    const lab = from.querySelector(".intro-icon")?.textContent.trim() || "";
-    appendixReturn = { page: from, scroll: from.scrollTop };
-    from.classList.remove("show");
-    setAppendixBackLabels(page, lab ? `חזרה לתת־פרק ${lab}` : "חזרה לתת־פרק");
-    page.classList.add("show");
-    page.scrollTop = 0;
-    document.body.style.overflow = "hidden";
-    return false;
-};
-
-const closeAppendix = (id) => {
-    const page = document.getElementById(`appendix${id}Page`);
-    if (!page) return;
-    page.classList.remove("show");
-    if (appendixReturn) {
-        const { page: from, scroll } = appendixReturn;
-        appendixReturn = null;
-        from.classList.add("show");
-        from.scrollTop = scroll;
-        setAppendixBackLabels(page, "");
-        document.body.style.overflow = "hidden";
-        return;
-    }
-    document.body.style.overflow = "";
-};
-
-/* גרף: הסתרה/הצגה של סדרה */
-const toggleSeries = (btn, i) => {
-    const chart = btn.closest(".bchart");
-    const off = btn.getAttribute("aria-pressed") === "true";
-    btn.setAttribute("aria-pressed", off ? "false" : "true");
-    chart.classList.toggle(`hide-s${i}`, off);
-};
-
-/* גרף: בחירת תחום והצגת הנתונים שלו */
-const pickGroup = (group) => {
-    const chart = group.closest(".bchart");
-    chart.querySelectorAll(".bgroup").forEach((g) => g.classList.remove("picked"));
-    group.classList.add("picked");
-    const vals = group.dataset.vals.split(",");
-    const names = [...chart.querySelectorAll(".bl")].map((b) => b.textContent.trim());
-    const note = chart.querySelector(".chart-note");
-    note.innerHTML = `<strong>${group.dataset.name}</strong>: ` +
-        names.map((n, i) => `${n} – <b>${vals[i]}</b>`).join(" · ");
-};
-
-/* טבלת החרגות: חיפוש וסינון */
-let excChapter = "all";
-const filterExc = () => {
-    const q = (document.getElementById("excSearch")?.value || "").trim();
-    let shown = 0;
-    document.querySelectorAll(".exc-list .exc").forEach((card) => {
-        const okCh = excChapter === "all" || card.dataset.ch === excChapter;
-        const okQ = !q || card.textContent.includes(q);
-        const ok = okCh && okQ;
-        card.hidden = !ok;
-        if (ok) shown++;
-    });
-    const cnt = document.getElementById("excCount");
-    if (cnt) cnt.textContent = `${shown} החרגות`;
-    const empty = document.getElementById("excEmpty");
-    if (empty) empty.hidden = shown !== 0;
-};
-
-const setExcChapter = (btn) => {
-    excChapter = btn.dataset.ch;
-    document.querySelectorAll(".exc-chips .ec").forEach((b) => b.classList.toggle("on", b === btn));
-    filterExc();
-};
-
-window.openAppendix = openAppendix;
-window.gotoAppendix = gotoAppendix;
-window.closeAppendix = closeAppendix;
-window.toggleSeries = toggleSeries;
-window.pickGroup = pickGroup;
-window.filterExc = filterExc;
-window.setExcChapter = setExcChapter;
-
-
-/* =========================
-   סיום כל הפרקים + מבחן מסכם
-========================= */
-const allChaptersDone = () => {
-    const user = JSON.parse(localStorage.getItem("user")) || {};
-    return Object.keys(LAST_SUB).every((c) => isSubDone(user, Number(c), LAST_SUB[c]));
-};
-
-const openFinalExam = (event) => {
-    if (event) event.preventDefault();
-    if (FINAL_EXAM_URL && FINAL_EXAM_URL !== "#") {
-        window.location.href = FINAL_EXAM_URL;
-    }
-    return false;
-};
-
-const closeAllDonePopup = () => {
-    const popup = document.getElementById("allDonePopup");
-    if (popup) popup.hidden = true;
-    document.body.style.overflow = "";
-};
-
-const showAllDonePopup = () => {
-    const popup = document.getElementById("allDonePopup");
-    if (!popup) return;
-    popup.hidden = false;
-    document.body.style.overflow = "hidden";
-};
-
-const initAllDonePopup = () => {
-    if (sessionStorage.getItem("allChaptersDone") !== "1") return;
-    sessionStorage.removeItem("allChaptersDone");
-    if (allChaptersDone()) {
-        // פותחים את קטגוריית המבחן המסכם ומציגים את הפופ-אפ
-        document.getElementById("chapterGroup6")?.classList.add("open");
-        setTimeout(showAllDonePopup, 450);
-    }
-};
-
-document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape") { closeAllDonePopup(); appendixReturn = null; }
-});
-
-window.openFinalExam = openFinalExam;
-window.closeAllDonePopup = closeAllDonePopup;
-
-initAllDonePopup();
-
-window.toggleChapterGroup = toggleChapterGroup;
-window.checkQuiz = checkQuiz;
+render();
+</script>
+</body>
+</html>
