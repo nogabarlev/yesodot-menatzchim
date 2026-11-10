@@ -1159,11 +1159,18 @@ const closeSubchapter15 = () => {
 
 /* CLOSE – 1.6 עד 1.11 */
 const closeSubchapterPage = (chapter) => {
- 
+
     const page = getSubchapterPage(chapter);
- 
+
     if (!page) return;
- 
+
+    // עוצר סרטונים מוטמעים בעת סגירת העמוד
+    page.querySelectorAll(".video-embed iframe").forEach((frame) => {
+        const src = frame.src;
+        frame.src = "";
+        frame.src = src;
+    });
+
     page.classList.remove("show");
     document.body.style.overflow = "";
 };
