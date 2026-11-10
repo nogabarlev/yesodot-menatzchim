@@ -127,6 +127,25 @@ body::before{content:"";position:fixed;inset:0;z-index:-2;background:linear-grad
 
 .bank .chip{max-width:100%;white-space:normal;text-align:center;line-height:1.5}
 .txt + .bank{margin-top:18px}
+/* מחסן תשובות בשתי עמודות (שאלה 1) */
+.bank.grid2{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:9px;
+  padding:13px;
+}
+.bank.grid2 .chip{
+  width:100%;
+  padding:11px 8px;
+  border-radius:14px;
+  font-size:14.5px;
+  line-height:1.4;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-height:52px;
+}
+.bank.grid2 .chip:hover{transform:translateY(-2px)}
 </style>
 </head>
 <body>
@@ -154,7 +173,7 @@ const seeded = (arr, seed) => {
 /* ===== בנק השאלות ===== */
 /* open: slots = סעיפים נדרשים; כל סעיף = רשימת חלופות; כל חלופה = מילים שחייבות להופיע */
 const QUESTIONS = [
- { n:1, type:'open', text:'מהם הראשי תיבות של התל״ב?', fields:1,
+ { n:1, type:'open', text:'מהם הראשי תיבות של התל״ב?', fields:1, grid:true,
    slots:[{alts:[['תקן','איכות','הדרכה']]}], answer:'תקן לאיכות בהדרכה', bank:['תקן לאיכות בהדרכה','תקן לאיכות הכשרה','תו לאיכות בהדרכה','תקן לניהול הדרכה'], },
 
  { n:2, type:'multi', pick:5, text:'מהם סוגי הסיכומים העיתיים שחייבים לקרות במהלך ההכשרה?',
@@ -274,7 +293,7 @@ function render(){
 if (q.type === 'open'){
   body = `<div class="hint">${q.hint ? esc(q.hint)+' · ' : ''}אפשר לכתוב בחופשיות או לבחור תשובות ממאגר התשובות.</div>` +
     a.map((v,i)=>`<input class="txt" data-i="${i}" placeholder="${q.fields>1 ? 'תשובה '+(i+1) : 'התשובה שלך'}" value="${esc(v)}">`).join('') +
-(q.chips ? `<div class="bank">${q.chips.map(w=>`<button class="chip ${a.includes(w)?'used':''}" data-act="obank" data-w="${esc(w)}">${esc(w)}</button>`).join('')}</div>` : '');  } else if (q.type === 'multi'){
+(q.chips ? `<div class="bank ${q.grid ? 'grid2' : ''}">${q.chips.map(w=>`<button class="chip ${a.includes(w)?'used':''}" data-act="obank" data-w="${esc(w)}">${esc(w)}</button>`).join('')}</div>` : '');  } else if (q.type === 'multi'){
     body = `<div class="hint">בחרו בדיוק ${q.pick} תשובות · נבחרו <b>${a.length}</b> מתוך ${q.pick}</div><div class="opts">` +
       q.opts.map((o,i)=>`<button class="opt multi ${a.includes(i)?'sel':''}" data-act="multi" data-i="${i}"><span class="let"><span>${LET[i]}</span></span><span>${esc(o)}</span></button>`).join('') + '</div>';
   } else if (q.type === 'mcq'){
