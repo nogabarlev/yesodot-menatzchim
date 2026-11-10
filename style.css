@@ -7543,24 +7543,22 @@ body:not(.categories-page) .hero-section{
     display: inline !important;
 }
 
-.ico{width:1.15em;height:1.15em;flex-shrink:0}
-.qtype .ico{width:16px;height:16px}
-.hero .seal .ico{width:40px;height:40px}
-.track .ic .ico{width:28px;height:28px}
 
-html {
-    min-height: 100%;
-    overflow-y: auto !important;
+/* ---------------- סרטון מוטמע בתת-פרק ---------------- */
+.video-embed{
+    position:relative;
+    width:100%;
+    aspect-ratio:16 / 9;
+    border-radius:20px;
+    overflow:hidden;
+    background:#000;
+    border:1px solid var(--bd, rgba(198,170,114,.34));
+    box-shadow:0 10px 26px rgba(40,50,40,.18);
 }
-
-body {
-    min-height: 100vh;
-    height: auto !important;
-    overflow-y: auto !important;
-    overflow-x: hidden;
-}
-
-.wrap {
-    min-height: 100vh;
-    height: auto;
+.video-embed iframe{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    border:0;
 }
