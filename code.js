@@ -1784,3 +1784,29 @@ initAllDonePopup();
 
 window.toggleChapterGroup = toggleChapterGroup;
 window.checkQuiz = checkQuiz;
+
+
+/* =========================
+   ציוני המבחן המסכם
+========================= */
+const refreshExamScoresUI = () => {
+    const box = document.getElementById("examScores");
+    if (!box) return;
+
+    let fe = null;
+    try { fe = (JSON.parse(localStorage.getItem("user")) || {}).finalExam; } catch (e) {}
+
+    // תאימות לפורמט הישן
+    const last = fe && (fe.last || (typeof fe.percent === "number" ? fe : null));
+    const best = fe && (fe.best || last);
+
+    if (!last) { box.hidden = true; return; }
+
+    document.getElementById("examLast").textContent = `${last.percent}/100`;
+    document.getElementById("examBest").textContent = `${best.percent}/100`;
+    box.hidden = false;
+};
+
+refreshExamScoresUI();
+// מתעדכן גם כשחוזרים לדף עם כפתור "אחורה" (cache של הדפדפן)
+window.addEventListener("pageshow", refreshExamScoresUI);
