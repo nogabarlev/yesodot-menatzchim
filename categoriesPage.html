@@ -478,12 +478,17 @@
     <div class="chapter-arrow">‹</div>
   </div>
   <div class="subchapters-list">
-    <div class="subchapter-card available" onclick="openFinalExam()">
+    <div class="subchapter-card available exam-card" onclick="openFinalExam()">
       <div class="subchapter-content"><span class="subchapter-number">מבחן</span><strong>המבחן המסכם בתקן ״יסודות מנצחים״</strong></div>
       <div class="subchapter-action"><span class="subchapter-progress">למעבר למבחן</span> <span class="subchapter-arrow">‹</span></div>
+
+      <div class="exam-scores" id="examScores" hidden>
+        <div class="exam-score-row"><span>ניסיון מענה אחרון</span><b id="examLast">—</b></div>
+        <div class="exam-score-row best"><span>הציון הכי גבוה</span><b id="examBest">—</b></div>
+      </div>
     </div>
   </div>
-</div>
+</div>  
 
 <!-- APPENDICES -->
 <div class="chapter-group appendices-group" id="appendicesGroup" data-ch="6">
