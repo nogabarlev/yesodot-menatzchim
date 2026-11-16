@@ -381,11 +381,22 @@ function renderResult(){
   const results = list.map((q,i)=>grade(q, ans[i]));
   const score = results.filter(Boolean).length;
   const pct = Math.round(score/list.length*100);
+
+  /* שמירת הניסיון האחרון והציון הגבוה ביותר */
   try {
     const u = JSON.parse(localStorage.getItem('user')) || {};
-    u.finalExam = { track, score, total:list.length, percent:pct, date:new Date().toISOString() };
+    const attempt = { track, score, total:list.length, percent:pct, date:new Date().toISOString() };
+    const old = u.finalExam;
+    // תאימות לפורמט הישן (שבו הציון נשמר ישירות על finalExam)
+    const prevBest = old ? (old.best || (typeof old.percent === 'number' ? old : null)) : null;
+    u.finalExam = {
+      last: attempt,
+      best: (!prevBest || pct > prevBest.percent) ? attempt : prevBest,
+      attempts: ((old && old.attempts) || (old ? 1 : 0)) + 1
+    };
     localStorage.setItem('user', JSON.stringify(u));
   } catch(e){}
+
   const wrong = list.map((q,i)=>({q,i})).filter(o=>!results[o.i]);
   const msg = pct>=90 ? ['מצוין! שליטה מלאה בתקן','כל הכבוד על ההשקעה והלמידה.']
             : pct>=70 ? ['כל הכבוד!','כמעט שם. שווה לעבור על השאלות שלמטה.']
